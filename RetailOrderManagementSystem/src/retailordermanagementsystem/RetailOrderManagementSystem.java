@@ -5,11 +5,11 @@ package retailordermanagementsystem;
  *
  * @author Lai Mei Sim, Koh Ya Wen
  */
-enum AccountType {Admin,Customer};
+//enum AccountType {Admin,Customer};
 class Account {
     private String AccName;
     private String AccPassword;
-    private AccountType AccType;
+    private boolean AccAdmin;
     public void successMessage(String name){
         System.out.println("Login success! Welcome back, "+name+".");
     } //TODO How to fetch name?
@@ -28,8 +28,15 @@ class Address {
 
 class PhoneNumber {
     private String PNPrefix; //TODO: might need an enum here
-    private String PNNumber;
+    private String PNNumber; //TODO: detect is 10 digits or what
 }
+
+//class Email {
+//    private String;
+//    alaimeisim @ gmail.com
+//    private String
+//}
+//TODO validate email
 //enum PaymentMethod {Card,Transfer}
 //class Payment {
 //    private
@@ -46,13 +53,20 @@ class Customer {
     private Account CusAccount;
 }
 
-class Product {
+class Supplier {
+    private String SupName;
+    private PhoneNumber SupPhone;
+    private String SupEmail;    
+}
+
+class Product { //SUBCLASS
     private String ProID;
     private String ProName;
     private int ProStock;//Item Remaining
     private double ProPrice;
+    private double ProWeight;
     private String ProCategory;
-    private boolean ProFragile;
+    private boolean ProFragile;// NO IFELSE
 }
 
 class OrderItem {
