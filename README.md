@@ -1,2 +1,2 @@
-# retail-management-system
+# Retail Order Management System
 The system itself.
