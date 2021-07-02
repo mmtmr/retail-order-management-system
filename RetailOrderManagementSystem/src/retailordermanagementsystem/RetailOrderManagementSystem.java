@@ -14,7 +14,8 @@ class Account {
         System.out.println("Login success! Welcome back, "+name+".");
     } //TODO How to fetch name?
     public void failureMessage(){
-        System.out.println("Admin name or password is wrong.\nPlease contact the admin or system administrator to reset.");
+        System.out.println("Username or password is wrong.\nPlease contact the admin or system administrator to reset.");
+        //TODO hyperlink for admin
         //TODO Send e-mail to administrator on fail login attempt
     }
 }
@@ -23,7 +24,7 @@ class Address {
     private String AddStreet;
     private String AddCity;
     private String AddState; //TODO: might need an enum here
-    private int AddPostcode;
+    private int AddPostcode; //TODO check how the number of digits
 }
 
 class PhoneNumber {
