@@ -1,11 +1,14 @@
 package retailordermanagementsystem;
+
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+
 /**
  *
  * @author Lai Mei Sim, Koh Ya Wen
  */
 class Account {
+
     private String AccID;
     private String AccName;
     private String AccPassword;
@@ -27,9 +30,10 @@ class Account {
     public void setAccID(String AccID) {
         this.AccID = AccID;
     }
-    
-    
-    
+
+    public void generateAccID() {
+
+    }
 
     public String getAccName() {
         return AccName;
@@ -66,37 +70,43 @@ class Account {
 }
 
 class AdminAcc extends Account {
+
     private static int AANum; //TODO: READ FROM TXT FILE
 
     public AdminAcc(String AccID, String AccName, String AccPassword, LocalDateTime AccRegisterDT, LocalDateTime AccLastLoginDT) {
         super(AccID, AccName, AccPassword, AccRegisterDT, AccLastLoginDT);
     }
-    
+
     @Override
-    public void setAccID(String AccID) {
+    public void generateAccID() { //TODO: 
         String AANumFormatted = String.format("%06d", AANum);
-        super.setAccID("AC"+AANumFormatted);
-        AANum+=1;
+        setAccID("AC" + AANumFormatted); //AC000001
+        AANum += 1;
     }
-    
-    
+
+    //TODO CHECK DUPKEY
 }
 
 class CusAcc extends Account {
+
     private static int CANum; //TODO: READ FROM TXT FILE
+
     public CusAcc(String AccID, String AccName, String AccPassword, LocalDateTime AccRegisterDT, LocalDateTime AccLastLoginDT) {
         super(AccID, AccName, AccPassword, AccRegisterDT, AccLastLoginDT);
     }
-    
+
     @Override
-    public void setAccID(String AccID) {
+    public void generateAccID() {
         String CANumFormatted = String.format("%06d", CANum);
-        super.setAccID("CA"+CANumFormatted);
-        CANum+=1;
+        super.setAccID("CA" + CANumFormatted); //CC000001
+        CANum += 1;
     }
-          
+
+    //TODO CHECK DUPKEY
 }
+
 class Address {
+
     private String AddStreet;
     private String AddCity;
     private String AddState;
@@ -140,29 +150,31 @@ class Address {
     public void setAddPostcode(String AddPostcode) {
         this.AddPostcode = AddPostcode;
     }
-    
-    public static boolean validateStreet(String AddStreet){
-        return AddStreet.matches("\\w+(\\s\\w+){2,}" );
-   }
-    
-    public static boolean validateCity(String AddCity){
-        return AddCity.matches("([a-zA-Z]+|[a-zA-Z]+\\\\s[a-zA-Z]+)" );
-   }
-    
-    public static boolean validateState(String AddState){
-        return AddState.matches("Kuala Lumpur|Putrajaya|Labuan|Perlis|Kedah|Terengganu|Pahang|Perak|Kelantan|Penang|Selangor|Negeri Sembilan|Johor|Malacca|Sabah|Sarawak" );
-   }
-    
-    public static boolean validatePostcode(String AddPostcode){
-      return AddPostcode.matches( "\\d{5}" );
-   }
-    
-    public static boolean validateAddress(String AddStreet,String AddCity,String AddState,String AddPostcode){
-      return validateStreet(AddStreet)&&validateCity(AddCity)&&validateState(AddState)&&validatePostcode(AddPostcode);
-   }
+
+    public static boolean validateStreet(String AddStreet) {
+        return AddStreet.matches("\\w+(\\s\\w+){2,}");
+    }
+
+    public static boolean validateCity(String AddCity) {
+        return AddCity.matches("([a-zA-Z]+|[a-zA-Z]+\\\\s[a-zA-Z]+)");
+    }
+
+    public static boolean validateState(String AddState) {
+        return AddState.matches("Kuala Lumpur|Putrajaya|Labuan|Perlis|Kedah|Terengganu|Pahang|Perak|Kelantan|Penang|Selangor|Negeri Sembilan|Johor|Malacca|Sabah|Sarawak");
+    }
+
+    public static boolean validatePostcode(String AddPostcode) {
+        return AddPostcode.matches("\\d{5}");
+    }
+
+    public static boolean validateAddress(String AddStreet, String AddCity, String AddState, String AddPostcode) {
+        return validateStreet(AddStreet) && validateCity(AddCity) && validateState(AddState) && validatePostcode(AddPostcode);
+    }
 }
 
+//TODO CLASS Person INHERITANCE OR CONTACT DETAILS COMPOSITION
 class Customer {
+
     private String CusFName;
     private String CusLName;
     private String CusPhone;
@@ -170,6 +182,7 @@ class Customer {
     private Address CusAddress;
     private CusAcc CusAccount; //UniqueID is here
     private ArrayList<Order> CusOrders = new ArrayList<Order>();
+    //TODO PAYMENT CREDIT CARD PAYMENT, OPTIONAL CUSTOMER BALANCE
 
     public Customer(String CusFName, String CusLName, String CusPhone, String CusEmail, Address CusAddress, CusAcc CusAccount) {
         this.CusFName = CusFName;
@@ -179,22 +192,79 @@ class Customer {
         this.CusAddress = CusAddress;
         this.CusAccount = CusAccount;
     }
-    
-    public static boolean validateName(String name){
+
+    public String getCusFName() {
+        return CusFName;
+    }
+
+    public void setCusFName(String CusFName) {
+        this.CusFName = CusFName;
+    }
+
+    public String getCusLName() {
+        return CusLName;
+    }
+
+    public void setCusLName(String CusLName) {
+        this.CusLName = CusLName;
+    }
+
+    public String getCusPhone() {
+        return CusPhone;
+    }
+
+    public void setCusPhone(String CusPhone) {
+        this.CusPhone = CusPhone;
+    }
+
+    public String getCusEmail() {
+        return CusEmail;
+    }
+
+    public void setCusEmail(String CusEmail) {
+        this.CusEmail = CusEmail;
+    }
+
+    public Address getCusAddress() {
+        return CusAddress;
+    }
+
+    public void setCusAddress(Address CusAddress) {
+        this.CusAddress = CusAddress;
+    }
+
+    public CusAcc getCusAccount() {
+        return CusAccount;
+    }
+
+    public void setCusAccount(CusAcc CusAccount) {
+        this.CusAccount = CusAccount;
+    }
+
+    public ArrayList<Order> getCusOrders() {
+        return CusOrders;
+    }
+
+    public void setCusOrders(ArrayList<Order> CusOrders) {
+        this.CusOrders = CusOrders;
+    }
+
+    public static boolean validateName(String name) {
         return name.matches("[[a-zA-Z]+([ '-][a-zA-Z]+)*");
-   }
-     
-     public static boolean validatePhoneNo(String phoneNo){
-         return phoneNo.matches("^(\\+?6?01)[02-46-9]-*[0-9]{7}$|^(\\+?6?01)[1]-*[0-9]{8}$");//Format: +6012-34567890
-     }
-     
-     public static boolean validateEmail(String email){
+    }
+
+    public static boolean validatePhoneNo(String phoneNo) {
+        return phoneNo.matches("^(\\+?6?01)[02-46-9]-*[0-9]{7}$|^(\\+?6?01)[1]-*[0-9]{8}$");//Format: +6012-34567890
+    }
+
+    public static boolean validateEmail(String email) {
         return email.matches("^(.+)@(.+)$");
-   }
-    
+    }
+
 }
 
 class Supplier {
+
     private String SupID;
     private String SupName;
     private String SupPersonInChargeFName;
@@ -202,7 +272,7 @@ class Supplier {
     private String SupPhone;
     private String SupEmail;
     private String SupRemarks;
-    private ArrayList<Product> SupProducts=new ArrayList<Product>();
+    private ArrayList<Product> SupProducts = new ArrayList<Product>();
 
     public Supplier(String SupID, String SupName, String SupPersonInChargeFName, String SupPersonInChargeLName, String SupPhone, String SupEmail, String SupRemarks) {
         this.SupID = SupID;
@@ -277,24 +347,27 @@ class Supplier {
     public void setSupProducts(ArrayList<Product> SupProducts) {
         this.SupProducts = SupProducts;
     }
-    
-    
-    public static boolean validateName(String name){
+
+    public static boolean validateName(String name) {
         return name.matches("[[a-zA-Z]+([ '-][a-zA-Z]+)*");
-   }
-    
-    public static boolean validatePhoneNo(String phoneNo){
-         return phoneNo.matches("^(\\+?6?01)[02-46-9]-*[0-9]{7}$|^(\\+?6?01)[1]-*[0-9]{8}$");//Format: +6012-34567890
-     }
-    
-    public static boolean validateEmail(String email){
+    }
+
+    public static boolean validatePhoneNo(String phoneNo) {
+        return phoneNo.matches("^(\\+?6?01)[02-46-9]-*[0-9]{7}$|^(\\+?6?01)[1]-*[0-9]{8}$");//TODO Validate House Phone
+    }
+
+    public static boolean validateEmail(String email) {
         return email.matches("^(.+)@(.+)$");
-   }
-    
+    }
+
 }
 
-enum ProductType{}
+enum ProductType {
+    Stationary, Food,
+}
+
 class Product {
+
     private String ProID; //Metadata Idea: P0010001001
     private String ProName;
     private int ProStock;//Item Remaining
@@ -303,6 +376,7 @@ class Product {
     private double ProWeight;
     private String[] ProModel;
     private ProductType ProCategory;
+    private Supplier ProSupplier;
     private boolean ProFragile;// NO IFELSE
 
     public Product(String ProID, String ProName, int ProStock, double ProPrice, double ProPackingCharge, double ProWeight, String[] ProModel, ProductType ProCategory, boolean ProFragile) {
@@ -365,11 +439,11 @@ class Product {
         this.ProWeight = ProWeight;
     }
 
-    public String getProModel() {
+    public String[] getProModel() {
         return ProModel;
     }
 
-    public void setProModel(String ProModel) {
+    public void setProModel(String[] ProModel) {
         this.ProModel = ProModel;
     }
 
@@ -388,13 +462,11 @@ class Product {
     public void setProFragile(boolean ProFragile) {
         this.ProFragile = ProFragile;
     }
-    
-    
-    
-    
+
 }
 
-class OrderItem extends Product{
+class OrderItem extends Product {
+
     private String OIID; //ORD001-P0010001001
     private int OIQuantity;
     private String OIModel;
@@ -405,9 +477,9 @@ class OrderItem extends Product{
         super(ProID, ProName, ProStock, ProPrice, ProPackingCharge, ProWeight, ProModel, ProCategory, ProFragile);
         this.OIID = OIID;
         this.OIQuantity = OIQuantity;
-        this.OIModel=OIModel;
-        OIPrice=OIPrice*OIQuantity;
-        OIPackingCharge = ProPackingCharge*OIQuantity;
+        this.OIModel = OIModel;
+        OIPrice = OIPrice * OIQuantity;
+        OIPackingCharge = ProPackingCharge * OIQuantity;
     }
 
     public String getOIID() {
@@ -450,15 +522,10 @@ class OrderItem extends Product{
         this.OIPackingCharge = OIPackingCharge;
     }
 
-    
-    
-    
-    
-    
-    
 }
 
 class Order {
+
     private String OrdID; //ORD001
     private LocalDateTime OrdCreateDT;
     private LocalDateTime OrdModifyDT;
@@ -501,16 +568,16 @@ class Order {
     public void setOrdItems(ArrayList<OrderItem> OrdItems) {
         this.OrdItems = OrdItems;
     }
-    
-    
+
 }
+
 public class RetailOrderManagementSystem {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
-    
+
 }
