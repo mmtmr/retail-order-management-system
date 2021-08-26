@@ -28,27 +28,33 @@ public class AddSupplier extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        labelTitle = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelSupplierName = new javax.swing.JLabel();
         labelFirstName1 = new javax.swing.JLabel();
         labelLastName1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        labelRemarks = new javax.swing.JLabel();
-        textSubRemarks = new javax.swing.JTextField();
-        textSupEmail = new javax.swing.JTextField();
+        labelSupPhone = new javax.swing.JLabel();
+        labelSupState = new javax.swing.JLabel();
+        labelSupRemarks = new javax.swing.JLabel();
+        textSupRemarks = new javax.swing.JTextField();
+        textSupStreet = new javax.swing.JTextField();
         textSupPhone = new javax.swing.JTextField();
         textPICFirstName = new javax.swing.JTextField();
         textPICLastName = new javax.swing.JTextField();
         textSupplierName = new javax.swing.JTextField();
-        buttonCancel1 = new javax.swing.JButton();
-        buttonSave1 = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
+        buttonSave = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        labelTitle = new javax.swing.JLabel();
+        labelSupEmail = new javax.swing.JLabel();
+        textSupEmail = new javax.swing.JTextField();
+        labelSupStreet = new javax.swing.JLabel();
+        labelSupCity = new javax.swing.JLabel();
+        textSupCity = new javax.swing.JTextField();
+        labelSupPostcode = new javax.swing.JLabel();
+        textSupPostcode = new javax.swing.JTextField();
+        comboSupState = new javax.swing.JComboBox<>();
 
-        labelTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        labelTitle.setText("New Supplier");
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel2.setText("Supplier Name");
+        labelSupplierName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelSupplierName.setText("Supplier Name");
 
         labelFirstName1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelFirstName1.setText("PIC First Name");
@@ -56,113 +62,190 @@ public class AddSupplier extends javax.swing.JPanel {
         labelLastName1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelLastName1.setText("PIC Last Name");
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel9.setText("Phone");
+        labelSupPhone.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelSupPhone.setText("Phone");
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel10.setText("Email");
+        labelSupState.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelSupState.setText("State");
 
-        labelRemarks.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        labelRemarks.setText("Remarks");
+        labelSupRemarks.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelSupRemarks.setText("Remarks");
 
-        textSubRemarks.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        textSubRemarks.setText("jTextField8");
+        textSupRemarks.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
-        textSupEmail.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        textSupEmail.setText("jTextField4");
+        textSupStreet.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        textSupStreet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSupStreetActionPerformed(evt);
+            }
+        });
 
         textSupPhone.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        textSupPhone.setText("jTextField3");
 
         textPICFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        textPICFirstName.setText("jTextField1");
 
         textPICLastName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        textPICLastName.setText("jTextField2");
 
         textSupplierName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        textSupplierName.setText("jTextField1");
 
-        buttonCancel1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonCancel1.setText("Cancel");
+        buttonCancel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonCancel.setText("Cancel");
 
-        buttonSave1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonSave1.setText("Save");
+        buttonSave.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonSave.setText("Save");
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+
+        labelTitle.setFont(new java.awt.Font("Monotype Corsiva", 1, 36)); // NOI18N
+        labelTitle.setText("New Supplier");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        labelSupEmail.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelSupEmail.setText("Email");
+
+        textSupEmail.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        textSupEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSupEmailActionPerformed(evt);
+            }
+        });
+
+        labelSupStreet.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelSupStreet.setText("Street");
+
+        labelSupCity.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelSupCity.setText("City");
+
+        textSupCity.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        textSupCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSupCityActionPerformed(evt);
+            }
+        });
+
+        labelSupPostcode.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelSupPostcode.setText("Postcode");
+
+        textSupPostcode.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        textSupPostcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSupPostcodeActionPerformed(evt);
+            }
+        });
+
+        comboSupState.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboSupState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonSave1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelSupRemarks, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelLastName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelFirstName1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelRemarks, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(62, 62, 62)
+                                .addComponent(labelSupPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelFirstName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelSupplierName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelLastName1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                .addComponent(labelSupEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelSupStreet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelSupCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelSupState, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelSupPostcode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(textSupEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textSupPhone, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textPICLastName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textPICFirstName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textSubRemarks, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                                    .addComponent(textSupplierName))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textSupplierName)
+                                    .addComponent(textPICFirstName)
+                                    .addComponent(textPICLastName)
+                                    .addComponent(textSupPhone)
+                                    .addComponent(textSupStreet, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                    .addComponent(textSupEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                    .addComponent(textSupCity, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                    .addComponent(textSupPostcode, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                    .addComponent(comboSupState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(buttonCancel1)
-                                .addGap(0, 118, Short.MAX_VALUE)))))
-                .addContainerGap())
+                                .addGap(18, 18, 18)
+                                .addComponent(textSupRemarks, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(60, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(buttonSave)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(91, 91, 91))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(textSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(labelFirstName1))
-                    .addComponent(textPICFirstName))
+                    .addComponent(labelFirstName1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textPICFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(labelLastName1))
-                    .addComponent(textPICLastName))
+                    .addComponent(labelLastName1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textPICLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textSupPhone))
+                    .addComponent(labelSupPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textSupPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textSupEmail)
-                    .addComponent(jLabel10))
+                    .addComponent(labelSupEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textSupEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textSupStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelSupStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelSupCity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textSupCity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelSupPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textSupPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelSupState, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboSupState, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelRemarks)
-                    .addComponent(textSubRemarks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                    .addComponent(labelSupRemarks)
+                    .addComponent(textSupRemarks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonSave1)
-                    .addComponent(buttonCancel1))
-                .addContainerGap())
+                    .addComponent(buttonCancel)
+                    .addComponent(buttonSave))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -174,51 +257,53 @@ public class AddSupplier extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textSupStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupStreetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSupStreetActionPerformed
+
+    private void textSupEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSupEmailActionPerformed
+
+    private void textSupCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupCityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSupCityActionPerformed
+
+    private void textSupPostcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupPostcodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSupPostcodeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancel;
-    private javax.swing.JButton buttonCancel1;
     private javax.swing.JButton buttonSave;
-    private javax.swing.JButton buttonSave1;
-    private javax.swing.JComboBox<String> comboState;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> comboSupState;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel labelFirstName;
     private javax.swing.JLabel labelFirstName1;
-    private javax.swing.JLabel labelLastName;
     private javax.swing.JLabel labelLastName1;
-    private javax.swing.JLabel labelRemarks;
+    private javax.swing.JLabel labelSupCity;
+    private javax.swing.JLabel labelSupEmail;
+    private javax.swing.JLabel labelSupPhone;
+    private javax.swing.JLabel labelSupPostcode;
+    private javax.swing.JLabel labelSupRemarks;
+    private javax.swing.JLabel labelSupState;
+    private javax.swing.JLabel labelSupStreet;
+    private javax.swing.JLabel labelSupplierName;
     private javax.swing.JLabel labelTitle;
-    private javax.swing.JLabel labelTitle1;
-    private javax.swing.JTextField textAccountName;
-    private javax.swing.JTextField textCity;
-    private javax.swing.JTextField textEmail;
-    private javax.swing.JTextField textFirstName;
-    private javax.swing.JTextField textLastName;
     private javax.swing.JTextField textPICFirstName;
     private javax.swing.JTextField textPICLastName;
-    private javax.swing.JTextField textPhone;
-    private javax.swing.JTextField textPostcode;
-    private javax.swing.JTextField textStreet;
-    private javax.swing.JTextField textSubRemarks;
+    private javax.swing.JTextField textSupCity;
     private javax.swing.JTextField textSupEmail;
     private javax.swing.JTextField textSupPhone;
+    private javax.swing.JTextField textSupPostcode;
+    private javax.swing.JTextField textSupRemarks;
+    private javax.swing.JTextField textSupStreet;
     private javax.swing.JTextField textSupplierName;
     // End of variables declaration//GEN-END:variables
 }
