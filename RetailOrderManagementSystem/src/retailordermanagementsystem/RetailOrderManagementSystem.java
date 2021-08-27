@@ -134,10 +134,13 @@ class CusAcc extends Account {
         super(AccName, AccPassword);
         setAccID(generateAccID());
     }
+    
+    
 
     public CusAcc(String AccID, String AccName, String AccPassword, LocalDateTime AccRegisterDT, LocalDateTime AccLastLoginDT) {
         super(AccID, AccName, AccPassword, AccRegisterDT, AccLastLoginDT);
     }
+    
 
     @Override
     public String generateAccID() {
@@ -195,25 +198,36 @@ class PersonalInfo{
     public boolean validatePILName() {
         return getPILName().matches("[[a-zA-Z]+([ '-][a-zA-Z]+)*");
     }
+    
+//    public boolean validatePIGender(){
+//        return (getPIGender()=='F'||getPIGender()=='M');
+//    }
 }
 
-class CustomerInfo extends PersonalInfo{
+class CusInfo extends PersonalInfo{
     private int PIRewardPoint;
-    private LocalDateTime PIDateOfBirth;
-
-    public CustomerInfo() {
+    private LocalDate PIDateOfBirth;
+    //https://mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
+    public CusInfo() {
     }
 
-    public CustomerInfo(String PIFName, String PILName, char PIGender) {
+    public CusInfo(String PIFName, String PILName, char PIGender) {
         super(PIFName, PILName, PIGender);
     }
 
-    public CustomerInfo(int PIRewardPoint, LocalDateTime PIDateOfBirth) {
+    public CusInfo(int PIRewardPoint, LocalDate PIDateOfBirth) {
         this.PIRewardPoint = PIRewardPoint;
         this.PIDateOfBirth = PIDateOfBirth;
     }
+
+    public CusInfo(String PIFName, String PILName, char PIGender, LocalDate PIDateOfBirth) {
+        super(PIFName, PILName, PIGender);
+        this.PIDateOfBirth = PIDateOfBirth;
+        this.PIRewardPoint = 0;
+    }
     
-    public CustomerInfo(int CIRewardPoint, LocalDateTime CIDateOfBirth, String PIFName, String PILName, char PIGender) {
+    
+    public CusInfo(String PIFName, String PILName, char PIGender,int CIRewardPoint,LocalDate CIDateOfBirth) {
         super(PIFName, PILName, PIGender);
         this.PIRewardPoint = CIRewardPoint;
         this.PIDateOfBirth = CIDateOfBirth;
@@ -227,11 +241,11 @@ class CustomerInfo extends PersonalInfo{
         this.PIRewardPoint = PIRewardPoint;
     }
 
-    public LocalDateTime getPIDateOfBirth() {
+    public LocalDate getPIDateOfBirth() {
         return PIDateOfBirth;
     }
 
-    public void setPIDateOfBirth(LocalDateTime PIDateOfBirth) {
+    public void setPIDateOfBirth(LocalDate PIDateOfBirth) {
         this.PIDateOfBirth = PIDateOfBirth;
     }   
 }
@@ -337,31 +351,38 @@ class ContactInfo{
 //TODO CLASS Person INHERITANCE OR CONTACT DETAILS COMPOSITION
 class Customer {
 
-    private CustomerInfo CusPI;
+    private CusInfo CusPI;
     private ContactInfo CusCI;
     private CusAcc CusAccount; //UniqueID is here
     private ArrayList<Order> CusOrders;
     //TODO PAYMENT CREDIT CARD PAYMENT, OPTIONAL CUSTOMER BALANCE
 
     public Customer(){
-        this.CusPI=new CustomerInfo();
+        this.CusPI=new CusInfo();
         this.CusCI=new ContactInfo();
         this.CusAccount=new CusAcc();
         this.CusOrders=new ArrayList<Order>();
     }
 
-    public Customer(CustomerInfo CusPI, ContactInfo CusCI, CusAcc CusAccount, ArrayList<Order> CusOrders) {
+    public Customer(CusInfo CusPI, ContactInfo CusCI, CusAcc CusAccount, ArrayList<Order> CusOrders) {
         this.CusPI = CusPI;
         this.CusCI = CusCI;
         this.CusAccount = CusAccount;
         this.CusOrders = CusOrders;
     }
 
-    public CustomerInfo getCusPI() {
+    public Customer(CusInfo CusPI, ContactInfo CusCI, CusAcc CusAccount) {
+        this.CusPI = CusPI;
+        this.CusCI = CusCI;
+        this.CusAccount = CusAccount;
+        this.CusOrders=new ArrayList<Order>();
+    }
+
+    public CusInfo getCusPI() {
         return CusPI;
     }
 
-    public void setCusPI(CustomerInfo CusPI) {
+    public void setCusPI(CusInfo CusPI) {
         this.CusPI = CusPI;
     }
 

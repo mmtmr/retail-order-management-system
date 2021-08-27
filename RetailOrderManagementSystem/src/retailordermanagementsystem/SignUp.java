@@ -164,7 +164,7 @@ public class SignUp extends javax.swing.JPanel {
         labelBirthday.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelBirthday.setText("Birthday");
 
-        textBirthday.setText("DD-MM-YYYY");
+        textBirthday.setText("YYYY-MM-DD");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
