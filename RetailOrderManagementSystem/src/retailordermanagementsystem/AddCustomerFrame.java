@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 package retailordermanagementsystem;
+import java.io.IOException;
 import java.time.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterContrastIJTheme;
-import javax.swing.UIManager;
+
 
 /**
  *
@@ -196,22 +197,16 @@ public class AddCustomerFrame extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(labelTitle)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(textAccountName))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(labelFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 0, 0))
+                    .addComponent(labelFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textFirstName))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(labelLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 0, 0))
+                    .addComponent(labelLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textLastName))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -219,11 +214,9 @@ public class AddCustomerFrame extends javax.swing.JFrame {
                     .addComponent(radioFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(labelGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(labelBirthday, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
-                    .addComponent(textBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 27, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelBirthday, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -291,53 +284,45 @@ public class AddCustomerFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        Customer cus=new Customer();
         try{
 
-            String AccountName=textAccountName.getText();
-            String FirstName=textFirstName.getText();
-            String LastName=textLastName.getText();
-            char Gender;
+//            String AccountName=textAccountName.getText();
+            String fname=textFirstName.getText();
+            String lname=textLastName.getText();
+            Gender gender;
             if (radioMale.isSelected()){
-                Gender='M';
+                gender=Gender.M;
             }
             else if (radioFemale.isSelected()){
-                Gender='F';
+                gender=Gender.F;
             }
             else{
                 throw(new Exception("Gender is not valid! Please try again."));
             }
-            LocalDate Birthday=LocalDate.parse(textBirthday.getText());
-            String Phone=textPhone.getText();
-            String Email=textEmail.getText();
-            String Street=textStreet.getText();
-            String City=textCity.getText();
-            String State=(String)comboState.getSelectedItem();
-            String Postcode=textPostcode.getText();
-            CusAcc acc=new CusAcc(AccountName,"123456");
-            CusInfo info=new CusInfo(FirstName,LastName,Gender,Birthday);
-            ContactInfo contact=new ContactInfo(Phone,Email,Street,City,State,Postcode);
-            Customer cus=new Customer(acc,info,contact);
-            if(!info.validatePIFName()){
-                throw(new Exception("First Name is not valid! Please try again."));
-            }
-            else if(!info.validatePILName()){
-                throw(new Exception("Last Name is not valid! Please try again."));
-            }
-            else if(!contact.validateCIPhone()){
-                throw(new Exception("Phone is not valid! Please try again."));
-            }
-            else if(!contact.validateCIEmail()){
-                throw(new Exception("Email is not valid! Please try again."));
-            }
-            else if(!contact.validateCIAddress()){
-                throw(new Exception("Address is not valid! Please try again."));
-            }
-            else{
-                System.out.println(cus);
+            LocalDate birthday=LocalDate.parse(textBirthday.getText());
+            String phone=textPhone.getText();
+            String email=textEmail.getText();
+            String street=textStreet.getText();
+            String city=textCity.getText();
+            String state=(String)comboState.getSelectedItem();
+            String postcode=textPostcode.getText();
+            CusAcc acc=new CusAcc(textAccountName.getText(),"123456");
+            ShoppingCart sc=new ShoppingCart(acc.getAccID());
+            ArrayList<Order> ords=new ArrayList();
+            cus=new Customer(fname,lname,gender,birthday,phone,email,street,city,state,postcode,acc,sc,ords);
+            //String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth,String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode,CusAcc CusAccount
+            cus.getCusOrdersIDs();
+            System.out.println(cus);
                 this.dispose();
-            }
         }
         catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        try{
+            AdminPanel.writeCustomerData(cus);
+        }
+        catch(IOException e){
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_buttonSaveActionPerformed

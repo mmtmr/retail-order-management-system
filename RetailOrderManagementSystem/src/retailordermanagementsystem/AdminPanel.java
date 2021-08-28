@@ -650,8 +650,13 @@ public class AdminPanel extends javax.swing.JFrame {
      */
     private static ArrayList<AdminAcc> AdminAccList;
     private static ArrayList<CusAcc> CusAccList;
-    private static ArrayList<Customer> CustomerList = new ArrayList<Customer>();
-    private static ArrayList<Order> OrderList = new ArrayList<Order>();
+    private static ArrayList<Product> ProList;
+    //private static ArrayList<FragilePro> FragileProList;
+    private static ArrayList<Supplier> SupList;
+    private static ArrayList<OrderItem> OIList;
+    private static ArrayList<ShoppingCart> SCList;
+    private static ArrayList<Order> OrdList;
+    private static ArrayList<Customer> CusList;
 
     //Create or Read file
     //https://stackoverflow.com/a/24029850
@@ -661,49 +666,102 @@ public class AdminPanel extends javax.swing.JFrame {
             throw new IOException("Error creating new file: " + accountFile.getAbsolutePath());
         }
 
-        BufferedReader accRead = new BufferedReader(new FileReader(accountFile));
-        try {
+        try (BufferedReader accRead = new BufferedReader(new FileReader(accountFile))) {
             //Read
             //https://stackoverflow.com/a/39552075
             String accLine;
-
             while ((accLine = accRead.readLine()) != null) {
                 System.out.println(accLine);
                 String[] accData = accLine.split("\t");
 
-                if (accData.length!=5) {
-                    throw new IOException("Account file is damaged!");
-                }
-                
-                String accIDData = accData[0];
-                String accNameData = accData[1];
-                String accPasswordData = accData[2];
-                LocalDateTime accRegisterDT = LocalDateTime.parse(accData[3]);
-                LocalDateTime accLoginDT = LocalDateTime.parse(accData[4]);
-                
-                if (accIDData.substring(0,1)=="CA"){
-                    CusAcc acc = new CusAcc(accIDData, accNameData, accPasswordData, accRegisterDT, accLoginDT);
+                if (accData[0].substring(0, 1).equals("CA")) {
+                    CusAcc acc = CusAcc.parseAccountFromString(accLine);
                     CusAccList.add(acc);
-                    CusAcc.setCACounter(CusAcc.getCACounter()+1);
-                }
-                else if (accIDData.substring(0,1)=="AA"){
-                    AdminAcc acc = new AdminAcc(accIDData, accNameData, accPasswordData, accRegisterDT, accLoginDT);
+                    //CusAcc.setCACounter(CusAcc.getCACounter()+1);
+                } else if (accData[0].substring(0, 1).equals("AA")) {
+                    AdminAcc acc = AdminAcc.parseAccountFromString(accLine);
                     AdminAccList.add(acc);
-                    AdminAcc.setAACounter(AdminAcc.getAACounter()+1);
+                    //AdminAcc.setAACounter(AdminAcc.getAACounter()+1);
                 }
             }
-        } finally {
-            accRead.close();
         }
     }
-     public static void readOrderData() throws IOException {
+
+    public static void readProductData() throws IOException {
+        File proFile = new File("product.txt");
+        if (!proFile.isFile() && !proFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + proFile.getAbsolutePath());
+        }
+
+        try (BufferedReader proRead = new BufferedReader(new FileReader(proFile))) {
+            //Read
+            //https://stackoverflow.com/a/39552075
+            String proLine;
+
+            while ((proLine = proRead.readLine()) != null) {
+                System.out.println(proLine);
+                String[] proData = proLine.split("\t");
+
+//                if (proData.length!=4) {
+//                    throw new IOException("Product file is damaged!");
+//                }
+                //https://www.studytonight.com/java-examples/how-to-convert-string-to-arraylist-in-java
+                if ("P0".equals(proData[0].substring(0, 1))) {
+                    Product pro = Product.parseProFromString(proLine);
+                    ProList.add(pro);
+                } else if ("P1".equals(proData[0].substring(0, 1))) {
+                    Product pro = FragilePro.parseProFromString(proLine);
+                    ProList.add(pro);
+                    //Might need to add FragileProductList
+                }
+            }
+        }
+    }
+
+    public static void readSupplierData() throws IOException {
+        File supFile = new File("supplier.txt");
+        if (!supFile.isFile() && !supFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + supFile.getAbsolutePath());
+        }
+
+        try (BufferedReader supRead = new BufferedReader(new FileReader(supFile))) {
+            //Read
+            //https://stackoverflow.com/a/39552075
+            String supLine;
+            while ((supLine = supRead.readLine()) != null) {
+                System.out.println(supLine);
+                Supplier sup = Supplier.parseSupFromString(supLine, ProList);
+                SupList.add(sup);
+            }
+        }
+    }
+
+    public static void readOrderItemData() throws IOException {
+        File oiFile = new File("orderitem.txt");
+        if (!oiFile.isFile() && !oiFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + oiFile.getAbsolutePath());
+        }
+
+        try (BufferedReader oiRead = new BufferedReader(new FileReader(oiFile))) {
+            //Read
+            //https://stackoverflow.com/a/39552075
+            String oiLine;
+
+            while ((oiLine = oiRead.readLine()) != null) {
+                System.out.println(oiLine);
+                OrderItem oi = OrderItem.parseOIFromString(oiLine, ProList);
+                OIList.add(oi);
+            }
+        }
+    }
+
+    public static void readOrderData() throws IOException {
         File orderFile = new File("order.txt");
         if (!orderFile.isFile() && !orderFile.createNewFile()) {
             throw new IOException("Error creating new file: " + orderFile.getAbsolutePath());
         }
 
-        BufferedReader ordRead = new BufferedReader(new FileReader(orderFile));
-        try {
+        try (BufferedReader ordRead = new BufferedReader(new FileReader(orderFile))) {
             //Read
             //https://stackoverflow.com/a/39552075
             String ordLine;
@@ -712,31 +770,21 @@ public class AdminPanel extends javax.swing.JFrame {
                 System.out.println(ordLine);
                 String[] ordData = ordLine.split("\t");
 
-                if (ordData.length!=5) {
-                    throw new IOException("Order file is damaged!");
-                }
-                
-                String accIDData = ordData[0];
-                String accNameData = ordData[1];
-                String accPasswordData = ordData[2];
-                LocalDateTime accRegisterDT = LocalDateTime.parse(ordData[3]);
-                LocalDateTime accLoginDT = LocalDateTime.parse(ordData[4]);
-                
-                if (accIDData.substring(0,1)=="CA"){
-                    CusAcc acc = new CusAcc(accIDData, accNameData, accPasswordData, accRegisterDT, accLoginDT);
-                    CusAccList.add(acc);
-                    CusAcc.setCACounter(CusAcc.getCACounter()+1);
-                }
-                else if (accIDData.substring(0,1)=="AA"){
-                    AdminAcc acc = new AdminAcc(accIDData, accNameData, accPasswordData, accRegisterDT, accLoginDT);
-                    AdminAccList.add(acc);
-                    AdminAcc.setAACounter(AdminAcc.getAACounter()+1);
+//                if (ordData.length!=4) {
+//                    throw new IOException("Order file is damaged!");
+//                }
+                //https://www.studytonight.com/java-examples/how-to-convert-string-to-arraylist-in-java
+                if ("OR".equals(ordData[0].substring(0, 2))) {
+                    Order ord = Order.parseOrdFromString(ordLine, OIList);
+                    OrdList.add(ord);
+                } else if ("SPC".equals(ordData[0].substring(0, 3))) {
+                    ShoppingCart sc = ShoppingCart.parseSCFromString(ordLine, OIList);
+                    SCList.add(sc);
                 }
             }
-        } finally {
-            ordRead.close();
         }
     }
+
     public static void readCustomerData() throws IOException {
         File customerFile = new File("customer.txt");
         if (!customerFile.isFile() && !customerFile.createNewFile()) {
@@ -750,18 +798,25 @@ public class AdminPanel extends javax.swing.JFrame {
             String cusLine;
 
             while ((cusLine = cusRead.readLine()) != null) {
-                System.out.println(cusLine);
-                String[] cusData = cusLine.split(";");
+                Customer cus = Customer.parseCusFromString(cusLine, CusAccList, OrdList, SCList);
+                CusList.add(cus);
 
-                String cusAccIDData = cusData[0];
-                String cusCIData = cusData[1];
-                String cusPIData = cusData[2];
-                String cusSCData = cusData[3];
-                String cusSCOrdersData = cusData[4];
-                
             }
         } finally {
             cusRead.close();
+        }
+    }
+
+        public static void writeCustomerData(Customer cus) throws IOException {
+        File cusFile = new File("customer.txt");
+        if (!cusFile.isFile() && !cusFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + cusFile.getAbsolutePath());
+        }
+        PrintWriter cusWrite = new PrintWriter(new BufferedWriter(new FileWriter(cusFile, true)));
+        try {
+            cusWrite.println(cus);
+        } finally {
+            cusWrite.close();
         }
     }
 
@@ -769,16 +824,16 @@ public class AdminPanel extends javax.swing.JFrame {
         //Create or Read file
         //https://stackoverflow.com/a/24029850
         try {
-            File customer = new File("customer.txt");
-            if (customer.createNewFile()) {
-                System.out.println("File created: " + customer.getName());
-            } else {
-                System.out.println("File already exists.");
-            }
+            readAccountData();
+            readProductData();
+            readSupplierData();
+            readOrderItemData();
+            readOrderData();
+            readCustomerData();
         } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.out.println(e);
         }
+
         /*FlatMaterialLighterContrastIJTheme*/
         try {
             UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterContrastIJTheme");
