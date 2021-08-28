@@ -41,7 +41,9 @@ public class LoginPage extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(46, 97, 216));
 
+        labelLogin.setBackground(new java.awt.Color(255, 255, 255));
         labelLogin.setFont(new java.awt.Font("Monotype Corsiva", 0, 60)); // NOI18N
+        labelLogin.setForeground(new java.awt.Color(255, 255, 255));
         labelLogin.setText("Login");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -49,19 +51,20 @@ public class LoginPage extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(labelLogin)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(labelLogin)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         labelUsername.setFont(new java.awt.Font("Lucida Calligraphy", 0, 18)); // NOI18N
+        labelUsername.setForeground(new java.awt.Color(255, 255, 255));
         labelUsername.setText("USERNAME:");
 
         textUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +74,7 @@ public class LoginPage extends javax.swing.JPanel {
         });
 
         labelPassword.setFont(new java.awt.Font("Lucida Calligraphy", 0, 18)); // NOI18N
+        labelPassword.setForeground(new java.awt.Color(255, 255, 255));
         labelPassword.setText("PASSWORD:");
 
         buttonLogin.setFont(new java.awt.Font("Forte", 0, 14)); // NOI18N
@@ -104,11 +108,9 @@ public class LoginPage extends javax.swing.JPanel {
                             .addComponent(textUsername)
                             .addComponent(passwordPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(buttonForgotPassword)
                         .addGap(13, 13, 13))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(buttonSignUp)
                         .addGap(131, 131, 131))
                     .addGroup(layout.createSequentialGroup()
