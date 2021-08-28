@@ -5,6 +5,11 @@
  */
 package retailordermanagementsystem;
 
+import java.util.*;
+import java.io.*;
+import java.time.LocalDateTime;
+import javax.swing.UIManager;
+
 /**
  *
  * @author Maxine
@@ -60,7 +65,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jButton6 = new javax.swing.JButton();
         buttonEdit4 = new javax.swing.JButton();
-        buttonAdd4 = new javax.swing.JButton();
+        buttonCusAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -559,8 +564,13 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
-        buttonAdd4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd4.setText("Add");
+        buttonCusAdd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonCusAdd.setText("Add");
+        buttonCusAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCusAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -570,7 +580,7 @@ public class AdminPanel extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonCusAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(buttonEdit4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -585,7 +595,7 @@ public class AdminPanel extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buttonEdit4)
-                        .addComponent(buttonAdd4)
+                        .addComponent(buttonCusAdd)
                         .addComponent(jButton6))
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
@@ -630,32 +640,151 @@ public class AdminPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonEdit4ActionPerformed
 
+    private void buttonCusAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCusAddActionPerformed
+        AddCustomerFrame addCusFrame = new AddCustomerFrame();
+        addCusFrame.show();
+    }//GEN-LAST:event_buttonCusAddActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private static ArrayList<AdminAcc> AdminAccList;
+    private static ArrayList<CusAcc> CusAccList;
+    private static ArrayList<Customer> CustomerList = new ArrayList<Customer>();
+    private static ArrayList<Order> OrderList = new ArrayList<Order>();
+
+    //Create or Read file
+    //https://stackoverflow.com/a/24029850
+    public static void readAccountData() throws IOException {
+        File accountFile = new File("account.txt");
+        if (!accountFile.isFile() && !accountFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + accountFile.getAbsolutePath());
+        }
+
+        BufferedReader accRead = new BufferedReader(new FileReader(accountFile));
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+            //Read
+            //https://stackoverflow.com/a/39552075
+            String accLine;
+
+            while ((accLine = accRead.readLine()) != null) {
+                System.out.println(accLine);
+                String[] accData = accLine.split("\t");
+
+                if (accData.length!=5) {
+                    throw new IOException("Account file is damaged!");
+                }
+                
+                String accIDData = accData[0];
+                String accNameData = accData[1];
+                String accPasswordData = accData[2];
+                LocalDateTime accRegisterDT = LocalDateTime.parse(accData[3]);
+                LocalDateTime accLoginDT = LocalDateTime.parse(accData[4]);
+                
+                if (accIDData.substring(0,1)=="CA"){
+                    CusAcc acc = new CusAcc(accIDData, accNameData, accPasswordData, accRegisterDT, accLoginDT);
+                    CusAccList.add(acc);
+                    CusAcc.setCACounter(CusAcc.getCACounter()+1);
+                }
+                else if (accIDData.substring(0,1)=="AA"){
+                    AdminAcc acc = new AdminAcc(accIDData, accNameData, accPasswordData, accRegisterDT, accLoginDT);
+                    AdminAccList.add(acc);
+                    AdminAcc.setAACounter(AdminAcc.getAACounter()+1);
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } finally {
+            accRead.close();
         }
-        //</editor-fold>
+    }
+     public static void readOrderData() throws IOException {
+        File orderFile = new File("order.txt");
+        if (!orderFile.isFile() && !orderFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + orderFile.getAbsolutePath());
+        }
+
+        BufferedReader ordRead = new BufferedReader(new FileReader(orderFile));
+        try {
+            //Read
+            //https://stackoverflow.com/a/39552075
+            String ordLine;
+
+            while ((ordLine = ordRead.readLine()) != null) {
+                System.out.println(ordLine);
+                String[] ordData = ordLine.split("\t");
+
+                if (ordData.length!=5) {
+                    throw new IOException("Order file is damaged!");
+                }
+                
+                String accIDData = ordData[0];
+                String accNameData = ordData[1];
+                String accPasswordData = ordData[2];
+                LocalDateTime accRegisterDT = LocalDateTime.parse(ordData[3]);
+                LocalDateTime accLoginDT = LocalDateTime.parse(ordData[4]);
+                
+                if (accIDData.substring(0,1)=="CA"){
+                    CusAcc acc = new CusAcc(accIDData, accNameData, accPasswordData, accRegisterDT, accLoginDT);
+                    CusAccList.add(acc);
+                    CusAcc.setCACounter(CusAcc.getCACounter()+1);
+                }
+                else if (accIDData.substring(0,1)=="AA"){
+                    AdminAcc acc = new AdminAcc(accIDData, accNameData, accPasswordData, accRegisterDT, accLoginDT);
+                    AdminAccList.add(acc);
+                    AdminAcc.setAACounter(AdminAcc.getAACounter()+1);
+                }
+            }
+        } finally {
+            ordRead.close();
+        }
+    }
+    public static void readCustomerData() throws IOException {
+        File customerFile = new File("customer.txt");
+        if (!customerFile.isFile() && !customerFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + customerFile.getAbsolutePath());
+        }
+
+        BufferedReader cusRead = new BufferedReader(new FileReader(customerFile));
+        try {
+            //Read
+            //https://stackoverflow.com/a/39552075
+            String cusLine;
+
+            while ((cusLine = cusRead.readLine()) != null) {
+                System.out.println(cusLine);
+                String[] cusData = cusLine.split(";");
+
+                String cusAccIDData = cusData[0];
+                String cusCIData = cusData[1];
+                String cusPIData = cusData[2];
+                String cusSCData = cusData[3];
+                String cusSCOrdersData = cusData[4];
+                
+            }
+        } finally {
+            cusRead.close();
+        }
+    }
+
+    public static void main(String args[]) {
+        //Create or Read file
+        //https://stackoverflow.com/a/24029850
+        try {
+            File customer = new File("customer.txt");
+            if (customer.createNewFile()) {
+                System.out.println("File created: " + customer.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        /*FlatMaterialLighterContrastIJTheme*/
+        try {
+            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterContrastIJTheme");
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -670,7 +799,7 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton buttonAdd1;
     private javax.swing.JButton buttonAdd2;
     private javax.swing.JButton buttonAdd3;
-    private javax.swing.JButton buttonAdd4;
+    private javax.swing.JButton buttonCusAdd;
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonEdit1;
     private javax.swing.JButton buttonEdit2;

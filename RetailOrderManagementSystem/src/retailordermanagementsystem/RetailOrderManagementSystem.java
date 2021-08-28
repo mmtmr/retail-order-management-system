@@ -2,12 +2,14 @@ package retailordermanagementsystem;
 
 import java.util.*;
 import java.time.*;
+import static retailordermanagementsystem.Order.getOrdIDCounter;
 
 /**
  *
  * @author Lai Mei Sim, Koh Ya Wen
  */
-class Account {
+//https://stackoverflow.com/a/63564947
+abstract class Account {
 
     private String AccID;
     private String AccName;
@@ -29,10 +31,9 @@ class Account {
     public Account(String AccName, String AccPassword) {
         this.AccName = AccName;
         this.AccPassword = AccPassword;
-        this.AccRegisterDT=LocalDateTime.now();
-        this.AccLastLoginDT=LocalDateTime.now();
+        this.AccRegisterDT = LocalDateTime.now();
+        this.AccLastLoginDT = LocalDateTime.now();
     }
-    
 
     public String getAccID() {
         return AccID;
@@ -40,10 +41,6 @@ class Account {
 
     public void setAccID(String AccID) {
         this.AccID = AccID;
-    }
-
-    public String generateAccID() {
-        return "";
     }
 
     public String getAccName() {
@@ -78,46 +75,49 @@ class Account {
         this.AccLastLoginDT = AccLastLoginDT;
     }
 
-    public void registerAcc(String AccName, String AccPassword, LocalDateTime AccRegisterDT){
-        generateAccID();
-        setAccName(AccName);
-        setAccPassword(AccPassword);
-        setAccRegisterDT(AccRegisterDT);
+    public boolean verifyLogin(String LoginName, String LoginPassword) {
+        return LoginName.equals(getAccName()) && LoginPassword.equals(getAccPassword());
     }
-    
-    public boolean verifyLogin(String LoginName, String LoginPassword){
-        return LoginName.equals(getAccName())&&LoginPassword.equals(getAccPassword());
-    }
-    
+
     @Override
     public String toString() {
-        return "Account{" + "AccID=" + AccID + ", AccName=" + AccName + ", AccPassword=" + AccPassword + ", AccRegisterDT=" + AccRegisterDT + ", AccLastLoginDT=" + AccLastLoginDT + '}';
+        return AccID + "\t" + AccName + "\t" + AccPassword + "\t" + AccRegisterDT + "\t" + AccLastLoginDT;
     }
-    
+
+    public abstract Account parseAccountFromString(String accLine);
+
 }
 
 class AdminAcc extends Account {
 
-    private static int AACounter=0; //TODO: READ FROM TXT FILE
+    private static int AACounter; //TODO: READ FROM TXT FILE
 
     public AdminAcc() {
     }
 
     public AdminAcc(String AccName, String AccPassword) {
         super(AccName, AccPassword);
-        setAccID(generateAccID());
+        setAccID("AA" + String.format("%05d", AACounter));
+        AACounter += 1;
     }
 
-    
     public AdminAcc(String AccID, String AccName, String AccPassword, LocalDateTime AccRegisterDT, LocalDateTime AccLastLoginDT) {
         super(AccID, AccName, AccPassword, AccRegisterDT, AccLastLoginDT);
     }
 
+    public static int getAACounter() {
+        return AACounter;
+    }
+
+    public static void setAACounter(int AACounter) {
+        AdminAcc.AACounter = AACounter;
+    }
+
     @Override
-    public String generateAccID() { //TODO: 
-        String AANumFormatted = String.format("%06d", AACounter);
-        AACounter += 1;
-        return ("AA" + AANumFormatted); //AC000001
+    public Account parseAccountFromString(String accLine) {
+        String[] accData = accLine.split("\t");
+        System.out.println(Arrays.toString(accData));
+        return new AdminAcc(accData[0], accData[1], accData[2], LocalDateTime.parse(accData[3]), LocalDateTime.parse(accData[4]));
     }
 
     //TODO CHECK DUPKEY
@@ -125,42 +125,48 @@ class AdminAcc extends Account {
 
 class CusAcc extends Account {
 
-    private static int CACounter=0; //TODO: READ FROM TXT FILE
+    private static int CACounter = 0; //TODO: READ FROM TXT FILE
 
     public CusAcc() {
     }
 
     public CusAcc(String AccName, String AccPassword) {
         super(AccName, AccPassword);
-        setAccID(generateAccID());
+        setAccID("CA" + String.format("%05d", CACounter));
+        CACounter += 1;
     }
-    
-    
 
     public CusAcc(String AccID, String AccName, String AccPassword, LocalDateTime AccRegisterDT, LocalDateTime AccLastLoginDT) {
         super(AccID, AccName, AccPassword, AccRegisterDT, AccLastLoginDT);
     }
-    
+
+    public static int getCACounter() {
+        return CACounter;
+    }
+
+    public static void setCACounter(int CACounter) {
+        CusAcc.CACounter = CACounter;
+    }
 
     @Override
-    public String generateAccID() {
-        String CANumFormatted = String.format("%05d", CACounter);
-        CACounter += 1;
-        return ("CA" + CANumFormatted);//CA00001
+    public Account parseAccountFromString(String accLine) {
+        String[] accData = accLine.split("\t");
+        System.out.println(Arrays.toString(accData));
+        return new CusAcc(accData[0], accData[1], accData[2], LocalDateTime.parse(accData[3]), LocalDateTime.parse(accData[4]));
     }
 
     //TODO CHECK DUPKEY
 }
 
-class PersonalInfo{
+class PersonalInfo {
+
     private String PIFName;
     private String PILName;
     private char PIGender;
 
     public PersonalInfo() {
     }
-    
-    
+
     public PersonalInfo(String PIFName, String PILName, char PIGender) {
         this.PIFName = PIFName;
         this.PILName = PILName;
@@ -190,23 +196,35 @@ class PersonalInfo{
     public void setPIGender(char PIGender) {
         this.PIGender = PIGender;
     }
-    
+
     public boolean validatePIFName() {
-        return getPIFName().matches("[[a-zA-Z]+([ '-][a-zA-Z]+)*");
+        return getPIFName().matches("[a-zA-Z]+([ '-][a-zA-Z]+)*");
     }
-    
+
     public boolean validatePILName() {
-        return getPILName().matches("[[a-zA-Z]+([ '-][a-zA-Z]+)*");
+        return getPILName().matches("[a-zA-Z]+([ '-][a-zA-Z]+)*");
     }
-    
+
 //    public boolean validatePIGender(){
 //        return (getPIGender()=='F'||getPIGender()=='M');
 //    }
+    @Override
+    public String toString() {
+        return PIFName + "\t" + PILName + "\t" + PIGender;
+    }
+
+    public PersonalInfo parsePIFromString(String piLine) {
+        String[] piData = piLine.split("\t");
+        System.out.println(piData);
+        return new PersonalInfo(piData[0], piData[1], piData[2].charAt(0));
+    }
 }
 
-class CusInfo extends PersonalInfo{
+class CusInfo extends PersonalInfo {
+
     private int PIRewardPoint;
     private LocalDate PIDateOfBirth;
+
     //https://mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
     public CusInfo() {
     }
@@ -225,9 +243,8 @@ class CusInfo extends PersonalInfo{
         this.PIDateOfBirth = PIDateOfBirth;
         this.PIRewardPoint = 0;
     }
-    
-    
-    public CusInfo(String PIFName, String PILName, char PIGender,int CIRewardPoint,LocalDate CIDateOfBirth) {
+
+    public CusInfo(String PIFName, String PILName, char PIGender, int CIRewardPoint, LocalDate CIDateOfBirth) {
         super(PIFName, PILName, PIGender);
         this.PIRewardPoint = CIRewardPoint;
         this.PIDateOfBirth = CIDateOfBirth;
@@ -247,11 +264,22 @@ class CusInfo extends PersonalInfo{
 
     public void setPIDateOfBirth(LocalDate PIDateOfBirth) {
         this.PIDateOfBirth = PIDateOfBirth;
-    }   
+    }
+
+    @Override
+    public String toString() {
+        return getPIFName() + "\t" + getPILName() + "\t" + getPIGender() + "\t" + PIRewardPoint + "\t" + PIDateOfBirth;
+    }
+
+    public CusInfo parsePIFromString(String piLine) {
+        String[] piData = piLine.split("\t");
+        System.out.println(piData);
+        return new CusInfo(piData[0], piData[1], piData[2].charAt(0), Integer.parseInt(piData[3]), LocalDate.parse(piData[4]));
+    }
 }
 
+class ContactInfo {
 
-class ContactInfo{
     private String CIPhone;
     private String CIEmail;
     private String CIAddStreet;
@@ -319,15 +347,14 @@ class ContactInfo{
         this.CIAddPostcode = CIAddPostcode;
     }
 
-    
     public boolean validateCIPhone() {
-        return CIPhone.matches("^(\\+?6?01)[02-46-9]-*[0-9]{7}$|^(\\+?6?01)[1]-*[0-9]{8}$");//Format: +6012-34567890
+        return CIPhone.matches("(\\+?6?01)[0-46-9]-*[0-9]{7,8}");//Format: +6012-34567890
     }
 
     public boolean validateCIEmail() {
         return CIEmail.matches("^(.+)@(.+)$");
     }
-    
+
 //    public boolean validateStreet() {
 //        return getConAddStreet().matches("\\w+(\\s\\w+){2,}");
 //    }
@@ -335,7 +362,6 @@ class ContactInfo{
 //    public boolean validateCity() {
 //        return getConAddCity().matches("([a-zA-Z]+|[a-zA-Z]+\\\\s[a-zA-Z]+)");
 //    }
-
     public boolean validateCIAddState() {
         return getCIAddState().matches("Kuala Lumpur|Putrajaya|Labuan|Perlis|Kedah|Terengganu|Pahang|Perak|Kelantan|Penang|Selangor|Negeri Sembilan|Johor|Malacca|Sabah|Sarawak");
     }
@@ -347,35 +373,53 @@ class ContactInfo{
     public boolean validateCIAddress() {
         return validateCIAddState() && validateCIAddPostcode();
     }
+
+    @Override
+    public String toString() {
+        return CIPhone + "\t" + CIEmail + "\t" + CIAddStreet + "\t" + CIAddCity + "\t" + CIAddState + "\t" + CIAddPostcode;
+    }
+
+    public ContactInfo parseCIFromString(String ciLine) {
+        String[] ciData = ciLine.split("\t");
+        System.out.println(ciData);
+        return new ContactInfo(ciData[0], ciData[1], ciData[2], ciData[3], ciData[4], ciData[5]);
+    }
+
 }
 //TODO CLASS Person INHERITANCE OR CONTACT DETAILS COMPOSITION
+
 class Customer {
 
     private CusInfo CusPI;
     private ContactInfo CusCI;
     private CusAcc CusAccount; //UniqueID is here
     private ArrayList<Order> CusOrders;
+    private ShoppingCart CusSC;
     //TODO PAYMENT CREDIT CARD PAYMENT, OPTIONAL CUSTOMER BALANCE
 
-    public Customer(){
-        this.CusPI=new CusInfo();
-        this.CusCI=new ContactInfo();
-        this.CusAccount=new CusAcc();
-        this.CusOrders=new ArrayList<Order>();
+    public Customer() {
+        this.CusPI = new CusInfo();
+        this.CusCI = new ContactInfo();
+        this.CusAccount = new CusAcc();
+
+        this.CusSC = new ShoppingCart();
+        this.CusOrders = new ArrayList<Order>();
     }
 
-    public Customer(CusInfo CusPI, ContactInfo CusCI, CusAcc CusAccount, ArrayList<Order> CusOrders) {
+    public Customer(CusAcc CusAccount, CusInfo CusPI, ContactInfo CusCI, ShoppingCart CusSC, ArrayList<Order> CusOrders) {
+        this.CusAccount = CusAccount;
         this.CusPI = CusPI;
         this.CusCI = CusCI;
-        this.CusAccount = CusAccount;
+        this.CusSC = CusSC;
         this.CusOrders = CusOrders;
     }
 
-    public Customer(CusInfo CusPI, ContactInfo CusCI, CusAcc CusAccount) {
+    public Customer(CusAcc CusAccount, CusInfo CusPI, ContactInfo CusCI) {
+        this.CusAccount = CusAccount;
         this.CusPI = CusPI;
         this.CusCI = CusCI;
-        this.CusAccount = CusAccount;
-        this.CusOrders=new ArrayList<Order>();
+        this.CusSC = new ShoppingCart();
+        this.CusOrders = new ArrayList<Order>();
     }
 
     public CusInfo getCusPI() {
@@ -394,13 +438,20 @@ class Customer {
         this.CusCI = CusCI;
     }
 
-
     public CusAcc getCusAccount() {
         return CusAccount;
     }
 
     public void setCusAccount(CusAcc CusAccount) {
         this.CusAccount = CusAccount;
+    }
+
+    public ShoppingCart getCusSC() {
+        return CusSC;
+    }
+
+    public void setCusSC(ShoppingCart CusSC) {
+        this.CusSC = CusSC;
     }
 
     public ArrayList<Order> getCusOrders() {
@@ -411,9 +462,43 @@ class Customer {
         this.CusOrders = CusOrders;
     }
 
+    public String getCusOrdersIDs() {
+        String CusOrdersIDs = "[";
+
+        for (Order ord : CusOrders) {
+            CusOrdersIDs = CusOrdersIDs + ord.getOrdID() + ',';
+        }
+
+        if (CusOrdersIDs.charAt(CusOrdersIDs.length() - 1) == ',') {
+            CusOrdersIDs = CusOrdersIDs.substring(0, CusOrdersIDs.length() - 2);
+        }
+        CusOrdersIDs = CusOrdersIDs + ']';
+        return CusOrdersIDs;
+    }
+
+    @Override
+    public String toString() {
+        return CusAccount.getAccID() + ";" + CusCI + ";" + CusPI + ";" + CusSC.getOrdID() + ";" + getCusOrdersIDs();
+    }
+
+//    public Customer parseCustomerFromString(String cusLine) {
+//        System.out.println(cusLine);
+//        String[] cusData = cusLine.split(";");
+//        System.out.println(ciData);
+//        return new Customer(ciData[0], ciData[1], ciData[2], ciData[3], ciData[4], ciData[5]);
+//
+//        String AccID = data[0];
+//        String AccName = data[1];
+//        StrAccPassword = data[2];
+//        AccRegisterDT = LocalDateTime.parse(data[3]);
+//        AccLastLoginDT = LocalDateTime.parse(data[4]);
+//        return ()
+//                
+//    }
 }
 
 class Supplier {
+
     private String SupID;
     private String SupName;
     private PersonalInfo SupPersonInCharge;
@@ -422,9 +507,9 @@ class Supplier {
     private ArrayList<Product> SupProducts;
 
     public Supplier() {
-        this.SupPersonInCharge=new PersonalInfo();
-        this.SupCI=new ContactInfo();
-        this.SupProducts=new ArrayList<Product>();
+        this.SupPersonInCharge = new PersonalInfo();
+        this.SupCI = new ContactInfo();
+        this.SupProducts = new ArrayList<Product>();
     }
 
     public Supplier(String SupID, String SupName, PersonalInfo SupPersonInCharge, ContactInfo SupCI, String SupRemarks, ArrayList<Product> SupProducts) {
@@ -483,11 +568,12 @@ class Supplier {
     public void setSupProducts(ArrayList<Product> SupProducts) {
         this.SupProducts = SupProducts;
     }
-    
+
 }
 
 enum ProductType {
-    Stationary, Food,
+    Stationery, Food, Fashion, Other
+    
 }
 
 class Product {
@@ -501,8 +587,34 @@ class Product {
     private String[] ProModel;
     private ProductType ProCategory;
     private Supplier ProSupplier;
-
+    private static int ProStationeryCounter,ProFoodCounter,ProFashionCounter,ProOtherCounter;
     public Product() {
+        
+    }
+
+    public Product(String ProName, int ProStock, double ProPrice, double ProPackingCharge, double ProWeight, String[] ProModel, ProductType ProCategory, Supplier ProSupplier) {
+        this.ProName = ProName;
+        this.ProStock = ProStock;
+        this.ProPrice = ProPrice;
+        this.ProPackingCharge = ProPackingCharge;
+        this.ProWeight = ProWeight;
+        this.ProModel = ProModel;
+        this.ProCategory = ProCategory;
+        this.ProSupplier = ProSupplier;
+        switch(this.ProCategory){
+            case Stationery:
+                this.ProID='P'+String.format("%03d", this.ProCategory.ordinal()+1)+String.format("%04d", +1);
+                break;
+            case Food:
+                
+        }
+//        this.ProPackingCharge = this.ProWeight/0.50*6.00 - ((this.ProWeight/0.50*6.00) % 6.00) + 6.00;
+        if ((this.ProWeight/0.50*6.00) % 6.00 != 0) {
+            this.ProPackingCharge = this.ProWeight/0.50*6.00 - ((this.ProWeight/0.50*6.00) % 6.00) + 6.00;//6 Ringgit per 0.5kg
+        }
+        else{
+            this.ProPackingCharge=this.ProWeight/0.50*6.00;
+        } 
     }
 
     public Product(String ProID, String ProName, int ProStock, double ProPrice, double ProPackingCharge, double ProWeight, String[] ProModel, ProductType ProCategory, Supplier ProSupplier) {
@@ -516,8 +628,6 @@ class Product {
         this.ProCategory = ProCategory;
         this.ProSupplier = ProSupplier;
     }
-
-    
 
     public String getProID() {
         return ProID;
@@ -591,42 +701,48 @@ class Product {
         this.ProSupplier = ProSupplier;
     }
     
-    public void generateProPackingCharge(){
-        double baseCharge=6.00;
-        double realCharge=0.00;
-        
-        realCharge=getProWeight()/0.50*baseCharge;//6 Ringgit per 0.5kg
-        
-        if (realCharge%baseCharge!=0){
-            realCharge=realCharge-(realCharge%baseCharge)+baseCharge;
-        }     
-        setProPackingCharge(realCharge);
-    }
+//    public void generateProID(){
+//        //https://stackoverflow.com/a/13792127
+//        this.ProID='P'+String.format("%03d", getProCategory().ordinal()+1);
+//    }
+    
+    
 }
 
-class FragilePro extends Product{
+class FragilePro extends Product {
 
     public FragilePro() {
     }
 
-    public FragilePro(String ProID, String ProName, int ProStock, double ProPrice, double ProPackingCharge, double ProWeight, String[] ProModel, ProductType ProCategory, Supplier ProSupplier) {
-        super(ProID, ProName, ProStock, ProPrice, ProPackingCharge, ProWeight, ProModel, ProCategory, ProSupplier);
+    public FragilePro(String ProName, int ProStock, double ProPrice, double ProPackingCharge, double ProWeight, String[] ProModel, ProductType ProCategory, Supplier ProSupplier) {
+        super(ProName, ProStock, ProPrice, ProPackingCharge, ProWeight, ProModel, ProCategory, ProSupplier);
+        if ((getProWeight()/0.50*10.00) % 10.00 != 0) {
+            setProPackingCharge(getProWeight()/0.50*10.00 - ((getProWeight()/0.50*10.00) % 10.00) + 10.00);//10 Ringgit per 0.5kg
+        }
+        else{
+            setProPackingCharge(getProWeight()/0.50*10.00);//10 Ringgit per 0.5kg
+        } 
+        setProID("P1"+String.format("%02d", getProCategory().ordinal()+1));
     }
 
-    @Override
-    public void generateProPackingCharge() {
-        
-        double baseCharge=10.00;
-        double realCharge=0.00;
+    
+    public FragilePro(String ProID, String ProName, int ProStock, double ProPrice, double ProPackingCharge, double ProWeight, String[] ProModel, ProductType ProCategory, Supplier ProSupplier) {
+        super(ProID, ProName, ProStock, ProPrice, ProPackingCharge, ProWeight, ProModel, ProCategory, ProSupplier);      
+    }
 
-        realCharge=getProWeight()/0.50*baseCharge;//10 Ringgit per 0.5kg
-        
-        if (realCharge%baseCharge!=0){
-            realCharge=realCharge-(realCharge%baseCharge)+baseCharge;
-        }
-        
-        setProPackingCharge(realCharge);
-    } 
+//    public void generateProPackingCharge() {
+//
+//        double baseCharge = 10.00;
+//        double realCharge = 0.00;
+//
+//        realCharge = getProWeight() / 0.50 * baseCharge;//10 Ringgit per 0.5kg
+//
+//        if (realCharge % baseCharge != 0) {
+//            realCharge = realCharge - (realCharge % baseCharge) + baseCharge;
+//        }
+//
+//        setProPackingCharge(realCharge);
+//    }
 }
 
 class OrderItem extends Product {
@@ -640,6 +756,18 @@ class OrderItem extends Product {
     public OrderItem() {
     }
 
+    public OrderItem(int OIQuantity, String OIModel, String OrdID) {
+        this.OIQuantity = OIQuantity;
+        this.OIModel = OIModel;
+        this.OIID=OrdID+'-'+''+;
+    }
+
+    public OrderItem(int OIQuantity, String OIModel, String ProID, String ProName, int ProStock, double ProPrice, double ProPackingCharge, double ProWeight, String[] ProModel, ProductType ProCategory, Supplier ProSupplier) {
+        super(ProID, ProName, ProStock, ProPrice, ProPackingCharge, ProWeight, ProModel, ProCategory, ProSupplier);
+        this.OIQuantity = OIQuantity;
+        this.OIModel = OIModel;
+    }
+
     public OrderItem(String OIID, int OIQuantity, String OIModel, String ProID, String ProName, int ProStock, double ProPrice, double ProPackingCharge, double ProWeight, String[] ProModel, ProductType ProCategory, Supplier ProSupplier) {
         super(ProID, ProName, ProStock, ProPrice, ProPackingCharge, ProWeight, ProModel, ProCategory, ProSupplier);
         this.OIID = OIID;
@@ -648,7 +776,6 @@ class OrderItem extends Product {
         this.OIPrice = ProPrice * OIQuantity;
         this.OIPackingCharge = ProPackingCharge * OIQuantity;
     }
-
 
     public String getOIID() {
         return OIID;
@@ -689,22 +816,48 @@ class OrderItem extends Product {
     public void setOIPackingCharge(double OIPackingCharge) {
         this.OIPackingCharge = OIPackingCharge;
     }
-    
-    public void generateOIPrice(){
+
+    public void generateOIPrice() {
         OIPrice = getProPrice() * OIQuantity;
     }
 
-    public void generateOIPackingCharge(){
+    public void generateOIPackingCharge() {
         OIPackingCharge = getProPackingCharge() * OIQuantity;
     }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" + "OIID=" + OIID + ", OIQuantity=" + OIQuantity + ", OIModel=" + OIModel + ", OIPrice=" + OIPrice + ", OIPackingCharge=" + OIPackingCharge + '}';
+    }
+
 }
 
 class Order {
+
     private String OrdID; //ORD000001
     private static int OrdIDCounter = 0;//TODO Modify with Total ID
     private LocalDateTime OrdCreateDT;
     private LocalDateTime OrdModifyDT;
     private ArrayList<OrderItem> OrdItems;
+
+    public Order() {
+        this.OrdItems = new ArrayList<OrderItem>();
+    }
+
+    public Order(LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT) {
+        this.OrdID="ORD" + String.format("%06d", getOrdIDCounter());
+        this.OrdCreateDT = OrdCreateDT;
+        this.OrdModifyDT = OrdModifyDT;
+        this.OrdItems = new ArrayList<OrderItem>();
+        setOrdIDCounter(getOrdIDCounter() + 1);
+    }
+
+    public Order(String OrdID, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT) {
+        this.OrdID = OrdID;
+        this.OrdCreateDT = OrdCreateDT;
+        this.OrdModifyDT = OrdModifyDT;
+        this.OrdItems = new ArrayList<OrderItem>();
+    }
 
     public Order(String OrdID, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, ArrayList<OrderItem> OrdItems) {
         this.OrdID = OrdID;
@@ -752,36 +905,48 @@ class Order {
     public void setOrdItems(ArrayList<OrderItem> OrdItems) {
         this.OrdItems = OrdItems;
     }
-    
-    public void generateOrdID(){
-        String numOrdID=String.format("%06d", getOrdIDCounter());
-        //https://www.mysamplecode.com/2012/03/java-add-leading-zeros-number.html
-        setOrdID("ORD"+numOrdID);
-        setOrdIDCounter(getOrdIDCounter()+1);
+
+//     public void generateOrdID() {
+//        String numOrdID = String.format("%06d", getOrdIDCounter());
+//        //https://www.mysamplecode.com/2012/03/java-add-leading-zeros-number.html
+//        setOrdID("ORD" + String.format("%06d", getOrdIDCounter()));
+//        setOrdIDCounter(getOrdIDCounter() + 1);
+//    }
+     
+    public String getOrdItemsIDs() {
+        String OrdItemsIDs = "[";
+
+        for (OrderItem item : OrdItems) {
+            OrdItemsIDs = OrdItemsIDs + item.getOIID() + ',';
+        }
+
+        if (OrdItemsIDs.charAt(OrdItemsIDs.length() - 1) == ',') {
+            OrdItemsIDs = OrdItemsIDs.substring(0, OrdItemsIDs.length() - 2);
+        }
+        OrdItemsIDs = OrdItemsIDs + ']';
+        return OrdItemsIDs;
     }
+
+   
 }
 
-class ShoppingCart extends Order{
-    private static int SpcIDCounter;
+class ShoppingCart extends Order {
+
+    public ShoppingCart() {
+    }
+
+    public ShoppingCart(LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT) {
+        super(OrdCreateDT, OrdModifyDT);
+    }
 
     public ShoppingCart(String OrdID, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, ArrayList<OrderItem> OrdItems) {
         super(OrdID, OrdCreateDT, OrdModifyDT, OrdItems);
     }
 
-    
-    public static int getSpcIDCounter() {
-        return SpcIDCounter;
-    }
-
-    public static void setSpcIDCounter(int SpcIDCounter) {
-        ShoppingCart.SpcIDCounter = SpcIDCounter;
-    }
-
     @Override
     public void generateOrdID() {
-         String numSpcID=String.format("%06d", getSpcIDCounter());
-        setOrdID("SPC"+numSpcID);
-        setSpcIDCounter(getSpcIDCounter()+1);
+        String numSpcID = String.format("%06d", CusAcc.getCACounter());
+        setOrdID("SPC" + numSpcID);
     }
 }
 
@@ -791,34 +956,33 @@ public class RetailOrderManagementSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        //Test Login and Account Register
-//        ArrayList<CusAcc> CusAccounts=new ArrayList<CusAcc>();
-//        ArrayList<AdminAcc> AdminAccounts=new ArrayList<AdminAcc>();
-//        
-//        //Account Register
-//        CusAcc Cus1=new CusAcc("MaxineYYDS","Maxine123");
-//        AdminAcc Admin1=new AdminAcc("MaxineWorking","Maxine456");
-//        CusAcc Cus2=new CusAcc("NewayYYDS","Neway123"); 
-//        AdminAcc Admin2=new AdminAcc("NewayYYDS","Neway123");
-//        
-//        CusAccounts.add(Cus1);
-//        CusAccounts.add(Cus2);
-//        
-//        AdminAccounts.add(Admin1);
-//        AdminAccounts.add(Admin2);
-//        
-//        //Account Login
-//        for (CusAcc acc : CusAccounts) { 		      
-//           if(acc.verifyLogin("NewayYYDS","Neway123")){
-//               System.out.println(acc);
-//           }	
-//      }
-//        for (AdminAcc acc : AdminAccounts) { 		      
-//           if(acc.verifyLogin("MaxineWorking","Maxine456")){
-//               System.out.println(acc);
-//           }	
-//      }
+        //Test Login and Account Register
+        ArrayList<CusAcc> CusAccounts = new ArrayList<CusAcc>();
+        ArrayList<AdminAcc> AdminAccounts = new ArrayList<AdminAcc>();
 
+        //Account Register
+        CusAcc Cus1 = new CusAcc("MaxineYYDS", "Maxine123");
+        AdminAcc Admin1 = new AdminAcc("MaxineWorking", "Maxine456");
+        CusAcc Cus2 = new CusAcc("NewayYYDS", "Neway123");
+        AdminAcc Admin2 = new AdminAcc("NewayYYDS", "Neway123");
+
+        CusAccounts.add(Cus1);
+        CusAccounts.add(Cus2);
+
+        AdminAccounts.add(Admin1);
+        AdminAccounts.add(Admin2);
+
+        //Account Login
+        for (CusAcc acc : CusAccounts) {
+            if (acc.verifyLogin("NewayYYDS", "Neway123")) {
+                System.out.println(acc);
+            }
+        }
+        for (AdminAcc acc : AdminAccounts) {
+            if (acc.verifyLogin("MaxineWorking", "Maxine456")) {
+                System.out.println(acc);
+            }
+        }
 
     }
 

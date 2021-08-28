@@ -493,7 +493,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="159" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="buttonAdd4" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="buttonCusAdd" min="-2" pref="75" max="-2" attributes="0"/>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Component id="buttonEdit4" min="-2" pref="74" max="-2" attributes="0"/>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
@@ -510,7 +510,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="buttonEdit4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="buttonAdd4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCusAdd" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -639,13 +639,16 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEdit4ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonAdd4">
+            <Component class="javax.swing.JButton" name="buttonCusAdd">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCusAddActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
