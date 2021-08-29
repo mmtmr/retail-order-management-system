@@ -38,6 +38,12 @@ public class CusInfo extends PersonalInfo {
         this.PIRewardPoint = PIRewardPoint;
         this.PIDateOfBirth = PIDateOfBirth;
     }
+    
+    public CusInfo(String[] PILine) {
+        super(PILine[0], PILine[1], Gender.valueOf(PILine[2]));
+        this.PIRewardPoint = Integer.parseInt(PILine[3]);
+        this.PIDateOfBirth = LocalDate.parse(PILine[4]);
+    }
 
     public int getPIRewardPoint() {
         return PIRewardPoint;
@@ -60,20 +66,29 @@ public class CusInfo extends PersonalInfo {
         return PIFName + "," + PILName + "," + PIGender + "," + PIDateOfBirth + "," + PIRewardPoint;
     }
 
-    public static CusInfo parsePIFromString(String piLine) {
-        String[] pi = new String[6];
-        try {
-            System.out.println(piLine);
-            String[] piData = piLine.split("\t");
-            if (piData.length != 6) {
-                throw (new Exception("Personal Info is incomplete!" + piLine));
-            } else {
-                pi = piData.clone();
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
+//    public static CusInfo parsePIFromString(String piLine) {
+//        String[] pi = new String[6];
+//        try {
+//            System.out.println(piLine);
+//            String[] piData = piLine.split("\t");
+//            if (piData.length != 6) {
+//                throw (new Exception("Personal Info is incomplete!" + piLine));
+//            } else {
+//                pi = piData.clone();
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        return new CusInfo(pi[0], pi[1], Gender.valueOf(pi[2]), LocalDate.parse(pi[4]), Integer.parseInt(pi[3]));
+//    }
+    
+    public static String[] parseCusInfoFromString(String piLine) throws Exception {
+        String[] piData = piLine.split("\t");
+        if (piData.length != 5) {
+            throw (new Exception("Customer Info is incomplete!" + piLine));
+        } else {
+            return piData;
         }
-        return new CusInfo(pi[0], pi[1], Gender.valueOf(pi[2]), LocalDate.parse(pi[4]), Integer.parseInt(pi[3]));
     }
 }

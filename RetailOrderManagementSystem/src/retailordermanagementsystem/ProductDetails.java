@@ -232,7 +232,7 @@ public abstract class ProductDetails {
         return ProModelsList;
     }
 
-    public void addProModelsList(String ProModelsNames, String ProModelsStocks) {
+    public final void addProModelsList(String ProModelsNames, String ProModelsStocks) {
         try {
             String[] proModelsNames = ProModelsNames.split(",");
             String[] proModelsStocks = ProModelsStocks.split(",");

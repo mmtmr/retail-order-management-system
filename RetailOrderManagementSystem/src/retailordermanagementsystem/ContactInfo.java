@@ -31,7 +31,17 @@ public class ContactInfo {
         this.CIAddPostcode = CIAddPostcode;
 
     }
+    
+    public ContactInfo(String[] CILine) {
+        this.CIPhone = CILine[0];
+        this.CIEmail = CILine[1];
+        this.CIAddStreet = CILine[2];
+        this.CIAddCity = CILine[3];
+        this.CIAddState = CILine[4];
+        this.CIAddPostcode = CILine[5];
 
+    }
+    
     public String getCIPhone() {
         return CIPhone;
     }
@@ -131,21 +141,29 @@ public class ContactInfo {
         return CIPhone + "\t" + CIEmail + "\t" + CIAddStreet + "\t" + CIAddCity + "\t" + CIAddState + "\t" + CIAddPostcode;
     }
 
-    public static ContactInfo parseCIFromString(String ciLine) {
-        String[] ci = new String[6];
-        try {
-            System.out.println(ciLine);
-            String[] ciData = ciLine.split("\t");
-            if (ciData.length != 6) {
-                throw (new Exception("Contact Info is incomplete!" + ciLine));
-            } else {
-                ci = ciData.clone();
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
+//    public static ContactInfo parseCIFromString(String ciLine) {
+//        String[] ci = new String[6];
+//        try {
+//            System.out.println(ciLine);
+//            String[] ciData = ciLine.split("\t");
+//            if (ciData.length != 6) {
+//                throw (new Exception("Contact Info is incomplete!" + ciLine));
+//            } else {
+//                ci = ciData.clone();
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//
+//        return new ContactInfo(ci[0], ci[1], ci[2], ci[3], ci[4], ci[5]);
+//    }
+     public static String[] parseContactInfoFromString(String ciLine) throws Exception {
+        String[] ciData = ciLine.split("\t");
+        if (ciData.length != 6) {
+            throw (new Exception("Contact Info is incomplete!" + ciLine));
+        } else {
+            return ciData;
         }
-
-        return new ContactInfo(ci[0], ci[1], ci[2], ci[3], ci[4], ci[5]);
     }
 }

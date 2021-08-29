@@ -31,6 +31,15 @@ public abstract class Account {
         this.AccLastLoginDT = AccLastLoginDT;
 
     }
+    
+    public Account(String[] AccLine) {
+        this.AccID = AccLine[0];
+        this.AccName = AccLine[1];
+        this.AccPassword = AccLine[2];
+        this.AccRegisterDT = LocalDateTime.parse(AccLine[3]);
+        this.AccLastLoginDT = LocalDateTime.parse(AccLine[4]);
+
+    }
 
     //Register
     public Account(String AccName, String AccPassword) {
@@ -92,15 +101,30 @@ public abstract class Account {
 
     //public static Account parseAccountFromString(String accLine);  
     public static String[] parseAccountFromString(String accLine) {
-        String[] caData = accLine.split("\t");
+        String[] accData = accLine.split("\t");
         try {            
-            if (caData.length != 5) {
+            if (accData.length != 5) {
                 throw (new Exception("Account is incomplete!" + accLine));
             }
 
         } catch (Exception e) {
             System.out.println(e);
         }
-        return caData;
+        return accData;
+    }
+    
+    public static void buildAccFromString(String accLine) {
+        try {
+            String[] AccLine = parseAccountFromString(accLine);
+            if (AccLine[0].contains("CA")) {
+                Operation.AccList.add(new CusAcc(AccLine));
+            } else if (AccLine[0].contains("AA")) {
+                Operation.AccList.add(new AdminAcc(AccLine));
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 }

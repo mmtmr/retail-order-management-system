@@ -6,7 +6,7 @@
 package retailordermanagementsystem;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import static retailordermanagementsystem.Operation.AccList;
 
 /**
  *
@@ -31,6 +31,14 @@ public class CusAcc extends Account {
         this.CusSC=new ShoppingCart();//Set it later
         addCACounter();
     }
+
+    public CusAcc(String[] AccLine) {
+        super(AccLine[0], AccLine[1], AccLine[2], LocalDateTime.parse(AccLine[3]), LocalDateTime.parse(AccLine[4]));
+        this.CusSC=new ShoppingCart();//Set it later
+        addCACounter();
+    }
+    
+    
 
     public static int getCACounter() {
         return CACounter;
@@ -66,7 +74,7 @@ public class CusAcc extends Account {
 //        return getAccID() + "\t" + getAccName() + "\t" + getAccPassword() + "\t" + getAccRegisterDT() + "\t" + getAccLastLoginDT() +"\t"+CusSC.getOrdID();
 //    }
     
-     public static CusAcc searchCAFromID(String caID, ArrayList<Account> AccList) {
+     public static CusAcc searchCAFromID(String caID) {
         CusAcc account=new CusAcc();
         try {
             for (Account acc : AccList) {
@@ -83,5 +91,6 @@ public class CusAcc extends Account {
     }
     
 
+     
     //TODO CHECK DUPKEY
 }

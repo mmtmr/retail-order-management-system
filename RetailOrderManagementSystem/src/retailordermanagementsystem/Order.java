@@ -7,6 +7,7 @@ package retailordermanagementsystem;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import static retailordermanagementsystem.Operation.OrdList;
 
 /**
  *
@@ -99,6 +100,30 @@ public class Order extends OrderDetails {
     @Override
     public String toString() {
         return OrdID + "\t" + OrdStatus + "\t" + OrdCreateDT + "\t" + OrdModifyDT + "\t" + OrdShipment + "\t" + AccID + "\t" + getOrdItemsIDs();
+    }
+
+    public static ArrayList<Order> searchOrdersFromIDs(String[] OrdersIDs) {
+        ArrayList<Order> Orders = new ArrayList<>();
+        if (OrdersIDs[0] != null) {
+            try {
+                for (String id : OrdersIDs) {
+                    for (Order ord : OrdList) {
+                        if (ord.getOrdID().equals(id)) {
+                            Orders.add(ord);
+                        }
+                    }
+                }
+                if (Orders.isEmpty()) {
+                    throw (new Exception("Order not found!" + OrdersIDs));
+                } else {
+                    return Orders;
+                }
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        return Orders;
     }
 
     public static Order parseOrdFromString(String ordLine) {

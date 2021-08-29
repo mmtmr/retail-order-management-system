@@ -28,7 +28,7 @@ public class Operation {
     public static ArrayList<Supplier> SupList = new ArrayList();
     public static ArrayList<OrderItem> OIList = new ArrayList();
     public static ArrayList<ShoppingCart> SCList = new ArrayList();
-    public static ArrayList<OrderDetails> OrdList = new ArrayList();
+    public static ArrayList<Order> OrdList = new ArrayList();
     public static ArrayList<Customer> CusList = new ArrayList();
 
     //Create or Read file
@@ -44,19 +44,19 @@ public class Operation {
             //https://stackoverflow.com/a/39552075
             String accLine;
             while ((accLine = accRead.readLine()) != null) {
+                Account.buildAccFromString(accLine);
                 //System.out.println(accLine);
-                String[] accData = accLine.split("\t");
-
-                if (accData[0].substring(0, 2).equals("CA")) {
-                    CusAcc acc = CusAcc.parseAccountFromString(accLine);
-                    AccList.add(acc);
-                    //System.out.println(acc);
-                    //CusAcc.setCACounter(CusAcc.getCACounter()+1);
-                } else if (accData[0].substring(0, 2).equals("AA")) {
-                    AdminAcc acc = AdminAcc.parseAccountFromString(accLine);
-                    AccList.add(acc);
-                    //AdminAcc.setAACounter(AdminAcc.getAACounter()+1);
-                }
+//                String[] accData = accLine.split("\t");
+//
+//                if (accData[0].substring(0, 2).equals("CA")) {
+//                    buildAccFromString(accLine);
+//                    //System.out.println(acc);
+//                    //CusAcc.setCACounter(CusAcc.getCACounter()+1);
+//                } else if (accData[0].substring(0, 2).equals("AA")) {
+//                    AdminAcc acc = AdminAcc.parseAccountFromString(accLine);
+//                    AccList.add(acc);
+//                    //AdminAcc.setAACounter(AdminAcc.getAACounter()+1);
+//                }
             }
         } finally {
             accRead.close();
@@ -76,20 +76,13 @@ public class Operation {
 
             while ((proLine = proRead.readLine()) != null) {
                 System.out.println(proLine);
-                String[] proData = proLine.split("\t");
+                //String[] proData = proLine.split("\t");
 
 //                if (proData.length!=4) {
 //                    throw new IOException("Product file is damaged!");
 //                }
                 //https://www.studytonight.com/java-examples/how-to-convert-string-to-arraylist-in-java
-                if ("P0".equals(proData[0].substring(0, 2))) {
-                    Product pro = Product.parseProFromString(proLine);
-                    ProList.add(pro);
-                } else if ("P1".equals(proData[0].substring(0, 2))) {
-                    Product pro = FragilePro.parseProFromString(proLine);
-                    ProList.add(pro);
-                    //Might need to add FragileProductList
-                }
+                ProductDetails.buildProFromString(proLine);
             }
         } finally {
             proRead.close();

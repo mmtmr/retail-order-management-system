@@ -24,6 +24,12 @@ public class PersonalInfo {
         this.PILName = PILName;
         this.PIGender = PIGender;
     }
+    
+    public PersonalInfo(String[] PILine) {
+        this.PIFName = PILine[0];
+        this.PILName = PILine[1];
+        this.PIGender = Gender.valueOf(PILine[2]);
+    }
 
     public String getPIFName() {
         return PIFName;
@@ -57,20 +63,29 @@ public class PersonalInfo {
         return PIFName + "," + PILName + "," + PIGender;
     }
 
-    public static PersonalInfo parsePIFromString(String piLine) {
-        String[] pi = new String[3];
-        try {
-            System.out.println(piLine);
-            String[] piData = piLine.split("\t");
-            if (piData.length != 3) {
-                throw (new Exception("Personal Info is incomplete!" + piLine));
-            } else {
-                pi = piData.clone();
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
+//    public static PersonalInfo parsePIFromString(String piLine) {
+//        String[] pi = new String[3];
+//        try {
+//            System.out.println(piLine);
+//            String[] piData = piLine.split("\t");
+//            if (piData.length != 3) {
+//                throw (new Exception("Personal Info is incomplete!" + piLine));
+//            } else {
+//                pi = piData.clone();
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        return new PersonalInfo(pi[0], pi[1], Gender.valueOf(pi[2]));
+//    }
+    
+    public static String[] parsePIFromString(String piLine) throws Exception {
+        String[] piData = piLine.split("\t");
+        if (piData.length != 3) {
+            throw (new Exception("Personal Info is incomplete!" + piLine));
+        } else {
+            return piData;
         }
-        return new PersonalInfo(pi[0], pi[1], Gender.valueOf(pi[2]));
     }
 }
