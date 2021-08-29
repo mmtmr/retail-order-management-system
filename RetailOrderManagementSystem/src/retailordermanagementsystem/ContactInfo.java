@@ -5,7 +5,6 @@
  */
 package retailordermanagementsystem;
 
-import static retailordermanagementsystem.Validation.validateContactInfo;
 
 /**
  *
@@ -24,14 +23,13 @@ public class ContactInfo {
     }
 
     public ContactInfo(String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode) {
-        if (validateContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode)) {
-            this.CIPhone = CIPhone;
-            this.CIEmail = CIEmail;
-            this.CIAddStreet = CIAddStreet;
-            this.CIAddCity = CIAddCity;
-            this.CIAddState = CIAddState;
-            this.CIAddPostcode = CIAddPostcode;
-        }
+        this.CIPhone = CIPhone;
+        this.CIEmail = CIEmail;
+        this.CIAddStreet = CIAddStreet;
+        this.CIAddCity = CIAddCity;
+        this.CIAddState = CIAddState;
+        this.CIAddPostcode = CIAddPostcode;
+
     }
 
     public String getCIPhone() {

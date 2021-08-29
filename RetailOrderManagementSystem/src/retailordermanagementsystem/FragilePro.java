@@ -12,54 +12,26 @@ import java.util.ArrayList;
  *
  * @author Maxine
  */
-public class FragilePro extends Product {
+public class FragilePro extends ProductDetails {
 
-    public FragilePro() {
+   public FragilePro() {
     }
 
-    public FragilePro(String ProName, double ProPrice, double ProWeight, String ProModelsNames, String ProModelsStocks, ProductType ProCategory) {
-        super(ProName, ProPrice, ProWeight, ProModelsNames, ProModelsStocks, ProCategory);
-        switch (ProCategory) {
-            case Stationery:
-                this.ProID = "P1" + String.format("%02d", ProCategory.ordinal() + 1) + String.format("%04d", getProStationeryCounter() + 1);
-                //setProStationeryCounter(getProStationeryCounter()+1);
-                break;
-            case Food:
-                this.ProID = "P1" + String.format("%02d", ProCategory.ordinal() + 1) + String.format("%04d", getProFoodCounter() + 1);
-                //setProFoodCounter(getProFoodCounter()+1);
-                break;
-            case Fashion:
-                this.ProID = "P1" + String.format("%02d", ProCategory.ordinal() + 1) + String.format("%04d", getProFashionCounter() + 1);
-                //setProFashionCounter(getProFashionCounter()+1);
-                break;
-            case Other:
-                this.ProID = "P1" + String.format("%02d", ProCategory.ordinal() + 1) + String.format("%04d", getProFashionCounter() + 1);
-                //setProOtherCounter(getProFashionCounter()+1);
-                break;
+    public FragilePro(String ProID, String ProName, double ProPackingCharge, double ProWeight, ProductType ProCategory) {
+        super(ProID, ProName, ProPackingCharge, ProWeight, ProCategory);
+    }
 
-        }
-        if ((ProWeight / 0.50 * 10.00) % 10.00 != 0) {
-            ProPackingCharge = ProWeight / 0.50 * 10.00 - ((ProWeight / 0.50 * 10.00) % 10.00) + 10.00;//10 Ringgit per 0.5kg
+    public FragilePro(String ProName, double ProWeight, ProductType ProCategory) {
+        super(ProName, ProWeight, ProCategory);
+        this.ProID = "P0" + this.ProID;
+        if ((ProWeight / 0.50 * 6.00) % 6.00 != 0) {
+            this.ProPackingCharge = ProWeight / 0.50 * 6.00 - ((ProWeight / 0.50 * 6.00) % 6.00) + 6.00;//6 Ringgit per 0.5kg
         } else {
-            ProPackingCharge = ProWeight / 0.50 * 10.00;//10 Ringgit per 0.5kg
+            this.ProPackingCharge = ProWeight / 0.50 * 6.00;
         }
     }
 
-    public FragilePro(String ProID, String ProName, double ProPrice, double ProPackingCharge, double ProWeight, String ProModelsNames, String ProModelsStocks, ProductType ProCategory) {
-        super(ProID, ProName, ProPrice, ProPackingCharge, ProWeight, ProModelsNames, ProModelsStocks, ProCategory);
+    public FragilePro(String[] ProLine) {
+        super(ProLine);
     }
-
-//    public void generateProPackingCharge() {
-//
-//        double baseCharge = 10.00;
-//        double realCharge = 0.00;
-//
-//        realCharge = getProWeight() / 0.50 * baseCharge;//10 Ringgit per 0.5kg
-//
-//        if (realCharge % baseCharge != 0) {
-//            realCharge = realCharge - (realCharge % baseCharge) + baseCharge;
-//        }
-//
-//        setProPackingCharge(realCharge);
-//    }
 }

@@ -33,8 +33,7 @@ public class CusInfo extends PersonalInfo {
         this.PIRewardPoint = 0;
     }
 
-
-    public CusInfo(String PIFName, String PILName, Gender PIGender,LocalDate PIDateOfBirth,int PIRewardPoint) {
+    public CusInfo(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint) {
         super(PIFName, PILName, PIGender);
         this.PIRewardPoint = PIRewardPoint;
         this.PIDateOfBirth = PIDateOfBirth;
@@ -56,10 +55,9 @@ public class CusInfo extends PersonalInfo {
         this.PIDateOfBirth = PIDateOfBirth;
     }
 
-  
     @Override
     public String toString() {
-        return PIFName + "\t" + PILName + "\t" + PIGender + "\t" + PIRewardPoint + "\t" + PIDateOfBirth;
+        return PIFName + "," + PILName + "," + PIGender + "," + PIDateOfBirth + "," + PIRewardPoint;
     }
 
     public static CusInfo parsePIFromString(String piLine) {

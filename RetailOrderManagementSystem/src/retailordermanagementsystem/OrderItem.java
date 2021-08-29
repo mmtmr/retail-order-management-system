@@ -11,44 +11,57 @@ import java.util.ArrayList;
  *
  * @author Maxine
  */
-public class OrderItem extends Product {
+public class OrderItem extends ProductDetails {
 
-    private Product OIPro;
-    private String OIID; //ORD001-P001000101
+    //OrderItem can only have one model
+    private String OIID; //ORD001-P0010001
     private int OIQuantity;
-    private String OIModel;
     private double OIPrice;
     private double OIPackingCharge;
 
     public OrderItem() {
     }
 
-    public OrderItem(Product OIPro, String OIID, int OIQuantity, String OIModel, double OIPrice, double OIPackingCharge) {
-        this.OIPro = OIPro;
+    public OrderItem(String OIID, int OIQuantity, double OIPrice, double OIPackingCharge) {
         this.OIID = OIID;
         this.OIQuantity = OIQuantity;
-        this.OIModel = OIModel;
         this.OIPrice = OIPrice;
         this.OIPackingCharge = OIPackingCharge;
     }
 
-//    public OrderItem(Product Pro, String OIID, int OIQuantity, String OIModel, double OIPrice, double OIPackingCharge) {
-//        super(Pro);
-//        this.OIID = OIID;
-//        this.OIQuantity = OIQuantity;
-//        this.OIModel = OIModel;
-//        this.OIPrice = OIPrice;
-//        this.OIPackingCharge = OIPackingCharge;
-//    }
-    public OrderItem(Order OIOrd, Product OIPro, int OIQuantity, String OIModel) {
-        this.OIPro = OIPro;
+    public OrderItem(String OIID, int OIQuantity, double OIPrice, double OIPackingCharge, String ProID, String ProName, double ProWeight, double ProPackingCharge, ProductType ProCategory) {
+        super(ProID, ProName, ProWeight, ProPackingCharge, ProCategory);
+        this.OIID = OIID;
+        this.OIQuantity = OIQuantity;
+        this.OIPrice = OIPrice;
+        this.OIPackingCharge = OIPackingCharge;
+    }
+
+    public OrderItem(String OIID, int OIQuantity, double OIPrice, double OIPackingCharge, String[] ProLine) {
+        super(ProLine);
+        this.OIID = OIID;
+        this.OIQuantity = OIQuantity;
+        this.OIPrice = OIPrice;
+        this.OIPackingCharge = OIPackingCharge;
+    }
+
+    public OrderItem(String OIID, int OIQuantity, double OIPrice, double OIPackingCharge, String ProName, double ProWeight, ProductType ProCategory) {
+        super(ProName, ProWeight, ProCategory);
+        this.OIID = OIID;
+        this.OIQuantity = OIQuantity;
+        this.OIPrice = OIPrice;
+        this.OIPackingCharge = OIPackingCharge;
+    }
+
+    
+    public OrderItem(String OrdID, Product OIPro, int OIQuantity, String OIModel) {
         this.OIQuantity = OIQuantity;
         this.OIModel = OIModel;
         int index = 0;
         for (ProModel model : OIPro.getProModels()) {
             if (model.getPMName().equals(OIModel)) {
                 model.minusPMStock(this.OIQuantity);
-                this.OIID = OIOrd.getOrdID() + '-' + OIPro.getProID() + String.format("%02d", index + 1);
+                this.OIID = OrdID + '-' + OIPro.getProID() + String.format("%02d", index + 1);
                 break;
             }
             index++;

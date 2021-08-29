@@ -6,6 +6,7 @@
 package retailordermanagementsystem;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,19 +14,22 @@ import java.time.LocalDateTime;
  */
 public class CusAcc extends Account {
 
-    private static int CACounter; //TODO: READ FROM TXT FILE
-
+    private static int CACounter; //TODO: READ FROM TXT FIL
+    private ShoppingCart CusSC;//Account gone shopping cart gone
     public CusAcc() {
     }
 
     public CusAcc(String AccName, String AccPassword) {
         super(AccName, AccPassword);
         this.AccID = "CA" + String.format("%05d", CACounter + 1);
+        this.CusSC=new ShoppingCart(AccID);
         addCACounter();
     }
 
     public CusAcc(String AccID, String AccName, String AccPassword, LocalDateTime AccRegisterDT, LocalDateTime AccLastLoginDT) {
         super(AccID, AccName, AccPassword, AccRegisterDT, AccLastLoginDT);
+        this.CusSC=new ShoppingCart();//Set it later
+        addCACounter();
     }
 
     public static int getCACounter() {
@@ -44,22 +48,40 @@ public class CusAcc extends Account {
         CusAcc.CACounter -= 1;
     }
 
-    public static CusAcc parseAccountFromString(String accLine) {
-        String[] ca = new String[5];
-        try {
-            System.out.println(accLine);
-            String[] caData = accLine.split("\t");
-            if (caData.length != 5) {
-                throw (new Exception("Customer Account is incomplete!" + accLine));
-            } else {
-                ca = caData.clone();
-            }
+    public ShoppingCart getCusSC() {
+        return CusSC;
+    }
 
+    public void setCusSC(ShoppingCart CusSC) {
+        this.CusSC = CusSC;
+    }
+
+    public void setCusSC(String OrdID, LocalDateTime OrdModifyDT) {
+        this.CusSC = new ShoppingCart(OrdID,OrdModifyDT);
+    }
+    
+    
+//    @Override
+//    public String toString() {
+//        return getAccID() + "\t" + getAccName() + "\t" + getAccPassword() + "\t" + getAccRegisterDT() + "\t" + getAccLastLoginDT() +"\t"+CusSC.getOrdID();
+//    }
+    
+     public static CusAcc searchCAFromID(String caID, ArrayList<Account> AccList) {
+        CusAcc account=new CusAcc();
+        try {
+            for (Account acc : AccList) {
+                if (acc.getAccID().equals(caID)) {
+                    account = (CusAcc)acc;
+                } else {
+                    throw (new Exception("Account not found!" + caID));
+                }
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
-        return new CusAcc(ca[0], ca[1], ca[2], LocalDateTime.parse(ca[3]), LocalDateTime.parse(ca[4]));
+        return account;
     }
+    
 
     //TODO CHECK DUPKEY
 }

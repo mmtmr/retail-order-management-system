@@ -13,24 +13,33 @@ import java.util.ArrayList;
  * @author Maxine
  */
 public class Order extends OrderDetails {
-    
+
     private static int OrdCounter;//TODO Modify with Total ID
     private LocalDateTime OrdCreateDT;
     private OrderStatus OrdStatus;
     private String OrdShipment;
+    private String AccID;
 
     public Order() {
+    }
+
+    //Create order
+    public Order(String AccID) {
         this.OrdID = "OR" + String.format("%06d", OrdCounter + 1);
         this.OrdCreateDT = LocalDateTime.now();
         this.OrdStatus = OrderStatus.Waiting;
+        this.AccID = AccID;
         addOrdCounter();
     }
 
-    public Order(String OrdID, OrderStatus OrdStatus, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment, ArrayList<OrderItem> OrdItems) {
-        super(OrdID, OrdModifyDT, OrdItems);
+    //Load order
+    public Order(String OrdID, OrderStatus OrdStatus, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment, String AccID) {
+        super(OrdID, OrdModifyDT);
+        this.OrdCreateDT = OrdCreateDT;
         this.OrdStatus = OrdStatus;
         this.OrdShipment = OrdShipment;
-        this.OrdCreateDT = OrdCreateDT;
+        this.AccID = AccID;
+        addOrdCounter();
     }
 
     public static int getOrdCounter() {
@@ -57,6 +66,22 @@ public class Order extends OrderDetails {
         this.OrdStatus = OrdStatus;
     }
 
+    public String getOrdShipment() {
+        return OrdShipment;
+    }
+
+    public void setOrdShipment(String OrdShipment) {
+        this.OrdShipment = OrdShipment;
+    }
+
+    public String getAccID() {
+        return AccID;
+    }
+
+    public void setAccID(String AccID) {
+        this.AccID = AccID;
+    }
+
 //     public void generateOrdID() {
 //        String numOrdID = String.format("%06d", getOrdIDCounter());
 //        //https://www.mysamplecode.com/2012/03/java-add-leading-zeros-number.html
@@ -73,36 +98,37 @@ public class Order extends OrderDetails {
 
     @Override
     public String toString() {
-        return OrdID + "\t" + OrdStatus + "\t" + OrdCreateDT + "\t" + OrdModifyDT + "\t" + OrdShipment + "\t" + getOrdItemsIDs();
+        return OrdID + "\t" + OrdStatus + "\t" + OrdCreateDT + "\t" + OrdModifyDT + "\t" + OrdShipment + "\t" + AccID + "\t" + getOrdItemsIDs();
     }
-    
-     public static Order parseOrdFromString(String ordLine, ArrayList<OrderItem> OIList){
-        String[] ord = new String[5];
-        ArrayList<OrderItem> ordItems=new ArrayList();
+
+    public static Order parseOrdFromString(String ordLine) {
+        String[] ord = new String[6];
+//        ArrayList<OrderItem> ordItems = new ArrayList();
         try {
             System.out.println(ordLine);
             String[] ordData = ordLine.split("\t");
-            if (ordData.length != 6) {
+            if (ordData.length != 7) {
                 throw (new Exception("Order is incomplete!" + ordLine));
             } else {
-                ord[0]=ordData[0];
-                ord[1]=ordData[1];
-                ord[2]=ordData[2];
-                ord[3]=ordData[3];
-                ord[4]=ordData[4];
-                String[] ordOrdItemsIDsData = ordData[5].split(",");
-                for (String id : ordOrdItemsIDsData) {
-                    for (OrderItem oi : OIList) {
-                        if (oi.getOIID().equals(id)) {
-                            ordItems.add(oi);
-                        }
-                    }
-                }
+                ord[0] = ordData[0];
+                ord[1] = ordData[1];
+                ord[2] = ordData[2];
+                ord[3] = ordData[3];
+                ord[4] = ordData[4];
+                ord[5] = ordData[5];
+//                String[] ordOrdItemsIDsData = ordData[5].split(",");
+//                for (String id : ordOrdItemsIDsData) {
+//                    for (OrderItem oi : OIList) {
+//                        if (oi.getOIID().equals(id)) {
+//                            ordItems.add(oi);
+//                        }
+//                    }
+//                }
             }
 
         } catch (Exception e) {
             System.out.println(e);
         }
-        return new Order(ord[0],OrderStatus.valueOf(ord[1]), LocalDateTime.parse(ord[2]), LocalDateTime.parse(ord[3]),ord[4],ordItems);
+        return new Order(ord[0], OrderStatus.valueOf(ord[1]), LocalDateTime.parse(ord[2]), LocalDateTime.parse(ord[3]), ord[4], ord[5]);
     }
 }

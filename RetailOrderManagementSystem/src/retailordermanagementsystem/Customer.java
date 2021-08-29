@@ -6,45 +6,52 @@
 package retailordermanagementsystem;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import static retailordermanagementsystem.Validation.validateCustomer;
 
 /**
  *
  * @author Maxine
  */
 public class Customer {
-
+    private String CusID;
     private CusInfo CusPI;
     private ContactInfo CusCI;
     private CusAcc CusAccount; //UniqueID is here
-    private ShoppingCart CusSC;
     private ArrayList<Order> CusOrders;
     //TODO PAYMENT CREDIT CARD PAYMENT, OPTIONAL CUSTOMER BALANCE
 
     public Customer() {
     }
 
-    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ShoppingCart CusSC, ArrayList<Order> CusOrders) {
+    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, LocalDateTime AccRegisterDT, LocalDateTime AccLastLoginDT, String OrdID, LocalDateTime OrdModifyDT, ArrayList<OrderItem> OrdItems, ArrayList<Order> CusOrders) {
         this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth);
         this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
-        this.CusAccount = CusAccount;
-        this.CusSC = CusSC;
-        this.CusOrders = CusOrders;
+        this.CusAccount = CusAccount;//Aggregation because i want to access it elsewhere
+        this.CusOrders = CusOrders;//Aggregation because i want to keep the order it elsewhere
+    }
+    
+    public String getCusID() {
+        return CusID;
     }
 
-    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount) {
-        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth, PIRewardPoint);
-        this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
-        this.CusAccount = CusAccount;
-    }
-
-    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ShoppingCart CusSC, ArrayList<Order> CusOrders) {
-        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth, PIRewardPoint);
-        this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
-        this.CusAccount = CusAccount;
-        this.CusSC = CusSC;
-        this.CusOrders = CusOrders;
+//    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount) {
+//        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth, PIRewardPoint);
+//        this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
+//        this.CusAccount = CusAccount;
+//    }
+//
+//    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ShoppingCart CusSC, ArrayList<Order> CusOrders) {
+//        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth, PIRewardPoint);
+//        this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
+//        this.CusAccount = CusAccount;
+//        this.CusSC = CusSC;
+//        this.CusOrders = CusOrders;
+//    }
+    public void setCusID(String CusID) {    
+        this.CusID = CusID;
     }
 
     public CusInfo getCusPI() {
@@ -71,13 +78,6 @@ public class Customer {
         this.CusAccount = CusAccount;
     }
 
-    public ShoppingCart getCusSC() {
-        return CusSC;
-    }
-
-    public void setCusSC(ShoppingCart CusSC) {
-        this.CusSC = CusSC;
-    }
 
     public ArrayList<Order> getCusOrders() {
         return CusOrders;
@@ -91,61 +91,127 @@ public class Customer {
         //String CusOrdersIDs = "[";
         String CusOrdersIDs = "";
         if (!CusOrders.isEmpty()) {
+            CusOrdersIDs = CusOrdersIDs + ',';
             for (Order ord : CusOrders) {
                 CusOrdersIDs = CusOrdersIDs + ord.getOrdID() + ',';
             }
 
-            if (CusOrdersIDs.charAt(CusOrdersIDs.length() - 1) == ',') {
-                CusOrdersIDs = CusOrdersIDs.substring(0, CusOrdersIDs.length() - 2);
+            if (CusOrdersIDs.charAt(CusOrdersIDs.length()) == ',') {
+                CusOrdersIDs = CusOrdersIDs.substring(0, CusOrdersIDs.length() - 1);
             }
             //CusOrdersIDs = CusOrdersIDs + ']';
         }
         return CusOrdersIDs;
     }
 
-    @Override
-    public String toString() {
-        return CusAccount.getAccID() + "\t" + CusPI + "\t" + CusCI + "\t" + CusSC.getOrdID() + "\t" + getCusOrdersIDs();
+    public void editCustomer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, String CAName) {
+//        try{
+//            validateCustomer(PIFName,PILName,CIPhone,CIEmail,CIAddStreet,CIAddCity,CIAddState,CIAddPostcode,CAName);
+//        }
+//        catch(Exception e){
+//            System.out.println(e);
+//        }
+        CusPI.setPIFName(PIFName);
+        CusPI.setPILName(PILName);
+        CusPI.setPIGender(PIGender);
+        CusPI.setPIDateOfBirth(PIDateOfBirth);
+        CusPI.setPIRewardPoint(PIRewardPoint);
+        CusCI.setCIPhone(CIPhone);
+        CusCI.setCIEmail(CIEmail);
+        CusCI.setCIAddStreet(CIAddStreet);
+        CusCI.setCIAddCity(CIAddCity);
+        CusCI.setCIAddState(CIAddState);
+        CusCI.setCIAddPostcode(CIAddPostcode);
+        CusAccount.setAccName(CAName);
     }
 
-    public static Customer parseCusFromString(String cusLine, ArrayList<CusAcc> CusAccList, ArrayList<Order> OrdList, ArrayList<ShoppingCart> SCList) {
-        CusAcc cusAccount = new CusAcc();
-        String[] cusPI = new String[5];
-        String[] cusCI = new String[6];
-        ShoppingCart cusSC = new ShoppingCart();
-        ArrayList<Order> cusOrders = new ArrayList<>();
+    @Override
+    public String toString() {
+        return CusAccount.getAccID() + "\t" + CusPI + "\t" + CusCI + "\t" + getCusOrdersIDs();
+    }
+
+    public static Customer searchCusFromAccID(String cusAccID, ArrayList<Customer> CusList) {
+        Customer customer = new Customer();
         try {
-            System.out.println(cusLine);
-            String[] cusData = cusLine.split("\t");
-            if (cusData.length < 13) {
-                throw (new Exception("Customer Info is incomplete!" + cusLine+cusData.length+cusData[cusData.length-1]));
-            } else {
-                for (CusAcc acc : CusAccList) {
-                    if (acc.getAccID().equals(cusData[0])) {
-                        cusAccount = acc;
-                    } else {
-                        throw (new Exception("Customer Account not found!" + cusLine));
-                    }
-                }
-                cusPI = Arrays.copyOfRange(cusData, 1, 5);
-                cusCI = Arrays.copyOfRange(cusData, 6, 11);
-                for (ShoppingCart sc : SCList) {
-                    if (sc.getOrdID().equals(cusData[12])) {
-                        cusSC = sc;
-                    }
-                }
-                String[] cusOrdersIDsData = cusData[13].split(",");
-                for (String id : cusOrdersIDsData) {
-                    for (Order ord : OrdList) {
-                        if (ord.getOrdID().equals(id)) {
-                            cusOrders.add(ord);
-                        }
-                    }
+            for (Customer cus : CusList) {
+                if (cus.getCusAccount().getAccID().equals(cusAccID)) {
+                    customer = cus;
+                } else {
+                    throw (new Exception("Customer not found!" + cusAccID));
                 }
             }
         } catch (Exception e) {
             System.out.println(e);
         }
+        return customer;
+    }
+
+    public static Customer parseCusFromString(String cusLine, ArrayList<Account> AccList, ArrayList<OrderDetails> OrdList, ArrayList<ShoppingCart> SCList) {
+        CusAcc cusAccount = new CusAcc();
+        String[] cusPI = new String[5];
+        String[] cusCI = new String[6];
+        ShoppingCart cusSC = new ShoppingCart();
+        ArrayList<OrderItem> cusSCOIs = new ArrayList<>();
+        ArrayList<Order> cusOrders = new ArrayList<>();
+        try {
+            System.out.println(cusLine);
+            String[] cusData = cusLine.split("\t");
+            if (cusData.length < 13) {
+                throw (new Exception("Customer Info is incomplete!" + cusLine + cusData.length + cusData[cusData.length - 1]));
+            } else {
+                for (Account acc : AccList) {
+                    if (acc.getAccID().equals(cusData[0])) {
+                        cusAccount = (CusAcc) acc;
+                    } else {
+                        throw (new Exception("Customer Account not found!" + cusLine));
+                    }
+                }
+                cusPI = Arrays.copyOfRange(cusData, 1, 6);
+                cusCI = Arrays.copyOfRange(cusData, 6, 12);
+                String[] cusOrdersIDsData = cusData[12].split(",");
+                int index = 0;
+                for (String id : cusOrdersIDsData) {
+                    for (OrderDetails ord : OrdList) {
+                        if (ord.getOrdID().equals(id)) {
+                            if (index == 0) {
+                                cusSC = (ShoppingCart) ord;
+                            } else {
+                                cusOrders.add((Order) ord);
+                            }
+
+                        }
+                    }
+                    index += 1;
+                }
+                validateCustomer(cusPI[0], cusPI[1], cusCI[0], cusCI[1], cusCI[2], cusCI[3], cusCI[4], cusCI[5], cusAccount.getAccID(), cusAccount.getAccPassword());
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        //String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ShoppingCart CusSC, ArrayList<Order> CusOrders
         return new Customer(cusPI[0], cusPI[1], Gender.valueOf(cusPI[2]), LocalDate.parse(cusPI[3]), Integer.parseInt(cusPI[4]), cusCI[0], cusCI[1], cusCI[2], cusCI[3], cusCI[4], cusCI[5], cusAccount, cusSC, cusOrders);
+    }56531
+
+    public static String[] parseCusFromString(String cusLine) throws Exception {
+        String[] cusData = cusLine.split("\t");
+        if (cusData.length != 5) {
+            throw (new Exception("Customer is incomplete!" + cusLine));
+        } else {
+            return cusData;
+        }
+    }
+
+    public static void buildCusFromString(String cusLine) {
+        try {
+            String[] CusLine = parseCusFromString(cusLine);
+            String[] CusPILine=parsePIFromString(CusLine[0]);
+            String[] CusCILine=parseCIFromString(CusLine[1]);
+            Account CusCILine=searchCAFromID(CusLine[2]);
+            Operation.CusList.add(new Customer(cusLine));
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 }

@@ -5,7 +5,6 @@
  */
 package retailordermanagementsystem;
 
-import static retailordermanagementsystem.Validation.validatePersonalInfo;
 
 /**
  *
@@ -21,11 +20,9 @@ public class PersonalInfo {
     }
 
     public PersonalInfo(String PIFName, String PILName, Gender PIGender) {
-        if (validatePersonalInfo(PIFName, PILName)) {
-            this.PIFName = PIFName;
-            this.PILName = PILName;
-            this.PIGender = PIGender;
-        }
+        this.PIFName = PIFName;
+        this.PILName = PILName;
+        this.PIGender = PIGender;
     }
 
     public String getPIFName() {
@@ -57,7 +54,7 @@ public class PersonalInfo {
 //    }
     @Override
     public String toString() {
-        return PIFName + "\t" + PILName + "\t" + PIGender;
+        return PIFName + "," + PILName + "," + PIGender;
     }
 
     public static PersonalInfo parsePIFromString(String piLine) {

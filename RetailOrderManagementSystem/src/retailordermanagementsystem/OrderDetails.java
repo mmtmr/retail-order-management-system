@@ -19,14 +19,14 @@ public abstract class OrderDetails {
     protected ArrayList<OrderItem> OrdItems;
 
     public OrderDetails() {
-        this.OrdItems = new ArrayList<>();
         this.OrdModifyDT = LocalDateTime.now();
+        this.OrdItems = new ArrayList<>();
     }
 
-    public OrderDetails(String OrdID, LocalDateTime OrdModifyDT, ArrayList<OrderItem> OrdItems) {
+    public OrderDetails(String OrdID, LocalDateTime OrdModifyDT) {
         this.OrdID = OrdID;
         this.OrdModifyDT = OrdModifyDT;
-        this.OrdItems = OrdItems;
+        this.OrdItems = new ArrayList<>();
     }
 
     public String getOrdID() {
@@ -52,16 +52,30 @@ public abstract class OrderDetails {
     public void setOrdItems(ArrayList<OrderItem> OrdItems) {
         this.OrdItems = OrdItems;
     }
-
+    
+    //Create
+    public void setOrdItems(Order OIOrd, Product OIPro, int OIQuantity, String OIModel) {
+        OrdItems.add(new OrderItem(OIPro, OIID, OIQuantity, OIModel, OIPrice, OIPackingCharge));
+    }
+    
+    //Load
+    public void setOrdItems(Product OIPro, String OIID, int OIQuantity, String OIModel, double OIPrice, double OIPackingCharge) {
+        OrdItems.add(new OrderItem(OIPro, OIID, OIQuantity, OIModel, OIPrice, OIPackingCharge));
+    }
+    
     public String getOrdItemsIDs() {
         //String OrdItemsIDs = "[";
         String OrdItemsIDs = "";
-        for (OrderItem item : OrdItems) {
-            OrdItemsIDs = OrdItemsIDs + item.getOIID() + ',';
-        }
+        if (!OrdItems.isEmpty()) {
+            for (OrderItem item : OrdItems) {
+                OrdItemsIDs = OrdItemsIDs + item.getOIID() + ',';
+            }
 
-        if (OrdItemsIDs.charAt(OrdItemsIDs.length() - 1) == ',') {
-            OrdItemsIDs = OrdItemsIDs.substring(0, OrdItemsIDs.length() - 2);
+            if (OrdItemsIDs.charAt(OrdItemsIDs.length() - 1) == ',') {
+                OrdItemsIDs = OrdItemsIDs.substring(0, OrdItemsIDs.length() - 2);
+            }
+        } else {
+            OrdItemsIDs="null";
         }
         //OrdItemsIDs = OrdItemsIDs + ']';
         return OrdItemsIDs;
@@ -69,5 +83,5 @@ public abstract class OrderDetails {
 
     @Override
     public abstract String toString();
-    
+
 }

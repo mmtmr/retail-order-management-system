@@ -9,12 +9,14 @@ package retailordermanagementsystem;
  *
  * @author Maxine
  */
-public class ProModel {
-
+public class ProModel{
     private String PMName;
     private int PMStock;
 
-    public ProModel(String PMName, int PMStock) {
+    public ProModel() {
+    }
+
+    public ProModel(String PMName, int PMStock ) {
         this.PMName = PMName;
         this.PMStock = PMStock;
     }
@@ -35,6 +37,7 @@ public class ProModel {
         this.PMStock = PMStock;
     }
 
+    
     public void minusPMStock(int OIQuantity) {
         try {
             if (PMStock - OIQuantity < 0) {
@@ -46,7 +49,7 @@ public class ProModel {
         } catch (Exception e) {
             System.out.println(e);
         }
-        ;
     }
+    
 
 }

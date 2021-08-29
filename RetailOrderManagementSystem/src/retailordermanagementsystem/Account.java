@@ -6,7 +6,6 @@
 package retailordermanagementsystem;
 
 import java.time.*;
-import static retailordermanagementsystem.Validation.validateAccount;
 
 /**
  *
@@ -23,21 +22,23 @@ public abstract class Account {
     public Account() {
     }
 
+    //Load
     public Account(String AccID, String AccName, String AccPassword, LocalDateTime AccRegisterDT, LocalDateTime AccLastLoginDT) {
         this.AccID = AccID;
         this.AccName = AccName;
         this.AccPassword = AccPassword;
         this.AccRegisterDT = AccRegisterDT;
         this.AccLastLoginDT = AccLastLoginDT;
+
     }
 
+    //Register
     public Account(String AccName, String AccPassword) {
-        if (validateAccount(AccName, AccPassword)) {
-            this.AccName = AccName;
-            this.AccPassword = AccPassword;
-            this.AccRegisterDT = LocalDateTime.now();
-            this.AccLastLoginDT = LocalDateTime.now();
-        }
+        this.AccName = AccName;
+        this.AccPassword = AccPassword;
+        this.AccRegisterDT = LocalDateTime.now();
+        this.AccLastLoginDT = LocalDateTime.now();
+
     }
 
     public String getAccID() {
@@ -90,4 +91,16 @@ public abstract class Account {
     }
 
     //public static Account parseAccountFromString(String accLine);  
+    public static String[] parseAccountFromString(String accLine) {
+        String[] caData = accLine.split("\t");
+        try {            
+            if (caData.length != 5) {
+                throw (new Exception("Account is incomplete!" + accLine));
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return caData;
+    }
 }
