@@ -51,6 +51,13 @@ public class SignUp extends javax.swing.JPanel {
         radioButtonFemale = new javax.swing.JRadioButton();
         labelBirthday = new javax.swing.JLabel();
         textBirthday = new javax.swing.JTextField();
+        labelAccountName = new javax.swing.JLabel();
+        textAccountName = new javax.swing.JTextField();
+        labelPassword = new javax.swing.JLabel();
+        passwordConfirm = new javax.swing.JPasswordField();
+        passwordNew = new javax.swing.JPasswordField();
+        buttonSignUp = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(95, 134, 225));
 
@@ -146,7 +153,7 @@ public class SignUp extends javax.swing.JPanel {
         labelState.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelState.setText("State");
 
-        comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select State>", "Kuala Lumpur", "Selangor", "Putrajaya", "Labuan", "Perlis", "Kedah", "Terengganu", "Pahang", "Perak", "Kelantan", "Penang", "Selangor", "Negeri Sembilan", "Johor", "Malacca", "Sabah", "Sarawak" }));
 
         labelGender.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelGender.setText("Gender");
@@ -166,6 +173,28 @@ public class SignUp extends javax.swing.JPanel {
 
         textBirthday.setText("YYYY-MM-DD");
 
+        labelAccountName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelAccountName.setText("Account Name");
+
+        textAccountName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textAccountNameActionPerformed(evt);
+            }
+        });
+
+        labelPassword.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelPassword.setText("Password");
+
+        passwordConfirm.setText("jPasswordField1");
+
+        passwordNew.setText("jPasswordField1");
+
+        buttonSignUp.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        buttonSignUp.setText("Sign Up");
+
+        buttonCancel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        buttonCancel.setText("Cancel");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -174,24 +203,6 @@ public class SignUp extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelPostcode)
-                            .addComponent(labelState)
-                            .addComponent(labelCity))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textPostcode, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                            .addComponent(textCity, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                            .addComponent(comboState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textFirstName)
-                            .addComponent(textLastName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -209,7 +220,32 @@ public class SignUp extends javax.swing.JPanel {
                             .addComponent(textStreet, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(textBirthday, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textPhone, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                .addComponent(textPhone, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(labelAccountName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textFirstName)
+                            .addComponent(textLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(textAccountName)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelPostcode)
+                            .addComponent(labelState)
+                            .addComponent(labelCity)
+                            .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textPostcode, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(textCity, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(comboState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(passwordConfirm)
+                            .addComponent(passwordNew, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(buttonCancel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -219,7 +255,11 @@ public class SignUp extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -264,7 +304,18 @@ public class SignUp extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelState, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(passwordNew, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(passwordConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboState, labelCity, labelEmail, labelFirstName, labelLastName, labelPhoneNumber, labelPostcode, labelState, labelStreet, textCity, textEmail, textFirstName, textLastName, textPhone, textPostcode, textStreet});
@@ -299,24 +350,35 @@ public class SignUp extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_textPostcodeActionPerformed
 
+    private void textAccountNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAccountNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textAccountNameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCancel;
     private javax.swing.ButtonGroup buttonGroupGender;
+    private javax.swing.JButton buttonSignUp;
     private javax.swing.JComboBox<String> comboState;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel labelAccountName;
     private javax.swing.JLabel labelBirthday;
     private javax.swing.JLabel labelCity;
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelFirstName;
     private javax.swing.JLabel labelGender;
     private javax.swing.JLabel labelLastName;
+    private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelPhoneNumber;
     private javax.swing.JLabel labelPostcode;
     private javax.swing.JLabel labelSignUp;
     private javax.swing.JLabel labelState;
     private javax.swing.JLabel labelStreet;
+    private javax.swing.JPasswordField passwordConfirm;
+    private javax.swing.JPasswordField passwordNew;
     private javax.swing.JRadioButton radioButtonFemale;
     private javax.swing.JRadioButton radioButtonMale;
+    private javax.swing.JTextField textAccountName;
     private javax.swing.JTextField textBirthday;
     private javax.swing.JTextField textCity;
     private javax.swing.JTextField textEmail;
