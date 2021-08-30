@@ -53,11 +53,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel1" max="32767" attributes="0"/>
+                              <Component id="labelPDSupplier" max="32767" attributes="0"/>
                               <Component id="labelPDPrice" alignment="0" max="32767" attributes="0"/>
                               <Component id="labelPDCategory" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelPDFragile" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelPDQuantity" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelPDType" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelPDStock" alignment="0" max="32767" attributes="0"/>
                               <Component id="labelPDModel" alignment="0" max="32767" attributes="0"/>
                               <Component id="labelPDWeight" alignment="0" max="32767" attributes="0"/>
                               <Component id="labelPDName" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
@@ -65,14 +65,11 @@
                           <EmptySpace type="separate" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radioFragile" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTextField1" min="-2" pref="250" max="-2" attributes="0"/>
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jTextField1" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                               <Component id="spinnerPDQuantity" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
                               <Component id="jComboBox1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField2" min="-2" pref="250" max="-2" attributes="0"/>
@@ -82,14 +79,14 @@
                                   <Component id="jTextField4" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="14" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="buttonDelete" min="-2" pref="135" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonAddToCart" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="buttonSave" min="-2" pref="135" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonBuyNow" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="buttonCancel" min="-2" pref="135" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -130,7 +127,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="labelPDSupplier" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="jTextField5" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -140,22 +137,22 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelPDQuantity" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="labelPDStock" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="spinnerPDQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelPDFragile" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelPDType" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="radioFragile" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="53" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonBuyNow" alignment="3" max="32767" attributes="0"/>
-                      <Component id="buttonAddToCart" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonCancel" alignment="3" max="32767" attributes="0"/>
+                      <Component id="buttonSave" alignment="3" max="32767" attributes="0"/>
+                      <Component id="buttonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
@@ -241,7 +238,7 @@
             <Property name="text" type="java.lang.String" value="Model"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelPDQuantity">
+        <Component class="javax.swing.JLabel" name="labelPDStock">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -249,7 +246,7 @@
             <Property name="text" type="java.lang.String" value="Stock"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelPDFragile">
+        <Component class="javax.swing.JLabel" name="labelPDType">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -289,7 +286,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonAddToCart">
+        <Component class="javax.swing.JButton" name="buttonSave">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -297,7 +294,7 @@
             <Property name="text" type="java.lang.String" value="Save"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonBuyNow">
+        <Component class="javax.swing.JButton" name="buttonCancel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -305,7 +302,7 @@
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="labelPDSupplier">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -313,7 +310,7 @@
             <Property name="text" type="java.lang.String" value="Supplier"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="buttonDelete">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -321,7 +318,7 @@
             <Property name="text" type="java.lang.String" value="Delete"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="radioFragile">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroupFragile"/>

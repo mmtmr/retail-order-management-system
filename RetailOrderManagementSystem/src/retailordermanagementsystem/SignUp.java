@@ -73,7 +73,7 @@ public class SignUp extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(50, 50, 50)
                 .addComponent(labelSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -189,10 +189,10 @@ public class SignUp extends javax.swing.JPanel {
 
         passwordNew.setText("jPasswordField1");
 
-        buttonSignUp.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        buttonSignUp.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         buttonSignUp.setText("Sign Up");
 
-        buttonCancel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        buttonCancel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         buttonCancel.setText("Cancel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

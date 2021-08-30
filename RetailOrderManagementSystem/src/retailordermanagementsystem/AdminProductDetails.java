@@ -36,16 +36,16 @@ public class AdminProductDetails extends javax.swing.JPanel {
         labelPDCategory = new javax.swing.JLabel();
         labelPDWeight = new javax.swing.JLabel();
         labelPDModel = new javax.swing.JLabel();
-        labelPDQuantity = new javax.swing.JLabel();
-        labelPDFragile = new javax.swing.JLabel();
+        labelPDStock = new javax.swing.JLabel();
+        labelPDType = new javax.swing.JLabel();
         loadPDCategory = new javax.swing.JLabel();
         spinnerPDQuantity = new javax.swing.JSpinner();
         jComboBox1 = new javax.swing.JComboBox<>();
-        buttonAddToCart = new javax.swing.JButton();
-        buttonBuyNow = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        buttonSave = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
+        labelPDSupplier = new javax.swing.JLabel();
+        buttonDelete = new javax.swing.JButton();
+        radioFragile = new javax.swing.JRadioButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -92,11 +92,11 @@ public class AdminProductDetails extends javax.swing.JPanel {
         labelPDModel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelPDModel.setText("Model");
 
-        labelPDQuantity.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        labelPDQuantity.setText("Stock");
+        labelPDStock.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelPDStock.setText("Stock");
 
-        labelPDFragile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        labelPDFragile.setText("Type");
+        labelPDType.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelPDType.setText("Type");
 
         loadPDCategory.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
@@ -105,20 +105,20 @@ public class AdminProductDetails extends javax.swing.JPanel {
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        buttonAddToCart.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        buttonAddToCart.setText("Save");
+        buttonSave.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        buttonSave.setText("Save");
 
-        buttonBuyNow.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        buttonBuyNow.setText("Cancel");
+        buttonCancel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        buttonCancel.setText("Cancel");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel1.setText("Supplier");
+        labelPDSupplier.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelPDSupplier.setText("Supplier");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Delete");
+        buttonDelete.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        buttonDelete.setText("Delete");
 
-        buttonGroupFragile.add(jRadioButton1);
-        jRadioButton1.setText("Fragile");
+        buttonGroupFragile.add(radioFragile);
+        radioFragile.setText("Fragile");
 
         buttonGroupFragile.add(jRadioButton2);
         jRadioButton2.setText("Non-fragile");
@@ -134,23 +134,21 @@ public class AdminProductDetails extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelPDSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelPDPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelPDCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelPDFragile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelPDQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelPDType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelPDStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelPDModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelPDWeight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelPDName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(radioFragile)
                                 .addGap(18, 18, 18)
                                 .addComponent(jRadioButton2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(spinnerPDQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,13 +156,13 @@ public class AdminProductDetails extends javax.swing.JPanel {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonBuyNow, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loadPDCategory)
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -196,7 +194,7 @@ public class AdminProductDetails extends javax.swing.JPanel {
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelPDSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -204,18 +202,18 @@ public class AdminProductDetails extends javax.swing.JPanel {
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelPDQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelPDStock, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(spinnerPDQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelPDFragile, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton1)
+                            .addComponent(labelPDType, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radioFragile)
                             .addComponent(jRadioButton2))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonBuyNow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonAddToCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1))
+                    .addComponent(buttonCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonDelete))
                 .addGap(29, 29, 29))
         );
 
@@ -237,15 +235,13 @@ public class AdminProductDetails extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddToCart;
-    private javax.swing.JButton buttonBuyNow;
+    private javax.swing.JButton buttonCancel;
+    private javax.swing.JButton buttonDelete;
     private javax.swing.ButtonGroup buttonGroupFragile;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buttonSave;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -253,14 +249,16 @@ public class AdminProductDetails extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel labelPDCategory;
-    private javax.swing.JLabel labelPDFragile;
     private javax.swing.JLabel labelPDModel;
     private javax.swing.JLabel labelPDName;
     private javax.swing.JLabel labelPDPrice;
-    private javax.swing.JLabel labelPDQuantity;
+    private javax.swing.JLabel labelPDStock;
+    private javax.swing.JLabel labelPDSupplier;
+    private javax.swing.JLabel labelPDType;
     private javax.swing.JLabel labelPDWeight;
     private javax.swing.JLabel labelProductDetails;
     private javax.swing.JLabel loadPDCategory;
+    private javax.swing.JRadioButton radioFragile;
     private javax.swing.JSpinner spinnerPDQuantity;
     // End of variables declaration//GEN-END:variables
 }
