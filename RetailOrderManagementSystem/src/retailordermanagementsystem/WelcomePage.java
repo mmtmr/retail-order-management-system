@@ -27,36 +27,50 @@ public class WelcomePage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        labelWelcome = new javax.swing.JLabel();
+        buttonAdmin = new javax.swing.JButton();
+        buttonUser = new javax.swing.JButton();
+        buttonUserIcon = new javax.swing.JButton();
+        buttonAdminIcon = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(221, 229, 246));
 
-        jLabel1.setFont(new java.awt.Font("Script MT Bold", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(109, 147, 236));
-        jLabel1.setText("Welcome To Overcooked Retail Store");
+        labelWelcome.setFont(new java.awt.Font("Script MT Bold", 0, 48)); // NOI18N
+        labelWelcome.setForeground(new java.awt.Color(109, 147, 236));
+        labelWelcome.setText("Welcome To Overcooked Retail Store");
 
-        jButton1.setBackground(new java.awt.Color(108, 152, 255));
-        jButton1.setFont(new java.awt.Font("Monotype Corsiva", 0, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Admin");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonAdmin.setBackground(new java.awt.Color(108, 152, 255));
+        buttonAdmin.setFont(new java.awt.Font("Monotype Corsiva", 0, 36)); // NOI18N
+        buttonAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        buttonAdmin.setText("Admin");
+        buttonAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonAdminActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(108, 152, 255));
-        jButton2.setFont(new java.awt.Font("Monotype Corsiva", 0, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("User");
+        buttonUser.setBackground(new java.awt.Color(108, 152, 255));
+        buttonUser.setFont(new java.awt.Font("Monotype Corsiva", 0, 36)); // NOI18N
+        buttonUser.setForeground(new java.awt.Color(255, 255, 255));
+        buttonUser.setText("User");
 
-        jLabel2.setText("Admin icon pic");
+        buttonUserIcon.setBackground(new java.awt.Color(221, 229, 246));
+        buttonUserIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\user.png")); // NOI18N
+        buttonUserIcon.setBorder(null);
+        buttonUserIcon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUserIconActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setText("User icon pic");
+        buttonAdminIcon.setBackground(new java.awt.Color(221, 229, 246));
+        buttonAdminIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\user.png")); // NOI18N
+        buttonAdminIcon.setBorder(null);
+        buttonAdminIcon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAdminIconActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -64,48 +78,60 @@ public class WelcomePage extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(90, 90, 90))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(buttonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonAdminIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(180, 180, 180)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonUser, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(buttonUserIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(190, 190, 190))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(224, 224, 224)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(246, 246, 246))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                .addGap(115, 115, 115)
+                .addComponent(labelWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonUserIcon)
+                    .addComponent(buttonAdminIcon))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addGap(72, 72, 72)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonUser, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(188, 188, 188))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdminActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonAdminActionPerformed
+
+    private void buttonUserIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUserIconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonUserIconActionPerformed
+
+    private void buttonAdminIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdminIconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAdminIconActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton buttonAdmin;
+    private javax.swing.JButton buttonAdminIcon;
+    private javax.swing.JButton buttonUser;
+    private javax.swing.JButton buttonUserIcon;
+    private javax.swing.JLabel labelWelcome;
     // End of variables declaration//GEN-END:variables
 }

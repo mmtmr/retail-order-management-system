@@ -9,12 +9,12 @@ package retailordermanagementsystem;
  *
  * @author user
  */
-public class EmailSent extends javax.swing.JPanel {
+public class ResetPassword extends javax.swing.JPanel {
 
     /**
      * Creates new form EmailSent
      */
-    public EmailSent() {
+    public ResetPassword() {
         initComponents();
     }
 
