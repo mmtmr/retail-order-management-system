@@ -15,26 +15,27 @@ import static retailordermanagementsystem.Operation.CusList;
  */
 public class Customer {
 
-    private int CusCounter;
-    private String CusID;
-    private CusInfo CusPI;
-    private ContactInfo CusCI;
-    private CusAcc CusAccount; //UniqueID is here
-    private ArrayList<Order> CusOrders;
+    private static int CusCounter;
+    private String CusID;//CUS000
+    private CusInfo CusPI;//Composition
+    private ContactInfo CusCI;//Composition
+    private CusAcc CusAccount; //Aggregation
+    private ArrayList<Order> CusOrders;//Aggregation
     //TODO PAYMENT CREDIT CARD PAYMENT, OPTIONAL CUSTOMER BALANCE
 
     public Customer() {
     }
 
-    public Customer(String CusID, String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ArrayList<OrderItem> OrdItems, ArrayList<Order> CusOrders) {
+    //Normal Load with All Info
+    public Customer(String CusID, String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount,  ArrayList<Order> CusOrders) {
         this.CusID = CusID;
         this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth);
         this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
         this.CusAccount = CusAccount;//Aggregation because i want to access it elsewhere
         this.CusOrders = CusOrders;//Aggregation because i want to keep the order it elsewhere
-        
     }
 
+    //String Array Load
     public Customer(String CusID, String[] PILine, String[] CILine, CusAcc CusAccount, ArrayList<Order> CusOrders) {
         this.CusID = CusID;
         this.CusPI = new CusInfo(PILine);
@@ -43,12 +44,26 @@ public class Customer {
         this.CusOrders = CusOrders;//Aggregation because i want to keep the order it elsewhere
     }
 
+    
+//    public Customer(String CusID, String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ArrayList<Order> CusOrders) {
+//        this.CusID = "CUS"+String.format("%05d", CusCounter + 1);
+//        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth);
+//        this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
+//        this.CusAccount = CusAccount;
+//        this.CusOrders = CusOrders;
+//        addCusCounter();
+//    }
+    
+//https://stackoverflow.com/questions/22271801/how-to-create-constructor-with-empty-arraylist
+    //Create New Customer
+    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount) {
+        this("CUS"+String.format("%05d", CusCounter + 1),PIFName, PILName, PIGender, PIDateOfBirth,CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode, CusAccount,new ArrayList<Order>());
+//        CusList.add(this);
+        addCusCounter();
+    }
+
     public String getCusID() {
         return CusID;
-    }
-    
-    public int getCusCounter() {
-        return CusCounter;
     }
 
 //    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount) {
@@ -64,16 +79,21 @@ public class Customer {
 //        this.CusSC = CusSC;
 //        this.CusOrders = CusOrders;
 //    }
-    public void setCusCounter(int CusCounter) {    
-        this.CusCounter = CusCounter;
+
+    public static int getCusCounter() {
+        return CusCounter;
+    }
+
+    public static void setCusCounter(int CusCounter) {
+        Customer.CusCounter = CusCounter;
+    }
+
+    public static void addCusCounter() {    
+        CusCounter+=1;
     }
     
-    public void addCusCounter() {    
-        this.CusCounter+=1;
-    }
-    
-    public void minusCusCounter() {    
-        this.CusCounter-=1;
+    public static void minusCusCounter() {    
+        CusCounter-=1;
     }
 
     public void setCusID(String CusID) {
@@ -126,6 +146,9 @@ public class Customer {
             }
             //CusOrdersIDs = CusOrdersIDs + ']';
         }
+        else{
+            CusOrdersIDs="OR000000";
+        }
         return CusOrdersIDs;
     }
 
@@ -149,6 +172,8 @@ public class Customer {
         CusCI.setCIAddPostcode(CIAddPostcode);
         CusAccount.setAccName(CAName);
     }
+    
+    
 
     @Override
     public String toString() {
@@ -165,6 +190,22 @@ public class Customer {
                 }
             }
             throw (new Exception("Customer not found!" + cusAccID));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return customer;
+    }
+    
+    public static Customer searchCusFromID(String cusID) {
+        Customer customer = new Customer();
+        try {
+            for (Customer cus : CusList) {
+                if (cus.getCusID().equals(cusID)) {
+                    customer = cus;
+                    return customer;
+                }
+            }
+            throw (new Exception("Customer not found!" + cusID));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -224,16 +265,21 @@ public class Customer {
             return cusData;
         }
     }
+    
+    //CusID + "\t" + CusPI + "\t" + CusCI + "\t" + CusAccount.getAccID() + "\t" + getCusOrdersIDs();
 
+    //String CusID, String[] PILine, String[] CILine, CusAcc CusAccount, ArrayList<Order> CusOrders
+    //CUS001  Ya Wen,Lai,F,2021-09-02,0   mail@mail.com,...,...   CA001   ORD001,ORD002
     public static void buildCusFromString(String cusLine) {
         try {
             String[] CusLine = parseCusFromString(cusLine);
+            
             String[] CusPILine = CusInfo.parseCusInfoFromString(CusLine[1]);
             String[] CusCILine = ContactInfo.parseContactInfoFromString(CusLine[2]);
             CusAcc CusAccount = CusAcc.searchCAFromID(CusLine[3]);
             ArrayList<Order> CusOrders = Order.searchOrdersFromIDs(CusLine[4].split(","));
-            CusList.add(new Customer(CusLine[1], CusPILine, CusCILine, CusAccount, CusOrders));
-
+            
+            CusList.add(new Customer(CusLine[0], CusPILine, CusCILine, CusAccount, CusOrders));
         } catch (Exception e) {
             System.out.println(e);
         }

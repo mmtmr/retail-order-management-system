@@ -19,8 +19,7 @@ public class Order extends OrderDetails {
     private LocalDateTime OrdCreateDT;
     private OrderStatus OrdStatus;
     private String OrdShipment;
-    private String AccID;
-
+    private Payment OrdPayment;
     public Order() {
     }
 
@@ -29,26 +28,50 @@ public class Order extends OrderDetails {
         this.OrdID = "OR" + String.format("%06d", OrdCounter + 1);
         this.OrdCreateDT = LocalDateTime.now();
         this.OrdStatus = OrderStatus.Waiting;
-        this.AccID = AccID;
+        this.OrdPayment=new Payment();
         addOrdCounter();
     }
 
     //Load order
-    public Order(String OrdID, OrderStatus OrdStatus, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment, String AccID) {
+    public Order(LocalDateTime OrdCreateDT, OrderStatus OrdStatus, String OrdShipment, String PName, String PCardNumber, String PBank, String OrdID, LocalDateTime OrdModifyDT, ArrayList<Product> OIPros, String[] OIModels, int[] OIQuantities) {
+        super(OrdID, OrdModifyDT, OIPros, OIModels, OIQuantities);
+        this.OrdCreateDT = OrdCreateDT;
+        this.OrdStatus = OrdStatus;
+        this.OrdShipment = OrdShipment;
+        this.OrdPayment=new Payment(PName, PCardNumber, PBank);
+    }
+
+    public Order(String OrdID, OrderStatus OrdStatus,LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment,String PName, String PCardNumber, String PBank) {
         super(OrdID, OrdModifyDT);
         this.OrdCreateDT = OrdCreateDT;
         this.OrdStatus = OrdStatus;
         this.OrdShipment = OrdShipment;
-        this.AccID = AccID;
-        addOrdCounter();
+         this.OrdPayment=new Payment(PName, PCardNumber, PBank);
+    }
+    
+    public Order(String OrdID, OrderStatus OrdStatus,LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment,String[] OrdPaymentLine) {
+        super(OrdID, OrdModifyDT);
+        this.OrdCreateDT = OrdCreateDT;
+        this.OrdStatus = OrdStatus;
+        this.OrdShipment = OrdShipment;
+         this.OrdPayment=new Payment(OrdPaymentLine[0],OrdPaymentLine[1],OrdPaymentLine[2]);
     }
 
+    
     public static int getOrdCounter() {
         return OrdCounter;
     }
 
     public static void setOrdCounter(int OrdCounter) {
         Order.OrdCounter = OrdCounter;
+    }
+
+    public String getOrdID() {
+        return OrdID;
+    }
+
+    public void setOrdID(String OrdID) {
+        this.OrdID = OrdID;
     }
 
     public LocalDateTime getOrdCreateDT() {
@@ -75,12 +98,12 @@ public class Order extends OrderDetails {
         this.OrdShipment = OrdShipment;
     }
 
-    public String getAccID() {
-        return AccID;
+    public Payment getOrdPayment() {
+        return OrdPayment;
     }
 
-    public void setAccID(String AccID) {
-        this.AccID = AccID;
+    public void setOrdPayment(Payment OrdPayment) {
+        this.OrdPayment = OrdPayment;
     }
 
 //     public void generateOrdID() {
@@ -99,12 +122,43 @@ public class Order extends OrderDetails {
 
     @Override
     public String toString() {
-        return OrdID + "\t" + OrdStatus + "\t" + OrdCreateDT + "\t" + OrdModifyDT + "\t" + OrdShipment + "\t" + AccID + "\t" + getOrdItemsIDs();
+        StringBuilder sb = new StringBuilder();
+        sb.append(OrdID);
+        sb.append("\t").append(OrdStatus);
+        sb.append("\t").append(OrdCreateDT);
+        sb.append("\t").append(OrdModifyDT);
+        sb.append("\t").append(OrdShipment);
+        sb.append("\t").append(OrdPayment);
+        sb.append("\t").append(getOrdItemsIDs());
+        for (OrderItem oi : OrdItems){
+            sb.append("\n").append(oi);
+        }
+        return sb.toString();
+    }
+
+
+
+
+    public static Order searchOrderFromID(String ordID) {
+        Order order = new Order();
+        try {
+            for (Order ord : OrdList) {
+                if (ord.getOrdID().equals(ordID)) {
+                    order = ord;
+                    return order;
+                } else {
+                    throw (new Exception("Order not found!" + ordID));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return order;
     }
 
     public static ArrayList<Order> searchOrdersFromIDs(String[] OrdersIDs) {
         ArrayList<Order> Orders = new ArrayList<>();
-        if (OrdersIDs[0] != null) {
+        if (!OrdersIDs[0].equals("-") ) {
             try {
                 for (String id : OrdersIDs) {
                     for (Order ord : OrdList) {
@@ -126,34 +180,34 @@ public class Order extends OrderDetails {
         return Orders;
     }
 
-    public static Order parseOrdFromString(String ordLine) {
-        String[] ord = new String[6];
-//        ArrayList<OrderItem> ordItems = new ArrayList();
-        try {
-            System.out.println(ordLine);
-            String[] ordData = ordLine.split("\t");
-            if (ordData.length != 7) {
-                throw (new Exception("Order is incomplete!" + ordLine));
-            } else {
-                ord[0] = ordData[0];
-                ord[1] = ordData[1];
-                ord[2] = ordData[2];
-                ord[3] = ordData[3];
-                ord[4] = ordData[4];
-                ord[5] = ordData[5];
-//                String[] ordOrdItemsIDsData = ordData[5].split(",");
-//                for (String id : ordOrdItemsIDsData) {
-//                    for (OrderItem oi : OIList) {
-//                        if (oi.getOIID().equals(id)) {
-//                            ordItems.add(oi);
-//                        }
-//                    }
-//                }
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return new Order(ord[0], OrderStatus.valueOf(ord[1]), LocalDateTime.parse(ord[2]), LocalDateTime.parse(ord[3]), ord[4], ord[5]);
-    }
+//    public static Order parseOrdFromString(String ordLine) {
+//        String[] ord = new String[6];
+////        ArrayList<OrderItem> ordItems = new ArrayList();
+//        try {
+//            System.out.println(ordLine);
+//            String[] ordData = ordLine.split("\t");
+//            if (ordData.length != 7) {
+//                throw (new Exception("Order is incomplete!" + ordLine));
+//            } else {
+//                ord[0] = ordData[0];
+//                ord[1] = ordData[1];
+//                ord[2] = ordData[2];
+//                ord[3] = ordData[3];
+//                ord[4] = ordData[4];
+//                ord[5] = ordData[5];
+////                String[] ordOrdItemsIDsData = ordData[5].split(",");
+////                for (String id : ordOrdItemsIDsData) {
+////                    for (OrderItem oi : OIList) {
+////                        if (oi.getOIID().equals(id)) {
+////                            ordItems.add(oi);
+////                        }
+////                    }
+////                }
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        return new Order(ord[0], OrderStatus.valueOf(ord[1]), LocalDateTime.parse(ord[2]), LocalDateTime.parse(ord[3]), ord[4], ord[5]);
+//    }
 }

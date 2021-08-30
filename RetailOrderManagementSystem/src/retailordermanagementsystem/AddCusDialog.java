@@ -8,35 +8,30 @@ package retailordermanagementsystem;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static retailordermanagementsystem.Validation.validateCustomerInput;
-import static retailordermanagementsystem.Validation.validateCustomerInput;
+import static retailordermanagementsystem.Operation.AccList;
+import static retailordermanagementsystem.Operation.CusList;
 
 /**
  *
  * @author Maxine
  */
-public class EditCustomerDialog extends javax.swing.JDialog {
+public class AddCusDialog extends javax.swing.JDialog {
     DefaultTableModel model;
-    Customer cus;
+
     /**
-     * Creates new form EditCustomerDialog
+     * Creates new form AddCusDialog
      */
-    public EditCustomerDialog(java.awt.Frame parent, boolean modal) {
+    public AddCusDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
     
-    public EditCustomerDialog(java.awt.Frame parent, boolean modal, Customer cus) {
+    public AddCusDialog(java.awt.Frame parent, boolean modal, DefaultTableModel model) {
         super(parent, modal);
-        this.cus=cus;
+        this.model = model;
         initComponents();
     }
 
-    public EditCustomerDialog(java.awt.Frame parent, boolean modal, DefaultTableModel model) {
-        super(parent, modal);
-        this.model=model;
-        initComponents();
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,13 +41,22 @@ public class EditCustomerDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonSave = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
+        labelBirthday = new javax.swing.JLabel();
+        textPhone = new javax.swing.JTextField();
+        textBirthday = new javax.swing.JTextField();
+        textEmail = new javax.swing.JTextField();
+        labelGender = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         labelTitle = new javax.swing.JLabel();
+        textStreet = new javax.swing.JTextField();
         radioMale = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         comboState = new javax.swing.JComboBox<>();
         labelFirstName = new javax.swing.JLabel();
-        radioFemale = new javax.swing.JRadioButton();
         textCity = new javax.swing.JTextField();
+        radioFemale = new javax.swing.JRadioButton();
         labelLastName = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         textFirstName = new javax.swing.JTextField();
@@ -63,65 +67,8 @@ public class EditCustomerDialog extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         textAccountName = new javax.swing.JTextField();
-        buttonSave = new javax.swing.JButton();
-        buttonCancel = new javax.swing.JButton();
-        labelBirthday = new javax.swing.JLabel();
-        textPhone = new javax.swing.JTextField();
-        textBirthday = new javax.swing.JTextField();
-        textEmail = new javax.swing.JTextField();
-        labelGender = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        textStreet = new javax.swing.JTextField();
-        labelRewardPoint = new javax.swing.JLabel();
-        textRewardPoint = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        labelTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        labelTitle.setText("Edit Customer");
-
-        radioMale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        radioMale.setText("Male");
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel6.setText("City");
-
-        comboState.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select State>", "Kuala Lumpur", "Selangor", "Putrajaya", "Labuan", "Perlis", "Kedah", "Terengganu", "Pahang", "Perak", "Kelantan", "Penang", "Selangor", "Negeri Sembilan", "Johor", "Malacca", "Sabah", "Sarawak" }));
-
-        labelFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        labelFirstName.setText("First Name");
-
-        radioFemale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        radioFemale.setText("Female");
-
-        textCity.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-
-        labelLastName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        labelLastName.setText("Last Name");
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel7.setText("State");
-
-        textFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel8.setText("Postcode");
-
-        textLastName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-
-        textPostcode.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel3.setText("Phone");
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel4.setText("Email");
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel1.setText("Acccount Name");
-
-        textAccountName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
         buttonSave.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonSave.setText("Save");
@@ -156,12 +103,53 @@ public class EditCustomerDialog extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel5.setText("Street");
 
+        labelTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        labelTitle.setText("New Customer");
+
         textStreet.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
-        labelRewardPoint.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        labelRewardPoint.setText("Reward Point");
+        radioMale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        radioMale.setText("Male");
 
-        textRewardPoint.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel6.setText("City");
+
+        comboState.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select State>", "Kuala Lumpur", "Selangor", "Putrajaya", "Labuan", "Perlis", "Kedah", "Terengganu", "Pahang", "Perak", "Kelantan", "Penang", "Selangor", "Negeri Sembilan", "Johor", "Malacca", "Sabah", "Sarawak" }));
+
+        labelFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelFirstName.setText("First Name");
+
+        textCity.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+
+        radioFemale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        radioFemale.setText("Female");
+
+        labelLastName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelLastName.setText("Last Name");
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel7.setText("State");
+
+        textFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel8.setText("Postcode");
+
+        textLastName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+
+        textPostcode.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel3.setText("Phone");
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel4.setText("Email");
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel1.setText("Acccount Name");
+
+        textAccountName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,12 +158,9 @@ public class EditCustomerDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelRewardPoint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(44, 44, 44)
@@ -192,7 +177,7 @@ public class EditCustomerDialog extends javax.swing.JDialog {
                             .addComponent(labelBirthday, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboState, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboState, javax.swing.GroupLayout.Alignment.TRAILING, 0, 186, Short.MAX_VALUE)
                             .addComponent(textCity)
                             .addComponent(textStreet)
                             .addComponent(textEmail)
@@ -209,9 +194,9 @@ public class EditCustomerDialog extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(buttonCancel)
-                                .addGap(31, 31, 31))
-                            .addComponent(textRewardPoint))
-                        .addGap(40, 40, 40))))
+                                .addGap(31, 31, 31)))
+                        .addGap(40, 40, 40)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,10 +225,6 @@ public class EditCustomerDialog extends javax.swing.JDialog {
                     .addComponent(labelBirthday, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textRewardPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelRewardPoint))
-                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -276,69 +257,47 @@ public class EditCustomerDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void loadCusData(){
-        try{
-            textAccountName.setText(cus.getCusAccount().getAccName());
-            textFirstName.setText(cus.getCusPI().getPIFName());
-            textLastName.setText(cus.getCusPI().getPILName());
-            if (cus.getCusPI().getPIGender()==Gender.M){
-                radioMale.setSelected(true);
-            }
-            else if (cus.getCusPI().getPIGender()==Gender.F){
-                radioFemale.setSelected(true);
-            }
-            textBirthday.setText(cus.getCusPI().getPIDateOfBirth().toString());
-            textRewardPoint.setText(String.valueOf(cus.getCusPI().getPIRewardPoint()));
-            textPhone.setText(cus.getCusCI().getCIPhone());
-            textEmail.setText(cus.getCusCI().getCIEmail());
-            textStreet.setText(cus.getCusCI().getCIAddStreet());
-            textCity.setText(cus.getCusCI().getCIAddCity());
-            comboState.setSelectedItem(cus.getCusCI().getCIAddState());
-            textPostcode.setText(cus.getCusCI().getCIAddPostcode());
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-        
-    }
-    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
 
-        try{
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        CusAcc acc = new CusAcc();
+        Customer cus = new Customer();
+        try {
 
             //            String AccountName=textAccountName.getText();
-            String fname=textFirstName.getText();
-            String lname=textLastName.getText();
+            String fname = textFirstName.getText();
+            String lname = textLastName.getText();
             Gender gender;
-            if (radioMale.isSelected()){
-                gender=Gender.M;
+            if (radioMale.isSelected()) {
+                gender = Gender.M;
+            } else if (radioFemale.isSelected()) {
+                gender = Gender.F;
+            } else {
+                throw (new Exception("Gender is not valid! Please try again."));
             }
-            else if (radioFemale.isSelected()){
-                gender=Gender.F;
-            }
-            else{
-                throw(new Exception("Gender is not valid! Please try again."));
-            }
-            LocalDate birthday=LocalDate.parse(textBirthday.getText());
-            int rewardpoint=Integer.parseInt(textRewardPoint.getText());
-            String phone=textPhone.getText();
-            String email=textEmail.getText();
-            String street=textStreet.getText();
-            String city=textCity.getText();
-            String state=(String)comboState.getSelectedItem();
-            String postcode=textPostcode.getText();
-            String accname=textAccountName.getText();
-            validateCustomerInput(fname, lname, phone, email, street, city, state, postcode, accname);
-            cus.editCustomer(fname, lname, gender, birthday,rewardpoint, phone, email, street, city, state, postcode, accname);
-//            AccList.add(cus.getCusAccount());
-//            CusList.add(cus);
-            Operation.rewriteAccountData();
-            Operation.rewriteCustomerData();
-            JOptionPane.showMessageDialog(null, "Customer added successfully!");
+            LocalDate birthday = LocalDate.parse(textBirthday.getText());
+            String phone = textPhone.getText();
+            String email = textEmail.getText();
+            String street = textStreet.getText();
+            String city = textCity.getText();
+            String state = (String) comboState.getSelectedItem();
+            String postcode = textPostcode.getText();
+            //validateAccount(textAccountName.getText(), "123456");
+            acc = new CusAcc(textAccountName.getText(), "123456");
+            AccList.add(acc);
+            //validateCustomer(fname, lname, phone, email, street, city, state, postcode, acc.getAccID(), acc.getAccPassword());
+            cus = new Customer(fname, lname, gender, birthday, phone, email, street, city, state, postcode, acc);
+            CusList.add(cus);
+            //String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth,String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode,CusAcc CusAccount
+            //            cus.getCusOrdersIDs();
+            //            System.out.println(cus);
+            Operation.writeAccountData(acc);
+            Operation.writeOrderData(cus.getCusAccount().getCusSC());
+            Operation.writeCustomerData(cus);
+            model.addRow(new Object[]{cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet(), cus.getCusCI().getCIAddCity(), cus.getCusCI().getCIAddState(), cus.getCusCI().getCIAddPostcode()});
             this.dispose();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
@@ -362,20 +321,20 @@ public class EditCustomerDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddCusDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddCusDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddCusDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditCustomerDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddCusDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                EditCustomerDialog dialog = new EditCustomerDialog(new javax.swing.JFrame(), true);
+                AddCusDialog dialog = new AddCusDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -402,7 +361,6 @@ public class EditCustomerDialog extends javax.swing.JDialog {
     private javax.swing.JLabel labelFirstName;
     private javax.swing.JLabel labelGender;
     private javax.swing.JLabel labelLastName;
-    private javax.swing.JLabel labelRewardPoint;
     private javax.swing.JLabel labelTitle;
     private javax.swing.JRadioButton radioFemale;
     private javax.swing.JRadioButton radioMale;
@@ -414,7 +372,6 @@ public class EditCustomerDialog extends javax.swing.JDialog {
     private javax.swing.JTextField textLastName;
     private javax.swing.JTextField textPhone;
     private javax.swing.JTextField textPostcode;
-    private javax.swing.JTextField textRewardPoint;
     private javax.swing.JTextField textStreet;
     // End of variables declaration//GEN-END:variables
 }

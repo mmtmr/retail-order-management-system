@@ -5,6 +5,8 @@
  */
 package retailordermanagementsystem;
 
+import java.util.regex.*;
+
 /**
  *
  * @author Maxine
@@ -13,17 +15,17 @@ package retailordermanagementsystem;
 public class Validation {
 
     public static boolean validateNoTabAndNoNull(String input) {
-        return !input.contains("\t")&&!input.isEmpty();
+        return !input.contains("\t") && !input.isEmpty();
     }
-    
+
     public static boolean validateNotNull(String input) {
         return !input.isEmpty();
     }
 
-    public static void validateCustomer(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname) throws Exception{
+    public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname) throws Exception {
         if (validateNoTabAndNoNull(phone) && validateNoTabAndNoNull(email) && validateNoTabAndNoNull(AddStreet) && validateNoTabAndNoNull(AddCity) && validateNoTabAndNoNull(AddState) && validateNoTabAndNoNull(AddPostcode)) {
         } else {
-            throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");    
+            throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
         }
         if (validatePhone(phone) && validateEmail(email) && validateAddress(AddState, AddPostcode)) {
         } else {
@@ -42,11 +44,11 @@ public class Validation {
             throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
         }
     }
-    
-    public static void validateCustomer(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname, String password) throws Exception{
+
+    public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname, String password) throws Exception {
         if (validateNoTabAndNoNull(phone) && validateNoTabAndNoNull(email) && validateNoTabAndNoNull(AddStreet) && validateNoTabAndNoNull(AddCity) && validateNoTabAndNoNull(AddState) && validateNoTabAndNoNull(AddPostcode)) {
         } else {
-            throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");    
+            throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
         }
         if (validatePhone(phone) && validateEmail(email) && validateAddress(AddState, AddPostcode)) {
         } else {
@@ -90,14 +92,43 @@ public class Validation {
 //        return validateNoTabAndNoNull(fname) && validateNoTabAndNoNull(lname) && validateName(fname) && validateName(lname);
 //    }
 //
-    public static void validateAccount(String accname, String password) throws Exception {
+    public static void validateAccountInput(String accname, String password) throws Exception {
         if (validateNoTabAndNoNull(accname) && validateNoTabAndNoNull(password)) {
         } else {
             throw new Exception("Invalid Input: Remove the tab inside input.");
         }
     }
-//TODO Validate Product Model names
 
+    //https://howtodoinjava.com/java/regex/java-regex-validate-credit-card-numbers/
+    public static String validateCreditCard(String name, String cardnum, String cvv) throws Exception {
+        
+        if (validateNoTabAndNoNull(cardnum) && validateNoTabAndNoNull(cardnum) && validateNoTabAndNoNull(cvv)) {            
+        } else {
+            throw new Exception("Invalid Input: Remove the tab inside input.");
+        }
+        if(validateCVV(cvv)){
+        } else{
+            throw new Exception("CVV format is incorrect.");
+        }
+        if(validateName(name)){
+        } else{
+            throw new Exception("Name format is incorrect.");
+        }
+        String creditcardregex = "^(?:(?<Visa>4[0-9]{12}(?:[0-9]{3})?)|" + "(?<Mastercard>5[1-5][0-9]{14})|";
+        Pattern pattern = Pattern.compile(creditcardregex);
+        cardnum = cardnum.replaceAll("-", "");
+        Matcher matcher = pattern.matcher(cardnum);
+        //MatchResult result= matcher.toMatchResult();
+        //System.out.println("Current Matcher: "+ result);
+
+        while (matcher.find()) {
+            // Get the group matched using group() method
+            return(matcher.group());
+        }
+        throw new Exception("Card format is incorrect or not accepted!");
+    }
+
+//TODO Validate Product Model names
     public static boolean validatePhone(String phone) {
         return phone.matches("(\\+?6?01)[0-46-9]-*[0-9]{7,8}");//Format: +6012-34567890
     }
@@ -110,6 +141,9 @@ public class Validation {
         return AddState.matches("Kuala Lumpur|Putrajaya|Labuan|Perlis|Kedah|Terengganu|Pahang|Perak|Kelantan|Penang|Selangor|Negeri Sembilan|Johor|Malacca|Sabah|Sarawak");
     }
 
+    public static boolean validateCVV(String cvv) {
+        return cvv.matches("\\d{3}");
+    }
     public static boolean validateAddPostcode(String AddPostcode) {
         return AddPostcode.matches("\\d{5}");
     }

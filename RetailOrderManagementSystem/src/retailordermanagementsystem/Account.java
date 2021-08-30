@@ -96,12 +96,12 @@ public abstract class Account {
 
     @Override
     public String toString() {
-        return AccID + "\t" + AccName + "\t" + AccPassword + "\t" + AccRegisterDT + "\t" + AccLastLoginDT;
+        return AccID + "," + AccName + "," + AccPassword + "," + AccRegisterDT + "," + AccLastLoginDT;
     }
 
     //public static Account parseAccountFromString(String accLine);  
     public static String[] parseAccountFromString(String accLine) {
-        String[] accData = accLine.split("\t");
+        String[] accData = accLine.split(",");
         try {            
             if (accData.length != 5) {
                 throw (new Exception("Account is incomplete!" + accLine));

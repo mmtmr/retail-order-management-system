@@ -27,22 +27,27 @@ public class CusInfo extends PersonalInfo {
 //        this.PIRewardPoint = PIRewardPoint;
 //        this.PIDateOfBirth = PIDateOfBirth;
 //    }
+    
+    //New
     public CusInfo(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth) {
         super(PIFName, PILName, PIGender);
         this.PIDateOfBirth = PIDateOfBirth;
         this.PIRewardPoint = 0;
     }
 
+    //Normal Load
     public CusInfo(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint) {
         super(PIFName, PILName, PIGender);
         this.PIRewardPoint = PIRewardPoint;
         this.PIDateOfBirth = PIDateOfBirth;
     }
     
+    //Load From String Array
     public CusInfo(String[] PILine) {
         super(PILine[0], PILine[1], Gender.valueOf(PILine[2]));
-        this.PIRewardPoint = Integer.parseInt(PILine[3]);
-        this.PIDateOfBirth = LocalDate.parse(PILine[4]);
+        
+        this.PIDateOfBirth = LocalDate.parse(PILine[3]);
+        this.PIRewardPoint = Integer.parseInt(PILine[4]);
     }
 
     public int getPIRewardPoint() {
@@ -84,7 +89,7 @@ public class CusInfo extends PersonalInfo {
 //    }
     
     public static String[] parseCusInfoFromString(String piLine) throws Exception {
-        String[] piData = piLine.split("\t");
+        String[] piData = piLine.split(",");
         if (piData.length != 5) {
             throw (new Exception("Customer Info is incomplete!" + piLine));
         } else {

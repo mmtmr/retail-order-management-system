@@ -26,6 +26,12 @@ public class AdminAcc extends Account {
 
     public AdminAcc(String AccID, String AccName, String AccPassword, LocalDateTime AccRegisterDT, LocalDateTime AccLastLoginDT) {
         super(AccID, AccName, AccPassword, AccRegisterDT, AccLastLoginDT);
+        addAACounter();
+    }
+    
+    public AdminAcc(String[] AccLine) {
+        super(AccLine[0], AccLine[1], AccLine[2], LocalDateTime.parse(AccLine[3]), LocalDateTime.parse(AccLine[4]));
+        addAACounter();
     }
 
     public static int getAACounter() {
@@ -44,22 +50,22 @@ public class AdminAcc extends Account {
         AdminAcc.AACounter -= 1;
     }
 
-    public static AdminAcc parseAccountFromString(String accLine) {
-        String[] aa = new String[5];
-        try {
-            System.out.println(accLine);
-            String[] aaData = accLine.split("\t");
-            if (aaData.length != 5) {
-                throw (new Exception("Admin Account is incomplete!" + accLine));
-            } else {
-                aa = aaData.clone();
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return new AdminAcc(aa[0], aa[1], aa[2], LocalDateTime.parse(aa[3]), LocalDateTime.parse(aa[4]));
-    }
+//    public static AdminAcc parseAccountFromString(String accLine) {
+//        String[] aa = new String[5];
+//        try {
+//            System.out.println(accLine);
+//            String[] aaData = accLine.split("\t");
+//            if (aaData.length != 5) {
+//                throw (new Exception("Admin Account is incomplete!" + accLine));
+//            } else {
+//                aa = aaData.clone();
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        return new AdminAcc(aa[0], aa[1], aa[2], LocalDateTime.parse(aa[3]), LocalDateTime.parse(aa[4]));
+//    }
 
     //TODO CHECK DUPKEY
 }

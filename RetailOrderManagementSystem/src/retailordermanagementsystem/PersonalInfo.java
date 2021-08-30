@@ -25,6 +25,7 @@ public class PersonalInfo {
         this.PIGender = PIGender;
     }
     
+    //TODO validation
     public PersonalInfo(String[] PILine) {
         this.PIFName = PILine[0];
         this.PILName = PILine[1];
@@ -81,7 +82,7 @@ public class PersonalInfo {
 //    }
     
     public static String[] parsePIFromString(String piLine) throws Exception {
-        String[] piData = piLine.split("\t");
+        String[] piData = piLine.split(",");
         if (piData.length != 3) {
             throw (new Exception("Personal Info is incomplete!" + piLine));
         } else {

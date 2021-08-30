@@ -138,7 +138,7 @@ public class ContactInfo {
 //    }
     @Override
     public String toString() {
-        return CIPhone + "\t" + CIEmail + "\t" + CIAddStreet + "\t" + CIAddCity + "\t" + CIAddState + "\t" + CIAddPostcode;
+        return CIPhone + "|" + CIEmail + "|" + CIAddStreet + "|" + CIAddCity + "|" + CIAddState + "|" + CIAddPostcode;
     }
 
 //    public static ContactInfo parseCIFromString(String ciLine) {
@@ -159,7 +159,7 @@ public class ContactInfo {
 //        return new ContactInfo(ci[0], ci[1], ci[2], ci[3], ci[4], ci[5]);
 //    }
      public static String[] parseContactInfoFromString(String ciLine) throws Exception {
-        String[] ciData = ciLine.split("\t");
+        String[] ciData = ciLine.split("\\|");
         if (ciData.length != 6) {
             throw (new Exception("Contact Info is incomplete!" + ciLine));
         } else {

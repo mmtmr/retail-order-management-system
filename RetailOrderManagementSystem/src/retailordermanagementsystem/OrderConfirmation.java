@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package retailordermanagementsystem;
+import javax.swing.UIManager;
 
 /**
  *
@@ -235,7 +236,7 @@ public class OrderConfirmation extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed

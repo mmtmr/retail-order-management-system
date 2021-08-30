@@ -10,5 +10,5 @@ package retailordermanagementsystem;
  * @author Maxine
  */
 public enum OrderStatus {
-    Waiting, Shipped, Completed, Cancelled
+    Unpaid, Waiting, Shipped, Completed, Cancelled
 }
