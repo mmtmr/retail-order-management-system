@@ -331,16 +331,18 @@ public class Product {
 //    }
     public static Product searchProFromID(String proID) {
         Product product = new Product();
-        try {
-            for (Product pro : ProList) {
-                if (pro.getProID().equals(proID)) {
-                    product = pro;
-                    return product;
+        if (!proID.equals("-")) {
+            try {
+                for (Product pro : ProList) {
+                    if (pro.getProID().equals(proID)) {
+                        product = pro;
+                        return product;
+                    }
                 }
+                throw (new Exception("Product not found!" + proID));
+            } catch (Exception e) {
+                System.out.println(e);
             }
-            throw (new Exception("Product not found!" + proID));
-        } catch (Exception e) {
-            System.out.println(e);
         }
         return product;
     }

@@ -9,7 +9,6 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static retailordermanagementsystem.Validation.validateCustomerInput;
-import static retailordermanagementsystem.Validation.validateCustomerInput;
 
 /**
  *

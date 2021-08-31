@@ -26,6 +26,7 @@ public class AdminPanel extends javax.swing.JFrame {
     public AdminPanel() {
         initComponents();
         showCustomerList();
+        showSupplierList();
     }
 
     /**
@@ -63,7 +64,7 @@ public class AdminPanel extends javax.swing.JFrame {
         buttonDeleteAcc = new javax.swing.JButton();
         buttonEditCus = new javax.swing.JButton();
         buttonAddCus = new javax.swing.JButton();
-        buttonSearchCus = new javax.swing.JTextField();
+        textSearchCus = new javax.swing.JTextField();
         buttonDeleteCus = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -78,7 +79,7 @@ public class AdminPanel extends javax.swing.JFrame {
         buttonOrderAll = new javax.swing.JButton();
         buttonOrderToShip = new javax.swing.JButton();
         buttonOrderUnpaid = new javax.swing.JButton();
-        buttonSearchOrder = new javax.swing.JTextField();
+        textSearchOrder = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -185,21 +186,20 @@ public class AdminPanel extends javax.swing.JFrame {
             panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdminProductListLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 643, Short.MAX_VALUE)
+                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelAdminProductListLayout.createSequentialGroup()
-                        .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(610, 610, 610)
-                        .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panelAdminProductListLayout.createSequentialGroup()
-                                .addComponent(buttonRestockPor, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(buttonAddPro, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buttonEditPro, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(buttonDeletePro, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonRestockPor, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonAddPro, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonEditPro, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonDeletePro, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         panelAdminProductListLayout.setVerticalGroup(
             panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,14 +218,14 @@ public class AdminPanel extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1247, Short.MAX_VALUE)
+            .addGap(0, 1249, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAdminProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -243,60 +243,10 @@ public class AdminPanel extends javax.swing.JFrame {
 
         tableSupList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Name", "Person In Charge", "Phone", "Email", "Remarks"
+                "ID", "Name", "Person In Charge", "Phone", "Email", "Address"
             }
         ) {
             Class[] types = new Class [] {
@@ -318,6 +268,11 @@ public class AdminPanel extends javax.swing.JFrame {
 
         buttonDeleteSup.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonDeleteSup.setText("Delete");
+        buttonDeleteSup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteSupActionPerformed(evt);
+            }
+        });
 
         buttonEditSup.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonEditSup.setText("Edit");
@@ -329,15 +284,25 @@ public class AdminPanel extends javax.swing.JFrame {
 
         buttonAddSup.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonAddSup.setText("Add");
+        buttonAddSup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddSupActionPerformed(evt);
+            }
+        });
 
         textSearchSup.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textSearchSup.setText("Press enter to search");
+        textSearchSup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSearchSupActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1249, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -362,14 +327,14 @@ public class AdminPanel extends javax.swing.JFrame {
                             .addComponent(buttonEditSup)
                             .addComponent(buttonAddSup)
                             .addComponent(buttonDeleteSup))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 14, Short.MAX_VALUE))
+                        .addGap(14, 14, 14))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
                         .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(textSearchSup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
         );
 
         tab.addTab("Supplier List", jPanel1);
@@ -425,11 +390,11 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
-        buttonSearchCus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        buttonSearchCus.setText("Press enter to search");
-        buttonSearchCus.addActionListener(new java.awt.event.ActionListener() {
+        textSearchCus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textSearchCus.setText("Press enter to search");
+        textSearchCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSearchCusActionPerformed(evt);
+                textSearchCusActionPerformed(evt);
             }
         });
 
@@ -445,7 +410,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1249, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -459,7 +424,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addComponent(buttonDeleteCus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonDeleteAcc))
-                    .addComponent(buttonSearchCus))
+                    .addComponent(textSearchCus))
                 .addGap(12, 12, 12))
         );
         jPanel2Layout.setVerticalGroup(
@@ -474,7 +439,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addComponent(buttonDeleteCus))
                     .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
         );
@@ -595,10 +560,10 @@ public class AdminPanel extends javax.swing.JFrame {
         buttonOrderUnpaid.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonOrderUnpaid.setText("Unpaid");
 
-        buttonSearchOrder.setText("Press enter to search");
-        buttonSearchOrder.addActionListener(new java.awt.event.ActionListener() {
+        textSearchOrder.setText("Press enter to search");
+        textSearchOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSearchOrderActionPerformed(evt);
+                textSearchOrderActionPerformed(evt);
             }
         });
 
@@ -621,7 +586,7 @@ public class AdminPanel extends javax.swing.JFrame {
                 .addComponent(buttonOrderCancelled)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonOrderCompleted)
-                .addGap(137, 137, 137)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(buttonAddOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -629,8 +594,8 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addComponent(buttonEditOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonDeleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(buttonSearchOrder))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(textSearchOrder))
+                .addGap(12, 12, 12))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3)
@@ -653,7 +618,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addComponent(buttonEditOrder)
                         .addComponent(buttonDeleteOrder)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
         );
@@ -687,7 +652,17 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditOrderActionPerformed
 
     private void buttonEditSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditSupActionPerformed
-        // TODO add your handling code here:
+        try {
+            String supID = (tableSupList.getModel().getValueAt(tableSupList.getSelectedRow(), 0).toString());
+            //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
+            EditSupplierDialog editSupplierDialog = new EditSupplierDialog(null, true, Supplier.searchSupFromID(supID));
+            editSupplierDialog.loadSupData();
+            editSupplierDialog.show();
+            showSupplierList();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }//GEN-LAST:event_buttonEditSupActionPerformed
 
     private void buttonEditCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditCusActionPerformed
@@ -711,18 +686,18 @@ public class AdminPanel extends javax.swing.JFrame {
 
     }//GEN-LAST:event_buttonAddCusActionPerformed
 
-    private void buttonSearchCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchCusActionPerformed
+    private void textSearchCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchCusActionPerformed
         //https://stackoverflow.com/a/12124636
         //https://stackoverflow.com/a/14130611
         //https://stackoverflow.com/a/45317261
         //https://stackoverflow.com/a/37989058
         //https://www.youtube.com/watch?v=efuLSvN6tKM
         DefaultTableModel model = (DefaultTableModel) tableCusList.getModel();
-        String key = buttonSearchCus.getText();
+        String key = textSearchCus.getText();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
         tableCusList.setRowSorter(sorter);
-    }//GEN-LAST:event_buttonSearchCusActionPerformed
+    }//GEN-LAST:event_textSearchCusActionPerformed
 
     private void buttonDeleteAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteAccActionPerformed
         try {
@@ -755,9 +730,9 @@ public class AdminPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonDeleteCusActionPerformed
 
-    private void buttonSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchOrderActionPerformed
+    private void textSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchOrderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonSearchOrderActionPerformed
+    }//GEN-LAST:event_textSearchOrderActionPerformed
 
     private void buttonOrderAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderAllActionPerformed
         // TODO add your handling code here:
@@ -766,6 +741,35 @@ public class AdminPanel extends javax.swing.JFrame {
     private void buttonDeleteProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteProActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonDeleteProActionPerformed
+
+    private void buttonAddSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddSupActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tableSupList.getModel();
+        AddSupplierDialog addSupplierDialog = new AddSupplierDialog(null, true, model);
+        addSupplierDialog.show();
+    }//GEN-LAST:event_buttonAddSupActionPerformed
+
+    private void buttonDeleteSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteSupActionPerformed
+         try {
+            int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this supplier information? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
+            if (del == 0) {
+                String supID = (tableSupList.getModel().getValueAt(tableSupList.getSelectedRow(), 0).toString());
+                Supplier sup = Supplier.searchSupFromID(supID);
+                Operation.destroySupplierObject(sup);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }finally{
+            showSupplierList();
+        }
+    }//GEN-LAST:event_buttonDeleteSupActionPerformed
+
+    private void textSearchSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchSupActionPerformed
+       DefaultTableModel model = (DefaultTableModel) tableSupList.getModel();
+        String key = textSearchSup.getText();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
+        sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
+        tableSupList.setRowSorter(sorter);
+    }//GEN-LAST:event_textSearchSupActionPerformed
 
     /**
      * @param args the command line arguments
@@ -780,6 +784,18 @@ public class AdminPanel extends javax.swing.JFrame {
             model.addRow(new Object[]{cus.getCusID(),cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet(), cus.getCusCI().getCIAddCity(), cus.getCusCI().getCIAddState(), cus.getCusCI().getCIAddPostcode()});
         }
         tableCusList.setModel(model);
+    }
+    
+    public void showSupplierList() {
+        //DefaultTableModel model = new DefaultTableModel(new Object[]{"Account ID", "Account Name", "First Name","Last Name","Gender","D.O.B.","Reward Point","Phone","Email","Street","City","State","Postcode"}, 0);;
+        DefaultTableModel model = (DefaultTableModel) tableSupList.getModel();
+        model.setRowCount(0);
+        for (Supplier sup : SupList) {
+            //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
+            //System.out.println(cus);
+            model.addRow(new Object[]{sup.getSupID(), sup.getSupName(),sup.getSupPersonInCharge().getPIFName()+" "+sup.getSupPersonInCharge().getPILName(), sup.getSupCI().getCIPhone(), sup.getSupCI().getCIEmail(), sup.getSupCI().getCIAddStreet()+";"+sup.getSupCI().getCIAddCity()+";"+sup.getSupCI().getCIAddState()+";"+sup.getSupCI().getCIAddPostcode()});
+        }
+        tableSupList.setModel(model);
     }
 
     public static void main(String args[]) {
@@ -831,8 +847,6 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton buttonOrderToShip;
     private javax.swing.JButton buttonOrderUnpaid;
     private javax.swing.JButton buttonRestockPor;
-    private javax.swing.JTextField buttonSearchCus;
-    private javax.swing.JTextField buttonSearchOrder;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -851,6 +865,8 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JTable tableOrderList;
     private javax.swing.JTable tableProList;
     private javax.swing.JTable tableSupList;
+    private javax.swing.JTextField textSearchCus;
+    private javax.swing.JTextField textSearchOrder;
     private javax.swing.JTextField textSearchPro;
     private javax.swing.JTextField textSearchSup;
     // End of variables declaration//GEN-END:variables

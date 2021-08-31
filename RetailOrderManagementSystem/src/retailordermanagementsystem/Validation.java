@@ -14,16 +14,16 @@ import java.util.regex.*;
 //To validate user input
 public class Validation {
 
-    public static boolean validateNoTabAndNoNull(String input) {
-        return !input.contains("\t") && !input.isEmpty();
+    public static boolean validateNoDelimeterAndNoNull(String input) {
+        return !input.contains("\t") &&!input.contains("\\|") && !input.isEmpty();
     }
 
     public static boolean validateNotNull(String input) {
         return !input.isEmpty();
     }
 
-    public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname) throws Exception {
-        if (validateNoTabAndNoNull(phone) && validateNoTabAndNoNull(email) && validateNoTabAndNoNull(AddStreet) && validateNoTabAndNoNull(AddCity) && validateNoTabAndNoNull(AddState) && validateNoTabAndNoNull(AddPostcode)) {
+    public static void validateSupplierInput(String supname, String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode) throws Exception {
+        if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
         } else {
             throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
         }
@@ -31,22 +31,42 @@ public class Validation {
         } else {
             throw new Exception("Contact info format is incorrect");
         }
-        if (validateNoTabAndNoNull(fname) && validateNoTabAndNoNull(lname)) {
+        if (validateNoDelimeterAndNoNull(supname) &&validateNoDelimeterAndNoNull(fname) && validateNoDelimeterAndNoNull(lname)) {
         } else {
-            throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
+            throw new Exception("Invalid Input: Remove the tab or | inside input or NULL input.");
         }
         if (validateName(fname) && validateName(lname)) {
         } else {
             throw new Exception("Personal info format is incorrect");
         }
-        if (validateNoTabAndNoNull(accname)) {
+        
+    }
+    
+    public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname) throws Exception {
+        if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
         } else {
             throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
+        }
+        if (validatePhone(phone) && validateEmail(email) && validateAddress(AddState, AddPostcode)) {
+        } else {
+            throw new Exception("Contact info format is incorrect");
+        }
+        if (validateNoDelimeterAndNoNull(fname) && validateNoDelimeterAndNoNull(lname)) {
+        } else {
+            throw new Exception("Invalid Input: Remove the tab or | inside input or NULL input.");
+        }
+        if (validateName(fname) && validateName(lname)) {
+        } else {
+            throw new Exception("Personal info format is incorrect");
+        }
+        if (validateNoDelimeterAndNoNull(accname)) {
+        } else {
+            throw new Exception("Invalid Input: Remove the tab or | inside input or NULL input.");
         }
     }
 
     public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname, String password) throws Exception {
-        if (validateNoTabAndNoNull(phone) && validateNoTabAndNoNull(email) && validateNoTabAndNoNull(AddStreet) && validateNoTabAndNoNull(AddCity) && validateNoTabAndNoNull(AddState) && validateNoTabAndNoNull(AddPostcode)) {
+        if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
         } else {
             throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
         }
@@ -54,22 +74,22 @@ public class Validation {
         } else {
             throw new Exception("Contact info format is incorrect");
         }
-        if (validateNoTabAndNoNull(fname) && validateNoTabAndNoNull(lname)) {
+        if (validateNoDelimeterAndNoNull(fname) && validateNoDelimeterAndNoNull(lname)) {
         } else {
-            throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
+            throw new Exception("Invalid Input: Remove the tab or | inside input or NULL input.");
         }
         if (validateName(fname) && validateName(lname)) {
         } else {
             throw new Exception("Personal info format is incorrect");
         }
-        if (validateNoTabAndNoNull(accname) && validateNoTabAndNoNull(password)) {
+        if (validateNoDelimeterAndNoNull(accname) && validateNoDelimeterAndNoNull(password)) {
         } else {
-            throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
+            throw new Exception("Invalid Input: Remove the tab or | inside input or NULL input.");
         }
     }
 
 //    public static boolean validateContactInfo(String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode) throws Exception {
-//        if (validateNoTabAndNoNull(phone) && validateNoTabAndNoNull(email) && validateNoTabAndNoNull(AddStreet) && validateNoTabAndNoNull(AddCity) && validateNoTabAndNoNull(AddState) && validateNoTabAndNoNull(AddPostcode)) {
+//        if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
 //        } else {
 //            throw new Exception("Invalid Input: Remove the tab inside input.");
 //        }
@@ -77,11 +97,11 @@ public class Validation {
 //        } else {
 //            throw new Exception("Contact info format is incorrect");
 //        }
-//        return validatePhone(phone) && validateEmail(email) && validateAddress(AddState, AddPostcode) && validateNoTabAndNoNull(phone) && validateNoTabAndNoNull(email) && validateNoTabAndNoNull(AddStreet) && validateNoTabAndNoNull(AddCity) && validateNoTabAndNoNull(AddState) && validateNoTabAndNoNull(AddPostcode);
+//        return validatePhone(phone) && validateEmail(email) && validateAddress(AddState, AddPostcode) && validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode);
 //    }
 //
 //    public static boolean validatePersonalInfo(String fname, String lname) throws Exception {
-//        if (validateNoTabAndNoNull(fname) && validateNoTabAndNoNull(lname)) {
+//        if (validateNoDelimeterAndNoNull(fname) && validateNoDelimeterAndNoNull(lname)) {
 //        } else {
 //            throw new Exception("Invalid Input: Remove the tab inside input.");
 //        }
@@ -89,22 +109,22 @@ public class Validation {
 //        } else {
 //            throw new Exception("Personal info format is incorrect");
 //        }
-//        return validateNoTabAndNoNull(fname) && validateNoTabAndNoNull(lname) && validateName(fname) && validateName(lname);
+//        return validateNoDelimeterAndNoNull(fname) && validateNoDelimeterAndNoNull(lname) && validateName(fname) && validateName(lname);
 //    }
 //
     public static void validateAccountInput(String accname, String password) throws Exception {
-        if (validateNoTabAndNoNull(accname) && validateNoTabAndNoNull(password)) {
+        if (validateNoDelimeterAndNoNull(accname) && validateNoDelimeterAndNoNull(password)) {
         } else {
-            throw new Exception("Invalid Input: Remove the tab inside input.");
+            throw new Exception("Invalid Input: Remove the tab or | inside input.");
         }
     }
 
     //https://howtodoinjava.com/java/regex/java-regex-validate-credit-card-numbers/
     public static String validateCreditCard(String name, String cardnum, String cvv) throws Exception {
         
-        if (validateNoTabAndNoNull(cardnum) && validateNoTabAndNoNull(cardnum) && validateNoTabAndNoNull(cvv)) {            
+        if (validateNoDelimeterAndNoNull(cardnum) && validateNoDelimeterAndNoNull(cardnum) && validateNoDelimeterAndNoNull(cvv)) {            
         } else {
-            throw new Exception("Invalid Input: Remove the tab inside input.");
+            throw new Exception("Invalid Input: Remove the tab or | inside input.");
         }
         if(validateCVV(cvv)){
         } else{

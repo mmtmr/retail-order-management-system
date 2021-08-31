@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static retailordermanagementsystem.Operation.AccList;
 import static retailordermanagementsystem.Operation.CusList;
+import static retailordermanagementsystem.Validation.*;
 
 /**
  *
@@ -327,7 +328,12 @@ public class AddCusDialog extends javax.swing.JDialog {
             String city = textCity.getText();
             String state = (String) comboState.getSelectedItem();
             String postcode = textPostcode.getText();
-            //validateAccount(textAccountName.getText(), "123456");
+            
+            //Validate input
+            //Validation.validateAccountInput(textAccountName.getText(), "123456");
+            //public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname) throws Exception {
+            validateCustomerInput(fname, lname, phone, email, street, city, state, postcode, textAccountName.getText());
+            
             acc = new CusAcc(textAccountName.getText(), "123456");
             AccList.add(acc);
             //validateCustomer(fname, lname, phone, email, street, city, state, postcode, acc.getAccID(), acc.getAccPassword());

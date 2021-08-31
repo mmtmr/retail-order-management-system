@@ -27,14 +27,15 @@ public class AddSupplier extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        radioFemale = new javax.swing.JRadioButton();
+        labelGender = new javax.swing.JLabel();
+        radioMale = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         labelSupplierName = new javax.swing.JLabel();
         labelFirstName1 = new javax.swing.JLabel();
         labelLastName1 = new javax.swing.JLabel();
         labelSupPhone = new javax.swing.JLabel();
         labelSupState = new javax.swing.JLabel();
-        labelSupRemarks = new javax.swing.JLabel();
-        textSupRemarks = new javax.swing.JTextField();
         textSupStreet = new javax.swing.JTextField();
         textSupPhone = new javax.swing.JTextField();
         textPICFirstName = new javax.swing.JTextField();
@@ -52,6 +53,18 @@ public class AddSupplier extends javax.swing.JPanel {
         labelSupPostcode = new javax.swing.JLabel();
         textSupPostcode = new javax.swing.JTextField();
         comboSupState = new javax.swing.JComboBox<>();
+        radioPICFemale = new javax.swing.JRadioButton();
+        labelGender1 = new javax.swing.JLabel();
+        radioPICMale = new javax.swing.JRadioButton();
+
+        radioFemale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        radioFemale.setText("Female");
+
+        labelGender.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelGender.setText("Gender");
+
+        radioMale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        radioMale.setText("Male");
 
         labelSupplierName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelSupplierName.setText("Supplier Name");
@@ -67,11 +80,6 @@ public class AddSupplier extends javax.swing.JPanel {
 
         labelSupState.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelSupState.setText("State");
-
-        labelSupRemarks.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        labelSupRemarks.setText("Remarks");
-
-        textSupRemarks.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
         textSupStreet.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         textSupStreet.addActionListener(new java.awt.event.ActionListener() {
@@ -91,10 +99,20 @@ public class AddSupplier extends javax.swing.JPanel {
         buttonCancel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonCancel.setText("Cancel");
         buttonCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
         buttonSave.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonSave.setText("Save");
         buttonSave.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -155,6 +173,15 @@ public class AddSupplier extends javax.swing.JPanel {
         comboSupState.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboSupState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select State>", "Kuala Lumpur", "Selangor", "Putrajaya", "Labuan", "Perlis", "Kedah", "Terengganu", "Pahang", "Perak", "Kelantan", "Penang", "Selangor", "Negeri Sembilan", "Johor", "Malacca", "Sabah", "Sarawak" }));
 
+        radioPICFemale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        radioPICFemale.setText("Female");
+
+        labelGender1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelGender1.setText("PIC Gender");
+
+        radioPICMale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        radioPICMale.setText("Male");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -163,9 +190,14 @@ public class AddSupplier extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labelSupRemarks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelGender1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelSupPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelFirstName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelSupplierName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -173,29 +205,24 @@ public class AddSupplier extends javax.swing.JPanel {
                             .addComponent(labelSupEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelSupStreet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelSupCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelSupState, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelSupState, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                             .addComponent(labelSupPostcode))
+                        .addGap(52, 52, 52)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textSupplierName)
-                                    .addComponent(textPICFirstName)
-                                    .addComponent(textPICLastName)
-                                    .addComponent(textSupPhone)
-                                    .addComponent(textSupStreet)
-                                    .addComponent(textSupEmail)
-                                    .addComponent(textSupCity)
-                                    .addComponent(textSupPostcode)
-                                    .addComponent(comboSupState, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(textSupRemarks, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textSupplierName)
+                                .addComponent(textPICFirstName)
+                                .addComponent(textPICLastName)
+                                .addComponent(textSupPhone)
+                                .addComponent(textSupStreet)
+                                .addComponent(textSupEmail)
+                                .addComponent(textSupCity)
+                                .addComponent(textSupPostcode)
+                                .addComponent(comboSupState, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(radioPICMale, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(radioPICFemale)))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -214,7 +241,18 @@ public class AddSupplier extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelLastName1)
                     .addComponent(textPICLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(radioPICMale, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(radioPICFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(labelGender1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSupPhone)
                     .addComponent(textSupPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -238,10 +276,6 @@ public class AddSupplier extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSupState)
                     .addComponent(comboSupState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelSupRemarks)
-                    .addComponent(textSupRemarks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,21 +295,63 @@ public class AddSupplier extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textSupStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupStreetActionPerformed
+    private void textSupPostcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupPostcodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textSupStreetActionPerformed
-
-    private void textSupEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textSupEmailActionPerformed
+    }//GEN-LAST:event_textSupPostcodeActionPerformed
 
     private void textSupCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupCityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textSupCityActionPerformed
 
-    private void textSupPostcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupPostcodeActionPerformed
+    private void textSupEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textSupPostcodeActionPerformed
+    }//GEN-LAST:event_textSupEmailActionPerformed
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+//        Supplier sup = new Supplier();
+//        try {
+//            String supname=textSupplierName.getText();
+//            String picfname = textPICFirstName.getText();
+//            String piclname = textPICLastName.getText();
+//            Gender picgender;
+//            if (radioPICMale.isSelected()) {
+//                picgender = Gender.M;
+//            } else if (radioPICFemale.isSelected()) {
+//                picgender = Gender.F;
+//            } else {
+//                throw (new Exception("Gender is not valid! Please try again."));
+//            }
+//            String phone = textSupPhone.getText();
+//            String email = textSupEmail.getText();
+//            String street = textSupStreet.getText();
+//            String city = textSupCity.getText();
+//            String state = (String) comboSupState.getSelectedItem();
+//            String postcode = textSupPostcode.getText();
+//            
+//            //Validation
+//            Validation.validateSupplierInput(supname,picfname, piclname, phone, email, street, city, state, postcode);
+//            //Supplier(String SupName, String PIFName, String PILName, Gender PIGender, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode)
+//            sup = new Supplier(supname, picfname,piclname, picgender, phone, email, street, city, state, postcode);
+//            SupList.add(sup);
+//            //String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth,String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode,CusAcc CusAccount
+//            //            cus.getCusOrdersIDs();
+//            //            System.out.println(cus);
+//            Operation.writeSupplierData(sup);
+//            model.addRow(new Object[]{cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet(), cus.getCusCI().getCIAddCity(), cus.getCusCI().getCIAddState(), cus.getCusCI().getCIAddPostcode()});
+//            JOptionPane.showMessageDialog(null, "Supplier added.");
+//            this.dispose();
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+    }//GEN-LAST:event_buttonSaveActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+//        this.dispose();
+    }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void textSupStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSupStreetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSupStreetActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -285,23 +361,27 @@ public class AddSupplier extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelFirstName1;
+    private javax.swing.JLabel labelGender;
+    private javax.swing.JLabel labelGender1;
     private javax.swing.JLabel labelLastName1;
     private javax.swing.JLabel labelSupCity;
     private javax.swing.JLabel labelSupEmail;
     private javax.swing.JLabel labelSupPhone;
     private javax.swing.JLabel labelSupPostcode;
-    private javax.swing.JLabel labelSupRemarks;
     private javax.swing.JLabel labelSupState;
     private javax.swing.JLabel labelSupStreet;
     private javax.swing.JLabel labelSupplierName;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JRadioButton radioFemale;
+    private javax.swing.JRadioButton radioMale;
+    private javax.swing.JRadioButton radioPICFemale;
+    private javax.swing.JRadioButton radioPICMale;
     private javax.swing.JTextField textPICFirstName;
     private javax.swing.JTextField textPICLastName;
     private javax.swing.JTextField textSupCity;
     private javax.swing.JTextField textSupEmail;
     private javax.swing.JTextField textSupPhone;
     private javax.swing.JTextField textSupPostcode;
-    private javax.swing.JTextField textSupRemarks;
     private javax.swing.JTextField textSupStreet;
     private javax.swing.JTextField textSupplierName;
     // End of variables declaration//GEN-END:variables

@@ -122,8 +122,8 @@ public class Supplier {
             if (SupProductsIDs.charAt(SupProductsIDs.length() - 1) == ',') {
                 SupProductsIDs = SupProductsIDs.substring(0, SupProductsIDs.length() - 2);
             }
-        }else{
-            SupProductsIDs ="-";
+        } else {
+            SupProductsIDs = "-";
         }
 
         //SupProductsIDs = SupProductsIDs + ']';
@@ -135,6 +135,18 @@ public class Supplier {
         return SupID + "\t" + SupName + "\t" + SupPersonInCharge + "\t" + SupCI + "\t" + getSupProductsIDs();
     }
 
+    public void editSupplier(String SupName, String PIFName, String PILName, Gender PIGender, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode) {
+        setSupName(SupName);
+        SupPersonInCharge.setPIFName(PIFName);
+        SupPersonInCharge.setPILName(PILName);
+        SupPersonInCharge.setPIGender(PIGender);      
+        SupCI.setCIPhone(CIPhone);
+        SupCI.setCIEmail(CIEmail);
+        SupCI.setCIAddStreet(CIAddStreet);
+        SupCI.setCIAddCity(CIAddCity);
+        SupCI.setCIAddState(CIAddState);
+        SupCI.setCIAddPostcode(CIAddPostcode);
+    }
 //    public static Supplier parseSupFromString(String supLine, ArrayList<Product> ProList) {
 //        String[] sup = new String[3];
 //        String[] supCI = new String[6];
@@ -165,6 +177,7 @@ public class Supplier {
 //        }
 //        return new Supplier(sup[0], sup[1], supPI[0], supPI[1], Gender.valueOf(supPI[2]), supCI[0], supCI[1], supCI[2], supCI[3], supCI[4], supCI[5], sup[2], supProducts);
 //    }
+
     public static Supplier searchSupFromID(String supID) {
         Supplier supplier = new Supplier();
         try {

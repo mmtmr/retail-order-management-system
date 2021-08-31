@@ -273,19 +273,20 @@ public class Operation {
         }
 
     }
+    
+    public static void writeSupplierData(Supplier sup) throws IOException {
+        File supFile = new File("supplier.txt");
+        if (!supFile.isFile() && !supFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + supFile.getAbsolutePath());
+        }
+        PrintWriter supWrite = new PrintWriter(new BufferedWriter(new FileWriter(supFile, true)));
+        try {
+            supWrite.println(sup);
+        } finally {
+            supWrite.close();
+        }
 
-//    public static void writeSCData(ShoppingCart sc) throws IOException {
-//        File scFile = new File("order.txt");
-//        if (!scFile.isFile() && !scFile.createNewFile()) {
-//            throw new IOException("Error creating new file: " + scFile.getAbsolutePath());
-//        }
-//        PrintWriter scWrite = new PrintWriter(new BufferedWriter(new FileWriter(scFile, true)));
-//        try {
-//            scWrite.println(sc);
-//        } finally {
-//            scWrite.close();
-//        }
-//    }
+    }
     public static void writeOrderData(OrderDetails ord) throws IOException {
         File ordFile = new File("order.txt");
         if (!ordFile.isFile() && !ordFile.createNewFile()) {
@@ -326,6 +327,21 @@ public class Operation {
             }
         } finally {
             accWrite.close();
+        }
+    }
+    
+    public static void rewriteSupplierData() throws IOException {
+        File supFile = new File("supplier.txt");
+        if (!supFile.isFile() && !supFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + supFile.getAbsolutePath());
+        }
+        PrintWriter supWrite = new PrintWriter(new BufferedWriter(new FileWriter(supFile, false)));
+        try {
+            for (Supplier sup : SupList) {
+                supWrite.println(sup);
+            }
+        } finally {
+            supWrite.close();
         }
     }
 
@@ -393,26 +409,36 @@ public class Operation {
         //BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
     }
 
-    public static void destroyCustomerObject(Customer cus) throws Exception {
-        CusList.remove(cus);
-        rewriteCustomerData();
-        removeShoppingCart(cus.getCusAccount().getAccID());
-        AccList.remove(cus.getCusAccount());
-        CusAcc.minusCACounter();
-        rewriteAccountData();
-        rewriteOrderData();
-        JOptionPane.showMessageDialog(null, "Customer information and account is deleted.");
-    }
-
     public static void destroyAccountObject(Account acc) throws Exception {
         removeShoppingCart(acc.getAccID());
         AccList.remove(acc);
-        CusAcc.minusCACounter();
+        //CusAcc.minusCACounter();
         rewriteCustomerData();
         rewriteAccountData();
         rewriteOrderData();
         JOptionPane.showMessageDialog(null, "Account is deleted.");
     }
+    
+    public static void destroySupplierObject(Supplier sup) throws Exception {
+        SupList.remove(sup);
+        rewriteSupplierData();
+        //Supplier.minusSupCounter();
+        rewriteSupplierData();
+        JOptionPane.showMessageDialog(null, "Supplier information is deleted.");
+    }
+    
+    public static void destroyCustomerObject(Customer cus) throws Exception {
+        CusList.remove(cus);
+        rewriteCustomerData();
+        removeShoppingCart(cus.getCusAccount().getAccID());
+        AccList.remove(cus.getCusAccount());
+        //CusAcc.minusCACounter();
+        rewriteAccountData();
+        rewriteOrderData();
+        JOptionPane.showMessageDialog(null, "Customer information and account is deleted.");
+    }
+
+    
 
 //    public static void loginAdmin(String accName, String accPassword) throws Exception {
 //        removeShoppingCart(acc.getAccID());

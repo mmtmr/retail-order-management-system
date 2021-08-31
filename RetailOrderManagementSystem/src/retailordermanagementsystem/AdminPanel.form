@@ -49,7 +49,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1247" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1249" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="panelAdminProductList" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -70,28 +70,25 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="labelTitleProduct" min="-2" pref="210" max="-2" attributes="0"/>
-                                  <EmptySpace min="610" pref="610" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="buttonRestockPor" min="-2" pref="94" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="buttonAddPro" min="-2" pref="75" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="buttonEditPro" min="-2" pref="74" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="buttonDeletePro" min="-2" pref="85" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="textSearchPro" min="-2" pref="380" max="-2" attributes="0"/>
-                                  </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Component id="labelTitleProduct" min="-2" pref="210" max="-2" attributes="0"/>
+                          <EmptySpace pref="643" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="buttonRestockPor" min="-2" pref="94" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="buttonAddPro" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="buttonEditPro" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="buttonDeletePro" min="-2" pref="85" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane2" min="-2" pref="1204" max="-2" attributes="0"/>
+                              <Component id="textSearchPro" min="-2" pref="380" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -114,8 +111,8 @@
                           </Group>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Component id="textSearchPro" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="480" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" pref="480" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -221,7 +218,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" pref="1247" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" pref="1249" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="labelTitleSupplier" min="-2" pref="255" max="-2" attributes="0"/>
@@ -251,17 +248,17 @@
                                   <Component id="buttonAddSup" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="buttonDeleteSup" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" pref="14" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="labelTitleSupplier" min="-2" pref="27" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="textSearchSup" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="475" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="475" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -285,13 +282,13 @@
                 <Component class="javax.swing.JTable" name="tableSupList">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="51">
+                      <Table columnCount="6" rowCount="0">
                         <Column editable="false" title="ID" type="java.lang.String"/>
                         <Column editable="false" title="Name" type="java.lang.String"/>
                         <Column editable="false" title="Person In Charge" type="java.lang.String"/>
                         <Column editable="false" title="Phone" type="java.lang.String"/>
                         <Column editable="false" title="Email" type="java.lang.String"/>
-                        <Column editable="false" title="Remarks" type="java.lang.String"/>
+                        <Column editable="false" title="Address" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -342,6 +339,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDeleteSupActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="buttonEditSup">
               <Properties>
@@ -361,6 +361,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddSupActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="textSearchSup">
               <Properties>
@@ -369,6 +372,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Press enter to search"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textSearchSupActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -384,7 +390,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane4" pref="1247" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" pref="1249" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="labelTitleCus" min="-2" pref="269" max="-2" attributes="0"/>
@@ -399,7 +405,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="buttonDeleteAcc" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="buttonSearchCus" max="32767" attributes="0"/>
+                          <Component id="textSearchCus" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -419,7 +425,7 @@
                           <Component id="labelTitleCus" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonSearchCus" min="-2" max="-2" attributes="0"/>
+                      <Component id="textSearchCus" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane4" pref="477" max="32767" attributes="0"/>
                   </Group>
@@ -577,7 +583,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddCusActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="buttonSearchCus">
+            <Component class="javax.swing.JTextField" name="textSearchCus">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -585,7 +591,7 @@
                 <Property name="text" type="java.lang.String" value="Press enter to search"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSearchCusActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textSearchCusActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="buttonDeleteCus">
@@ -628,7 +634,7 @@
                       <Component id="buttonOrderCancelled" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="buttonOrderCompleted" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                      <EmptySpace pref="145" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="buttonAddOrder" min="-2" pref="75" max="-2" attributes="0"/>
@@ -637,9 +643,9 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="buttonDeleteOrder" min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="buttonSearchOrder" max="32767" attributes="0"/>
+                          <Component id="textSearchOrder" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -667,7 +673,7 @@
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="buttonSearchOrder" min="-2" max="-2" attributes="0"/>
+                      <Component id="textSearchOrder" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" pref="477" max="32767" attributes="0"/>
                   </Group>
@@ -791,12 +797,12 @@
                 <Property name="text" type="java.lang.String" value="Unpaid"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="buttonSearchOrder">
+            <Component class="javax.swing.JTextField" name="textSearchOrder">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Press enter to search"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSearchOrderActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textSearchOrderActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
