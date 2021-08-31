@@ -69,20 +69,20 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField3" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jTextField4" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jTextField5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="spinnerPDQuantity" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="textPDPrice" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="textPDName" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="textPDCategory" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="textPDWeight" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="textPDSupplier" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="comboPDModel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="spinnerPDStock" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="radioFragile" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="radioNonFragile" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -113,43 +113,43 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelPDName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jTextField2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="textPDName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelPDPrice" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jTextField3" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="textPDPrice" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelPDCategory" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="textPDCategory" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelPDWeight" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jTextField4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="textPDWeight" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelPDSupplier" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jTextField5" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="textPDSupplier" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelPDModel" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboPDModel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelPDStock" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="spinnerPDQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="spinnerPDStock" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelPDType" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="radioFragile" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="radioNonFragile" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -266,14 +266,14 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="spinnerPDQuantity">
+        <Component class="javax.swing.JSpinner" name="spinnerPDStock">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="comboPDModel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -288,7 +288,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboPDModelActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -337,20 +337,20 @@
             <Property name="text" type="java.lang.String" value="Fragile"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="textPDCategory">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textPDCategoryActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="textPDName">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="textPDPrice">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="textPDWeight">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="textPDSupplier">
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="radioNonFragile">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroupFragile"/>

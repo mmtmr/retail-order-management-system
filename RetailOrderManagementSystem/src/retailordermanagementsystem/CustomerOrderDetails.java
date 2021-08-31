@@ -28,34 +28,34 @@ public class CustomerOrderDetails extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        labelTitle = new javax.swing.JLabel();
+        loadOrderID = new javax.swing.JLabel();
+        labelOrderDate = new javax.swing.JLabel();
+        labelOrderTotal = new javax.swing.JLabel();
         labelDeliveryAddress = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        labelDAName = new javax.swing.JLabel();
-        labelDAPhone = new javax.swing.JLabel();
-        labelDAAddress = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        tableOrderItem = new javax.swing.JTable();
+        loadOrderTotal = new javax.swing.JLabel();
+        loadOrderTracking = new javax.swing.JLabel();
+        loadOrderStatus = new javax.swing.JLabel();
+        loadOrderDate = new javax.swing.JLabel();
+        labelOrderTracking = new javax.swing.JLabel();
+        labelOrderStatus = new javax.swing.JLabel();
+        loadDAName = new javax.swing.JLabel();
+        loadDAPhone = new javax.swing.JLabel();
+        loadDAAddress = new javax.swing.JLabel();
+        labelContactInstruction = new javax.swing.JLabel();
+        labelEmailInstruction = new javax.swing.JLabel();
+        labelEmailStore = new javax.swing.JLabel();
+        buttonCancel = new javax.swing.JButton();
+        buttonCompleteOrder = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel4.setText("Order ID");
+        labelTitle.setFont(new java.awt.Font("Monotype Corsiva", 0, 36)); // NOI18N
+        labelTitle.setText("Order ID");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        loadOrderID.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,31 +63,30 @@ public class CustomerOrderDetails extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelTitle)
+                .addGap(18, 18, 18)
+                .addComponent(loadOrderID, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(loadOrderID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel2.setText("Order Date");
+        labelOrderDate.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelOrderDate.setText("Order Date");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel3.setText("Order Total");
+        labelOrderTotal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelOrderTotal.setText("Order Total");
 
         labelDeliveryAddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelDeliveryAddress.setText("Delivery Address");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableOrderItem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -106,39 +105,39 @@ public class CustomerOrderDetails extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(5);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(35);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(35);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(40);
+        jScrollPane1.setViewportView(tableOrderItem);
+        if (tableOrderItem.getColumnModel().getColumnCount() > 0) {
+            tableOrderItem.getColumnModel().getColumn(0).setPreferredWidth(5);
+            tableOrderItem.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tableOrderItem.getColumnModel().getColumn(2).setPreferredWidth(35);
+            tableOrderItem.getColumnModel().getColumn(3).setPreferredWidth(35);
+            tableOrderItem.getColumnModel().getColumn(4).setPreferredWidth(40);
         }
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadOrderTotal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadOrderTracking.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadOrderStatus.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadOrderDate.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel12.setText("Order Tracking No.");
+        labelOrderTracking.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelOrderTracking.setText("Order Tracking No.");
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel14.setText("Order Status");
+        labelOrderStatus.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelOrderStatus.setText("Order Status");
 
-        jLabel5.setText("Please call +06-9999888 to contact us!");
+        labelContactInstruction.setText("Please call +06-9999888 to contact us!");
 
-        jLabel16.setText("Kindly email us for more enquiries at");
+        labelEmailInstruction.setText("Kindly email us for more enquiries at");
 
-        jLabel1.setForeground(new java.awt.Color(102, 204, 255));
-        jLabel1.setText(" overcooked@store.com");
+        labelEmailStore.setForeground(new java.awt.Color(102, 204, 255));
+        labelEmailStore.setText(" overcooked@store.com");
 
-        jButton2.setText("Complete Order");
+        buttonCancel.setText("Cancel");
 
-        jButton3.setText("Complete Order");
+        buttonCompleteOrder.setText("Complete Order");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -154,38 +153,38 @@ public class CustomerOrderDetails extends javax.swing.JPanel {
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(labelOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelOrderTracking, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(labelDeliveryAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                            .addComponent(labelDAName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelDAPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelDAAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(loadOrderTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                            .addComponent(loadOrderTracking, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                            .addComponent(loadOrderStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                            .addComponent(loadOrderDate, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                            .addComponent(loadDAName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(loadDAPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(loadDAAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(16, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelEmailInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jLabel1))
+                        .addComponent(labelEmailStore))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelContactInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58)))
                 .addGap(96, 96, 96))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonCompleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
@@ -194,69 +193,69 @@ public class CustomerOrderDetails extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loadOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(loadOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(loadOrderTracking, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelOrderTracking, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(labelOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(loadOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelDeliveryAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelDAName, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(loadDAName, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(labelDAPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(loadDAPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0)
-                .addComponent(labelDAAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loadDAAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCompleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(labelContactInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel1))
+                    .addComponent(labelEmailInstruction)
+                    .addComponent(labelEmailStore))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton buttonCancel;
+    private javax.swing.JButton buttonCompleteOrder;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel labelDAAddress;
-    private javax.swing.JLabel labelDAName;
-    private javax.swing.JLabel labelDAPhone;
+    private javax.swing.JLabel labelContactInstruction;
     private javax.swing.JLabel labelDeliveryAddress;
+    private javax.swing.JLabel labelEmailInstruction;
+    private javax.swing.JLabel labelEmailStore;
+    private javax.swing.JLabel labelOrderDate;
+    private javax.swing.JLabel labelOrderStatus;
+    private javax.swing.JLabel labelOrderTotal;
+    private javax.swing.JLabel labelOrderTracking;
+    private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel loadDAAddress;
+    private javax.swing.JLabel loadDAName;
+    private javax.swing.JLabel loadDAPhone;
+    private javax.swing.JLabel loadOrderDate;
+    private javax.swing.JLabel loadOrderID;
+    private javax.swing.JLabel loadOrderStatus;
+    private javax.swing.JLabel loadOrderTotal;
+    private javax.swing.JLabel loadOrderTracking;
+    private javax.swing.JTable tableOrderItem;
     // End of variables declaration//GEN-END:variables
 }

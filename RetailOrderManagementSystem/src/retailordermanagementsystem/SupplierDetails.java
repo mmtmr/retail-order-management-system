@@ -40,7 +40,7 @@ public class SupplierDetails extends javax.swing.JPanel {
         labelSupCity = new javax.swing.JLabel();
         loadSupPhone = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        listSupplier = new javax.swing.JList<>();
+        listSupplierPro = new javax.swing.JList<>();
         labelSupEmail = new javax.swing.JLabel();
         loadSupEmail = new javax.swing.JLabel();
         labelSupStreet = new javax.swing.JLabel();
@@ -101,12 +101,12 @@ public class SupplierDetails extends javax.swing.JPanel {
 
         loadSupPhone.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
-        listSupplier.setModel(new javax.swing.AbstractListModel<String>() {
+        listSupplierPro.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(listSupplier);
+        jScrollPane2.setViewportView(listSupplierPro);
 
         labelSupEmail.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelSupEmail.setText("Email");
@@ -244,7 +244,7 @@ public class SupplierDetails extends javax.swing.JPanel {
     private javax.swing.JLabel labelSupState;
     private javax.swing.JLabel labelSupStreet;
     private javax.swing.JLabel labelSupplierName;
-    private javax.swing.JList<String> listSupplier;
+    private javax.swing.JList<String> listSupplierPro;
     private javax.swing.JLabel loadPICName;
     private javax.swing.JLabel loadSupCity;
     private javax.swing.JLabel loadSupEmail;

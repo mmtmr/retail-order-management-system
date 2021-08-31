@@ -22,28 +22,28 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel15" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="labelCustomerID" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel3" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <Component id="labelOrderTotal" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <Component id="labelOrderTracking" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <Component id="labelOrderDate" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <Component id="labelOrderStatus" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="labelDeliveryAddress" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel13" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                                  <Component id="loadCustomerID" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="loadOrderTotal" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="loadOrderDate" alignment="0" max="32767" attributes="0"/>
                                       <Component id="labelDAName" alignment="0" max="32767" attributes="0"/>
                                       <Component id="labelDAPhone" alignment="0" max="32767" attributes="0"/>
                                       <Component id="labelDAAddress" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" pref="322" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textOrderTracking" min="-2" pref="322" max="-2" attributes="0"/>
+                                      <Component id="comboOrderStatus" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -64,28 +64,28 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel15" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jLabel13" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="labelCustomerID" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="loadCustomerID" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel2" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jLabel11" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="labelOrderDate" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="loadOrderDate" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel3" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jLabel8" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="labelOrderTotal" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="loadOrderTotal" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jLabel12" max="32767" attributes="0"/>
-                  <Component id="jTextField1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="labelOrderTracking" max="32767" attributes="0"/>
+                  <Component id="textOrderTracking" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel14" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="labelOrderStatus" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="comboOrderStatus" min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -118,7 +118,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" pref="301" max="-2" attributes="0"/>
                   <EmptySpace pref="92" max="32767" attributes="0"/>
@@ -135,7 +135,7 @@
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel4" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="labelTitle" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -144,7 +144,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="labelTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Monotype Corsiva" size="36" style="0"/>
@@ -161,7 +161,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="labelOrderDate">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
@@ -169,7 +169,7 @@
         <Property name="text" type="java.lang.String" value="Order Date"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="labelOrderTotal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
@@ -177,7 +177,7 @@
         <Property name="text" type="java.lang.String" value="Order Total"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
+    <Component class="javax.swing.JLabel" name="labelOrderTracking">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
@@ -185,7 +185,7 @@
         <Property name="text" type="java.lang.String" value="Order Tracking No."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel14">
+    <Component class="javax.swing.JLabel" name="labelOrderStatus">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
@@ -201,14 +201,14 @@
         <Property name="text" type="java.lang.String" value="Delivery Address"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
+    <Component class="javax.swing.JLabel" name="loadOrderDate">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="loadOrderTotal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
@@ -221,7 +221,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelDAAddress">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel15">
+    <Component class="javax.swing.JLabel" name="labelCustomerID">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
@@ -229,7 +229,7 @@
         <Property name="text" type="java.lang.String" value="Customer ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel13">
+    <Component class="javax.swing.JLabel" name="loadCustomerID">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
@@ -261,12 +261,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="textOrderTracking">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textOrderTrackingActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="comboOrderStatus">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">

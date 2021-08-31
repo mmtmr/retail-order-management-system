@@ -29,14 +29,14 @@ public class CusOrderList extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableProductList = new javax.swing.JTable();
+        tableOrderList = new javax.swing.JTable();
         labelTitle = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        buttonEdit = new javax.swing.JButton();
-        buttonAdd = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        buttonCompleted = new javax.swing.JButton();
+        buttonCancelled = new javax.swing.JButton();
+        buttonToShip = new javax.swing.JButton();
+        buttonDelete = new javax.swing.JButton();
 
-        tableProductList.setModel(new javax.swing.table.DefaultTableModel(
+        tableOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -102,28 +102,28 @@ public class CusOrderList extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tableProductList);
+        jScrollPane2.setViewportView(tableOrderList);
 
         labelTitle.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         labelTitle.setText("Order List");
         labelTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton1.setText("Completed");
+        buttonCompleted.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonCompleted.setText("Completed");
 
-        buttonEdit.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit.setText("Cancelled");
-        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
+        buttonCancelled.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonCancelled.setText("Cancelled");
+        buttonCancelled.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditActionPerformed(evt);
+                buttonCancelledActionPerformed(evt);
             }
         });
 
-        buttonAdd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd.setText("Waiting");
+        buttonToShip.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonToShip.setText("To Ship");
 
-        jButton5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton5.setText("Delete");
+        buttonDelete.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDelete.setText("Delete");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,13 +134,13 @@ public class CusOrderList extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonAdd)
+                .addComponent(buttonToShip)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonEdit)
+                .addComponent(buttonCancelled)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonCompleted, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,10 +149,10 @@ public class CusOrderList extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonAdd)
-                    .addComponent(buttonEdit)
-                    .addComponent(jButton1)
-                    .addComponent(jButton5))
+                    .addComponent(buttonToShip)
+                    .addComponent(buttonCancelled)
+                    .addComponent(buttonCompleted)
+                    .addComponent(buttonDelete))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -179,19 +179,19 @@ public class CusOrderList extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+    private void buttonCancelledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelledActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEditActionPerformed
+    }//GEN-LAST:event_buttonCancelledActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAdd;
-    private javax.swing.JButton buttonEdit;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton buttonCancelled;
+    private javax.swing.JButton buttonCompleted;
+    private javax.swing.JButton buttonDelete;
+    private javax.swing.JButton buttonToShip;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelTitle;
-    private javax.swing.JTable tableProductList;
+    private javax.swing.JTable tableOrderList;
     // End of variables declaration//GEN-END:variables
 }

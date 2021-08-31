@@ -30,40 +30,40 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel9" min="-2" pref="153" max="-2" attributes="0"/>
+                              <Component id="labelGender" min="-2" pref="153" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="radioMale" min="-2" pref="61" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="radioFemale" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jLabel1" max="32767" attributes="0"/>
+                                  <Component id="labelBirthday" max="32767" attributes="0"/>
                                   <Component id="labelFirstName" linkSize="1" alignment="1" pref="151" max="32767" attributes="0"/>
                                   <Component id="labelLastName" linkSize="1" alignment="1" pref="151" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textBirthday" alignment="0" max="32767" attributes="0"/>
                                   <Component id="textLastName" alignment="0" max="32767" attributes="0"/>
                                   <Component id="textFirstName" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel3" linkSize="1" pref="151" max="32767" attributes="0"/>
-                                  <Component id="jLabel4" linkSize="1" pref="151" max="32767" attributes="0"/>
-                                  <Component id="jLabel6" linkSize="1" pref="151" max="32767" attributes="0"/>
-                                  <Component id="jLabel7" linkSize="1" pref="151" max="32767" attributes="0"/>
-                                  <Component id="jLabel8" linkSize="1" alignment="1" pref="151" max="32767" attributes="0"/>
-                                  <Component id="jLabel5" linkSize="1" alignment="1" pref="151" max="32767" attributes="0"/>
+                                  <Component id="labelPhone" linkSize="1" pref="151" max="32767" attributes="0"/>
+                                  <Component id="labelEmail" linkSize="1" pref="151" max="32767" attributes="0"/>
+                                  <Component id="labelCity" linkSize="1" pref="151" max="32767" attributes="0"/>
+                                  <Component id="labelState" linkSize="1" pref="151" max="32767" attributes="0"/>
+                                  <Component id="labelPostcode" linkSize="1" alignment="1" pref="151" max="32767" attributes="0"/>
+                                  <Component id="labelStreet" linkSize="1" alignment="1" pref="151" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -76,48 +76,41 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="buttonSave" pref="236" max="32767" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="buttonCancel" pref="184" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="labelMemberLevel" alignment="1" min="-2" pref="468" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="memberLabelPoint" alignment="0" pref="468" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labelLastLoginDT" max="32767" attributes="0"/>
-                                          <Component id="labelLastRegisterDT" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
                   </Group>
-                  <Component id="labelTitle" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonSave" min="-2" pref="160" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="labelLastLoginDT" alignment="1" pref="160" max="32767" attributes="0"/>
+                              <Component id="labelLastRegisterDT" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="memberLabelPoint" alignment="1" pref="348" max="32767" attributes="0"/>
+                          <Component id="labelMemberLevel" alignment="1" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="buttonCancel" min="-2" pref="160" max="-2" attributes="0"/>
+                      <EmptySpace pref="155" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="labelTitle" min="-2" pref="84" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelMemberLevel" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="memberLabelPoint" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="399" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="labelFirstName" max="32767" attributes="0"/>
@@ -130,64 +123,63 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelGender" alignment="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jRadioButton1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="radioMale" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="radioFemale" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField1" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="textBirthday" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="labelBirthday" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="labelLastLoginDT" max="32767" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="labelLastRegisterDT" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="buttonSave" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="buttonCancel" alignment="3" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="textPhone" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="textEmail" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="textStreet" pref="35" max="32767" attributes="0"/>
-                                  <Component id="jLabel5" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel6" max="32767" attributes="0"/>
-                                  <Component id="textCity" pref="35" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel7" max="32767" attributes="0"/>
-                                  <Component id="comboState" pref="35" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel8" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="textPostcode" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="115" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="textPhone" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="labelPhone" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="textEmail" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="labelEmail" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="textStreet" pref="35" max="32767" attributes="0"/>
+                          <Component id="labelStreet" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelCity" max="32767" attributes="0"/>
+                          <Component id="textCity" pref="35" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelState" max="32767" attributes="0"/>
+                          <Component id="comboState" pref="35" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelPostcode" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="textPostcode" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="buttonSave" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="buttonCancel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="labelMemberLevel" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="memberLabelPoint" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="labelLastLoginDT" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="labelLastRegisterDT" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -230,17 +222,6 @@
         <Property name="text" type="java.lang.String" value="jLabel11"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelTitle">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="24" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Customer Profile"/>
-      </Properties>
-      <Events>
-        <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="labelTitleAncestorAdded"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="labelLastLoginDT">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -263,11 +244,25 @@
           <Font name="Dialog" size="16" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="18">
+            <StringItem index="0" value="&lt;Select State&gt;"/>
+            <StringItem index="1" value="Kuala Lumpur"/>
+            <StringItem index="2" value="Selangor"/>
+            <StringItem index="3" value="Putrajaya"/>
+            <StringItem index="4" value="Labuan"/>
+            <StringItem index="5" value="Perlis"/>
+            <StringItem index="6" value="Kedah"/>
+            <StringItem index="7" value="Terengganu"/>
+            <StringItem index="8" value="Pahang"/>
+            <StringItem index="9" value="Perak"/>
+            <StringItem index="10" value="Kelantan"/>
+            <StringItem index="11" value="Penang"/>
+            <StringItem index="12" value="Selangor"/>
+            <StringItem index="13" value="Negeri Sembilan"/>
+            <StringItem index="14" value="Johor"/>
+            <StringItem index="15" value="Malacca"/>
+            <StringItem index="16" value="Sabah"/>
+            <StringItem index="17" value="Sarawak"/>
           </StringArray>
         </Property>
       </Properties>
@@ -275,7 +270,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="labelStreet">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
@@ -290,7 +285,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="labelCity">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
@@ -321,7 +316,7 @@
         <Property name="text" type="java.lang.String" value="Last Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="labelState">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
@@ -336,7 +331,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="labelPostcode">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
@@ -361,7 +356,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textPostcodeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="labelPhone">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
@@ -375,12 +370,17 @@
           <Font name="Dialog" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Save Changes"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSaveActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="labelEmail">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
@@ -394,9 +394,14 @@
           <Font name="Dialog" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="labelGender">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
@@ -404,7 +409,7 @@
         <Property name="text" type="java.lang.String" value="Gender"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+    <Component class="javax.swing.JRadioButton" name="radioMale">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroupGender"/>
@@ -415,10 +420,10 @@
         <Property name="text" type="java.lang.String" value="Male"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioMaleActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+    <Component class="javax.swing.JRadioButton" name="radioFemale">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroupGender"/>
@@ -429,7 +434,7 @@
         <Property name="text" type="java.lang.String" value="Female"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="labelBirthday">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
@@ -437,10 +442,51 @@
         <Property name="text" type="java.lang.String" value="Birthday"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="textBirthday">
       <Properties>
         <Property name="text" type="java.lang.String" value="YYYY-MM-DD"/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="labelTitle" min="-2" pref="288" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                  <Component id="labelTitle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="labelTitle">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Monotype Corsiva" size="36" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Customer Profile"/>
+          </Properties>
+          <Events>
+            <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="labelTitleAncestorAdded"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

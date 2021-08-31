@@ -43,45 +43,44 @@ public class AdminPanel extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableProList = new javax.swing.JTable();
         labelTitleProduct = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        buttonEdit = new javax.swing.JButton();
-        buttonAdd = new javax.swing.JButton();
+        buttonRestockPor = new javax.swing.JButton();
+        buttonDeletePro = new javax.swing.JButton();
+        buttonEditPro = new javax.swing.JButton();
+        buttonAddPro = new javax.swing.JButton();
+        textSearchPro = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         labelTitleSupplier = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSupList = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
-        buttonEdit3 = new javax.swing.JButton();
-        buttonAdd3 = new javax.swing.JButton();
-        textCusSearch1 = new javax.swing.JTextField();
+        buttonDeleteSup = new javax.swing.JButton();
+        buttonEditSup = new javax.swing.JButton();
+        buttonAddSup = new javax.swing.JButton();
+        textSearchSup = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        labelTitleCus = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableCusList = new javax.swing.JTable();
-        buttonCusDeleteAcc = new javax.swing.JButton();
-        buttonCusEdit = new javax.swing.JButton();
-        buttonCusAdd = new javax.swing.JButton();
-        textCusSearch = new javax.swing.JTextField();
-        buttonCusDeleteCus = new javax.swing.JButton();
+        buttonDeleteAcc = new javax.swing.JButton();
+        buttonEditCus = new javax.swing.JButton();
+        buttonAddCus = new javax.swing.JButton();
+        buttonSearchCus = new javax.swing.JTextField();
+        buttonDeleteCus = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tableOrdList = new javax.swing.JTable();
+        tableOrderList = new javax.swing.JTable();
         labelTitleOrder = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        buttonEdit1 = new javax.swing.JButton();
-        buttonAdd1 = new javax.swing.JButton();
-        buttonAdd2 = new javax.swing.JButton();
-        buttonEdit2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        buttonAdd4 = new javax.swing.JButton();
-        buttonAdd5 = new javax.swing.JButton();
-        buttonAdd6 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        buttonOrderCompleted = new javax.swing.JButton();
+        buttonOrderCancelled = new javax.swing.JButton();
+        buttonOrderShipping = new javax.swing.JButton();
+        buttonAddOrder = new javax.swing.JButton();
+        buttonEditOrder = new javax.swing.JButton();
+        buttonDeleteOrder = new javax.swing.JButton();
+        buttonOrderAll = new javax.swing.JButton();
+        buttonOrderToShip = new javax.swing.JButton();
+        buttonOrderUnpaid = new javax.swing.JButton();
+        buttonSearchOrder = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        panelAdminProductList.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tableProList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,39 +150,82 @@ public class AdminPanel extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tableProList);
 
-        panelAdminProductList.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 51, 1204, 509));
-
-        labelTitleProduct.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        labelTitleProduct.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
         labelTitleProduct.setText("Product List");
         labelTitleProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelAdminProductList.add(labelTitleProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 144, 33));
 
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton2.setText("Restock");
-        panelAdminProductList.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(816, 6, 94, -1));
+        buttonRestockPor.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonRestockPor.setText("Restock");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton1.setText("Delete");
-        panelAdminProductList.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1113, 6, 85, -1));
-
-        buttonEdit.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit.setText("Edit");
-        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
+        buttonDeletePro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeletePro.setText("Delete");
+        buttonDeletePro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditActionPerformed(evt);
+                buttonDeleteProActionPerformed(evt);
             }
         });
-        panelAdminProductList.add(buttonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1021, 6, 74, -1));
 
-        buttonAdd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd.setText("Add");
-        panelAdminProductList.add(buttonAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(928, 6, 75, -1));
+        buttonEditPro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditPro.setText("Edit");
+        buttonEditPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditProActionPerformed(evt);
+            }
+        });
+
+        buttonAddPro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddPro.setText("Add");
+
+        textSearchPro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textSearchPro.setText("Press enter to search");
+
+        javax.swing.GroupLayout panelAdminProductListLayout = new javax.swing.GroupLayout(panelAdminProductList);
+        panelAdminProductList.setLayout(panelAdminProductListLayout);
+        panelAdminProductListLayout.setHorizontalGroup(
+            panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAdminProductListLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAdminProductListLayout.createSequentialGroup()
+                        .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(610, 610, 610)
+                        .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelAdminProductListLayout.createSequentialGroup()
+                                .addComponent(buttonRestockPor, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonAddPro, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonEditPro, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonDeletePro, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        panelAdminProductListLayout.setVerticalGroup(
+            panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAdminProductListLayout.createSequentialGroup()
+                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAdminProductListLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonDeletePro)
+                            .addComponent(buttonEditPro)
+                            .addComponent(buttonAddPro)
+                            .addComponent(buttonRestockPor)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminProductListLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(7, 7, 7)
+                .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1489, Short.MAX_VALUE)
+            .addGap(0, 1247, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAdminProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -274,40 +316,40 @@ public class AdminPanel extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableSupList);
 
-        jButton4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton4.setText("Delete");
+        buttonDeleteSup.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteSup.setText("Delete");
 
-        buttonEdit3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit3.setText("Edit");
-        buttonEdit3.addActionListener(new java.awt.event.ActionListener() {
+        buttonEditSup.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditSup.setText("Edit");
+        buttonEditSup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEdit3ActionPerformed(evt);
+                buttonEditSupActionPerformed(evt);
             }
         });
 
-        buttonAdd3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd3.setText("Add");
+        buttonAddSup.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddSup.setText("Add");
 
-        textCusSearch1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textCusSearch1.setText("Enter here");
+        textSearchSup.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textSearchSup.setText("Press enter to search");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1489, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(buttonAdd3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAddSup, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonEdit3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonEditSup, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textCusSearch1))
+                        .addComponent(buttonDeleteSup, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textSearchSup))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -317,20 +359,23 @@ public class AdminPanel extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonEdit3)
-                            .addComponent(buttonAdd3)
-                            .addComponent(jButton4)))
-                    .addComponent(labelTitleSupplier))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(textCusSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+                            .addComponent(buttonEditSup)
+                            .addComponent(buttonAddSup)
+                            .addComponent(buttonDeleteSup))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 14, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(textSearchSup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         tab.addTab("Supplier List", jPanel1);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
-        jLabel2.setText("Customer List");
+        labelTitleCus.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
+        labelTitleCus.setText("Customer List");
 
         tableCusList.setAutoCreateRowSorter(true);
         tableCusList.setModel(new javax.swing.table.DefaultTableModel(
@@ -356,43 +401,43 @@ public class AdminPanel extends javax.swing.JFrame {
             tableCusList.getColumnModel().getColumn(5).setPreferredWidth(25);
         }
 
-        buttonCusDeleteAcc.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonCusDeleteAcc.setText("Delete Account");
-        buttonCusDeleteAcc.addActionListener(new java.awt.event.ActionListener() {
+        buttonDeleteAcc.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteAcc.setText("Delete Account");
+        buttonDeleteAcc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCusDeleteAccActionPerformed(evt);
+                buttonDeleteAccActionPerformed(evt);
             }
         });
 
-        buttonCusEdit.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonCusEdit.setText("Edit");
-        buttonCusEdit.addActionListener(new java.awt.event.ActionListener() {
+        buttonEditCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditCus.setText("Edit");
+        buttonEditCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCusEditActionPerformed(evt);
+                buttonEditCusActionPerformed(evt);
             }
         });
 
-        buttonCusAdd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonCusAdd.setText("Add");
-        buttonCusAdd.addActionListener(new java.awt.event.ActionListener() {
+        buttonAddCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddCus.setText("Add");
+        buttonAddCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCusAddActionPerformed(evt);
+                buttonAddCusActionPerformed(evt);
             }
         });
 
-        textCusSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textCusSearch.setText("Press enter to search");
-        textCusSearch.addActionListener(new java.awt.event.ActionListener() {
+        buttonSearchCus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        buttonSearchCus.setText("Press enter to search");
+        buttonSearchCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textCusSearchActionPerformed(evt);
+                buttonSearchCusActionPerformed(evt);
             }
         });
 
-        buttonCusDeleteCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonCusDeleteCus.setText("Delete Customer");
-        buttonCusDeleteCus.addActionListener(new java.awt.event.ActionListener() {
+        buttonDeleteCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteCus.setText("Delete Customer");
+        buttonDeleteCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCusDeleteCusActionPerformed(evt);
+                buttonDeleteCusActionPerformed(evt);
             }
         });
 
@@ -400,43 +445,43 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1489, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(buttonCusAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAddCus, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonCusEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonEditCus, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonCusDeleteCus)
+                        .addComponent(buttonDeleteCus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonCusDeleteAcc))
-                    .addComponent(textCusSearch))
+                        .addComponent(buttonDeleteAcc))
+                    .addComponent(buttonSearchCus))
                 .addGap(12, 12, 12))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonCusEdit)
-                        .addComponent(buttonCusAdd)
-                        .addComponent(buttonCusDeleteAcc)
-                        .addComponent(buttonCusDeleteCus))
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textCusSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonEditCus)
+                        .addComponent(buttonAddCus)
+                        .addComponent(buttonDeleteAcc)
+                        .addComponent(buttonDeleteCus))
+                    .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
+                .addComponent(buttonSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
         );
 
         tab.addTab("Customer List", jPanel2);
 
-        tableOrdList.setModel(new javax.swing.table.DefaultTableModel(
+        tableOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -502,53 +547,58 @@ public class AdminPanel extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tableOrdList);
+        jScrollPane3.setViewportView(tableOrderList);
 
         labelTitleOrder.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
         labelTitleOrder.setText("Order List");
         labelTitleOrder.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton3.setText("Completed");
+        buttonOrderCompleted.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonOrderCompleted.setText("Completed");
 
-        buttonEdit1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit1.setText("Cancelled");
-        buttonEdit1.addActionListener(new java.awt.event.ActionListener() {
+        buttonOrderCancelled.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonOrderCancelled.setText("Cancelled");
+        buttonOrderCancelled.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEdit1ActionPerformed(evt);
+                buttonOrderCancelledActionPerformed(evt);
             }
         });
 
-        buttonAdd1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd1.setText("Shipping");
+        buttonOrderShipping.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonOrderShipping.setText("Shipping");
 
-        buttonAdd2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd2.setText("Add");
+        buttonAddOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddOrder.setText("Add");
 
-        buttonEdit2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit2.setText("Edit");
-        buttonEdit2.addActionListener(new java.awt.event.ActionListener() {
+        buttonEditOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditOrder.setText("Edit");
+        buttonEditOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEdit2ActionPerformed(evt);
+                buttonEditOrderActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton5.setText("Delete");
+        buttonDeleteOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteOrder.setText("Delete");
 
-        buttonAdd4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd4.setText("All");
-
-        buttonAdd5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd5.setText("To Ship");
-
-        buttonAdd6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd6.setText("Unpaid");
-
-        jTextField1.setText("Press enter to search");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        buttonOrderAll.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonOrderAll.setText("All");
+        buttonOrderAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                buttonOrderAllActionPerformed(evt);
+            }
+        });
+
+        buttonOrderToShip.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonOrderToShip.setText("To Ship");
+
+        buttonOrderUnpaid.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonOrderUnpaid.setText("Unpaid");
+
+        buttonSearchOrder.setText("Press enter to search");
+        buttonSearchOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSearchOrderActionPerformed(evt);
             }
         });
 
@@ -559,28 +609,28 @@ public class AdminPanel extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(labelTitleOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonOrderAll)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonAdd6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonOrderUnpaid, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonAdd5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonOrderToShip, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonOrderShipping, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonOrderCancelled)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField1)
+                .addComponent(buttonOrderCompleted)
+                .addGap(137, 137, 137)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(buttonAdd2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonEdit2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(14, 14, 14))
+                        .addComponent(buttonAddOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonEditOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonDeleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonSearchOrder))
+                .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3)
@@ -590,21 +640,22 @@ public class AdminPanel extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTitleOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonAdd1)
-                    .addComponent(buttonEdit1)
-                    .addComponent(jButton3)
-                    .addComponent(buttonAdd4)
-                    .addComponent(buttonAdd5)
-                    .addComponent(buttonEdit2)
-                    .addComponent(buttonAdd2)
-                    .addComponent(jButton5)
-                    .addComponent(buttonAdd6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTitleOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonOrderAll)
+                        .addComponent(buttonOrderUnpaid)
+                        .addComponent(buttonOrderToShip)
+                        .addComponent(buttonOrderShipping)
+                        .addComponent(buttonOrderCancelled)
+                        .addComponent(buttonOrderCompleted)
+                        .addComponent(buttonAddOrder)
+                        .addComponent(buttonEditOrder)
+                        .addComponent(buttonDeleteOrder)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
         );
 
         tab.addTab("Order List", jPanel4);
@@ -623,23 +674,23 @@ public class AdminPanel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+    private void buttonEditProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditProActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEditActionPerformed
+    }//GEN-LAST:event_buttonEditProActionPerformed
 
-    private void buttonEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEdit1ActionPerformed
+    private void buttonOrderCancelledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderCancelledActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEdit1ActionPerformed
+    }//GEN-LAST:event_buttonOrderCancelledActionPerformed
 
-    private void buttonEdit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEdit2ActionPerformed
+    private void buttonEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditOrderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEdit2ActionPerformed
+    }//GEN-LAST:event_buttonEditOrderActionPerformed
 
-    private void buttonEdit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEdit3ActionPerformed
+    private void buttonEditSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditSupActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEdit3ActionPerformed
+    }//GEN-LAST:event_buttonEditSupActionPerformed
 
-    private void buttonCusEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCusEditActionPerformed
+    private void buttonEditCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditCusActionPerformed
         try {
             String accID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
             //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
@@ -651,29 +702,29 @@ public class AdminPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
 
-    }//GEN-LAST:event_buttonCusEditActionPerformed
+    }//GEN-LAST:event_buttonEditCusActionPerformed
 
-    private void buttonCusAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCusAddActionPerformed
+    private void buttonAddCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddCusActionPerformed
         DefaultTableModel model = (DefaultTableModel) tableCusList.getModel();
         AddCusDialog addCusDialog = new AddCusDialog(null, true, model);
         addCusDialog.show();
 
-    }//GEN-LAST:event_buttonCusAddActionPerformed
+    }//GEN-LAST:event_buttonAddCusActionPerformed
 
-    private void textCusSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCusSearchActionPerformed
+    private void buttonSearchCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchCusActionPerformed
         //https://stackoverflow.com/a/12124636
         //https://stackoverflow.com/a/14130611
         //https://stackoverflow.com/a/45317261
         //https://stackoverflow.com/a/37989058
         //https://www.youtube.com/watch?v=efuLSvN6tKM
         DefaultTableModel model = (DefaultTableModel) tableCusList.getModel();
-        String key = textCusSearch.getText();
+        String key = buttonSearchCus.getText();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
         tableCusList.setRowSorter(sorter);
-    }//GEN-LAST:event_textCusSearchActionPerformed
+    }//GEN-LAST:event_buttonSearchCusActionPerformed
 
-    private void buttonCusDeleteAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCusDeleteAccActionPerformed
+    private void buttonDeleteAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteAccActionPerformed
         try {
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account? The customer information will be remained.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
@@ -687,9 +738,9 @@ public class AdminPanel extends javax.swing.JFrame {
             showCustomerList();
         }
 
-    }//GEN-LAST:event_buttonCusDeleteAccActionPerformed
+    }//GEN-LAST:event_buttonDeleteAccActionPerformed
 
-    private void buttonCusDeleteCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCusDeleteCusActionPerformed
+    private void buttonDeleteCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteCusActionPerformed
        try {
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account AND information? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
@@ -702,11 +753,19 @@ public class AdminPanel extends javax.swing.JFrame {
         }finally{
             showCustomerList();
         }
-    }//GEN-LAST:event_buttonCusDeleteCusActionPerformed
+    }//GEN-LAST:event_buttonDeleteCusActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void buttonSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchOrderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_buttonSearchOrderActionPerformed
+
+    private void buttonOrderAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderAllActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonOrderAllActionPerformed
+
+    private void buttonDeleteProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteProActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDeleteProActionPerformed
 
     /**
      * @param args the command line arguments
@@ -752,27 +811,28 @@ public class AdminPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAdd;
-    private javax.swing.JButton buttonAdd1;
-    private javax.swing.JButton buttonAdd2;
-    private javax.swing.JButton buttonAdd3;
-    private javax.swing.JButton buttonAdd4;
-    private javax.swing.JButton buttonAdd5;
-    private javax.swing.JButton buttonAdd6;
-    private javax.swing.JButton buttonCusAdd;
-    private javax.swing.JButton buttonCusDeleteAcc;
-    private javax.swing.JButton buttonCusDeleteCus;
-    private javax.swing.JButton buttonCusEdit;
-    private javax.swing.JButton buttonEdit;
-    private javax.swing.JButton buttonEdit1;
-    private javax.swing.JButton buttonEdit2;
-    private javax.swing.JButton buttonEdit3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton buttonAddCus;
+    private javax.swing.JButton buttonAddOrder;
+    private javax.swing.JButton buttonAddPro;
+    private javax.swing.JButton buttonAddSup;
+    private javax.swing.JButton buttonDeleteAcc;
+    private javax.swing.JButton buttonDeleteCus;
+    private javax.swing.JButton buttonDeleteOrder;
+    private javax.swing.JButton buttonDeletePro;
+    private javax.swing.JButton buttonDeleteSup;
+    private javax.swing.JButton buttonEditCus;
+    private javax.swing.JButton buttonEditOrder;
+    private javax.swing.JButton buttonEditPro;
+    private javax.swing.JButton buttonEditSup;
+    private javax.swing.JButton buttonOrderAll;
+    private javax.swing.JButton buttonOrderCancelled;
+    private javax.swing.JButton buttonOrderCompleted;
+    private javax.swing.JButton buttonOrderShipping;
+    private javax.swing.JButton buttonOrderToShip;
+    private javax.swing.JButton buttonOrderUnpaid;
+    private javax.swing.JButton buttonRestockPor;
+    private javax.swing.JTextField buttonSearchCus;
+    private javax.swing.JTextField buttonSearchOrder;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -781,17 +841,17 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelTitleCus;
     private javax.swing.JLabel labelTitleOrder;
     private javax.swing.JLabel labelTitleProduct;
     private javax.swing.JLabel labelTitleSupplier;
     private javax.swing.JPanel panelAdminProductList;
     private javax.swing.JTabbedPane tab;
     private javax.swing.JTable tableCusList;
-    private javax.swing.JTable tableOrdList;
+    private javax.swing.JTable tableOrderList;
     private javax.swing.JTable tableProList;
     private javax.swing.JTable tableSupList;
-    private javax.swing.JTextField textCusSearch;
-    private javax.swing.JTextField textCusSearch1;
+    private javax.swing.JTextField textSearchPro;
+    private javax.swing.JTextField textSearchSup;
     // End of variables declaration//GEN-END:variables
 }

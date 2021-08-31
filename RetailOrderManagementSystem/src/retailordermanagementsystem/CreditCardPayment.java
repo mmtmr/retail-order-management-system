@@ -29,33 +29,33 @@ public class CreditCardPayment extends javax.swing.JPanel {
 
         buttonGroupBackContinueCC = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        labelTitle = new javax.swing.JLabel();
+        labelSecureIcon = new javax.swing.JLabel();
+        labelNameOnCard = new javax.swing.JLabel();
+        textNameOnCard = new javax.swing.JTextField();
+        labelStar1 = new javax.swing.JLabel();
+        labelStar2 = new javax.swing.JLabel();
+        labelCardNumber = new javax.swing.JLabel();
+        textCardNumber = new javax.swing.JTextField();
+        labelStar3 = new javax.swing.JLabel();
+        labelExpirationDate = new javax.swing.JLabel();
+        labelStar4 = new javax.swing.JLabel();
+        labelCVV = new javax.swing.JLabel();
+        comboExpMonth = new javax.swing.JComboBox<>();
+        passwordCVV = new javax.swing.JPasswordField();
+        checkBoxSave = new javax.swing.JCheckBox();
+        labelInformation = new javax.swing.JLabel();
+        buttonContinue = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
+        labelVisaIcon = new javax.swing.JLabel();
+        textExpYear = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Credit Card Information");
+        labelTitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelTitle.setText("Credit Card Information");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\secure payment.png")); // NOI18N
+        labelSecureIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\secure payment.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,70 +63,75 @@ public class CreditCardPayment extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelSecureIcon)
                 .addGap(14, 14, 14))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(labelSecureIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel3.setText("Name on Card");
+        labelNameOnCard.setText("Name on Card");
 
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        textNameOnCard.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel4.setText("*");
+        labelStar1.setForeground(new java.awt.Color(255, 0, 0));
+        labelStar1.setText("*");
 
-        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel5.setText("*");
+        labelStar2.setForeground(new java.awt.Color(255, 0, 0));
+        labelStar2.setText("*");
 
-        jLabel6.setText("Card Number");
+        labelCardNumber.setText("Card Number");
 
-        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        textCardNumber.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel7.setText("*");
+        labelStar3.setForeground(new java.awt.Color(255, 0, 0));
+        labelStar3.setText("*");
 
-        jLabel8.setText("Expiration Date");
+        labelExpirationDate.setText("Expiration Date");
 
-        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel9.setText("*");
+        labelStar4.setForeground(new java.awt.Color(255, 0, 0));
+        labelStar4.setText("*");
 
-        jLabel10.setText("CVV");
+        labelCVV.setText("CVV");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        comboExpMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" }));
+        comboExpMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                comboExpMonthActionPerformed(evt);
             }
         });
 
-        jCheckBox1.setText("Save credit card information.");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        checkBoxSave.setText("Save credit card information.");
+        checkBoxSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                checkBoxSaveActionPerformed(evt);
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel11.setText("This will enable instant checkout in future.");
+        labelInformation.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        labelInformation.setText("This will enable instant checkout in future.");
 
-        jButton1.setText("Continue");
-        buttonGroupBackContinueCC.add(jButton1);
+        buttonContinue.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        buttonContinue.setText("Continue");
+        buttonContinue.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton2.setText("Cancel");
-        buttonGroupBackContinueCC.add(jButton2);
+        buttonCancel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        buttonCancel.setText("Cancel");
+        buttonCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\visa.png")); // NOI18N
-
-        jTextField3.setText("jTextField3");
+        labelVisaIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\visa.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -135,45 +140,45 @@ public class CreditCardPayment extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
+                            .addComponent(checkBoxSave)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(labelExpirationDate)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5))
+                                .addComponent(labelStar3))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(labelCardNumber)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4))
+                                .addComponent(labelStar2))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
+                                .addComponent(labelNameOnCard)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9))
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelStar1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelCVV)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelStar4))
+                            .addComponent(passwordCVV, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textNameOnCard, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(textCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelVisaIcon))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
-                                .addComponent(jLabel11))
+                                .addComponent(labelInformation))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel12)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(comboExpMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textExpYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,75 +186,79 @@ public class CreditCardPayment extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
+                    .addComponent(labelStar1)
+                    .addComponent(labelNameOnCard))
                 .addGap(0, 0, 0)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textNameOnCard, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5))
+                    .addComponent(labelCardNumber)
+                    .addComponent(labelStar2))
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                    .addComponent(labelVisaIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelExpirationDate)
+                    .addComponent(labelStar3))
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboExpMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textExpYear, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9))
+                    .addComponent(labelCVV)
+                    .addComponent(labelStar4))
                 .addGap(0, 0, 0)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordCVV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox1)
+                .addComponent(checkBoxSave)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel11)
+                .addComponent(labelInformation)
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void comboExpMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboExpMonthActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_comboExpMonthActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void checkBoxSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxSaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_checkBoxSaveActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCancel;
+    private javax.swing.JButton buttonContinue;
     private javax.swing.ButtonGroup buttonGroupBackContinueCC;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JCheckBox checkBoxSave;
+    private javax.swing.JComboBox<String> comboExpMonth;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel labelCVV;
+    private javax.swing.JLabel labelCardNumber;
+    private javax.swing.JLabel labelExpirationDate;
+    private javax.swing.JLabel labelInformation;
+    private javax.swing.JLabel labelNameOnCard;
+    private javax.swing.JLabel labelSecureIcon;
+    private javax.swing.JLabel labelStar1;
+    private javax.swing.JLabel labelStar2;
+    private javax.swing.JLabel labelStar3;
+    private javax.swing.JLabel labelStar4;
+    private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel labelVisaIcon;
+    private javax.swing.JPasswordField passwordCVV;
+    private javax.swing.JTextField textCardNumber;
+    private javax.swing.JTextField textExpYear;
+    private javax.swing.JTextField textNameOnCard;
     // End of variables declaration//GEN-END:variables
 }

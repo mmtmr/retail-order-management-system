@@ -49,7 +49,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1489" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1247" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="panelAdminProductList" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -67,19 +67,64 @@
           <SubComponents>
             <Container class="javax.swing.JPanel" name="panelAdminProductList">
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-                <Property name="useNullLayout" type="boolean" value="false"/>
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="labelTitleProduct" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <EmptySpace min="610" pref="610" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="buttonRestockPor" min="-2" pref="94" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="buttonAddPro" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="buttonEditPro" min="-2" pref="74" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="buttonDeletePro" min="-2" pref="85" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="textSearchPro" min="-2" pref="380" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jScrollPane2" min="-2" pref="1204" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="buttonDeletePro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonEditPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonAddPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonRestockPor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="labelTitleProduct" min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Component id="textSearchPro" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="480" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
               </Layout>
               <SubComponents>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="51" width="1204" height="509"/>
-                    </Constraint>
-                  </Constraints>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
@@ -108,44 +153,32 @@
                 <Component class="javax.swing.JLabel" name="labelTitleProduct">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="22" style="1"/>
+                      <Font name="Dialog" size="32" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Product List"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                   </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="10" width="144" height="33"/>
-                    </Constraint>
-                  </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="buttonRestockPor">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Restock"/>
                   </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="816" y="6" width="94" height="-1"/>
-                    </Constraint>
-                  </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="buttonDeletePro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                   </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="1113" y="6" width="85" height="-1"/>
-                    </Constraint>
-                  </Constraints>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDeleteProActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="buttonEdit">
+                <Component class="javax.swing.JButton" name="buttonEditPro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
@@ -153,26 +186,24 @@
                     <Property name="text" type="java.lang.String" value="Edit"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditProActionPerformed"/>
                   </Events>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="1021" y="6" width="74" height="-1"/>
-                    </Constraint>
-                  </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="buttonAdd">
+                <Component class="javax.swing.JButton" name="buttonAddPro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="928" y="6" width="75" height="-1"/>
-                    </Constraint>
-                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textSearchPro">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Press enter to search"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -190,20 +221,20 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" pref="1489" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" pref="1247" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="labelTitleSupplier" min="-2" pref="255" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="buttonAdd3" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="buttonAddSup" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                              <Component id="buttonEdit3" min="-2" pref="74" max="-2" attributes="0"/>
+                              <Component id="buttonEditSup" min="-2" pref="74" max="-2" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton4" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Component id="buttonDeleteSup" min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="textCusSearch1" max="32767" attributes="0"/>
+                          <Component id="textSearchSup" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -216,17 +247,21 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="buttonEdit3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="buttonAdd3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonEditSup" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonAddSup" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonDeleteSup" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace type="unrelated" pref="14" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="labelTitleSupplier" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="labelTitleSupplier" min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="textCusSearch1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="480" max="32767" attributes="0"/>
+                      <Component id="textSearchSup" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="475" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -300,7 +335,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="buttonDeleteSup">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -308,7 +343,7 @@
                 <Property name="text" type="java.lang.String" value="Delete"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonEdit3">
+            <Component class="javax.swing.JButton" name="buttonEditSup">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -316,10 +351,10 @@
                 <Property name="text" type="java.lang.String" value="Edit"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEdit3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditSupActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonAdd3">
+            <Component class="javax.swing.JButton" name="buttonAddSup">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -327,12 +362,12 @@
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="textCusSearch1">
+            <Component class="javax.swing.JTextField" name="textSearchSup">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Enter here"/>
+                <Property name="text" type="java.lang.String" value="Press enter to search"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -349,22 +384,22 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane4" pref="1489" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" pref="1247" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="269" max="-2" attributes="0"/>
+                      <Component id="labelTitleCus" min="-2" pref="269" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="buttonCusAdd" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="buttonAddCus" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="buttonCusEdit" min="-2" pref="74" max="-2" attributes="0"/>
+                              <Component id="buttonEditCus" min="-2" pref="74" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="buttonCusDeleteCus" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonDeleteCus" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="buttonCusDeleteAcc" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonDeleteAcc" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="textCusSearch" max="32767" attributes="0"/>
+                          <Component id="buttonSearchCus" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -374,25 +409,25 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCusEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="buttonCusAdd" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="buttonCusDeleteAcc" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="buttonCusDeleteCus" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonEditCus" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonAddCus" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonDeleteAcc" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonDeleteCus" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTitleCus" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textCusSearch" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonSearchCus" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane4" pref="468" max="32767" attributes="0"/>
+                      <Component id="jScrollPane4" pref="477" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="labelTitleCus">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="32" style="1"/>
@@ -509,7 +544,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="buttonCusDeleteAcc">
+            <Component class="javax.swing.JButton" name="buttonDeleteAcc">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -517,10 +552,10 @@
                 <Property name="text" type="java.lang.String" value="Delete Account"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCusDeleteAccActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDeleteAccActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonCusEdit">
+            <Component class="javax.swing.JButton" name="buttonEditCus">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -528,10 +563,10 @@
                 <Property name="text" type="java.lang.String" value="Edit"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCusEditActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditCusActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonCusAdd">
+            <Component class="javax.swing.JButton" name="buttonAddCus">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -539,10 +574,10 @@
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCusAddActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddCusActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="textCusSearch">
+            <Component class="javax.swing.JTextField" name="buttonSearchCus">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -550,10 +585,10 @@
                 <Property name="text" type="java.lang.String" value="Press enter to search"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textCusSearchActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSearchCusActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonCusDeleteCus">
+            <Component class="javax.swing.JButton" name="buttonDeleteCus">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -561,7 +596,7 @@
                 <Property name="text" type="java.lang.String" value="Delete Customer"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCusDeleteCusActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDeleteCusActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -581,30 +616,30 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="labelTitleOrder" min="-2" pref="172" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="buttonAdd4" min="-2" pref="95" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonOrderAll" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buttonAdd6" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="buttonOrderUnpaid" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buttonAdd5" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="buttonOrderToShip" min="-2" pref="101" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buttonAdd1" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="buttonOrderShipping" min="-2" pref="106" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buttonEdit1" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="buttonOrderCancelled" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace pref="248" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jTextField1" max="32767" attributes="0"/>
+                      <Component id="buttonOrderCompleted" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="buttonAdd2" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                              <Component id="buttonEdit2" min="-2" pref="74" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Component id="buttonAddOrder" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="buttonEditOrder" min="-2" pref="74" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="buttonDeleteOrder" min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="buttonSearchOrder" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -617,22 +652,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="labelTitleOrder" alignment="3" max="32767" attributes="0"/>
-                          <Component id="buttonAdd1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonEdit1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonAdd4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonAdd5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonEdit2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonAdd2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonAdd6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelTitleOrder" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonOrderAll" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonOrderUnpaid" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonOrderToShip" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonOrderShipping" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonOrderCancelled" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonOrderCompleted" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonAddOrder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonEditOrder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonDeleteOrder" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="454" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonSearchOrder" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" pref="477" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -645,7 +682,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tableOrdList">
+                <Component class="javax.swing.JTable" name="tableOrderList">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="6" rowCount="51">
@@ -673,7 +710,7 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="buttonOrderCompleted">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -681,7 +718,7 @@
                 <Property name="text" type="java.lang.String" value="Completed"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonEdit1">
+            <Component class="javax.swing.JButton" name="buttonOrderCancelled">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -689,10 +726,10 @@
                 <Property name="text" type="java.lang.String" value="Cancelled"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEdit1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOrderCancelledActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonAdd1">
+            <Component class="javax.swing.JButton" name="buttonOrderShipping">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -700,7 +737,7 @@
                 <Property name="text" type="java.lang.String" value="Shipping"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonAdd2">
+            <Component class="javax.swing.JButton" name="buttonAddOrder">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -708,7 +745,7 @@
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonEdit2">
+            <Component class="javax.swing.JButton" name="buttonEditOrder">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -716,10 +753,10 @@
                 <Property name="text" type="java.lang.String" value="Edit"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEdit2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditOrderActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="buttonDeleteOrder">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -727,15 +764,18 @@
                 <Property name="text" type="java.lang.String" value="Delete"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonAdd4">
+            <Component class="javax.swing.JButton" name="buttonOrderAll">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="All"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOrderAllActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonAdd5">
+            <Component class="javax.swing.JButton" name="buttonOrderToShip">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -743,7 +783,7 @@
                 <Property name="text" type="java.lang.String" value="To Ship"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonAdd6">
+            <Component class="javax.swing.JButton" name="buttonOrderUnpaid">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="0"/>
@@ -751,12 +791,12 @@
                 <Property name="text" type="java.lang.String" value="Unpaid"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="buttonSearchOrder">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Press enter to search"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSearchOrderActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

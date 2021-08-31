@@ -28,29 +28,29 @@ public class AdminOrderDetails extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        labelTitle = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        labelOrderDate = new javax.swing.JLabel();
+        labelOrderTotal = new javax.swing.JLabel();
+        labelOrderTracking = new javax.swing.JLabel();
+        labelOrderStatus = new javax.swing.JLabel();
         labelDeliveryAddress = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        loadOrderDate = new javax.swing.JLabel();
+        loadOrderTotal = new javax.swing.JLabel();
         labelDAName = new javax.swing.JLabel();
         labelDAPhone = new javax.swing.JLabel();
         labelDAAddress = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        labelCustomerID = new javax.swing.JLabel();
+        loadCustomerID = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableOrderItems = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        textOrderTracking = new javax.swing.JTextField();
+        comboOrderStatus = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel4.setFont(new java.awt.Font("Monotype Corsiva", 0, 36)); // NOI18N
-        jLabel4.setText("Order ID");
+        labelTitle.setFont(new java.awt.Font("Monotype Corsiva", 0, 36)); // NOI18N
+        labelTitle.setText("Order ID");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
@@ -60,7 +60,7 @@ public class AdminOrderDetails extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel4)
+                .addComponent(labelTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(92, Short.MAX_VALUE))
@@ -74,33 +74,33 @@ public class AdminOrderDetails extends javax.swing.JPanel {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel2.setText("Order Date");
+        labelOrderDate.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelOrderDate.setText("Order Date");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel3.setText("Order Total");
+        labelOrderTotal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelOrderTotal.setText("Order Total");
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel12.setText("Order Tracking No.");
+        labelOrderTracking.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelOrderTracking.setText("Order Tracking No.");
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel14.setText("Order Status");
+        labelOrderStatus.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelOrderStatus.setText("Order Status");
 
         labelDeliveryAddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelDeliveryAddress.setText("Delivery Address");
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadOrderDate.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadOrderTotal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel15.setText("Customer ID");
+        labelCustomerID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelCustomerID.setText("Customer ID");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadCustomerID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         tableOrderItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -123,13 +123,13 @@ public class AdminOrderDetails extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tableOrderItems);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        textOrderTracking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                textOrderTrackingActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Waiting", "Shipped", "Cancelled", "Completed" }));
+        comboOrderStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Waiting", "Shipped", "Cancelled", "Completed" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -141,26 +141,26 @@ public class AdminOrderDetails extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(labelOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelOrderTracking, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(labelDeliveryAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(loadCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(loadOrderTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(loadOrderDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(labelDAName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(labelDAPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(labelDAAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(textOrderTracking, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(comboOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -172,24 +172,24 @@ public class AdminOrderDetails extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loadCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loadOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loadOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelOrderTracking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textOrderTracking, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelDeliveryAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,30 +205,30 @@ public class AdminOrderDetails extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void textOrderTrackingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textOrderTrackingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_textOrderTrackingActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JComboBox<String> comboOrderStatus;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelCustomerID;
     private javax.swing.JLabel labelDAAddress;
     private javax.swing.JLabel labelDAName;
     private javax.swing.JLabel labelDAPhone;
     private javax.swing.JLabel labelDeliveryAddress;
+    private javax.swing.JLabel labelOrderDate;
+    private javax.swing.JLabel labelOrderStatus;
+    private javax.swing.JLabel labelOrderTotal;
+    private javax.swing.JLabel labelOrderTracking;
+    private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel loadCustomerID;
+    private javax.swing.JLabel loadOrderDate;
+    private javax.swing.JLabel loadOrderTotal;
     private javax.swing.JTable tableOrderItems;
+    private javax.swing.JTextField textOrderTracking;
     // End of variables declaration//GEN-END:variables
 }
