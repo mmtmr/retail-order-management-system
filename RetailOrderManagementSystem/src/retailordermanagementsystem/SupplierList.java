@@ -30,12 +30,12 @@ public class SupplierList extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         buttonEdit = new javax.swing.JButton();
         buttonAdd = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        labelTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        buttonEdit1 = new javax.swing.JButton();
-        buttonAdd1 = new javax.swing.JButton();
+        tableSupplierList = new javax.swing.JTable();
+        buttonDeleteSupplier = new javax.swing.JButton();
+        buttonEditSupplier = new javax.swing.JButton();
+        buttonAddSupplier = new javax.swing.JButton();
 
         jButton1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton1.setText("Delete");
@@ -51,10 +51,10 @@ public class SupplierList extends javax.swing.JPanel {
         buttonAdd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonAdd.setText("Add");
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
-        jLabel1.setText("Supplier List");
+        labelTitle.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
+        labelTitle.setText("Supplier List");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableSupplierList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -120,51 +120,49 @@ public class SupplierList extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableSupplierList);
 
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton2.setText("Delete");
+        buttonDeleteSupplier.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteSupplier.setText("Delete");
 
-        buttonEdit1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit1.setText("Edit");
-        buttonEdit1.addActionListener(new java.awt.event.ActionListener() {
+        buttonEditSupplier.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditSupplier.setText("Edit");
+        buttonEditSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEdit1ActionPerformed(evt);
+                buttonEditSupplierActionPerformed(evt);
             }
         });
 
-        buttonAdd1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd1.setText("Add");
+        buttonAddSupplier.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddSupplier.setText("Add");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAddSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEditSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(buttonDeleteSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 789, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonEdit1)
-                        .addComponent(buttonAdd1)
-                        .addComponent(jButton2)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelTitle)
+                    .addComponent(buttonAddSupplier)
+                    .addComponent(buttonEditSupplier)
+                    .addComponent(buttonDeleteSupplier))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -172,20 +170,20 @@ public class SupplierList extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonEditActionPerformed
 
-    private void buttonEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEdit1ActionPerformed
+    private void buttonEditSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditSupplierActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEdit1ActionPerformed
+    }//GEN-LAST:event_buttonEditSupplierActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdd;
-    private javax.swing.JButton buttonAdd1;
+    private javax.swing.JButton buttonAddSupplier;
+    private javax.swing.JButton buttonDeleteSupplier;
     private javax.swing.JButton buttonEdit;
-    private javax.swing.JButton buttonEdit1;
+    private javax.swing.JButton buttonEditSupplier;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labelTitle;
+    private javax.swing.JTable tableSupplierList;
     // End of variables declaration//GEN-END:variables
 }

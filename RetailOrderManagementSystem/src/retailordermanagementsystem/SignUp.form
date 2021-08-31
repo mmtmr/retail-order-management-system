@@ -33,11 +33,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelPhoneNumber" linkSize="2" max="32767" attributes="0"/>
                           <Component id="labelGender" min="-2" pref="147" max="-2" attributes="0"/>
-                          <Component id="labelEmail" linkSize="2" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                          <Component id="labelEmail" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelStreet" linkSize="2" max="32767" attributes="0"/>
                           <Component id="labelBirthday" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textEmail" linkSize="2" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -45,11 +45,11 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="radioButtonFemale" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="textStreet" linkSize="2" alignment="0" pref="147" max="32767" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="textBirthday" alignment="0" max="32767" attributes="0"/>
                               <Component id="textPhone" linkSize="2" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="textStreet" linkSize="2" alignment="0" pref="147" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -66,12 +66,12 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelPostcode" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelState" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelCity" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelPassword" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelPostcode" linkSize="2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelState" linkSize="2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelCity" linkSize="2" alignment="0" max="32767" attributes="0"/>
                           <Component id="buttonSignUp" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="labelPassword" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -84,7 +84,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="57" max="32767" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,7 +94,7 @@
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="labelAccountName" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="labelAccountName" min="-2" max="-2" attributes="0"/>
                   <Component id="textAccountName" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -102,7 +102,7 @@
                   <Component id="textFirstName" linkSize="1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                      <Component id="labelFirstName" linkSize="1" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="labelFirstName" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
@@ -110,60 +110,60 @@
                   <Component id="textLastName" linkSize="1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                      <Component id="labelLastName" linkSize="1" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="labelLastName" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelGender" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="labelGender" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="radioButtonMale" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="radioButtonFemale" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelBirthday" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="labelBirthday" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textBirthday" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="textPhone" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelPhoneNumber" linkSize="1" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="labelPhoneNumber" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelEmail" linkSize="1" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="labelEmail" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textEmail" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="textStreet" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelStreet" linkSize="1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="labelStreet" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelCity" linkSize="1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="labelCity" linkSize="1" alignment="3" max="32767" attributes="0"/>
                   <Component id="textCity" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelPostcode" linkSize="1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="labelPostcode" linkSize="1" alignment="3" max="32767" attributes="0"/>
                   <Component id="textPostcode" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelState" linkSize="1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="labelState" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="comboState" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelPassword" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="labelPassword" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="passwordNew" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="passwordConfirm" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="41" max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonSignUp" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="buttonCancel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -186,7 +186,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="labelSignUp" min="-2" pref="123" max="-2" attributes="0"/>
+                  <Component id="labelTitle" min="-2" pref="141" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -194,21 +194,21 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="18" max="32767" attributes="0"/>
-                  <Component id="labelSignUp" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="labelTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="labelSignUp">
+        <Component class="javax.swing.JLabel" name="labelTitle">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Monotype Corsiva" size="36" style="0"/>
+              <Font name="Segoe UI" size="36" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="33" red="0" type="rgb"/>

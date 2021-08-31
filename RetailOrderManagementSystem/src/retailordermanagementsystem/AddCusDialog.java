@@ -41,6 +41,7 @@ public class AddCusDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupGender = new javax.swing.ButtonGroup();
         buttonSave = new javax.swing.JButton();
         buttonCancel = new javax.swing.JButton();
         labelBirthday = new javax.swing.JLabel();
@@ -67,6 +68,8 @@ public class AddCusDialog extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         textAccountName = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        labelTitle1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,6 +80,7 @@ public class AddCusDialog extends javax.swing.JDialog {
                 buttonSaveActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonSave);
 
         buttonCancel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonCancel.setText("Cancel");
@@ -85,175 +89,120 @@ public class AddCusDialog extends javax.swing.JDialog {
                 buttonCancelActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonCancel);
 
         labelBirthday.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelBirthday.setText("Birthday");
+        getContentPane().add(labelBirthday);
 
         textPhone.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         textPhone.setText("+6012-3456789");
+        getContentPane().add(textPhone);
 
         textBirthday.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         textBirthday.setText("YYYY-MM-DD");
+        getContentPane().add(textBirthday);
 
         textEmail.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        getContentPane().add(textEmail);
 
         labelGender.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelGender.setText("Gender");
+        getContentPane().add(labelGender);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel5.setText("Street");
+        getContentPane().add(jLabel5);
 
         labelTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         labelTitle.setText("New Customer");
+        getContentPane().add(labelTitle);
 
         textStreet.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        getContentPane().add(textStreet);
 
         radioMale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         radioMale.setText("Male");
+        getContentPane().add(radioMale);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel6.setText("City");
+        getContentPane().add(jLabel6);
 
         comboState.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select State>", "Kuala Lumpur", "Selangor", "Putrajaya", "Labuan", "Perlis", "Kedah", "Terengganu", "Pahang", "Perak", "Kelantan", "Penang", "Selangor", "Negeri Sembilan", "Johor", "Malacca", "Sabah", "Sarawak" }));
+        getContentPane().add(comboState);
 
         labelFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelFirstName.setText("First Name");
+        getContentPane().add(labelFirstName);
 
         textCity.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        getContentPane().add(textCity);
 
-        radioFemale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        radioFemale.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         radioFemale.setText("Female");
+        getContentPane().add(radioFemale);
 
-        labelLastName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelLastName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         labelLastName.setText("Last Name");
+        getContentPane().add(labelLastName);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel7.setText("State");
+        getContentPane().add(jLabel7);
 
         textFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        getContentPane().add(textFirstName);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel8.setText("Postcode");
+        getContentPane().add(jLabel8);
 
         textLastName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        getContentPane().add(textLastName);
 
         textPostcode.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        getContentPane().add(textPostcode);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel3.setText("Phone");
+        getContentPane().add(jLabel3);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel4.setText("Email");
+        getContentPane().add(jLabel4);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel1.setText("Acccount Name");
+        getContentPane().add(jLabel1);
 
         textAccountName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        getContentPane().add(textAccountName);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(44, 44, 44)
-                                .addComponent(buttonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelLastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelBirthday, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(62, 62, 62)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboState, javax.swing.GroupLayout.Alignment.TRAILING, 0, 186, Short.MAX_VALUE)
-                            .addComponent(textCity)
-                            .addComponent(textStreet)
-                            .addComponent(textEmail)
-                            .addComponent(textPhone)
-                            .addComponent(textLastName)
-                            .addComponent(textFirstName)
-                            .addComponent(textPostcode, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textAccountName, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textBirthday, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(radioMale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(buttonCancel)
-                                .addGap(31, 31, 31)))
-                        .addGap(40, 40, 40)))
-                .addContainerGap())
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+
+        labelTitle1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        labelTitle1.setText("New Customer");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(labelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(labelTitle)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textFirstName))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textLastName))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radioMale, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(radioFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(labelGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelBirthday, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textEmail))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textStreet))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textCity, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboState))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textPostcode))
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -348,6 +297,7 @@ public class AddCusDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancel;
+    private javax.swing.ButtonGroup buttonGroupGender;
     private javax.swing.JButton buttonSave;
     private javax.swing.JComboBox<String> comboState;
     private javax.swing.JLabel jLabel1;
@@ -357,11 +307,13 @@ public class AddCusDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelBirthday;
     private javax.swing.JLabel labelFirstName;
     private javax.swing.JLabel labelGender;
     private javax.swing.JLabel labelLastName;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel labelTitle1;
     private javax.swing.JRadioButton radioFemale;
     private javax.swing.JRadioButton radioMale;
     private javax.swing.JTextField textAccountName;

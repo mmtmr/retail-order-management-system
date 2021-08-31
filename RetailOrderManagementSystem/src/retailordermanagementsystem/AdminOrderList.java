@@ -28,16 +28,16 @@ public class AdminOrderList extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableProductList = new javax.swing.JTable();
+        tableOrderList = new javax.swing.JTable();
         labelTitle = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        buttonEdit = new javax.swing.JButton();
-        buttonAdd = new javax.swing.JButton();
-        buttonAdd1 = new javax.swing.JButton();
-        buttonEdit1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        buttonOrderCompleted = new javax.swing.JButton();
+        buttonOrderCancelled = new javax.swing.JButton();
+        buttonOrderWaiting = new javax.swing.JButton();
+        buttonAddOrder = new javax.swing.JButton();
+        buttonEditOrder = new javax.swing.JButton();
+        buttonDeleteOrder = new javax.swing.JButton();
 
-        tableProductList.setModel(new javax.swing.table.DefaultTableModel(
+        tableOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -103,39 +103,49 @@ public class AdminOrderList extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tableProductList);
+        jScrollPane2.setViewportView(tableOrderList);
 
         labelTitle.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         labelTitle.setText("Order List");
         labelTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton1.setText("Completed");
+        buttonOrderCompleted.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonOrderCompleted.setText("Completed");
 
-        buttonEdit.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit.setText("Cancelled");
-        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
+        buttonOrderCancelled.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonOrderCancelled.setText("Cancelled");
+        buttonOrderCancelled.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditActionPerformed(evt);
+                buttonOrderCancelledActionPerformed(evt);
             }
         });
 
-        buttonAdd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd.setText("Waiting");
-
-        buttonAdd1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd1.setText("Add");
-
-        buttonEdit1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit1.setText("Edit");
-        buttonEdit1.addActionListener(new java.awt.event.ActionListener() {
+        buttonOrderWaiting.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonOrderWaiting.setText("Waiting");
+        buttonOrderWaiting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEdit1ActionPerformed(evt);
+                buttonOrderWaitingActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton5.setText("Delete");
+        buttonAddOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddOrder.setText("Add");
+        buttonAddOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddOrderActionPerformed(evt);
+            }
+        });
+
+        buttonEditOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditOrder.setText("Edit");
+        buttonEditOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditOrderActionPerformed(evt);
+            }
+        });
+
+        buttonDeleteOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteOrder.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -143,59 +153,66 @@ public class AdminOrderList extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1115, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(8, 8, 8)
                 .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonAdd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonEdit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonOrderWaiting)
+                .addGap(18, 18, 18)
+                .addComponent(buttonOrderCancelled)
+                .addGap(18, 18, 18)
+                .addComponent(buttonOrderCompleted)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAddOrder)
                 .addGap(18, 18, 18)
-                .addComponent(buttonEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEditOrder)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(buttonDeleteOrder)
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonEdit1)
-                        .addComponent(buttonAdd1)
-                        .addComponent(jButton5))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonAdd)
-                        .addComponent(buttonEdit)
-                        .addComponent(jButton1)))
-                .addGap(18, 18, 18)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonAddOrder)
+                        .addComponent(buttonDeleteOrder)
+                        .addComponent(buttonEditOrder)
+                        .addComponent(buttonOrderCompleted)
+                        .addComponent(buttonOrderCancelled)
+                        .addComponent(buttonOrderWaiting))
+                    .addComponent(labelTitle, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+    private void buttonOrderCancelledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderCancelledActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEditActionPerformed
+    }//GEN-LAST:event_buttonOrderCancelledActionPerformed
 
-    private void buttonEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEdit1ActionPerformed
+    private void buttonEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditOrderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEdit1ActionPerformed
+    }//GEN-LAST:event_buttonEditOrderActionPerformed
+
+    private void buttonAddOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAddOrderActionPerformed
+
+    private void buttonOrderWaitingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderWaitingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonOrderWaitingActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAdd;
-    private javax.swing.JButton buttonAdd1;
-    private javax.swing.JButton buttonEdit;
-    private javax.swing.JButton buttonEdit1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton buttonAddOrder;
+    private javax.swing.JButton buttonDeleteOrder;
+    private javax.swing.JButton buttonEditOrder;
+    private javax.swing.JButton buttonOrderCancelled;
+    private javax.swing.JButton buttonOrderCompleted;
+    private javax.swing.JButton buttonOrderWaiting;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelTitle;
-    private javax.swing.JTable tableProductList;
+    private javax.swing.JTable tableOrderList;
     // End of variables declaration//GEN-END:variables
 }

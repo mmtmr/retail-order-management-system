@@ -30,14 +30,14 @@ public class AdminProductList extends javax.swing.JPanel {
 
         panelAdminProductList = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableOrderList = new javax.swing.JTable();
+        tableProductList = new javax.swing.JTable();
         labelTitle = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        buttonEdit = new javax.swing.JButton();
-        buttonAdd = new javax.swing.JButton();
+        buttonRestock = new javax.swing.JButton();
+        buttonDeleteProduct = new javax.swing.JButton();
+        buttonEditProduct = new javax.swing.JButton();
+        buttonAddProduct = new javax.swing.JButton();
 
-        tableOrderList.setModel(new javax.swing.table.DefaultTableModel(
+        tableProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -103,28 +103,28 @@ public class AdminProductList extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tableOrderList);
+        jScrollPane2.setViewportView(tableProductList);
 
         labelTitle.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         labelTitle.setText("Product List");
         labelTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton2.setText("Restock");
+        buttonRestock.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonRestock.setText("Restock");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton1.setText("Delete");
+        buttonDeleteProduct.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteProduct.setText("Delete");
 
-        buttonEdit.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit.setText("Edit");
-        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
+        buttonEditProduct.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditProduct.setText("Edit");
+        buttonEditProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditActionPerformed(evt);
+                buttonEditProductActionPerformed(evt);
             }
         });
 
-        buttonAdd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd.setText("Add");
+        buttonAddProduct.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddProduct.setText("Add");
 
         javax.swing.GroupLayout panelAdminProductListLayout = new javax.swing.GroupLayout(panelAdminProductList);
         panelAdminProductList.setLayout(panelAdminProductListLayout);
@@ -132,33 +132,31 @@ public class AdminProductList extends javax.swing.JPanel {
             panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1115, Short.MAX_VALUE)
             .addGroup(panelAdminProductListLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonRestock)
                 .addGap(18, 18, 18)
-                .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAddProduct)
                 .addGap(18, 18, 18)
-                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEditProduct)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(buttonDeleteProduct)
+                .addGap(14, 14, 14))
         );
         panelAdminProductListLayout.setVerticalGroup(
             panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminProductListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelAdminProductListLayout.createSequentialGroup()
-                        .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonEdit)
-                            .addComponent(buttonAdd)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addGap(5, 5, 5)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonEditProduct)
+                    .addComponent(buttonAddProduct)
+                    .addComponent(buttonDeleteProduct)
+                    .addComponent(buttonRestock)
+                    .addComponent(labelTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -174,7 +172,7 @@ public class AdminProductList extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 546, Short.MAX_VALUE)
+            .addGap(0, 554, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -183,19 +181,19 @@ public class AdminProductList extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+    private void buttonEditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditProductActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEditActionPerformed
+    }//GEN-LAST:event_buttonEditProductActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAdd;
-    private javax.swing.JButton buttonEdit;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton buttonAddProduct;
+    private javax.swing.JButton buttonDeleteProduct;
+    private javax.swing.JButton buttonEditProduct;
+    private javax.swing.JButton buttonRestock;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelTitle;
     private javax.swing.JPanel panelAdminProductList;
-    private javax.swing.JTable tableOrderList;
+    private javax.swing.JTable tableProductList;
     // End of variables declaration//GEN-END:variables
 }

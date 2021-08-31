@@ -41,17 +41,15 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="labelSupRemarks" pref="153" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="labelSupPhone" max="32767" attributes="0"/>
-                                  <Component id="labelFirstName1" max="32767" attributes="0"/>
-                                  <Component id="labelSupplierName" max="32767" attributes="0"/>
-                                  <Component id="labelLastName1" alignment="0" pref="153" max="32767" attributes="0"/>
-                                  <Component id="labelSupEmail" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labelSupStreet" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="labelSupCity" max="32767" attributes="0"/>
-                                  <Component id="labelSupState" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labelSupPostcode" alignment="1" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="labelSupPhone" max="32767" attributes="0"/>
+                              <Component id="labelFirstName1" max="32767" attributes="0"/>
+                              <Component id="labelSupplierName" max="32767" attributes="0"/>
+                              <Component id="labelLastName1" alignment="0" pref="153" max="32767" attributes="0"/>
+                              <Component id="labelSupEmail" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelSupStreet" alignment="1" max="32767" attributes="0"/>
+                              <Component id="labelSupCity" max="32767" attributes="0"/>
+                              <Component id="labelSupState" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelSupPostcode" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">

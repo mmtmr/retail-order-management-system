@@ -27,7 +27,7 @@ public class WelcomePage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelWelcome = new javax.swing.JLabel();
+        labelTitle = new javax.swing.JLabel();
         buttonAdmin = new javax.swing.JButton();
         buttonUser = new javax.swing.JButton();
         buttonUserIcon = new javax.swing.JButton();
@@ -35,9 +35,9 @@ public class WelcomePage extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(221, 229, 246));
 
-        labelWelcome.setFont(new java.awt.Font("Script MT Bold", 0, 48)); // NOI18N
-        labelWelcome.setForeground(new java.awt.Color(109, 147, 236));
-        labelWelcome.setText("Welcome To Overcooked Retail Store");
+        labelTitle.setFont(new java.awt.Font("Script MT Bold", 0, 48)); // NOI18N
+        labelTitle.setForeground(new java.awt.Color(109, 147, 236));
+        labelTitle.setText("Welcome To Overcooked Retail Store");
 
         buttonAdmin.setBackground(new java.awt.Color(108, 152, 255));
         buttonAdmin.setFont(new java.awt.Font("Monotype Corsiva", 0, 36)); // NOI18N
@@ -78,7 +78,7 @@ public class WelcomePage extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addComponent(labelWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(90, 90, 90))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +101,7 @@ public class WelcomePage extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(labelWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                 .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonUserIcon)
@@ -132,6 +132,6 @@ public class WelcomePage extends javax.swing.JPanel {
     private javax.swing.JButton buttonAdminIcon;
     private javax.swing.JButton buttonUser;
     private javax.swing.JButton buttonUserIcon;
-    private javax.swing.JLabel labelWelcome;
+    private javax.swing.JLabel labelTitle;
     // End of variables declaration//GEN-END:variables
 }
