@@ -21,10 +21,10 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelPDFragile" linkSize="1" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="labelPDQuantity" linkSize="1" min="-2" pref="100" max="-2" attributes="0"/>
@@ -41,18 +41,17 @@
                           <Component id="loadPDWeight" alignment="0" max="32767" attributes="0"/>
                           <Component id="loadPDName" alignment="0" max="32767" attributes="0"/>
                           <Component id="spinnerPDQuantity" min="-2" pref="73" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboPDModel" min="-2" max="-2" attributes="0"/>
                           <Component id="loadPDFragile" pref="190" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="buttonAddToCart" linkSize="4" min="-2" pref="132" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="buttonBuyNow" linkSize="4" min="-2" pref="148" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="buttonAddToCart" linkSize="4" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                      <Component id="buttonBuyNow" linkSize="4" min="-2" pref="130" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,7 +75,7 @@
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelPDModel" linkSize="2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboPDModel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -97,12 +96,12 @@
                       <Component id="loadPDCategory" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonAddToCart" linkSize="5" alignment="3" pref="45" max="32767" attributes="0"/>
-                  <Component id="buttonBuyNow" linkSize="5" alignment="3" max="32767" attributes="0"/>
+                  <Component id="buttonAddToCart" linkSize="5" alignment="3" pref="40" max="32767" attributes="0"/>
+                  <Component id="buttonBuyNow" linkSize="5" alignment="3" pref="40" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -121,7 +120,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="labelProductDetails" min="-2" pref="257" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="112" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -208,9 +207,6 @@
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="loadPDPrice">
       <Properties>
@@ -218,9 +214,6 @@
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="loadPDCategory">
       <Properties>
@@ -228,9 +221,6 @@
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="loadPDWeight">
       <Properties>
@@ -238,9 +228,6 @@
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerPDQuantity">
       <Properties>
@@ -249,7 +236,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="comboPDModel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
@@ -277,12 +264,9 @@
     <Component class="javax.swing.JButton" name="buttonAddToCart">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
+          <Font name="Segoe UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Add To Cart"/>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="buttonGroupAddBuy"/>
-        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddToCartActionPerformed"/>
@@ -291,7 +275,7 @@
     <Component class="javax.swing.JButton" name="buttonBuyNow">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
+          <Font name="Segoe UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancel"/>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">

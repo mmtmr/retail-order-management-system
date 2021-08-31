@@ -77,6 +77,8 @@ public class AdminPanel extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelAdminProductList.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         tableProList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
@@ -145,15 +147,20 @@ public class AdminPanel extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tableProList);
 
+        panelAdminProductList.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 51, 1204, 509));
+
         labelTitle.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         labelTitle.setText("Product List");
         labelTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelAdminProductList.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 144, 33));
 
         jButton2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton2.setText("Restock");
+        panelAdminProductList.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(816, 6, 94, -1));
 
         jButton1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton1.setText("Delete");
+        panelAdminProductList.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1113, 6, 85, -1));
 
         buttonEdit.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonEdit.setText("Edit");
@@ -162,43 +169,11 @@ public class AdminPanel extends javax.swing.JFrame {
                 buttonEditActionPerformed(evt);
             }
         });
+        panelAdminProductList.add(buttonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1021, 6, 74, -1));
 
         buttonAdd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonAdd.setText("Add");
-
-        javax.swing.GroupLayout panelAdminProductListLayout = new javax.swing.GroupLayout(panelAdminProductList);
-        panelAdminProductList.setLayout(panelAdminProductListLayout);
-        panelAdminProductListLayout.setHorizontalGroup(
-            panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
-            .addGroup(panelAdminProductListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 666, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panelAdminProductListLayout.setVerticalGroup(
-            panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminProductListLayout.createSequentialGroup()
-                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelAdminProductListLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(buttonAdd)
-                            .addComponent(buttonEdit)
-                            .addComponent(jButton1)))
-                    .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE))
-        );
+        panelAdminProductList.add(buttonAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(928, 6, 75, -1));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -512,9 +487,12 @@ public class AdminPanel extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tableCusList.setRowSorter(null);
         tableCusList.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(tableCusList);
+        if (tableCusList.getColumnModel().getColumnCount() > 0) {
+            tableCusList.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tableCusList.getColumnModel().getColumn(4).setPreferredWidth(25);
+        }
 
         buttonCusDeleteAcc.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonCusDeleteAcc.setText("Delete Account");
@@ -562,7 +540,7 @@ public class AdminPanel extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -587,11 +565,14 @@ public class AdminPanel extends javax.swing.JFrame {
                             .addComponent(buttonCusEdit)
                             .addComponent(buttonCusAdd)
                             .addComponent(buttonCusDeleteAcc)
-                            .addComponent(buttonCusDeleteCus)))
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textCusSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonCusDeleteCus))
+                        .addGap(15, 15, 15)
+                        .addComponent(textCusSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)))
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 

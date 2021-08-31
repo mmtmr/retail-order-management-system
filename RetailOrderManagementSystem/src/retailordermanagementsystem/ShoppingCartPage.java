@@ -31,7 +31,7 @@ public class ShoppingCartPage extends javax.swing.JPanel {
         labelTotalQuantity = new javax.swing.JLabel();
         buttonDelete = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableProductList = new javax.swing.JTable();
+        tableShoppingCart = new javax.swing.JTable();
         labelTotalPrice = new javax.swing.JLabel();
         labelTitle = new javax.swing.JLabel();
 
@@ -42,7 +42,7 @@ public class ShoppingCartPage extends javax.swing.JPanel {
         buttonDelete.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonDelete.setText("Delete");
 
-        tableProductList.setModel(new javax.swing.table.DefaultTableModel(
+        tableShoppingCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -115,7 +115,7 @@ public class ShoppingCartPage extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tableProductList);
+        jScrollPane2.setViewportView(tableShoppingCart);
 
         labelTotalPrice.setText("jLabel1");
 
@@ -173,6 +173,6 @@ public class ShoppingCartPage extends javax.swing.JPanel {
     private javax.swing.JLabel labelTitle;
     private javax.swing.JLabel labelTotalPrice;
     private javax.swing.JLabel labelTotalQuantity;
-    private javax.swing.JTable tableProductList;
+    private javax.swing.JTable tableShoppingCart;
     // End of variables declaration//GEN-END:variables
 }

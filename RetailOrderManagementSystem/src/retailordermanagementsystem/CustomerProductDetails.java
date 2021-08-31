@@ -42,7 +42,7 @@ public class CustomerProductDetails extends javax.swing.JPanel {
         loadPDCategory = new javax.swing.JLabel();
         loadPDWeight = new javax.swing.JLabel();
         spinnerPDQuantity = new javax.swing.JSpinner();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboPDModel = new javax.swing.JComboBox<>();
         loadPDFragile = new javax.swing.JLabel();
         buttonAddToCart = new javax.swing.JButton();
         buttonBuyNow = new javax.swing.JButton();
@@ -59,7 +59,7 @@ public class CustomerProductDetails extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(labelProductDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,21 +100,20 @@ public class CustomerProductDetails extends javax.swing.JPanel {
 
         spinnerPDQuantity.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPDModel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        comboPDModel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         loadPDFragile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        buttonAddToCart.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        buttonAddToCart.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         buttonAddToCart.setText("Add To Cart");
-        buttonGroupAddBuy.add(buttonAddToCart);
         buttonAddToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddToCartActionPerformed(evt);
             }
         });
 
-        buttonBuyNow.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        buttonBuyNow.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         buttonBuyNow.setText("Cancel");
         buttonGroupAddBuy.add(buttonBuyNow);
 
@@ -124,9 +123,9 @@ public class CustomerProductDetails extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelPDFragile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelPDQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,14 +141,13 @@ public class CustomerProductDetails extends javax.swing.JPanel {
                             .addComponent(loadPDWeight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(loadPDName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(spinnerPDQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboPDModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(loadPDFragile, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(buttonAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(buttonBuyNow, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(buttonBuyNow, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {labelPDCategory, labelPDFragile, labelPDModel, labelPDName, labelPDPrice, labelPDQuantity, labelPDWeight});
@@ -175,7 +173,7 @@ public class CustomerProductDetails extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelPDModel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboPDModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelPDQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,21 +188,17 @@ public class CustomerProductDetails extends javax.swing.JPanel {
                         .addComponent(loadPDPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(loadPDCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonAddToCart, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(buttonBuyNow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(36, 36, 36))
+                    .addComponent(buttonAddToCart, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(buttonBuyNow, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {labelPDCategory, labelPDFragile, labelPDModel, labelPDName, labelPDPrice, labelPDQuantity, labelPDWeight});
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {buttonAddToCart, buttonBuyNow});
 
-        loadPDName.getAccessibleContext().setAccessibleName("");
-        loadPDPrice.getAccessibleContext().setAccessibleName("");
-        loadPDCategory.getAccessibleContext().setAccessibleName("");
-        loadPDWeight.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddToCartActionPerformed
@@ -216,7 +210,7 @@ public class CustomerProductDetails extends javax.swing.JPanel {
     private javax.swing.JButton buttonAddToCart;
     private javax.swing.JButton buttonBuyNow;
     private javax.swing.ButtonGroup buttonGroupAddBuy;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> comboPDModel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelPDCategory;
     private javax.swing.JLabel labelPDFragile;

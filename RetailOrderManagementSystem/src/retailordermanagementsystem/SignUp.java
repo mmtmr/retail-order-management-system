@@ -189,11 +189,13 @@ public class SignUp extends javax.swing.JPanel {
 
         passwordNew.setText("jPasswordField1");
 
-        buttonSignUp.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonSignUp.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonSignUp.setText("Sign Up");
+        buttonSignUp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        buttonCancel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonCancel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonCancel.setText("Cancel");
+        buttonCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

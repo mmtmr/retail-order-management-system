@@ -49,160 +49,257 @@ public class AddCusDialog extends javax.swing.JDialog {
         textBirthday = new javax.swing.JTextField();
         textEmail = new javax.swing.JTextField();
         labelGender = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        labelTitle = new javax.swing.JLabel();
+        labelStreet = new javax.swing.JLabel();
         textStreet = new javax.swing.JTextField();
         radioMale = new javax.swing.JRadioButton();
-        jLabel6 = new javax.swing.JLabel();
+        labelCity = new javax.swing.JLabel();
         comboState = new javax.swing.JComboBox<>();
         labelFirstName = new javax.swing.JLabel();
         textCity = new javax.swing.JTextField();
         radioFemale = new javax.swing.JRadioButton();
         labelLastName = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        labelState = new javax.swing.JLabel();
         textFirstName = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        labelPostcode = new javax.swing.JLabel();
         textLastName = new javax.swing.JTextField();
         textPostcode = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        labelPhone = new javax.swing.JLabel();
+        labelEmail = new javax.swing.JLabel();
+        labelAccountName = new javax.swing.JLabel();
         textAccountName = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        labelTitle1 = new javax.swing.JLabel();
+        labelTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        buttonSave.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonSave.setBackground(new java.awt.Color(153, 204, 255));
+        buttonSave.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonSave.setForeground(new java.awt.Color(0, 102, 255));
         buttonSave.setText("Save");
+        buttonSave.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSaveActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonSave);
 
-        buttonCancel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonCancel.setBackground(new java.awt.Color(153, 204, 255));
+        buttonCancel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonCancel.setForeground(new java.awt.Color(0, 102, 255));
         buttonCancel.setText("Cancel");
+        buttonCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonCancel);
 
         labelBirthday.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelBirthday.setText("Birthday");
-        getContentPane().add(labelBirthday);
 
         textPhone.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         textPhone.setText("+6012-3456789");
-        getContentPane().add(textPhone);
 
         textBirthday.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         textBirthday.setText("YYYY-MM-DD");
-        getContentPane().add(textBirthday);
 
         textEmail.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(textEmail);
 
         labelGender.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelGender.setText("Gender");
-        getContentPane().add(labelGender);
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel5.setText("Street");
-        getContentPane().add(jLabel5);
-
-        labelTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        labelTitle.setText("New Customer");
-        getContentPane().add(labelTitle);
+        labelStreet.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelStreet.setText("Street");
 
         textStreet.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(textStreet);
 
+        buttonGroupGender.add(radioMale);
         radioMale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         radioMale.setText("Male");
-        getContentPane().add(radioMale);
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel6.setText("City");
-        getContentPane().add(jLabel6);
+        labelCity.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelCity.setText("City");
 
         comboState.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select State>", "Kuala Lumpur", "Selangor", "Putrajaya", "Labuan", "Perlis", "Kedah", "Terengganu", "Pahang", "Perak", "Kelantan", "Penang", "Selangor", "Negeri Sembilan", "Johor", "Malacca", "Sabah", "Sarawak" }));
-        getContentPane().add(comboState);
 
         labelFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelFirstName.setText("First Name");
-        getContentPane().add(labelFirstName);
 
         textCity.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(textCity);
 
-        radioFemale.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonGroupGender.add(radioFemale);
+        radioFemale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         radioFemale.setText("Female");
-        getContentPane().add(radioFemale);
 
-        labelLastName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        labelLastName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelLastName.setText("Last Name");
-        getContentPane().add(labelLastName);
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel7.setText("State");
-        getContentPane().add(jLabel7);
+        labelState.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelState.setText("State");
 
         textFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(textFirstName);
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel8.setText("Postcode");
-        getContentPane().add(jLabel8);
+        labelPostcode.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelPostcode.setText("Postcode");
 
         textLastName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(textLastName);
 
         textPostcode.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(textPostcode);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel3.setText("Phone");
-        getContentPane().add(jLabel3);
+        labelPhone.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelPhone.setText("Phone");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel4.setText("Email");
-        getContentPane().add(jLabel4);
+        labelEmail.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelEmail.setText("Email");
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel1.setText("Acccount Name");
-        getContentPane().add(jLabel1);
+        labelAccountName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelAccountName.setText("Acccount Name");
 
         textAccountName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(textAccountName);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
-        labelTitle1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        labelTitle1.setText("New Customer");
+        labelTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        labelTitle.setForeground(new java.awt.Color(0, 0, 102));
+        labelTitle.setText("New Customer");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(labelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelTitle)
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel1);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(textAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(textFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(textLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelGender, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(radioMale, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(radioFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(textBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(textPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(textStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelCity, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(textCity, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelState, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(comboState, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(textPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 21, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(labelGender))
+                    .addComponent(radioMale, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radioFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCity, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelState, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -300,20 +397,19 @@ public class AddCusDialog extends javax.swing.JDialog {
     private javax.swing.ButtonGroup buttonGroupGender;
     private javax.swing.JButton buttonSave;
     private javax.swing.JComboBox<String> comboState;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelAccountName;
     private javax.swing.JLabel labelBirthday;
+    private javax.swing.JLabel labelCity;
+    private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelFirstName;
     private javax.swing.JLabel labelGender;
     private javax.swing.JLabel labelLastName;
+    private javax.swing.JLabel labelPhone;
+    private javax.swing.JLabel labelPostcode;
+    private javax.swing.JLabel labelState;
+    private javax.swing.JLabel labelStreet;
     private javax.swing.JLabel labelTitle;
-    private javax.swing.JLabel labelTitle1;
     private javax.swing.JRadioButton radioFemale;
     private javax.swing.JRadioButton radioMale;
     private javax.swing.JTextField textAccountName;
