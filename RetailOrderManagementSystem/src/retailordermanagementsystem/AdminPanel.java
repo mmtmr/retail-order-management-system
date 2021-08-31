@@ -150,6 +150,10 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(tableProList);
+        if (tableProList.getColumnModel().getColumnCount() > 0) {
+            tableProList.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tableProList.getColumnModel().getColumn(1).setPreferredWidth(30);
+        }
 
         labelTitleProduct.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
         labelTitleProduct.setText("Product List");
@@ -265,6 +269,13 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tableSupList);
+        if (tableSupList.getColumnModel().getColumnCount() > 0) {
+            tableSupList.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tableSupList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableSupList.getColumnModel().getColumn(2).setPreferredWidth(40);
+            tableSupList.getColumnModel().getColumn(3).setPreferredWidth(30);
+            tableSupList.getColumnModel().getColumn(5).setPreferredWidth(300);
+        }
 
         buttonDeleteSup.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonDeleteSup.setText("Delete");
@@ -320,16 +331,15 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonEditSup)
                             .addComponent(buttonAddSup)
                             .addComponent(buttonDeleteSup))
                         .addGap(14, 14, 14))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(textSearchSup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -666,17 +676,26 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditSupActionPerformed
 
     private void buttonEditCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditCusActionPerformed
+//        try {
+//            String accID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 1).toString());
+//            //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
+//            EditCustomerDialog editCusDialog = new EditCustomerDialog(null, true, Customer.searchCusFromAccID(accID));
+//            editCusDialog.loadCusData();
+//            editCusDialog.show();
+//            showCustomerList();
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
         try {
-            String accID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
+            String cusID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
             //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
-            EditCustomerDialog editCusDialog = new EditCustomerDialog(null, true, Customer.searchCusFromAccID(accID));
+            EditCustomerDialog editCusDialog = new EditCustomerDialog(null, true, Customer.searchCusFromID(cusID));
             editCusDialog.loadCusData();
             editCusDialog.show();
             showCustomerList();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }//GEN-LAST:event_buttonEditCusActionPerformed
 
     private void buttonAddCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddCusActionPerformed

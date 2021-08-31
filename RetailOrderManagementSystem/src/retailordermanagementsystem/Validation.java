@@ -150,7 +150,9 @@ public class Validation {
 
 //TODO Validate Product Model names
     public static boolean validatePhone(String phone) {
-        return phone.matches("(\\+?6?01)[0-46-9]-*[0-9]{7,8}");//Format: +6012-34567890
+        //https://stackoverflow.com/questions/45406613/regex-pattern-for-malaysian-mobile-phone-number
+        //return phone.matches("(\\+?6?01)[0-46-9]-*[0-9]{7,8}");//Format: +6012-34567890
+        return phone.matches("^(\\+?6?01)[02-46-9]-*[0-9]{7}$|^(\\+?6?01)[1]-*[0-9]{8}$");
     }
 
     public static boolean validateEmail(String email) {
