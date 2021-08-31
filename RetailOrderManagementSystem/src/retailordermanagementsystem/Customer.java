@@ -27,7 +27,7 @@ public class Customer {
     }
 
     //Normal Load with All Info
-    public Customer(String CusID, String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount,  ArrayList<Order> CusOrders) {
+    public Customer(String CusID, String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ArrayList<Order> CusOrders) {
         this.CusID = CusID;
         this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth);
         this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
@@ -44,7 +44,6 @@ public class Customer {
         this.CusOrders = CusOrders;//Aggregation because i want to keep the order it elsewhere
     }
 
-    
 //    public Customer(String CusID, String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ArrayList<Order> CusOrders) {
 //        this.CusID = "CUS"+String.format("%05d", CusCounter + 1);
 //        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth);
@@ -53,11 +52,10 @@ public class Customer {
 //        this.CusOrders = CusOrders;
 //        addCusCounter();
 //    }
-    
 //https://stackoverflow.com/questions/22271801/how-to-create-constructor-with-empty-arraylist
     //Create New Customer
     public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount) {
-        this("CUS"+String.format("%05d", CusCounter + 1),PIFName, PILName, PIGender, PIDateOfBirth,CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode, CusAccount,new ArrayList<Order>());
+        this("CUS" + String.format("%05d", CusCounter + 1), PIFName, PILName, PIGender, PIDateOfBirth, CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode, CusAccount, new ArrayList<Order>());
 //        CusList.add(this);
         addCusCounter();
     }
@@ -79,7 +77,6 @@ public class Customer {
 //        this.CusSC = CusSC;
 //        this.CusOrders = CusOrders;
 //    }
-
     public static int getCusCounter() {
         return CusCounter;
     }
@@ -88,12 +85,12 @@ public class Customer {
         Customer.CusCounter = CusCounter;
     }
 
-    public static void addCusCounter() {    
-        CusCounter+=1;
+    public static void addCusCounter() {
+        CusCounter += 1;
     }
-    
-    public static void minusCusCounter() {    
-        CusCounter-=1;
+
+    public static void minusCusCounter() {
+        CusCounter -= 1;
     }
 
     public void setCusID(String CusID) {
@@ -145,9 +142,8 @@ public class Customer {
                 CusOrdersIDs = CusOrdersIDs.substring(0, CusOrdersIDs.length() - 1);
             }
             //CusOrdersIDs = CusOrdersIDs + ']';
-        }
-        else{
-            CusOrdersIDs="OR000000";
+        } else {
+            CusOrdersIDs = "-";
         }
         return CusOrdersIDs;
     }
@@ -172,12 +168,15 @@ public class Customer {
         CusCI.setCIAddPostcode(CIAddPostcode);
         CusAccount.setAccName(CAName);
     }
-    
-    
 
     @Override
     public String toString() {
-        return CusID + "\t" + CusPI + "\t" + CusCI + "\t" + CusAccount.getAccID() + "\t" + getCusOrdersIDs();
+        if (CusAccount.getAccID().isEmpty()) {
+            return CusID + "\t" + CusPI + "\t" + CusCI + "\t" + CusAccount.getAccID() + "\t" + getCusOrdersIDs();
+        }
+        else{
+            return CusID + "\t" + CusPI + "\t" + CusCI + "\t" + "-" + "\t" + getCusOrdersIDs();
+        }
     }
 
     public static Customer searchCusFromAccID(String cusAccID) {
@@ -195,7 +194,7 @@ public class Customer {
         }
         return customer;
     }
-    
+
     public static Customer searchCusFromID(String cusID) {
         Customer customer = new Customer();
         try {
@@ -265,20 +264,19 @@ public class Customer {
             return cusData;
         }
     }
-    
-    //CusID + "\t" + CusPI + "\t" + CusCI + "\t" + CusAccount.getAccID() + "\t" + getCusOrdersIDs();
 
+    //CusID + "\t" + CusPI + "\t" + CusCI + "\t" + CusAccount.getAccID() + "\t" + getCusOrdersIDs();
     //String CusID, String[] PILine, String[] CILine, CusAcc CusAccount, ArrayList<Order> CusOrders
     //CUS001  Ya Wen,Lai,F,2021-09-02,0   mail@mail.com,...,...   CA001   ORD001,ORD002
     public static void buildCusFromString(String cusLine) {
         try {
             String[] CusLine = parseCusFromString(cusLine);
-            
+
             String[] CusPILine = CusInfo.parseCusInfoFromString(CusLine[1]);
             String[] CusCILine = ContactInfo.parseContactInfoFromString(CusLine[2]);
             CusAcc CusAccount = CusAcc.searchCAFromID(CusLine[3]);
             ArrayList<Order> CusOrders = Order.searchOrdersFromIDs(CusLine[4].split(","));
-            
+
             CusList.add(new Customer(CusLine[0], CusPILine, CusCILine, CusAccount, CusOrders));
         } catch (Exception e) {
             System.out.println(e);

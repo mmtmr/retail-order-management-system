@@ -24,7 +24,6 @@ public class Supplier {
     public Supplier() {
     }
 
-    
     //Create
     public Supplier(String SupName, String PIFName, String PILName, Gender PIGender, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode) {
         this("S" + String.format("%04d", SupCounter + 1), SupName, PIFName, PILName, PIGender, CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode, new ArrayList<Product>());
@@ -48,7 +47,7 @@ public class Supplier {
     }
 
     //Load String Array
-    public Supplier(String[] SupLine,String[] SupPIData,String[] SupCIData, ArrayList<Product>SupProducts) {
+    public Supplier(String[] SupLine, String[] SupPIData, String[] SupCIData, ArrayList<Product> SupProducts) {
         this.SupID = SupLine[0];
         this.SupName = SupLine[1];
         this.SupPersonInCharge = new PersonalInfo(SupPIData);
@@ -115,13 +114,18 @@ public class Supplier {
     public String getSupProductsIDs() {
         //String SupProductsIDs = "[";
         String SupProductsIDs = "";
-        for (Product pro : SupProducts) {
-            SupProductsIDs = SupProductsIDs + pro.getProID() + ',';
+        if (!SupProducts.isEmpty()) {
+            for (Product pro : SupProducts) {
+                SupProductsIDs = SupProductsIDs + pro.getProID() + ',';
+            }
+
+            if (SupProductsIDs.charAt(SupProductsIDs.length() - 1) == ',') {
+                SupProductsIDs = SupProductsIDs.substring(0, SupProductsIDs.length() - 2);
+            }
+        }else{
+            SupProductsIDs ="-";
         }
 
-        if (SupProductsIDs.charAt(SupProductsIDs.length() - 1) == ',') {
-            SupProductsIDs = SupProductsIDs.substring(0, SupProductsIDs.length() - 2);
-        }
         //SupProductsIDs = SupProductsIDs + ']';
         return SupProductsIDs;
     }
@@ -133,7 +137,6 @@ public class Supplier {
 
 //    public static Supplier parseSupFromString(String supLine, ArrayList<Product> ProList) {
 //        String[] sup = new String[3];
-//        String[] supPI = new String[3];
 //        String[] supCI = new String[6];
 //        ArrayList<Product> supProducts = new ArrayList<>();
 //        try {
@@ -162,7 +165,6 @@ public class Supplier {
 //        }
 //        return new Supplier(sup[0], sup[1], supPI[0], supPI[1], Gender.valueOf(supPI[2]), supCI[0], supCI[1], supCI[2], supCI[3], supCI[4], supCI[5], sup[2], supProducts);
 //    }
-    
     public static Supplier searchSupFromID(String supID) {
         Supplier supplier = new Supplier();
         try {
@@ -178,6 +180,7 @@ public class Supplier {
         }
         return supplier;
     }
+
     public static String[] parseSupFromString(String supLine) throws Exception {
         String[] supData = supLine.split("\t");
         if (supData.length != 5) {

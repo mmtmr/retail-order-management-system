@@ -340,6 +340,7 @@ public class AddCusDialog extends javax.swing.JDialog {
             Operation.writeOrderData(cus.getCusAccount().getCusSC());
             Operation.writeCustomerData(cus);
             model.addRow(new Object[]{cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet(), cus.getCusCI().getCIAddCity(), cus.getCusCI().getCIAddState(), cus.getCusCI().getCIAddPostcode()});
+            JOptionPane.showMessageDialog(null, "Customer added");
             this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

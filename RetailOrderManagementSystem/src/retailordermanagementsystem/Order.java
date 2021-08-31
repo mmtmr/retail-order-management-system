@@ -27,7 +27,7 @@ public class Order extends OrderDetails {
     public Order(String AccID) {
         this.OrdID = "OR" + String.format("%06d", OrdCounter + 1);
         this.OrdCreateDT = LocalDateTime.now();
-        this.OrdStatus = OrderStatus.Waiting;
+        this.OrdStatus = OrderStatus.Unpaid;
         this.OrdPayment=new Payment();
         addOrdCounter();
     }

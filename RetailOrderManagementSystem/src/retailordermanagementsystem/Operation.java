@@ -126,7 +126,6 @@ public class Operation {
 //            oiRead.close();
 //        }
 //    }
-
     public static void readCustomerData() throws IOException, Exception {
         File customerFile = new File("customer.txt");
         if (!customerFile.isFile() && !customerFile.createNewFile()) {
@@ -284,6 +283,7 @@ public class Operation {
         if (!ordFile.isFile() && !ordFile.createNewFile()) {
             throw new IOException("Error creating new file: " + ordFile.getAbsolutePath());
         }
+
         PrintWriter ordWrite = new PrintWriter(new BufferedWriter(new FileWriter(ordFile, true)));
         try {
             ordWrite.println(ord);
@@ -321,6 +321,21 @@ public class Operation {
         }
     }
 
+    public static void rewriteOrderData() throws IOException {
+        File ordFile = new File("order.txt");
+        if (!ordFile.isFile() && !ordFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + ordFile.getAbsolutePath());
+        }
+        PrintWriter ordWrite = new PrintWriter(new BufferedWriter(new FileWriter(ordFile, false)));
+        try {
+            for (Account acc : AccList) {
+                ordWrite.println(acc);
+            }
+        } finally {
+            ordWrite.close();
+        }
+    }
+
     public static void rewriteCustomerData() throws IOException {
         File cusFile = new File("customer.txt");
         if (!cusFile.isFile() && !cusFile.createNewFile()) {
@@ -336,20 +351,54 @@ public class Operation {
         }
     }
 
+    //https://stackoverflow.com/a/45211459
+    public static void removeShoppingCart(String accID) throws IOException {
+        File ordFile = new File("order.txt");
+        File temp = new File("temp.txt");
+        BufferedReader ordRead = new BufferedReader(new FileReader(ordFile));
+        if (!ordFile.isFile()) {
+            throw new IOException("Error openning order.txt!");
+        }
+        PrintWriter tempWrite = new PrintWriter(new BufferedWriter(new FileWriter(temp, false)));
+        String removeID = "SC" + accID.substring(3, accID.length());
+        try {
+            String currentLine;
+            while ((currentLine = ordRead.readLine()) != null) {
+                String trimmedLine = currentLine.trim();
+                if (trimmedLine.contains(removeID)) {
+                    currentLine = "";
+                }
+                tempWrite.write(currentLine + System.getProperty("line.separator"));
+
+            }
+            tempWrite.close();           
+            ordFile.delete();
+            temp.renameTo(ordFile);
+        } finally {
+            ordRead.close();
+        }
+
+        //BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
+
+    }
+
     public static void destroyCustomerObject(Customer cus) throws Exception {
         CusList.remove(cus);
         rewriteCustomerData();
+        removeShoppingCart(cus.getCusAccount().getAccID());
         AccList.remove(cus.getCusAccount());
         CusAcc.minusCACounter();
         rewriteAccountData();
+        rewriteOrderData();
         JOptionPane.showMessageDialog(null, "Customer information and account is deleted.");
     }
-    
-    public static void destroyAccountObject(Account acc) throws Exception {
 
+    public static void destroyAccountObject(Account acc) throws Exception {
+        removeShoppingCart(acc.getAccID());
         AccList.remove(acc);
         CusAcc.minusCACounter();
         rewriteAccountData();
+        rewriteOrderData();
         JOptionPane.showMessageDialog(null, "Account is deleted.");
     }
 

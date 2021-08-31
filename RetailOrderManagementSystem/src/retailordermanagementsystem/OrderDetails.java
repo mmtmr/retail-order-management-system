@@ -84,6 +84,9 @@ public abstract class OrderDetails {
                 OrdItemsIDs = OrdItemsIDs.substring(0, OrdItemsIDs.length() - 1);
             }
         }
+        else{
+            OrdItemsIDs="-";
+        }
         //OrdItemsIDs = OrdItemsIDs + ']';
         return OrdItemsIDs;
     }
