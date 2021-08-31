@@ -298,8 +298,11 @@ public class EditCustomerDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void loadCusData(){
+        
         try{
+            if(cus.getCusAccount()!=null){
             textAccountName.setText(cus.getCusAccount().getAccName());
+            }
             textFirstName.setText(cus.getCusPI().getPIFName());
             textLastName.setText(cus.getCusPI().getPILName());
             if (cus.getCusPI().getPIGender()==Gender.M){

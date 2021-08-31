@@ -338,11 +338,11 @@ public class AdminPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Street", "City", "State", "Postcode"
+                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Street", "City", "State", "Postcode"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -352,8 +352,8 @@ public class AdminPanel extends javax.swing.JFrame {
         tableCusList.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(tableCusList);
         if (tableCusList.getColumnModel().getColumnCount() > 0) {
-            tableCusList.getColumnModel().getColumn(0).setPreferredWidth(50);
-            tableCusList.getColumnModel().getColumn(4).setPreferredWidth(25);
+            tableCusList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableCusList.getColumnModel().getColumn(5).setPreferredWidth(25);
         }
 
         buttonCusDeleteAcc.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -677,8 +677,8 @@ public class AdminPanel extends javax.swing.JFrame {
         try {
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account? The customer information will be remained.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
-                String accID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
-                Customer cus = Customer.searchCusFromAccID(accID);
+                String accID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 1).toString());
+                Customer cus = Customer.searchCusFromID(accID);
                 Operation.destroyAccountObject(cus.getCusAccount());
             }
         } catch (Exception e) {
@@ -693,8 +693,8 @@ public class AdminPanel extends javax.swing.JFrame {
        try {
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account AND information? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
-                String accID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
-                Customer cus = Customer.searchCusFromAccID(accID);
+                String cusID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
+                Customer cus = Customer.searchCusFromAccID(cusID);
                 Operation.destroyCustomerObject(cus);
             }
         } catch (Exception e) {
@@ -718,7 +718,7 @@ public class AdminPanel extends javax.swing.JFrame {
         for (Customer cus : CusList) {
             //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
             //System.out.println(cus);
-            model.addRow(new Object[]{cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet(), cus.getCusCI().getCIAddCity(), cus.getCusCI().getCIAddState(), cus.getCusCI().getCIAddPostcode()});
+            model.addRow(new Object[]{cus.getCusID(),cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet(), cus.getCusCI().getCIAddCity(), cus.getCusCI().getCIAddState(), cus.getCusCI().getCIAddPostcode()});
         }
         tableCusList.setModel(model);
     }
