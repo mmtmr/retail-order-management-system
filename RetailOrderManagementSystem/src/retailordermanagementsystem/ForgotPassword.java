@@ -34,10 +34,10 @@ public class ForgotPassword extends javax.swing.JPanel {
         labelRememberPassword = new javax.swing.JLabel();
         buttonFPLogin = new javax.swing.JButton();
         buttonResetPassword = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelContactInstruction = new javax.swing.JLabel();
+        labelEmailInstruction = new javax.swing.JLabel();
+        labelEmailStore = new javax.swing.JLabel();
+        labelFPIcon = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(174, 173, 173));
         setPreferredSize(new java.awt.Dimension(400, 600));
@@ -79,16 +79,16 @@ public class ForgotPassword extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Please call +06-9999888 to contact us!");
+        labelContactInstruction.setForeground(new java.awt.Color(51, 51, 51));
+        labelContactInstruction.setText("Please call +06-9999888 to contact us!");
 
-        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel16.setText("Kindly email us for more enquiries at");
+        labelEmailInstruction.setForeground(new java.awt.Color(51, 51, 51));
+        labelEmailInstruction.setText("Kindly email us for more enquiries at");
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel1.setText(" overcooked@store.com");
+        labelEmailStore.setForeground(new java.awt.Color(0, 0, 255));
+        labelEmailStore.setText(" overcooked@store.com");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\forgot password.png")); // NOI18N
+        labelFPIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\forgot password.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -121,24 +121,24 @@ public class ForgotPassword extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelEmailInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addComponent(jLabel1))
+                                .addComponent(labelEmailStore))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(55, 55, 55)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelContactInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(58, 58, 58)))
                         .addGap(35, 35, 35))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addComponent(jLabel2)
+                .addComponent(labelFPIcon)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelFPIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelForgotPasswordTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,11 +154,11 @@ public class ForgotPassword extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(buttonResetPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelContactInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel1))
+                    .addComponent(labelEmailInstruction)
+                    .addComponent(labelEmailStore))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -175,10 +175,10 @@ public class ForgotPassword extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonFPLogin;
     private javax.swing.JButton buttonResetPassword;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel labelContactInstruction;
+    private javax.swing.JLabel labelEmailInstruction;
+    private javax.swing.JLabel labelEmailStore;
+    private javax.swing.JLabel labelFPIcon;
     private javax.swing.JLabel labelFPInstruction;
     private javax.swing.JLabel labelFPInstruction2;
     private javax.swing.JLabel labelForgotPasswordTitle;

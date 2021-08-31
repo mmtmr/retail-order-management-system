@@ -42,23 +42,13 @@ public class AdminPanel extends javax.swing.JFrame {
         panelAdminProductList = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableProList = new javax.swing.JTable();
-        labelTitle = new javax.swing.JLabel();
+        labelTitleProduct = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         buttonEdit = new javax.swing.JButton();
         buttonAdd = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tableOrdList = new javax.swing.JTable();
-        labelTitle1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        buttonEdit1 = new javax.swing.JButton();
-        buttonAdd1 = new javax.swing.JButton();
-        buttonAdd2 = new javax.swing.JButton();
-        buttonEdit2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        labelTitleSupplier = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSupList = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
@@ -74,6 +64,20 @@ public class AdminPanel extends javax.swing.JFrame {
         buttonCusAdd = new javax.swing.JButton();
         textCusSearch = new javax.swing.JTextField();
         buttonCusDeleteCus = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableOrdList = new javax.swing.JTable();
+        labelTitleOrder = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        buttonEdit1 = new javax.swing.JButton();
+        buttonAdd1 = new javax.swing.JButton();
+        buttonAdd2 = new javax.swing.JButton();
+        buttonEdit2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        buttonAdd4 = new javax.swing.JButton();
+        buttonAdd5 = new javax.swing.JButton();
+        buttonAdd6 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,10 +153,10 @@ public class AdminPanel extends javax.swing.JFrame {
 
         panelAdminProductList.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 51, 1204, 509));
 
-        labelTitle.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
-        labelTitle.setText("Product List");
-        labelTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelAdminProductList.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 144, 33));
+        labelTitleProduct.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        labelTitleProduct.setText("Product List");
+        labelTitleProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelAdminProductList.add(labelTitleProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 144, 33));
 
         jButton2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton2.setText("Restock");
@@ -179,7 +183,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1204, Short.MAX_VALUE)
+            .addGap(0, 1489, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAdminProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -192,150 +196,8 @@ public class AdminPanel extends javax.swing.JFrame {
 
         tab.addTab("Product List", jPanel3);
 
-        tableOrdList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Date", "Customer ID", "Address", "Price", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane3.setViewportView(tableOrdList);
-
-        labelTitle1.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
-        labelTitle1.setText("Order List");
-        labelTitle1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jButton3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton3.setText("Completed");
-
-        buttonEdit1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit1.setText("Cancelled");
-        buttonEdit1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEdit1ActionPerformed(evt);
-            }
-        });
-
-        buttonAdd1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd1.setText("Waiting");
-
-        buttonAdd2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAdd2.setText("Add");
-
-        buttonEdit2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEdit2.setText("Edit");
-        buttonEdit2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEdit2ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton5.setText("Delete");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonAdd1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonEdit1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonAdd2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonEdit2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonEdit2)
-                        .addComponent(buttonAdd2)
-                        .addComponent(jButton5))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labelTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonAdd1)
-                        .addComponent(buttonEdit1)
-                        .addComponent(jButton3)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        tab.addTab("Order List", jPanel4);
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
-        jLabel1.setText("Supplier List");
+        labelTitleSupplier.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
+        labelTitleSupplier.setText("Supplier List");
 
         tableSupList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -433,10 +295,10 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1489, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -458,11 +320,11 @@ public class AdminPanel extends javax.swing.JFrame {
                             .addComponent(buttonEdit3)
                             .addComponent(buttonAdd3)
                             .addComponent(jButton4)))
-                    .addComponent(jLabel1))
+                    .addComponent(labelTitleSupplier))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(textCusSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
         );
 
         tab.addTab("Supplier List", jPanel1);
@@ -538,45 +400,214 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1489, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(buttonCusAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addComponent(buttonCusAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonCusEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonCusDeleteCus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonCusDeleteAcc))
                     .addComponent(textCusSearch))
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonCusEdit)
-                            .addComponent(buttonCusAdd)
-                            .addComponent(buttonCusDeleteAcc)
-                            .addComponent(buttonCusDeleteCus))
-                        .addGap(15, 15, 15)
-                        .addComponent(textCusSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)))
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCusEdit)
+                        .addComponent(buttonCusAdd)
+                        .addComponent(buttonCusDeleteAcc)
+                        .addComponent(buttonCusDeleteCus))
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textCusSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
         );
 
         tab.addTab("Customer List", jPanel2);
+
+        tableOrdList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tableOrdList);
+
+        labelTitleOrder.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
+        labelTitleOrder.setText("Order List");
+        labelTitleOrder.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jButton3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jButton3.setText("Completed");
+
+        buttonEdit1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEdit1.setText("Cancelled");
+        buttonEdit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEdit1ActionPerformed(evt);
+            }
+        });
+
+        buttonAdd1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAdd1.setText("Shipping");
+
+        buttonAdd2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAdd2.setText("Add");
+
+        buttonEdit2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEdit2.setText("Edit");
+        buttonEdit2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEdit2ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jButton5.setText("Delete");
+
+        buttonAdd4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAdd4.setText("All");
+
+        buttonAdd5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAdd5.setText("To Ship");
+
+        buttonAdd6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAdd6.setText("Unpaid");
+
+        jTextField1.setText("Press enter to search");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(labelTitleOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonAdd6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonAdd5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTextField1)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(buttonAdd2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonEdit2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTitleOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonAdd1)
+                    .addComponent(buttonEdit1)
+                    .addComponent(jButton3)
+                    .addComponent(buttonAdd4)
+                    .addComponent(buttonAdd5)
+                    .addComponent(buttonEdit2)
+                    .addComponent(buttonAdd2)
+                    .addComponent(jButton5)
+                    .addComponent(buttonAdd6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        tab.addTab("Order List", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -586,9 +617,7 @@ public class AdminPanel extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tab)
-                .addContainerGap())
+            .addComponent(tab)
         );
 
         pack();
@@ -675,6 +704,10 @@ public class AdminPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonCusDeleteCusActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -723,6 +756,9 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton buttonAdd1;
     private javax.swing.JButton buttonAdd2;
     private javax.swing.JButton buttonAdd3;
+    private javax.swing.JButton buttonAdd4;
+    private javax.swing.JButton buttonAdd5;
+    private javax.swing.JButton buttonAdd6;
     private javax.swing.JButton buttonCusAdd;
     private javax.swing.JButton buttonCusDeleteAcc;
     private javax.swing.JButton buttonCusDeleteCus;
@@ -736,7 +772,6 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -746,8 +781,10 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JLabel labelTitle;
-    private javax.swing.JLabel labelTitle1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelTitleOrder;
+    private javax.swing.JLabel labelTitleProduct;
+    private javax.swing.JLabel labelTitleSupplier;
     private javax.swing.JPanel panelAdminProductList;
     private javax.swing.JTabbedPane tab;
     private javax.swing.JTable tableCusList;

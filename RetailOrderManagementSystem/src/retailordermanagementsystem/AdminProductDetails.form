@@ -25,17 +25,23 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="491" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="476" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="613" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="584" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,50 +54,49 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="labelPDSupplier" max="32767" attributes="0"/>
+                      <Component id="labelPDPrice" alignment="0" max="32767" attributes="0"/>
+                      <Component id="labelPDCategory" alignment="0" max="32767" attributes="0"/>
+                      <Component id="labelPDType" alignment="0" max="32767" attributes="0"/>
+                      <Component id="labelPDStock" alignment="0" max="32767" attributes="0"/>
+                      <Component id="labelPDModel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="labelPDWeight" alignment="0" max="32767" attributes="0"/>
+                      <Component id="labelPDName" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="labelPDSupplier" max="32767" attributes="0"/>
-                              <Component id="labelPDPrice" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelPDCategory" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelPDType" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelPDStock" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelPDModel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelPDWeight" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelPDName" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="radioFragile" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jTextField1" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                              <Component id="spinnerPDQuantity" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="jTextField3" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jTextField2" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jTextField1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jTextField4" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jTextField5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="jComboBox1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" pref="250" max="-2" attributes="0"/>
-                              <Component id="jTextField3" min="-2" pref="250" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField4" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="spinnerPDQuantity" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="buttonDelete" min="-2" pref="135" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="radioFragile" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonSave" min="-2" pref="135" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonCancel" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="loadPDCategory" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="buttonDelete" min="-2" pref="130" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="buttonSave" min="-2" pref="130" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="buttonCancel" min="-2" pref="130" max="-2" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -148,13 +153,13 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonCancel" alignment="3" max="32767" attributes="0"/>
-                      <Component id="buttonSave" alignment="3" max="32767" attributes="0"/>
-                      <Component id="buttonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonDelete" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="buttonSave" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="buttonCancel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -181,8 +186,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Component id="labelProductDetails" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="9" max="32767" attributes="0"/>
+                      <Component id="labelProductDetails" min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -191,7 +196,7 @@
             <Component class="javax.swing.JLabel" name="labelProductDetails">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="36" style="0"/>
+                  <Font name="Monotype Corsiva" size="36" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Product Details"/>
               </Properties>
@@ -282,6 +287,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -289,15 +297,18 @@
         <Component class="javax.swing.JButton" name="buttonSave">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Save"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSaveActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonCancel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
@@ -313,7 +324,7 @@
         <Component class="javax.swing.JButton" name="buttonDelete">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Delete"/>
           </Properties>
@@ -327,6 +338,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField2">
         </Component>

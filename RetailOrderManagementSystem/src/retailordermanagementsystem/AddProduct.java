@@ -41,9 +41,9 @@ public class AddProduct extends javax.swing.JPanel {
         textPrice = new javax.swing.JTextField();
         textWeight = new javax.swing.JTextField();
         textName = new javax.swing.JTextField();
-        buttonCancel1 = new javax.swing.JButton();
-        buttonSave1 = new javax.swing.JButton();
-        labelFragile = new javax.swing.JLabel();
+        buttonCancel = new javax.swing.JButton();
+        buttonSave = new javax.swing.JButton();
+        labelType = new javax.swing.JLabel();
         labelStock = new javax.swing.JLabel();
         spinnerStock = new javax.swing.JSpinner();
         comboCategory = new javax.swing.JComboBox<>();
@@ -84,16 +84,16 @@ public class AddProduct extends javax.swing.JPanel {
             }
         });
 
-        buttonCancel1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonCancel1.setText("Cancel");
-        buttonCancel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonCancel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonCancel.setText("Cancel");
+        buttonCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        buttonSave1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonSave1.setText("Save");
-        buttonSave1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonSave.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonSave.setText("Save");
+        buttonSave.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        labelFragile.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        labelFragile.setText("Type");
+        labelType.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        labelType.setText("Type");
 
         labelStock.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelStock.setText("Stock");
@@ -133,7 +133,7 @@ public class AddProduct extends javax.swing.JPanel {
                             .addComponent(labelWeight, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelSupplier, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(labelFragile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelType, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -150,9 +150,9 @@ public class AddProduct extends javax.swing.JPanel {
                                 .addComponent(radioNonFragile))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(buttonSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(buttonCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -188,14 +188,14 @@ public class AddProduct extends javax.swing.JPanel {
                     .addComponent(spinnerStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelFragile)
+                    .addComponent(labelType)
                     .addComponent(radioFragile)
                     .addComponent(radioNonFragile))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
         );
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
@@ -246,9 +246,9 @@ public class AddProduct extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCancel1;
+    private javax.swing.JButton buttonCancel;
     private javax.swing.ButtonGroup buttonGroupFragile;
-    private javax.swing.JButton buttonSave1;
+    private javax.swing.JButton buttonSave;
     private javax.swing.JComboBox<String> comboCategory;
     private javax.swing.JComboBox<String> comboSupplier;
     private javax.swing.JPanel jPanel1;
@@ -256,13 +256,13 @@ public class AddProduct extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel labelCategory;
-    private javax.swing.JLabel labelFragile;
     private javax.swing.JLabel labelModel;
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel labelPrice;
     private javax.swing.JLabel labelStock;
     private javax.swing.JLabel labelSupplier;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel labelType;
     private javax.swing.JLabel labelWeight;
     private javax.swing.JRadioButton radioFragile;
     private javax.swing.JRadioButton radioNonFragile;
