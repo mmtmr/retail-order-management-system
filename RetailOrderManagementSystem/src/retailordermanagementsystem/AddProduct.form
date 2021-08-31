@@ -56,7 +56,7 @@
                               <Component id="labelWeight" alignment="0" max="32767" attributes="0"/>
                               <Component id="labelPrice" alignment="1" max="32767" attributes="0"/>
                               <Component id="labelSupplier" alignment="0" pref="114" max="32767" attributes="0"/>
-                              <Component id="labelFragile" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelType" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -78,9 +78,9 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="buttonSave1" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="buttonSave" min="-2" pref="130" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="buttonCancel1" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="buttonCancel" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="35" max="32767" attributes="0"/>
@@ -127,16 +127,16 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelFragile" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelType" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="radioFragile" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="radioNonFragile" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace pref="41" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonCancel1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="buttonSave1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="buttonCancel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="buttonSave" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -221,7 +221,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textNameActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonCancel1">
+        <Component class="javax.swing.JButton" name="buttonCancel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="16" style="0"/>
@@ -234,7 +234,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonSave1">
+        <Component class="javax.swing.JButton" name="buttonSave">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="16" style="0"/>
@@ -247,7 +247,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelFragile">
+        <Component class="javax.swing.JLabel" name="labelType">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="16" style="0"/>
