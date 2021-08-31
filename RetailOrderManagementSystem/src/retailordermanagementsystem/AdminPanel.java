@@ -641,9 +641,9 @@ public class AdminPanel extends javax.swing.JFrame {
 
     private void buttonCusEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCusEditActionPerformed
         try {
-            String accID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
+            String cusID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
             //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
-            EditCustomerDialog editCusDialog = new EditCustomerDialog(null, true, Customer.searchCusFromAccID(accID));
+            EditCustomerDialog editCusDialog = new EditCustomerDialog(null, true, Customer.searchCusFromID(cusID));
             editCusDialog.loadCusData();
             editCusDialog.show();
             showCustomerList();
@@ -723,33 +723,33 @@ public class AdminPanel extends javax.swing.JFrame {
         tableCusList.setModel(model);
     }
 
-    public static void main(String args[]) {
-        //Create or Read file
-        //https://stackoverflow.com/a/24029850
-        try {
-            Operation.readAccountData();
-            Operation.readSupplierData();
-            //Operation.readOrderItemData();
-            Operation.readOrderData();
-            Operation.readCustomerData();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        /*FlatMaterialLighterContrastIJTheme*/
-        try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterContrastIJTheme");
-        } catch (Exception ex) {
-            System.err.println("Failed to initialize LaF");
-        }
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminPanel().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        //Create or Read file
+//        //https://stackoverflow.com/a/24029850
+//        try {
+//            Operation.readAccountData();
+//            Operation.readSupplierData();
+//            //Operation.readOrderItemData();
+//            Operation.readOrderData();
+//            Operation.readCustomerData();
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//
+////        /*FlatMaterialLighterContrastIJTheme*/
+////        try {
+////            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterContrastIJTheme");
+////        } catch (Exception ex) {
+////            System.err.println("Failed to initialize LaF");
+////        }
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new AdminPanel().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdd;

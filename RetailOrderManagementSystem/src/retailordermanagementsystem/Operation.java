@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Operation {
 
+    public static Account opUser;
     public static ArrayList<Account> AccList = new ArrayList();
     public static ArrayList<Product> ProList = new ArrayList();
     public static ArrayList<Supplier> SupList = new ArrayList();
@@ -33,8 +34,14 @@ public class Operation {
     //https://stackoverflow.com/a/24029850
     public static void readAccountData() throws IOException {
         File accountFile = new File("account.txt");
-        if (!accountFile.isFile() && !accountFile.createNewFile()) {
-            throw new IOException("Error creating new file: " + accountFile.getAbsolutePath());
+        if (!accountFile.isFile()) {
+            if (accountFile.createNewFile()) {
+                PrintWriter accWrite = new PrintWriter(new BufferedWriter(new FileWriter(accountFile, true)));
+                accWrite.println(new AdminAcc("admin", "123456"));
+                accWrite.close();
+            } else {
+                throw new IOException("Error creating new file: " + accountFile.getAbsolutePath());
+            }
         }
         BufferedReader accRead = new BufferedReader(new FileReader(accountFile));
         try {
@@ -254,7 +261,7 @@ public class Operation {
 //        }
 //    }
     public static void writeAccountData(Account acc) throws IOException {
-        File accFile = new File("account.txt");
+        File accFile = new File("accFile.txt");
         if (!accFile.isFile() && !accFile.createNewFile()) {
             throw new IOException("Error creating new file: " + accFile.getAbsolutePath());
         }
@@ -264,6 +271,7 @@ public class Operation {
         } finally {
             accWrite.close();
         }
+
     }
 
 //    public static void writeSCData(ShoppingCart sc) throws IOException {
@@ -359,6 +367,9 @@ public class Operation {
         if (!ordFile.isFile()) {
             throw new IOException("Error openning order.txt!");
         }
+        if (!temp.createNewFile()) {
+            throw new IOException("Error creating new file: " + temp.getAbsolutePath());
+        }
         PrintWriter tempWrite = new PrintWriter(new BufferedWriter(new FileWriter(temp, false)));
         String removeID = "SC" + accID.substring(3, accID.length());
         try {
@@ -371,15 +382,15 @@ public class Operation {
                 tempWrite.write(currentLine + System.getProperty("line.separator"));
 
             }
-            tempWrite.close();           
+            tempWrite.close();
             ordFile.delete();
             temp.renameTo(ordFile);
+            temp.delete();
         } finally {
             ordRead.close();
         }
 
         //BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
-
     }
 
     public static void destroyCustomerObject(Customer cus) throws Exception {
@@ -397,9 +408,19 @@ public class Operation {
         removeShoppingCart(acc.getAccID());
         AccList.remove(acc);
         CusAcc.minusCACounter();
+        rewriteCustomerData();
         rewriteAccountData();
         rewriteOrderData();
         JOptionPane.showMessageDialog(null, "Account is deleted.");
     }
 
+//    public static void loginAdmin(String accName, String accPassword) throws Exception {
+//        removeShoppingCart(acc.getAccID());
+//        AccList.remove(acc);
+//        CusAcc.minusCACounter();
+//        rewriteCustomerData();
+//        rewriteAccountData();
+//        rewriteOrderData();
+//        JOptionPane.showMessageDialog(null, "Account is deleted.");
+//    }
 }

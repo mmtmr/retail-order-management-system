@@ -5,16 +5,26 @@
  */
 package retailordermanagementsystem;
 
+import javax.swing.JOptionPane;
+import static retailordermanagementsystem.Operation.*;
+
 /**
  *
  * @author user
  */
 public class LoginPage extends javax.swing.JPanel {
 
-    /**
-     * Creates new form LoginPage
-     */
+    char userType;
+            /**
+             * Creates new form LoginPage
+             */
+
     public LoginPage() {
+        initComponents();
+    }
+
+    public LoginPage(char userType) {
+        this.userType=userType;
         initComponents();
     }
 
@@ -66,12 +76,6 @@ public class LoginPage extends javax.swing.JPanel {
         labelUsername.setFont(new java.awt.Font("Lucida Calligraphy", 0, 18)); // NOI18N
         labelUsername.setForeground(new java.awt.Color(255, 255, 255));
         labelUsername.setText("USERNAME:");
-
-        textUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textUsernameActionPerformed(evt);
-            }
-        });
 
         labelPassword.setFont(new java.awt.Font("Lucida Calligraphy", 0, 18)); // NOI18N
         labelPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,16 +159,36 @@ public class LoginPage extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textUsernameActionPerformed
-
     private void buttonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSignUpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonSignUpActionPerformed
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
-        // TODO add your handling code here:
+
+        try {
+            for (Account acc : AccList) {
+                if (acc.getAccName().equals(textUsername.getText())) {
+                    if (acc.getAccPassword().equals(String.valueOf(passwordPassword.getPassword()))) {
+                        if (userType=='A') {
+                            opUser = (AdminAcc) acc;
+                            JOptionPane.showMessageDialog(null, "Welcome back!");
+                            new AdminPanel().setVisible(true);
+                        } else if (userType=='C') {
+                            opUser = (CusAcc) acc;
+                            JOptionPane.showMessageDialog(null, "Welcome back!");
+                            //new CusPanel().setVisible(true);
+                        } else {
+                            throw new Exception("Text file is corrupted!");
+                        }
+                    } else {
+                        throw new Exception("Incorrect password!");
+                    }
+
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_buttonLoginActionPerformed
 
 

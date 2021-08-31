@@ -77,7 +77,7 @@ public class CusAcc extends Account {
     public static CusAcc searchCAFromID(String caID) {
         CusAcc account = new CusAcc();
         try {
-            if(caID.isEmpty()){
+            if(caID.isEmpty()||caID.equals("-")){
                 return account;
             }
             for (Account acc : AccList) {
