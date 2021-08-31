@@ -115,7 +115,8 @@ public class WelcomePage extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdminActionPerformed
-        // TODO add your handling code here:
+        LoginDialog adminLoginDialog = new LoginDialog(null, true, 'A');
+        adminLoginDialog.show();
     }//GEN-LAST:event_buttonAdminActionPerformed
 
     private void buttonUserIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUserIconActionPerformed
