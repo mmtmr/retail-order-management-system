@@ -114,13 +114,13 @@ public class Supplier {
     public String getSupProductsIDs() {
         //String SupProductsIDs = "[";
         String SupProductsIDs = "";
-        if (!SupProducts.isEmpty()) {
+        if (!SupProducts.isEmpty()&&SupProducts.get(0)!=null) {
             for (Product pro : SupProducts) {
                 SupProductsIDs = SupProductsIDs + pro.getProID() + ',';
             }
 
             if (SupProductsIDs.charAt(SupProductsIDs.length() - 1) == ',') {
-                SupProductsIDs = SupProductsIDs.substring(0, SupProductsIDs.length() - 2);
+                SupProductsIDs = SupProductsIDs.substring(0, SupProductsIDs.length() - 1);
             }
         } else {
             SupProductsIDs = "-";
@@ -193,7 +193,39 @@ public class Supplier {
         }
         return supplier;
     }
+    
+    public static Supplier searchSupFromProID(String proID) {
+        Supplier supplier = new Supplier();
+        try {
+            for (Supplier sup : SupList) {
+                if (sup.getSupProductsIDs().contains(proID)) {
+                    supplier = sup;
+                    return supplier;
+                }
+            }
+            throw (new Exception("Supplier not found!" + proID));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return supplier;
+    }
 
+        public static Supplier searchSupFromName(String supName) {
+        Supplier supplier = new Supplier();
+        try {
+            for (Supplier sup : SupList) {
+                if (sup.getSupName().equals(supName)) {
+                    supplier = sup;
+                    return supplier;
+                }
+            }
+            throw (new Exception("Supplier not found!" + supName));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return supplier;
+    }
+        
     public static String[] parseSupFromString(String supLine) throws Exception {
         String[] supData = supLine.split("\t");
         if (supData.length != 5) {
@@ -203,6 +235,7 @@ public class Supplier {
         }
     }
 
+    
     public static void buildSupFromString(String supLine) {
         try {
             String[] SupLine = parseSupFromString(supLine);

@@ -261,7 +261,7 @@ public class Operation {
 //        }
 //    }
     public static void writeAccountData(Account acc) throws IOException {
-        File accFile = new File("accFile.txt");
+        File accFile = new File("account.txt");
         if (!accFile.isFile() && !accFile.createNewFile()) {
             throw new IOException("Error creating new file: " + accFile.getAbsolutePath());
         }
@@ -273,8 +273,7 @@ public class Operation {
         }
 
     }
-    
-    public static void writeSupplierData(Supplier sup) throws IOException {
+     public static void writeSupplierData(Supplier sup) throws IOException {
         File supFile = new File("supplier.txt");
         if (!supFile.isFile() && !supFile.createNewFile()) {
             throw new IOException("Error creating new file: " + supFile.getAbsolutePath());
@@ -284,6 +283,19 @@ public class Operation {
             supWrite.println(sup);
         } finally {
             supWrite.close();
+        }
+
+    }
+    public static void writeProductData(Product pro) throws IOException {
+        File proFile = new File("product.txt");
+        if (!proFile.isFile() && !proFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + proFile.getAbsolutePath());
+        }
+        PrintWriter proWrite = new PrintWriter(new BufferedWriter(new FileWriter(proFile, true)));
+        try {
+            proWrite.println(pro);
+        } finally {
+            proWrite.close();
         }
 
     }
@@ -342,6 +354,21 @@ public class Operation {
             }
         } finally {
             supWrite.close();
+        }
+    }
+    
+    public static void rewriteProductData() throws IOException {
+        File proFile = new File("product.txt");
+        if (!proFile.isFile() && !proFile.createNewFile()) {
+            throw new IOException("Error creating new file: " + proFile.getAbsolutePath());
+        }
+        PrintWriter proWrite = new PrintWriter(new BufferedWriter(new FileWriter(proFile, false)));
+        try {
+            for (Product pro : ProList) {
+                proWrite.println(pro);
+            }
+        } finally {
+            proWrite.close();
         }
     }
 
@@ -417,6 +444,14 @@ public class Operation {
         rewriteAccountData();
         rewriteOrderData();
         JOptionPane.showMessageDialog(null, "Account is deleted.");
+    }
+    
+    public static void destroyProductObject(Product pro) throws Exception {
+        ProList.remove(pro);
+        rewriteProductData();
+        Supplier.searchSupFromProID(pro.getProID()).getSupProducts().remove(pro);
+        rewriteSupplierData();
+        JOptionPane.showMessageDialog(null, "Product information is deleted.");
     }
     
     public static void destroySupplierObject(Supplier sup) throws Exception {

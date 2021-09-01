@@ -22,7 +22,7 @@ public class Product {
     private ProductType ProCategory;
     protected double ProPackingCharge;
     private static int ProStationeryCounter, ProFoodCounter, ProFashionCounter, ProOtherCounter;
-    private boolean isProFragile;
+    private boolean ProFragile;
     protected ArrayList<ProModel> ProModels;
 
     public Product() {
@@ -36,7 +36,7 @@ public class Product {
         this.ProWeight = Pro.ProWeight;
         this.ProCategory = Pro.ProCategory;
         this.ProPackingCharge = Pro.ProPackingCharge;
-        this.isProFragile = Pro.isProFragile;
+        this.ProFragile = Pro.ProFragile;
         this.ProModels = Pro.ProModels;
     }
 
@@ -49,23 +49,23 @@ public class Product {
         this.ProPackingCharge = ProPackingCharge;
         this.ProCategory = ProCategory;
         if ("1".equals(this.ProID.substring(1, 2))) {
-            this.isProFragile = true;
+            this.ProFragile = true;
         } else if ("0".equals(this.ProID.substring(1, 2))) {
-            this.isProFragile = false;
+            this.ProFragile = false;
         }
         this.ProModels = new ArrayList();
         this.addProModelsList(ProModelsLine);
     }
 
     //Load
-    public Product(String ProID, String ProName, double ProPrice, double ProWeight, ProductType ProCategory, double ProPackingCharge, boolean isProFragile, String[][] ProModelsLine) {
+    public Product(String ProID, String ProName, double ProPrice, double ProWeight, ProductType ProCategory, double ProPackingCharge, boolean ProFragile, String[][] ProModelsLine) {
         this.ProID = ProID;
         this.ProName = ProName;
         this.ProPrice = ProPrice;
         this.ProWeight = ProWeight;
         this.ProCategory = ProCategory;
         this.ProPackingCharge = ProPackingCharge;
-        this.isProFragile = isProFragile;
+        this.ProFragile = ProFragile;
         this.ProModels = new ArrayList();
         this.addProModelsList(ProModelsLine);
     }
@@ -80,9 +80,9 @@ public class Product {
         this.ProCategory = ProductType.valueOf(ProLine[5]);
 
         if ("1".equals(this.ProID.substring(1, 2))) {
-            this.isProFragile = true;
+            this.ProFragile = true;
         } else if ("0".equals(this.ProID.substring(1, 2))) {
-            this.isProFragile = false;
+            this.ProFragile = false;
         }
         this.ProModels = new ArrayList();
         this.addProModelsList(ProModelsLine);
@@ -90,13 +90,13 @@ public class Product {
 
     //https://www.geeksforgeeks.org/passing-and-returning-objects-in-java/
     //Create
-    public Product(String ProName, double ProPrice, double ProWeight, ProductType ProCategory, boolean isProFragile, String[][] ProModelsLine) {
+    public Product(String ProName, double ProPrice, double ProWeight, ProductType ProCategory, boolean ProFragile, String[][] ProModelsLine) {
 
         this.ProName = ProName;
         this.ProPrice = ProPrice;
         this.ProWeight = ProWeight;
         this.ProCategory = ProCategory;
-        this.isProFragile = isProFragile;
+        this.ProFragile = ProFragile;
         this.ProModels = new ArrayList();
         this.addProModelsList(ProModelsLine);
         switch (this.ProCategory) {
@@ -114,7 +114,7 @@ public class Product {
                 break;
         }
 
-        if (!this.isProFragile) {
+        if (!this.ProFragile) {
             this.ProID = "P0" + this.ProID;
             if ((this.ProWeight / 0.50 * 6.00) % 6.00 != 0) {
                 this.ProPackingCharge = this.ProWeight / 0.50 * 6.00 - ((this.ProWeight / 0.50 * 6.00) % 6.00) + 6.00;//6 Ringgit per 0.5kg
@@ -134,6 +134,50 @@ public class Product {
 
     }
 
+    public Product(String ProName, double ProPrice, double ProWeight, ProductType ProCategory, boolean ProFragile, String PMName, int PMStock) {
+
+        this.ProName = ProName;
+        this.ProPrice = ProPrice;
+        this.ProWeight = ProWeight;
+        this.ProCategory = ProCategory;
+        this.ProFragile = ProFragile;
+        this.ProModels = new ArrayList();
+        ProModels.add(new ProModel(PMName,PMStock));
+        switch (this.ProCategory) {
+            case Stationery:
+                this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProStationeryCounter + 1);
+                break;
+            case Food:
+                this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProFoodCounter + 1);
+                break;
+            case Fashion:
+                this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProFashionCounter + 1);
+                break;
+            case Other:
+                this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProOtherCounter + 1);
+                break;
+        }
+
+        if (!this.ProFragile) {
+            this.ProID = "P0" + this.ProID;
+            if ((this.ProWeight / 0.50 * 6.00) % 6.00 != 0) {
+                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00 - ((this.ProWeight / 0.50 * 6.00) % 6.00) + 6.00;//6 Ringgit per 0.5kg
+            } else {
+                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00;
+            }
+        } else {
+            this.ProID = "P1" + this.ProID;
+            if ((this.ProWeight / 0.50 * 10.00) % 10.00 != 0) {
+                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00 - ((this.ProWeight / 0.50 * 10.00) % 10.00) + 10.00;//10 Ringgit per 0.5kg
+            } else {
+                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00;
+            }
+        }
+
+        addProCategoryCounter(this.ProCategory);
+
+    }
+    
     public String getProID() {
         return ProID;
     }
@@ -265,6 +309,56 @@ public class Product {
         ProModels.remove(ProModel);
     }
 
+    public boolean isProFragile() {
+        return ProFragile;
+    }
+
+    public void setProFragile(boolean ProFragile) {
+        this.ProFragile = ProFragile;
+    }
+
+    public String getProModelsNames() {
+        String ProModelsNames;
+        //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
+        StringBuilder ProModelsNamesBuilder = new StringBuilder();
+        for (ProModel model : ProModels) {
+            ProModelsNamesBuilder.append(",");
+            ProModelsNamesBuilder.append(model.getPMName());
+        }
+        ProModelsNames = ProModelsNamesBuilder.toString();
+        if (ProModelsNames.charAt(0) == ',') {
+            ProModelsNames = ProModelsNames.substring(1, ProModelsNames.length());
+        }
+
+        if (ProModelsNames.charAt(ProModelsNames.length() - 1) == ',') {
+            ProModelsNames = ProModelsNames.substring(0, ProModelsNames.length() - 1);
+        }
+
+        //SupProductsIDs = SupProductsIDs + ']';
+        return ProModelsNames;
+    }
+    
+    public String getProModelsStocks() {
+        String ProModelsStocks;
+        //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
+        StringBuilder ProModelsStocksBuilder = new StringBuilder();
+        for (ProModel model : ProModels) {
+            ProModelsStocksBuilder.append(",");
+            ProModelsStocksBuilder.append(model.getPMStock());
+        }
+        ProModelsStocks = ProModelsStocksBuilder.toString();
+        if (ProModelsStocks.charAt(0) == ',') {
+            ProModelsStocks = ProModelsStocks.substring(1, ProModelsStocks.length());
+        }
+
+        if (ProModelsStocks.charAt(ProModelsStocks.length() - 1) == ',') {
+            ProModelsStocks = ProModelsStocks.substring(0, ProModelsStocks.length() - 1);
+        }
+
+        //SupProductsIDs = SupProductsIDs + ']';
+        return ProModelsStocks;
+    }
+    
     public String getProModelsList() {
         String ProModelsList;
         //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string

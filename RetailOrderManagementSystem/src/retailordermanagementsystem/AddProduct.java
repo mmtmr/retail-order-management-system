@@ -104,7 +104,6 @@ public class AddProduct extends javax.swing.JPanel {
         comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         comboSupplier.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        comboSupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         buttonGroupFragile.add(radioFragile);
         radioFragile.setText("Fragile");

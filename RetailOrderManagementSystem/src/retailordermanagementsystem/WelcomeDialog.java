@@ -174,6 +174,7 @@ public class WelcomeDialog extends javax.swing.JDialog {
         
         try {
             Operation.readAccountData();
+            Operation.readProductData();
             Operation.readSupplierData();
             //Operation.readOrderItemData();
             Operation.readOrderData();

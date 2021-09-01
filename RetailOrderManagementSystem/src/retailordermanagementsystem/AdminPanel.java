@@ -5,9 +5,10 @@
  */
 package retailordermanagementsystem;
 
-import java.io.*;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
@@ -25,8 +26,9 @@ public class AdminPanel extends javax.swing.JFrame {
      */
     public AdminPanel() {
         initComponents();
-        showCustomerList();
+        //showCustomerList();
         showSupplierList();
+        //showProductList();
     }
 
     /**
@@ -39,16 +41,29 @@ public class AdminPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         tab = new javax.swing.JTabbedPane();
+        jPanel7 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         panelAdminProductList = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tableProList = new javax.swing.JTable();
         labelTitleProduct = new javax.swing.JLabel();
         buttonRestockPor = new javax.swing.JButton();
         buttonDeletePro = new javax.swing.JButton();
         buttonEditPro = new javax.swing.JButton();
         buttonAddPro = new javax.swing.JButton();
         textSearchPro = new javax.swing.JTextField();
+        tabbedPaneProduct = new javax.swing.JTabbedPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableProList = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableProStationeryList = new javax.swing.JTable();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        tableProFoodList = new javax.swing.JTable();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        tableProFashionList = new javax.swing.JTable();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        tableProOtherList = new javax.swing.JTable();
+        buttonAddModel = new javax.swing.JButton();
+        buttonEditModel = new javax.swing.JButton();
+        buttonDeleteModel = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         labelTitleSupplier = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -59,83 +74,118 @@ public class AdminPanel extends javax.swing.JFrame {
         textSearchSup = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         labelTitleCus = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tableCusList = new javax.swing.JTable();
         buttonDeleteAcc = new javax.swing.JButton();
         buttonEditCus = new javax.swing.JButton();
         buttonAddCus = new javax.swing.JButton();
         textSearchCus = new javax.swing.JTextField();
         buttonDeleteCus = new javax.swing.JButton();
+        tabbedPaneCustomer = new javax.swing.JTabbedPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableCusList = new javax.swing.JTable();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        tableCusVVIPList = new javax.swing.JTable();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        tableCusVIPList = new javax.swing.JTable();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        tableCusNonVIPList = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tableOrderList = new javax.swing.JTable();
         labelTitleOrder = new javax.swing.JLabel();
-        buttonOrderCompleted = new javax.swing.JButton();
-        buttonOrderCancelled = new javax.swing.JButton();
-        buttonOrderShipping = new javax.swing.JButton();
         buttonAddOrder = new javax.swing.JButton();
         buttonEditOrder = new javax.swing.JButton();
         buttonDeleteOrder = new javax.swing.JButton();
-        buttonOrderAll = new javax.swing.JButton();
-        buttonOrderToShip = new javax.swing.JButton();
-        buttonOrderUnpaid = new javax.swing.JButton();
         textSearchOrder = new javax.swing.JTextField();
+        tabbedPaneOrder = new javax.swing.JTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tableOrderList1 = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tableOrderToShipList = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tableOrderShippingList = new javax.swing.JTable();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tableOrderCancelledList = new javax.swing.JTable();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tableOrderCompletedList = new javax.swing.JTable();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        tableOrderUnpaidList = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tab.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        tab.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1484, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 517, Short.MAX_VALUE)
+        );
+
+        tab.addTab("Overview", jPanel7);
+
+        labelTitleProduct.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        labelTitleProduct.setText("Product List");
+        labelTitleProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        buttonRestockPor.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonRestockPor.setText("Restock");
+        buttonRestockPor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRestockPorActionPerformed(evt);
+            }
+        });
+
+        buttonDeletePro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeletePro.setText("Delete Product");
+        buttonDeletePro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteProActionPerformed(evt);
+            }
+        });
+
+        buttonEditPro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditPro.setText("Edit Product");
+        buttonEditPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditProActionPerformed(evt);
+            }
+        });
+
+        buttonAddPro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddPro.setText("Add Product");
+        buttonAddPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddProActionPerformed(evt);
+            }
+        });
+
+        textSearchPro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textSearchPro.setText("Press enter to search");
+        textSearchPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSearchProActionPerformed(evt);
+            }
+        });
+
+        tabbedPaneProduct.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabbedPaneProductStateChanged(evt);
+            }
+        });
+
         tableProList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
@@ -144,63 +194,187 @@ public class AdminPanel extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
         jScrollPane2.setViewportView(tableProList);
 
-        labelTitleProduct.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
-        labelTitleProduct.setText("Product List");
-        labelTitleProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tabbedPaneProduct.addTab("All", jScrollPane2);
 
-        buttonRestockPor.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonRestockPor.setText("Restock");
+        tableProStationeryList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        buttonDeletePro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonDeletePro.setText("Delete");
-        buttonDeletePro.addActionListener(new java.awt.event.ActionListener() {
+            },
+            new String [] {
+                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tableProStationeryList);
+
+        tabbedPaneProduct.addTab("Stationery", jScrollPane3);
+
+        tableProFoodList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane19.setViewportView(tableProFoodList);
+
+        tabbedPaneProduct.addTab("Food", jScrollPane19);
+
+        tableProFashionList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane20.setViewportView(tableProFashionList);
+
+        tabbedPaneProduct.addTab("Fashion", jScrollPane20);
+
+        tableProOtherList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane21.setViewportView(tableProOtherList);
+
+        tabbedPaneProduct.addTab("Other", jScrollPane21);
+
+        buttonAddModel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddModel.setText("Add Model");
+        buttonAddModel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDeleteProActionPerformed(evt);
+                buttonAddModelActionPerformed(evt);
             }
         });
 
-        buttonEditPro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEditPro.setText("Edit");
-        buttonEditPro.addActionListener(new java.awt.event.ActionListener() {
+        buttonEditModel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditModel.setText("Edit Model");
+        buttonEditModel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditProActionPerformed(evt);
+                buttonEditModelActionPerformed(evt);
             }
         });
 
-        buttonAddPro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAddPro.setText("Add");
-
-        textSearchPro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textSearchPro.setText("Press enter to search");
+        buttonDeleteModel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteModel.setText("Delete Model");
+        buttonDeleteModel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteModelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelAdminProductListLayout = new javax.swing.GroupLayout(panelAdminProductList);
         panelAdminProductList.setLayout(panelAdminProductListLayout);
         panelAdminProductListLayout.setHorizontalGroup(
             panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdminProductListLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 643, Short.MAX_VALUE)
-                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelAdminProductListLayout.createSequentialGroup()
-                        .addComponent(buttonRestockPor, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonAddPro, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonEditPro, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonDeletePro, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tabbedPaneProduct, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminProductListLayout.createSequentialGroup()
+                        .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+                        .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonRestockPor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonAddPro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonAddModel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonEditPro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonEditModel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonDeletePro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonDeleteModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
+
+        panelAdminProductListLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {buttonEditModel, buttonEditPro});
+
+        panelAdminProductListLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {buttonDeleteModel, buttonDeletePro});
+
         panelAdminProductListLayout.setVerticalGroup(
             panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdminProductListLayout.createSequentialGroup()
@@ -211,34 +385,39 @@ public class AdminPanel extends javax.swing.JFrame {
                             .addComponent(buttonDeletePro)
                             .addComponent(buttonEditPro)
                             .addComponent(buttonAddPro)
-                            .addComponent(buttonRestockPor)))
+                            .addComponent(buttonRestockPor)
+                            .addComponent(buttonAddModel)
+                            .addComponent(buttonEditModel)
+                            .addComponent(buttonDeleteModel)
+                            .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminProductListLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(7, 7, 7)
-                .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tabbedPaneProduct)
+                .addGap(6, 6, 6))
         );
+
+        panelAdminProductListLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {buttonAddModel, buttonAddPro, buttonDeleteModel, buttonDeletePro, buttonEditModel, buttonEditPro});
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1249, Short.MAX_VALUE)
+            .addGap(0, 1484, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAdminProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGap(0, 517, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAdminProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tab.addTab("Product List", jPanel3);
+        tab.addTab("Manage Product", jPanel3);
 
-        labelTitleSupplier.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
+        labelTitleSupplier.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         labelTitleSupplier.setText("Supplier List");
 
         tableSupList.setModel(new javax.swing.table.DefaultTableModel(
@@ -302,69 +481,40 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1249, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 659, Short.MAX_VALUE)
+                        .addComponent(textSearchSup, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(buttonAddSup, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buttonEditSup, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonDeleteSup, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textSearchSup))
-                .addContainerGap())
+                        .addComponent(buttonDeleteSup, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonEditSup)
-                            .addComponent(buttonAddSup)
-                            .addComponent(buttonDeleteSup))
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(textSearchSup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonEditSup)
+                    .addComponent(buttonAddSup)
+                    .addComponent(buttonDeleteSup)
+                    .addComponent(textSearchSup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
         );
 
-        tab.addTab("Supplier List", jPanel1);
+        tab.addTab("Manage Supplier", jPanel1);
 
-        labelTitleCus.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
+        labelTitleCus.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         labelTitleCus.setText("Customer List");
-
-        tableCusList.setAutoCreateRowSorter(true);
-        tableCusList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Street", "City", "State", "Postcode"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tableCusList.getTableHeader().setReorderingAllowed(false);
-        jScrollPane4.setViewportView(tableCusList);
-        if (tableCusList.getColumnModel().getColumnCount() > 0) {
-            tableCusList.getColumnModel().getColumn(1).setPreferredWidth(50);
-            tableCusList.getColumnModel().getColumn(5).setPreferredWidth(25);
-        }
 
         buttonDeleteAcc.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonDeleteAcc.setText("Delete Account");
@@ -406,47 +556,185 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
+        tabbedPaneCustomer.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabbedPaneCustomerStateChanged(evt);
+            }
+        });
+
+        tableCusList.setAutoCreateRowSorter(true);
+        tableCusList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableCusList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane4.setViewportView(tableCusList);
+        if (tableCusList.getColumnModel().getColumnCount() > 0) {
+            tableCusList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableCusList.getColumnModel().getColumn(5).setPreferredWidth(25);
+        }
+
+        tabbedPaneCustomer.addTab("All", jScrollPane4);
+
+        tableCusVVIPList.setAutoCreateRowSorter(true);
+        tableCusVVIPList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableCusVVIPList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane14.setViewportView(tableCusVVIPList);
+        if (tableCusVVIPList.getColumnModel().getColumnCount() > 0) {
+            tableCusVVIPList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableCusVVIPList.getColumnModel().getColumn(5).setPreferredWidth(25);
+        }
+
+        tabbedPaneCustomer.addTab("VVIP", jScrollPane14);
+
+        tableCusVIPList.setAutoCreateRowSorter(true);
+        tableCusVIPList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableCusVIPList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane15.setViewportView(tableCusVIPList);
+        if (tableCusVIPList.getColumnModel().getColumnCount() > 0) {
+            tableCusVIPList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableCusVIPList.getColumnModel().getColumn(5).setPreferredWidth(25);
+        }
+
+        tabbedPaneCustomer.addTab("VIP", jScrollPane15);
+
+        tableCusNonVIPList.setAutoCreateRowSorter(true);
+        tableCusNonVIPList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableCusNonVIPList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane16.setViewportView(tableCusNonVIPList);
+        if (tableCusNonVIPList.getColumnModel().getColumnCount() > 0) {
+            tableCusNonVIPList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableCusNonVIPList.getColumnModel().getColumn(5).setPreferredWidth(25);
+        }
+
+        tabbedPaneCustomer.addTab("Non-VIP", jScrollPane16);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1249, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tabbedPaneCustomer)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 567, Short.MAX_VALUE)
+                        .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(buttonAddCus, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(buttonEditCus, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(buttonDeleteCus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonDeleteAcc))
-                    .addComponent(textSearchCus))
-                .addGap(12, 12, 12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonDeleteAcc)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTitleCus)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonDeleteAcc)
+                        .addComponent(buttonDeleteCus)
                         .addComponent(buttonEditCus)
                         .addComponent(buttonAddCus)
-                        .addComponent(buttonDeleteAcc)
-                        .addComponent(buttonDeleteCus))
-                    .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
+                .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        tab.addTab("Customer List", jPanel2);
+        tab.addTab("Manage Customer", jPanel2);
 
-        tableOrderList.setModel(new javax.swing.table.DefaultTableModel(
+        labelTitleOrder.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        labelTitleOrder.setText("Order List");
+        labelTitleOrder.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        buttonAddOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddOrder.setText("Add");
+
+        buttonEditOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditOrder.setText("Edit");
+        buttonEditOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditOrderActionPerformed(evt);
+            }
+        });
+
+        buttonDeleteOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteOrder.setText("Delete");
+
+        textSearchOrder.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textSearchOrder.setText("Press enter to search");
+        textSearchOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSearchOrderActionPerformed(evt);
+            }
+        });
+
+        tabbedPaneOrder.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        tableOrderList1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -512,143 +800,465 @@ public class AdminPanel extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tableOrderList);
+        jScrollPane5.setViewportView(tableOrderList1);
 
-        labelTitleOrder.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
-        labelTitleOrder.setText("Order List");
-        labelTitleOrder.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane5)
+                .addContainerGap())
+        );
 
-        buttonOrderCompleted.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonOrderCompleted.setText("Completed");
+        tabbedPaneOrder.addTab("All", jPanel5);
 
-        buttonOrderCancelled.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonOrderCancelled.setText("Cancelled");
-        buttonOrderCancelled.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonOrderCancelledActionPerformed(evt);
+        tableOrderToShipList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
+        jScrollPane6.setViewportView(tableOrderToShipList);
 
-        buttonOrderShipping.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonOrderShipping.setText("Shipping");
+        tabbedPaneOrder.addTab("To Ship", jScrollPane6);
 
-        buttonAddOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAddOrder.setText("Add");
+        tableOrderShippingList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+            };
 
-        buttonEditOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEditOrder.setText("Edit");
-        buttonEditOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditOrderActionPerformed(evt);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
+        jScrollPane7.setViewportView(tableOrderShippingList);
 
-        buttonDeleteOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonDeleteOrder.setText("Delete");
+        tabbedPaneOrder.addTab("Shipping", jScrollPane7);
 
-        buttonOrderAll.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonOrderAll.setText("All");
-        buttonOrderAll.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonOrderAllActionPerformed(evt);
+        tableOrderCancelledList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
+        jScrollPane8.setViewportView(tableOrderCancelledList);
 
-        buttonOrderToShip.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonOrderToShip.setText("To Ship");
+        tabbedPaneOrder.addTab("Cancelled", jScrollPane8);
 
-        buttonOrderUnpaid.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonOrderUnpaid.setText("Unpaid");
+        tableOrderCompletedList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+            };
 
-        textSearchOrder.setText("Press enter to search");
-        textSearchOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textSearchOrderActionPerformed(evt);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
+        tableOrderCompletedList.setShowGrid(false);
+        jScrollPane9.setViewportView(tableOrderCompletedList);
+
+        tabbedPaneOrder.addTab("Completed", jScrollPane9);
+
+        tableOrderUnpaidList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tableOrderUnpaidList.setShowGrid(false);
+        jScrollPane17.setViewportView(tableOrderUnpaidList);
+
+        tabbedPaneOrder.addTab("Unpaid", jScrollPane17);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(labelTitleOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonOrderAll)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonOrderUnpaid, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonOrderToShip, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonOrderShipping, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonOrderCancelled)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonOrderCompleted)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(buttonAddOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonEditOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonDeleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textSearchOrder))
-                .addGap(12, 12, 12))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tabbedPaneOrder)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(labelTitleOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(933, 933, 933)
+                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonAddOrder)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonEditOrder)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonDeleteOrder)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitleOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonOrderAll)
-                        .addComponent(buttonOrderUnpaid)
-                        .addComponent(buttonOrderToShip)
-                        .addComponent(buttonOrderShipping)
-                        .addComponent(buttonOrderCancelled)
-                        .addComponent(buttonOrderCompleted)
-                        .addComponent(buttonAddOrder)
-                        .addComponent(buttonEditOrder)
-                        .addComponent(buttonDeleteOrder)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
+                        .addComponent(buttonDeleteOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonEditOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonAddOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelTitleOrder)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tabbedPaneOrder)
+                .addContainerGap())
         );
 
-        tab.addTab("Order List", jPanel4);
+        tab.addTab("Manage Order", jPanel4);
+
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setText("Admin Panel");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tab, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tab)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tab))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonEditProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditProActionPerformed
-        // TODO add your handling code here:
+        try {
+            JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
+            JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_buttonEditProActionPerformed
 
-    private void buttonOrderCancelledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderCancelledActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonOrderCancelledActionPerformed
-
     private void buttonEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditOrderActionPerformed
-        // TODO add your handling code here:
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneOrder.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
     }//GEN-LAST:event_buttonEditOrderActionPerformed
 
     private void buttonEditSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditSupActionPerformed
@@ -666,10 +1276,12 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditSupActionPerformed
 
     private void buttonEditCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditCusActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
         try {
-            String accID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
+            String cusID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
             //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
-            EditCustomerDialog editCusDialog = new EditCustomerDialog(null, true, Customer.searchCusFromAccID(accID));
+            EditCustomerDialog editCusDialog = new EditCustomerDialog(null, true, Customer.searchCusFromID(cusID));
             editCusDialog.loadCusData();
             editCusDialog.show();
             showCustomerList();
@@ -680,10 +1292,9 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditCusActionPerformed
 
     private void buttonAddCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddCusActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tableCusList.getModel();
-        AddCusDialog addCusDialog = new AddCusDialog(null, true, model);
+        AddCusDialog addCusDialog = new AddCusDialog(null, true);
         addCusDialog.show();
-
+        showCustomerList();
     }//GEN-LAST:event_buttonAddCusActionPerformed
 
     private void textSearchCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchCusActionPerformed
@@ -692,64 +1303,81 @@ public class AdminPanel extends javax.swing.JFrame {
         //https://stackoverflow.com/a/45317261
         //https://stackoverflow.com/a/37989058
         //https://www.youtube.com/watch?v=efuLSvN6tKM
-        DefaultTableModel model = (DefaultTableModel) tableCusList.getModel();
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
         String key = textSearchCus.getText();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
-        tableCusList.setRowSorter(sorter);
+        table.setRowSorter(sorter);
     }//GEN-LAST:event_textSearchCusActionPerformed
 
     private void buttonDeleteAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteAccActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
         try {
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account? The customer information will be remained.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
-                String accID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 1).toString());
+                String accID = (table.getModel().getValueAt(table.getSelectedRow(), 1).toString());
                 Customer cus = Customer.searchCusFromID(accID);
                 Operation.destroyAccountObject(cus.getCusAccount());
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }finally{
+        } finally {
             showCustomerList();
         }
 
     }//GEN-LAST:event_buttonDeleteAccActionPerformed
 
     private void buttonDeleteCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteCusActionPerformed
-       try {
+        try {
+            JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
+            JTable table = (JTable) scrollRef.getViewport().getComponent(0);
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account AND information? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
-                String cusID = (tableCusList.getModel().getValueAt(tableCusList.getSelectedRow(), 0).toString());
+                String cusID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
                 Customer cus = Customer.searchCusFromAccID(cusID);
                 Operation.destroyCustomerObject(cus);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }finally{
+        } finally {
             showCustomerList();
         }
     }//GEN-LAST:event_buttonDeleteCusActionPerformed
 
     private void textSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchOrderActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_textSearchOrderActionPerformed
 
-    private void buttonOrderAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderAllActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonOrderAllActionPerformed
-
     private void buttonDeleteProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteProActionPerformed
-        // TODO add your handling code here:
+
+        try {
+            int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this product AND its models? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
+            JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
+            JTable table = (JTable) scrollRef.getViewport().getComponents()[0];
+            if (del == 0) {
+                String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+                Product pro = Product.searchProFromID(proID);
+                Operation.destroyProductObject(pro);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            showProductList();
+        }
     }//GEN-LAST:event_buttonDeleteProActionPerformed
 
     private void buttonAddSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddSupActionPerformed
         DefaultTableModel model = (DefaultTableModel) tableSupList.getModel();
         AddSupplierDialog addSupplierDialog = new AddSupplierDialog(null, true, model);
         addSupplierDialog.show();
+
     }//GEN-LAST:event_buttonAddSupActionPerformed
 
     private void buttonDeleteSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteSupActionPerformed
-         try {
+        try {
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this supplier information? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
                 String supID = (tableSupList.getModel().getValueAt(tableSupList.getSelectedRow(), 0).toString());
@@ -758,34 +1386,130 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }finally{
+        } finally {
             showSupplierList();
         }
     }//GEN-LAST:event_buttonDeleteSupActionPerformed
 
     private void textSearchSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchSupActionPerformed
-       DefaultTableModel model = (DefaultTableModel) tableSupList.getModel();
+        DefaultTableModel model = (DefaultTableModel) tableSupList.getModel();
         String key = textSearchSup.getText();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
         tableSupList.setRowSorter(sorter);
     }//GEN-LAST:event_textSearchSupActionPerformed
 
+    private void textSearchProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchProActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        String key = textSearchPro.getText();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
+        sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
+        table.setRowSorter(sorter);
+    }//GEN-LAST:event_textSearchProActionPerformed
+
+    private void buttonRestockPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRestockPorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonRestockPorActionPerformed
+
+    private void buttonAddProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddProActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tableProList.getModel();
+        AddProDialog addProDialog = new AddProDialog(null, true);
+        addProDialog.show();
+        showProductList();
+    }//GEN-LAST:event_buttonAddProActionPerformed
+
+    private void buttonAddModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddModelActionPerformed
+        try {
+            String proID = (tableProList.getModel().getValueAt(tableProList.getSelectedRow(), 0).toString());
+            DefaultTableModel model = (DefaultTableModel) tableProList.getModel();
+            AddProModelDialog editProDialog = new AddProModelDialog(null, true, model, Product.searchProFromID(proID));
+            //editProDialog.loadProData();
+            editProDialog.show();
+            showProductList();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_buttonAddModelActionPerformed
+
+    private void buttonEditModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditModelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonEditModelActionPerformed
+
+    private void buttonDeleteModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteModelActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        try {
+            String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            Product pro = Product.searchProFromID(proID);
+            if(pro.getProModels().size()==1){
+                throw new Exception("This is the last model of product. Delete the product instead.");
+            }
+            int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this model of product? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
+            if (del == 0) {
+                
+                String pmName = (table.getModel().getValueAt(table.getSelectedRow(), 4).toString());               
+                for (ProModel pm : pro.getProModels()) {
+                    if (pm.getPMName().equals(pmName)) {
+                        pro.getProModels().remove(pm);
+                        Operation.rewriteProductData();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            showProductList();
+        }
+    }//GEN-LAST:event_buttonDeleteModelActionPerformed
+
+    private void tabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabStateChanged
+        if (tab.getTitleAt(tab.getSelectedIndex()).contains("Product")) {
+            showProductList();
+        } else if (tab.getTitleAt(tab.getSelectedIndex()).contains("Customer")) {
+            showCustomerList();
+        }
+    }//GEN-LAST:event_tabStateChanged
+
+    private void tabbedPaneProductStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneProductStateChanged
+        showProductList();
+    }//GEN-LAST:event_tabbedPaneProductStateChanged
+
+    private void tabbedPaneCustomerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneCustomerStateChanged
+        showCustomerList();
+    }//GEN-LAST:event_tabbedPaneCustomerStateChanged
+
     /**
      * @param args the command line arguments
      */
     public void showCustomerList() {
         //DefaultTableModel model = new DefaultTableModel(new Object[]{"Account ID", "Account Name", "First Name","Last Name","Gender","D.O.B.","Reward Point","Phone","Email","Street","City","State","Postcode"}, 0);;
-        DefaultTableModel model = (DefaultTableModel) tableCusList.getModel();
+
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        String tabTitle = tabbedPaneCustomer.getTitleAt(tabbedPaneCustomer.getSelectedIndex());
         model.setRowCount(0);
         for (Customer cus : CusList) {
             //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
             //System.out.println(cus);
-            model.addRow(new Object[]{cus.getCusID(),cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet(), cus.getCusCI().getCIAddCity(), cus.getCusCI().getCIAddState(), cus.getCusCI().getCIAddPostcode()});
+            if (cus.getCusPI().getPIRewardPoint() >= 10000) {
+                if (tabTitle.contains("All") || tabTitle.equals("VVIP")) {
+                    model.addRow(new Object[]{cus.getCusID(), cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet() + "；" + cus.getCusCI().getCIAddCity() + "；" + cus.getCusCI().getCIAddState() + "；" + cus.getCusCI().getCIAddPostcode()});
+                }
+            } else if (cus.getCusPI().getPIRewardPoint() >= 5000) {
+                if (tabTitle.contains("All") || tabTitle.equals("VIP")) {
+                    model.addRow(new Object[]{cus.getCusID(), cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet() + "；" + cus.getCusCI().getCIAddCity() + "；" + cus.getCusCI().getCIAddState() + "；" + cus.getCusCI().getCIAddPostcode()});
+                }
+            } else if (tabTitle.contains("All") || tabTitle.equals("Non-VIP")) {
+                model.addRow(new Object[]{cus.getCusID(), cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet() + "；" + cus.getCusCI().getCIAddCity() + "；" + cus.getCusCI().getCIAddState() + "；" + cus.getCusCI().getCIAddPostcode()});
+            }
         }
-        tableCusList.setModel(model);
+        table.setModel(model);
+
     }
-    
+
     public void showSupplierList() {
         //DefaultTableModel model = new DefaultTableModel(new Object[]{"Account ID", "Account Name", "First Name","Last Name","Gender","D.O.B.","Reward Point","Phone","Email","Street","City","State","Postcode"}, 0);;
         DefaultTableModel model = (DefaultTableModel) tableSupList.getModel();
@@ -793,9 +1517,49 @@ public class AdminPanel extends javax.swing.JFrame {
         for (Supplier sup : SupList) {
             //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
             //System.out.println(cus);
-            model.addRow(new Object[]{sup.getSupID(), sup.getSupName(),sup.getSupPersonInCharge().getPIFName()+" "+sup.getSupPersonInCharge().getPILName(), sup.getSupCI().getCIPhone(), sup.getSupCI().getCIEmail(), sup.getSupCI().getCIAddStreet()+";"+sup.getSupCI().getCIAddCity()+";"+sup.getSupCI().getCIAddState()+";"+sup.getSupCI().getCIAddPostcode()});
+            model.addRow(new Object[]{sup.getSupID(), sup.getSupName(), sup.getSupPersonInCharge().getPIFName() + " " + sup.getSupPersonInCharge().getPILName(), sup.getSupCI().getCIPhone(), sup.getSupCI().getCIEmail(), sup.getSupCI().getCIAddStreet() + ";" + sup.getSupCI().getCIAddCity() + ";" + sup.getSupCI().getCIAddState() + ";" + sup.getSupCI().getCIAddPostcode()});
         }
         tableSupList.setModel(model);
+    }
+
+    public void showProductList() {
+        //DefaultTableModel model = new DefaultTableModel(new Object[]{"Account ID", "Account Name", "First Name","Last Name","Gender","D.O.B.","Reward Point","Phone","Email","Street","City","State","Postcode"}, 0);;
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        int i = 0;
+        model.setRowCount(0);
+        for (Product pro : ProList) {
+            //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
+            //System.out.println(cus);
+            for (ProModel pm : pro.getProModels()) {
+                switch (pro.getProCategory()) {
+                    case Stationery:
+                        if (tabbedPaneProduct.getTitleAt(tabbedPaneProduct.getSelectedIndex()).contains("All") || tabbedPaneProduct.getTitleAt(tabbedPaneProduct.getSelectedIndex()).contains("Stationery")) {
+                            model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pm.getPMName(), pm.getPMStock(), pro.getProWeight(), pro.isProFragile(), Supplier.searchSupFromProID(pro.getProID()).getSupName()});
+                        }
+                        break;
+                    case Food:
+                        if (tabbedPaneProduct.getTitleAt(tabbedPaneProduct.getSelectedIndex()).contains("All") || tabbedPaneProduct.getTitleAt(tabbedPaneProduct.getSelectedIndex()).contains("Food")) {
+                            model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pm.getPMName(), pm.getPMStock(), pro.getProWeight(), pro.isProFragile(), Supplier.searchSupFromProID(pro.getProID()).getSupName()});
+                        }
+                        break;
+                    case Fashion:
+                        if (tabbedPaneProduct.getTitleAt(tabbedPaneProduct.getSelectedIndex()).contains("All") || tabbedPaneProduct.getTitleAt(tabbedPaneProduct.getSelectedIndex()).contains("Fashion")) {
+                            model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pm.getPMName(), pm.getPMStock(), pro.getProWeight(), pro.isProFragile(), Supplier.searchSupFromProID(pro.getProID()).getSupName()});
+                        }
+                        break;
+                    case Other:
+                        if (tabbedPaneProduct.getTitleAt(tabbedPaneProduct.getSelectedIndex()).contains("All") || tabbedPaneProduct.getTitleAt(tabbedPaneProduct.getSelectedIndex()).contains("Other")) {
+                            model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pm.getPMName(), pm.getPMStock(), pro.getProWeight(), pro.isProFragile(), Supplier.searchSupFromProID(pro.getProID()).getSupName()});
+                        }
+                        break;
+                }
+
+            }
+        }
+        table.setModel(model);
+
     }
 
     public static void main(String args[]) {
@@ -828,42 +1592,70 @@ public class AdminPanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAddCus;
+    private javax.swing.JButton buttonAddModel;
     private javax.swing.JButton buttonAddOrder;
     private javax.swing.JButton buttonAddPro;
     private javax.swing.JButton buttonAddSup;
     private javax.swing.JButton buttonDeleteAcc;
     private javax.swing.JButton buttonDeleteCus;
+    private javax.swing.JButton buttonDeleteModel;
     private javax.swing.JButton buttonDeleteOrder;
     private javax.swing.JButton buttonDeletePro;
     private javax.swing.JButton buttonDeleteSup;
     private javax.swing.JButton buttonEditCus;
+    private javax.swing.JButton buttonEditModel;
     private javax.swing.JButton buttonEditOrder;
     private javax.swing.JButton buttonEditPro;
     private javax.swing.JButton buttonEditSup;
-    private javax.swing.JButton buttonOrderAll;
-    private javax.swing.JButton buttonOrderCancelled;
-    private javax.swing.JButton buttonOrderCompleted;
-    private javax.swing.JButton buttonOrderShipping;
-    private javax.swing.JButton buttonOrderToShip;
-    private javax.swing.JButton buttonOrderUnpaid;
     private javax.swing.JButton buttonRestockPor;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel labelTitleCus;
     private javax.swing.JLabel labelTitleOrder;
     private javax.swing.JLabel labelTitleProduct;
     private javax.swing.JLabel labelTitleSupplier;
     private javax.swing.JPanel panelAdminProductList;
     private javax.swing.JTabbedPane tab;
+    private javax.swing.JTabbedPane tabbedPaneCustomer;
+    private javax.swing.JTabbedPane tabbedPaneOrder;
+    private javax.swing.JTabbedPane tabbedPaneProduct;
     private javax.swing.JTable tableCusList;
-    private javax.swing.JTable tableOrderList;
+    private javax.swing.JTable tableCusNonVIPList;
+    private javax.swing.JTable tableCusVIPList;
+    private javax.swing.JTable tableCusVVIPList;
+    private javax.swing.JTable tableOrderCancelledList;
+    private javax.swing.JTable tableOrderCompletedList;
+    private javax.swing.JTable tableOrderList1;
+    private javax.swing.JTable tableOrderShippingList;
+    private javax.swing.JTable tableOrderToShipList;
+    private javax.swing.JTable tableOrderUnpaidList;
+    private javax.swing.JTable tableProFashionList;
+    private javax.swing.JTable tableProFoodList;
     private javax.swing.JTable tableProList;
+    private javax.swing.JTable tableProOtherList;
+    private javax.swing.JTable tableProStationeryList;
     private javax.swing.JTable tableSupList;
     private javax.swing.JTextField textSearchCus;
     private javax.swing.JTextField textSearchOrder;

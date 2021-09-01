@@ -65,16 +65,16 @@ public class ProModel {
         String[] pmNamesData=pmNamesLine.split(",");
         String[] pmStocksData=pmStocksLine.split(",");
         String[][] pmData = new String[pmNamesData.length][2];
+        if (pmNamesData.length != pmStocksData.length) {
+            throw (new Exception("Product Model is incomplete!" + pmNamesLine + pmStocksLine));
+        }
         for (int i = 0; i < pmNamesData.length; i++) {
             pmData[i][0]=pmNamesData[i];
             pmData[i][1]=pmStocksData[i];
             validInt=Integer.parseInt(pmData[i][1]);   
         }
-        if (pmData[0].length != pmData[1].length) {
-            throw (new Exception("Product Model is incomplete!" + pmNamesLine + pmStocksLine));
-        } else {
-            return pmData;
-        }
+        return pmData;
+        
     }
 
 }

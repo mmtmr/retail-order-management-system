@@ -22,6 +22,13 @@ public class Validation {
         return !input.isEmpty();
     }
 
+    public static void validateProductInput(String proname, String promodel) throws Exception {
+        if (validateNoDelimeterAndNoNull(proname) && validateNoDelimeterAndNoNull(promodel)) {
+        } else {
+            throw new Exception("Invalid Input: Remove the tab or | inside input.");
+        }
+    }
+    
     public static void validateSupplierInput(String supname, String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode) throws Exception {
         if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
         } else {

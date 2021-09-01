@@ -204,7 +204,7 @@ public class LoginDialog extends javax.swing.JDialog {
                             opUser = (CusAcc) acc;
                             acc.setAccLastLoginDT(LocalDateTime.now());
                             JOptionPane.showMessageDialog(null, "Welcome back!");
-                            //new CusPanel().setVisible(true);
+                            new CustomerPanel().setVisible(true);
                             this.dispose();
                         }
 //                        else {
