@@ -80,7 +80,7 @@ public abstract class OrderDetails {
                 OrdItemsIDs = OrdItemsIDs + item.getOIID() + ',';
             }
 
-            if (OrdItemsIDs.charAt(OrdItemsIDs.length()) == ',') {
+            if (OrdItemsIDs.charAt(OrdItemsIDs.length()-1) == ',') {
                 OrdItemsIDs = OrdItemsIDs.substring(0, OrdItemsIDs.length() - 1);
             }
         }

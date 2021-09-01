@@ -94,6 +94,12 @@ public abstract class Account {
         return LoginName.equals(getAccName()) && LoginPassword.equals(getAccPassword());
     }
 
+    public void changeAccPassword (String newPassword, String confirmPassword){
+        if(newPassword.equals(confirmPassword)){
+            setAccPassword(newPassword);
+        }
+    }
+    
     @Override
     public String toString() {
         return AccID + "," + AccName + "," + AccPassword + "," + AccRegisterDT + "," + AccLastLoginDT;

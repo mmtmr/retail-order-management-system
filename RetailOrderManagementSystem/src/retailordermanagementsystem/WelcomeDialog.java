@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package retailordermanagementsystem;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterContrastIJTheme;
+import com.formdev.flatlaf.FlatDarkLaf;
 import javax.swing.UIManager;
 
 /**
@@ -192,7 +192,7 @@ public class WelcomeDialog extends javax.swing.JDialog {
         }
          /*FlatMaterialLighterContrastIJTheme*/
         try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterContrastIJTheme");
+            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatDraculaIJTheme");
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }

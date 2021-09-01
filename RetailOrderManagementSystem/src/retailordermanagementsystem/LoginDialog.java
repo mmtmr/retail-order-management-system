@@ -221,7 +221,7 @@ public class LoginDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void buttonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSignUpActionPerformed
-        // TODO add your handling code here:
+        new AdminPanel().setVisible(true);
     }//GEN-LAST:event_buttonSignUpActionPerformed
 
     /**

@@ -27,7 +27,6 @@ public class Operation {
     public static ArrayList<Account> AccList = new ArrayList();
     public static ArrayList<Product> ProList = new ArrayList();
     public static ArrayList<Supplier> SupList = new ArrayList();
-    public static ArrayList<ShoppingCart> SCList = new ArrayList();
     public static ArrayList<Order> OrdList = new ArrayList();
     public static ArrayList<Customer> CusList = new ArrayList();
 
@@ -383,8 +382,12 @@ public class Operation {
         }
         PrintWriter ordWrite = new PrintWriter(new BufferedWriter(new FileWriter(ordFile, false)));
         try {
-            for (Account acc : AccList) {
-                ordWrite.println(acc);
+            for (Order ord : OrdList) {
+                ordWrite.println(ord);
+            }
+            for (Customer cus : CusList) {
+                ordWrite.println(cus.getCusAccount().getCusSC());
+                System.out.println(cus.getCusAccount().getCusSC());
             }
         } finally {
             ordWrite.close();

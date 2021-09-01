@@ -163,13 +163,13 @@ public class OrderItem extends Product {
         try {
             String[] OILine = parseOIFromString(oiLine, oiID);
             if (OILine[0].equals(oiID)) {
-                Product OIPro=Product.searchProFromID(oiID.split("-")[2].substring(0,oiID.split("-")[2].length()-2));
+                Product OIPro=Product.searchProFromID(oiID.split("-")[1].substring(0,oiID.split("-")[1].length()-2));
                 int OIQuantiy=Integer.parseInt(OILine[1]);
                 //Validate Model? todo?
                 double OIPrice=Double.parseDouble(OILine[3]);
                 double OIPackingCharge=Double.parseDouble(OILine[4]);
                 if (oiID.contains("SP")) {
-                    CusAcc.searchCAFromID(oiID.substring(2, oiID.length())).getCusSC().getOrdItems().add(new OrderItem(OIPro,oiID,OIQuantiy,OILine[2],OIPrice,OIPackingCharge));
+                    CusAcc.searchCAFromID("CA"+oiID.substring(3, oiID.split("-")[0].length())).getCusSC().getOrdItems().add(new OrderItem(OIPro,oiID,OIQuantiy,OILine[2],OIPrice,OIPackingCharge));
                 } else if (oiID.contains("OR")) {
                     Order.searchOrderFromID(oiID.split("-")[1]).getOrdItems().add(new OrderItem(OIPro,oiID,OIQuantiy,OILine[2],OIPrice,OIPackingCharge));
                 }

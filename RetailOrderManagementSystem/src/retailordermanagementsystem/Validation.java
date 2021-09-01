@@ -22,6 +22,13 @@ public class Validation {
         return !input.isEmpty();
     }
 
+    public static void validatePasswordInput(String password1, String password2) throws Exception {
+        if (validateNoDelimeterAndNoNull(password1) && validateNoDelimeterAndNoNull(password2)) {
+        } else {
+            throw new Exception("Invalid Input: Remove the tab or | inside input.");
+        }
+    }
+    
     public static void validateProductInput(String proname, String promodel) throws Exception {
         if (validateNoDelimeterAndNoNull(proname) && validateNoDelimeterAndNoNull(promodel)) {
         } else {

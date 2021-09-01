@@ -142,7 +142,7 @@ public class Product {
         this.ProCategory = ProCategory;
         this.ProFragile = ProFragile;
         this.ProModels = new ArrayList();
-        ProModels.add(new ProModel(PMName,PMStock));
+        ProModels.add(new ProModel(PMName, PMStock));
         switch (this.ProCategory) {
             case Stationery:
                 this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProStationeryCounter + 1);
@@ -177,7 +177,7 @@ public class Product {
         addProCategoryCounter(this.ProCategory);
 
     }
-    
+
     public String getProID() {
         return ProID;
     }
@@ -337,7 +337,7 @@ public class Product {
         //SupProductsIDs = SupProductsIDs + ']';
         return ProModelsNames;
     }
-    
+
     public String getProModelsStocks() {
         String ProModelsStocks;
         //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
@@ -358,7 +358,7 @@ public class Product {
         //SupProductsIDs = SupProductsIDs + ']';
         return ProModelsStocks;
     }
-    
+
     public String getProModelsList() {
         String ProModelsList;
         //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
@@ -398,6 +398,20 @@ public class Product {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public boolean validateStockFromModel(String OIModel, int OIQuantity) throws Exception {
+        for (ProModel model : ProModels) {
+            if (model.getPMName().equals(OIModel)) {
+                if (model.getPMStock() < OIQuantity) {
+                    throw new Exception("Sorry, the current stock left is " + model.getPMStock());
+                }
+                else{
+                    return true;
+                }
+            }
+        }
+        throw new Exception("Model does not exist");
     }
 
 //    public static ArrayList<Product> searchProsFromIDs(String[] ProIDs) {
