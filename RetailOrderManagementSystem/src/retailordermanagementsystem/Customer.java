@@ -168,6 +168,26 @@ public class Customer {
         CusCI.setCIAddPostcode(CIAddPostcode);
         CusAccount.setAccName(CAName);
     }
+    
+    //For Customer
+    public void editCustomer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode) {
+//        try{
+//            validateCustomer(PIFName,PILName,CIPhone,CIEmail,CIAddStreet,CIAddCity,CIAddState,CIAddPostcode,CAName);
+//        }
+//        catch(Exception e){
+//            System.out.println(e);
+//        }
+        CusPI.setPIFName(PIFName);
+        CusPI.setPILName(PILName);
+        CusPI.setPIGender(PIGender);
+        CusPI.setPIDateOfBirth(PIDateOfBirth);
+        CusCI.setCIPhone(CIPhone);
+        CusCI.setCIEmail(CIEmail);
+        CusCI.setCIAddStreet(CIAddStreet);
+        CusCI.setCIAddCity(CIAddCity);
+        CusCI.setCIAddState(CIAddState);
+        CusCI.setCIAddPostcode(CIAddPostcode);
+    }
 
     @Override
     public String toString() {

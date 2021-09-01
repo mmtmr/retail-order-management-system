@@ -7,8 +7,7 @@ package retailordermanagementsystem;
 
 import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
-import static retailordermanagementsystem.Operation.AccList;
-import static retailordermanagementsystem.Operation.opUser;
+import static retailordermanagementsystem.Operation.*;
 
 /**
  *
@@ -201,6 +200,7 @@ public class LoginDialog extends javax.swing.JDialog {
                             this.dispose();
                         } else if (userType == 'C') {
                             opUser = (CusAcc) acc;
+                            opCus=Customer.searchCusFromAccID(opUser.getAccID());
                             acc.setAccLastLoginDT(LocalDateTime.now());
                             JOptionPane.showMessageDialog(null, "Welcome back!");
                             new CustomerPanel().setVisible(true);

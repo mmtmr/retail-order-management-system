@@ -355,7 +355,7 @@ public class EditCustomerDialog extends javax.swing.JDialog {
 //            CusList.add(cus);
             Operation.rewriteAccountData();
             Operation.rewriteCustomerData();
-            JOptionPane.showMessageDialog(null, "Customer modification saved.");
+            JOptionPane.showMessageDialog(null, "Your changes is saved.");
             this.dispose();
         }
         catch (Exception e){

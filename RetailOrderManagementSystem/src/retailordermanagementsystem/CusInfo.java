@@ -6,6 +6,7 @@
 package retailordermanagementsystem;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +16,7 @@ public class CusInfo extends PersonalInfo {
 
     private int PIRewardPoint;
     private LocalDate PIDateOfBirth;
+    private ArrayList<Voucher> PIVoucher;
 
     //https://mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
     public CusInfo() {
@@ -27,12 +29,13 @@ public class CusInfo extends PersonalInfo {
 //        this.PIRewardPoint = PIRewardPoint;
 //        this.PIDateOfBirth = PIDateOfBirth;
 //    }
-    
     //New
     public CusInfo(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth) {
         super(PIFName, PILName, PIGender);
         this.PIDateOfBirth = PIDateOfBirth;
         this.PIRewardPoint = 0;
+        this.PIVoucher = new ArrayList();
+        generatePIVoucher();
     }
 
     //Normal Load
@@ -40,14 +43,17 @@ public class CusInfo extends PersonalInfo {
         super(PIFName, PILName, PIGender);
         this.PIRewardPoint = PIRewardPoint;
         this.PIDateOfBirth = PIDateOfBirth;
+        this.PIVoucher = new ArrayList();
+        generatePIVoucher();
     }
-    
+
     //Load From String Array
     public CusInfo(String[] PILine) {
         super(PILine[0], PILine[1], Gender.valueOf(PILine[2]));
-        
         this.PIDateOfBirth = LocalDate.parse(PILine[3]);
         this.PIRewardPoint = Integer.parseInt(PILine[4]);
+        this.PIVoucher = new ArrayList();
+        generatePIVoucher();
     }
 
     public int getPIRewardPoint() {
@@ -64,6 +70,25 @@ public class CusInfo extends PersonalInfo {
 
     public void setPIDateOfBirth(LocalDate PIDateOfBirth) {
         this.PIDateOfBirth = PIDateOfBirth;
+    }
+
+    public ArrayList<Voucher> getPIVoucher() {
+        return PIVoucher;
+    }
+
+    public void setPIVoucher(ArrayList<Voucher> PIVoucher) {
+        this.PIVoucher = PIVoucher;
+    }
+
+    public final void generatePIVoucher() {
+        if (PIRewardPoint >= 10000) {
+            PIVoucher.add(new Voucher(VoucherType.VVIP));
+        } else if (PIRewardPoint >= 5000) {
+            PIVoucher.add(new Voucher(VoucherType.VIP));
+        }
+        if (PIDateOfBirth.getMonth()==LocalDate.now().getMonth()) {
+            PIVoucher.add(new Voucher(VoucherType.Birthday));
+        }
     }
 
     @Override
@@ -87,7 +112,6 @@ public class CusInfo extends PersonalInfo {
 //        }
 //        return new CusInfo(pi[0], pi[1], Gender.valueOf(pi[2]), LocalDate.parse(pi[4]), Integer.parseInt(pi[3]));
 //    }
-    
     public static String[] parseCusInfoFromString(String piLine) throws Exception {
         String[] piData = piLine.split(",");
         if (piData.length != 5) {

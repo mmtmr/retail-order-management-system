@@ -16,7 +16,7 @@ public class CusAcc extends Account {
 
     private static int CACounter; //TODO: READ FROM TXT FIL
     private ShoppingCart CusSC;//Account gone shopping cart gone
-
+    
     public CusAcc() {
         this.AccID = "";
     }

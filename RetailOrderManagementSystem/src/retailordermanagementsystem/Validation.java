@@ -49,6 +49,25 @@ public class Validation {
         
     }
     
+    public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode) throws Exception {
+        if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
+        } else {
+            throw new Exception("Invalid Input: Remove the tab inside input or NULL input.");
+        }
+        if (validatePhone(phone) && validateEmail(email) && validateAddress(AddState, AddPostcode)) {
+        } else {
+            throw new Exception("Contact info format is incorrect");
+        }
+        if (validateNoDelimeterAndNoNull(fname) && validateNoDelimeterAndNoNull(lname)) {
+        } else {
+            throw new Exception("Invalid Input: Remove the tab or | inside input or NULL input.");
+        }
+        if (validateName(fname) && validateName(lname)) {
+        } else {
+            throw new Exception("Personal info format is incorrect");
+        }       
+    }
+    
     public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname) throws Exception {
         if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
         } else {

@@ -109,16 +109,20 @@ DefaultTableModel model;
         loadPDName.setText(product.getProName());
 
         loadPDPrice.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadPDPrice.setText(Double.toString(product.getProPrice()));
 
         loadPDCategory.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadPDCategory.setText(product.getProCategory().name());
 
         loadPDWeight.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadPDWeight.setText(Double.toString(product.getProWeight()));
 
         spinnerStock.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         spinnerStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         spinnerStock.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         loadPDFragile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadPDFragile.setText(String.valueOf(product.isProFragile()));
 
         buttonSave.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         buttonSave.setText("Save");

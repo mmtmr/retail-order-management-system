@@ -23,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class Operation {
 
     public static Account opUser;
+    public static Customer opCus;
     public static ArrayList<Account> AccList = new ArrayList();
     public static ArrayList<Product> ProList = new ArrayList();
     public static ArrayList<Supplier> SupList = new ArrayList();
