@@ -192,7 +192,7 @@ public class WelcomeDialog extends javax.swing.JDialog {
         }
          /*FlatMaterialLighterContrastIJTheme*/
         try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterContrastIJTheme");
+            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme");
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }

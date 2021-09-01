@@ -122,7 +122,7 @@ public class AddCusDialog extends javax.swing.JDialog {
         labelCity.setText("City");
 
         comboState.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select State>", "Kuala Lumpur", "Selangor", "Putrajaya", "Labuan", "Perlis", "Kedah", "Terengganu", "Pahang", "Perak", "Kelantan", "Penang", "Selangor", "Negeri Sembilan", "Johor", "Malacca", "Sabah", "Sarawak" }));
+        comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select State>", "Wilayah Persekutuan", "Selangor", "Putrajaya", "Labuan", "Perlis", "Kedah", "Terengganu", "Pahang", "Perak", "Kelantan", "Penang", "Selangor", "Negeri Sembilan", "Johor", "Malacca", "Sabah", "Sarawak" }));
 
         labelFirstName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelFirstName.setText("First Name");

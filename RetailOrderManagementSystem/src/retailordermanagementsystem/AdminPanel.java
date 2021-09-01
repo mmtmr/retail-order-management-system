@@ -113,6 +113,7 @@ public class AdminPanel extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tab.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         tab.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         tab.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -128,7 +129,7 @@ public class AdminPanel extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGap(0, 701, Short.MAX_VALUE)
         );
 
         tab.addTab("Overview", jPanel7);
@@ -412,7 +413,7 @@ public class AdminPanel extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGap(0, 701, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAdminProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -422,6 +423,7 @@ public class AdminPanel extends javax.swing.JFrame {
         labelTitleSupplier.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         labelTitleSupplier.setText("Supplier List");
 
+        tableSupList.setAutoCreateRowSorter(true);
         tableSupList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -445,6 +447,7 @@ public class AdminPanel extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableSupList.setShowGrid(true);
         jScrollPane1.setViewportView(tableSupList);
         if (tableSupList.getColumnModel().getColumnCount() > 0) {
             tableSupList.getColumnModel().getColumn(0).setPreferredWidth(20);
@@ -517,7 +520,7 @@ public class AdminPanel extends javax.swing.JFrame {
                     .addComponent(textSearchSup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE))
         );
 
         tab.addTab("Manage Supplier", jPanel1);
@@ -591,17 +594,27 @@ public class AdminPanel extends javax.swing.JFrame {
         tableCusList.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(tableCusList);
         if (tableCusList.getColumnModel().getColumnCount() > 0) {
-            tableCusList.getColumnModel().getColumn(0).setPreferredWidth(15);
-            tableCusList.getColumnModel().getColumn(1).setPreferredWidth(15);
-            tableCusList.getColumnModel().getColumn(2).setPreferredWidth(30);
-            tableCusList.getColumnModel().getColumn(3).setPreferredWidth(40);
-            tableCusList.getColumnModel().getColumn(4).setPreferredWidth(40);
+            tableCusList.getColumnModel().getColumn(0).setMinWidth(50);
+            tableCusList.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tableCusList.getColumnModel().getColumn(0).setMaxWidth(120);
+            tableCusList.getColumnModel().getColumn(1).setMinWidth(50);
+            tableCusList.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tableCusList.getColumnModel().getColumn(1).setMaxWidth(120);
+            tableCusList.getColumnModel().getColumn(2).setMinWidth(50);
+            tableCusList.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tableCusList.getColumnModel().getColumn(2).setMaxWidth(120);
+            tableCusList.getColumnModel().getColumn(3).setMinWidth(50);
+            tableCusList.getColumnModel().getColumn(3).setPreferredWidth(120);
+            tableCusList.getColumnModel().getColumn(3).setMaxWidth(150);
+            tableCusList.getColumnModel().getColumn(4).setMinWidth(50);
+            tableCusList.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tableCusList.getColumnModel().getColumn(4).setMaxWidth(150);
             tableCusList.getColumnModel().getColumn(5).setPreferredWidth(5);
             tableCusList.getColumnModel().getColumn(6).setPreferredWidth(15);
             tableCusList.getColumnModel().getColumn(7).setPreferredWidth(20);
             tableCusList.getColumnModel().getColumn(8).setPreferredWidth(20);
             tableCusList.getColumnModel().getColumn(9).setPreferredWidth(45);
-            tableCusList.getColumnModel().getColumn(10).setPreferredWidth(250);
+            tableCusList.getColumnModel().getColumn(10).setPreferredWidth(500);
         }
 
         tabbedPaneCustomer.addTab("All", jScrollPane4);
@@ -690,7 +703,8 @@ public class AdminPanel extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 1421, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(454, 454, 454)
@@ -702,9 +716,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonDeleteCus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonDeleteAcc)
-                        .addGap(30, 30, 30))
-                    .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 1407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buttonDeleteAcc)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -719,7 +731,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(labelTitleCus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -841,13 +853,13 @@ public class AdminPanel extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 78, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane5)
-                .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         tabbedPaneOrder.addTab("All", jPanel5);
@@ -1237,7 +1249,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tabbedPaneOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 187, Short.MAX_VALUE))
         );
 
         tab.addTab("Manage Order", jPanel4);
@@ -1250,9 +1262,9 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(632, 632, 632)
+                .addGap(593, 593, 593)
                 .addComponent(jLabel1)
-                .addContainerGap(631, Short.MAX_VALUE))
+                .addContainerGap(670, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1269,15 +1281,16 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addGap(127, 127, 127)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 1520, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();

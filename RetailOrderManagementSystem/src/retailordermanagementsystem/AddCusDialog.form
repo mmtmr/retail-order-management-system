@@ -299,7 +299,7 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="18">
             <StringItem index="0" value="&lt;Select State&gt;"/>
-            <StringItem index="1" value="Kuala Lumpur"/>
+            <StringItem index="1" value="Wilayah Persekutuan"/>
             <StringItem index="2" value="Selangor"/>
             <StringItem index="3" value="Putrajaya"/>
             <StringItem index="4" value="Labuan"/>
