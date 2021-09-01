@@ -37,6 +37,7 @@ DefaultTableModel model;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupGender = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         labelSupplierName = new javax.swing.JLabel();
         labelFirstName1 = new javax.swing.JLabel();
@@ -173,12 +174,14 @@ DefaultTableModel model;
         comboSupState.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboSupState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select State>", "Kuala Lumpur", "Selangor", "Putrajaya", "Labuan", "Perlis", "Kedah", "Terengganu", "Pahang", "Perak", "Kelantan", "Penang", "Selangor", "Negeri Sembilan", "Johor", "Malacca", "Sabah", "Sarawak" }));
 
+        buttonGroupGender.add(radioPICFemale);
         radioPICFemale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         radioPICFemale.setText("Female");
 
         labelGender1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelGender1.setText("PIC Gender");
 
+        buttonGroupGender.add(radioPICMale);
         radioPICMale.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         radioPICMale.setText("Male");
 
@@ -205,7 +208,7 @@ DefaultTableModel model;
                             .addComponent(labelSupEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelSupStreet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelSupCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelSupState, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(labelSupState, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelSupPostcode))
                         .addGap(52, 52, 52)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,6 +400,7 @@ DefaultTableModel model;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancel;
+    private javax.swing.ButtonGroup buttonGroupGender;
     private javax.swing.JButton buttonSave;
     private javax.swing.JComboBox<String> comboSupState;
     private javax.swing.JPanel jPanel1;
