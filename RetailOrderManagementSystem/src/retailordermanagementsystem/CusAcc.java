@@ -18,6 +18,7 @@ public class CusAcc extends Account {
     private ShoppingCart CusSC;//Account gone shopping cart gone
 
     public CusAcc() {
+        this.AccID = "";
     }
 
     //Create

@@ -35,7 +35,7 @@ public class WelcomePage extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(221, 229, 246));
 
-        labelTitle.setFont(new java.awt.Font("Script MT Bold", 0, 48)); // NOI18N
+        labelTitle.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(109, 147, 236));
         labelTitle.setText("Welcome To Overcooked Retail Store");
 
@@ -55,7 +55,6 @@ public class WelcomePage extends javax.swing.JPanel {
         buttonUser.setText("User");
 
         buttonUserIcon.setBackground(new java.awt.Color(221, 229, 246));
-        buttonUserIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\user.png")); // NOI18N
         buttonUserIcon.setBorder(null);
         buttonUserIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +63,6 @@ public class WelcomePage extends javax.swing.JPanel {
         });
 
         buttonAdminIcon.setBackground(new java.awt.Color(221, 229, 246));
-        buttonAdminIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\OODJ PIC\\user.png")); // NOI18N
         buttonAdminIcon.setBorder(null);
         buttonAdminIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,9 +98,9 @@ public class WelcomePage extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(67, 67, 67)
                 .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                .addGap(76, 76, 76)
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonUserIcon)
                     .addComponent(buttonAdminIcon))

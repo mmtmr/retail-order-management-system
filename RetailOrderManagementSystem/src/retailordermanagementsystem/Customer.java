@@ -171,7 +171,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        if (CusAccount.getAccID().isEmpty()) {
+        if (!CusAccount.getAccID().isEmpty()) {
             return CusID + "\t" + CusPI + "\t" + CusCI + "\t" + CusAccount.getAccID() + "\t" + getCusOrdersIDs();
         }
         else{

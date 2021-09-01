@@ -43,8 +43,8 @@ public class CustomerPanel extends javax.swing.JDialog {
 
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        tab = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
+        tab = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         panelAdminProductList = new javax.swing.JPanel();
         labelTitleProduct = new javax.swing.JLabel();
@@ -53,14 +53,14 @@ public class CustomerPanel extends javax.swing.JDialog {
         tabbedPaneProduct = new javax.swing.JTabbedPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableProList = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tableProStationeryList = new javax.swing.JTable();
         jScrollPane19 = new javax.swing.JScrollPane();
         tableProFoodList = new javax.swing.JTable();
         jScrollPane20 = new javax.swing.JScrollPane();
         tableProFashionList = new javax.swing.JTable();
         jScrollPane21 = new javax.swing.JScrollPane();
         tableProOtherList = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableProStationeryList = new javax.swing.JTable();
         buttonAddToCart = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         labelTitleOrder = new javax.swing.JLabel();
@@ -78,10 +78,10 @@ public class CustomerPanel extends javax.swing.JDialog {
         tableOrderShippingList = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
         tableOrderCancelledList = new javax.swing.JTable();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        tableOrderCompletedList = new javax.swing.JTable();
         jScrollPane17 = new javax.swing.JScrollPane();
         tableOrderUnpaidList = new javax.swing.JTable();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tableOrderCompletedList = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -92,10 +92,10 @@ public class CustomerPanel extends javax.swing.JDialog {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(569, 569, 569)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(763, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,19 +108,6 @@ public class CustomerPanel extends javax.swing.JDialog {
                 tabStateChanged(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1506, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
-        );
-
-        tab.addTab("Overview", jPanel7);
 
         labelTitleProduct.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         labelTitleProduct.setText("Overcook Mall");
@@ -180,33 +167,6 @@ public class CustomerPanel extends javax.swing.JDialog {
 
         tabbedPaneProduct.addTab("All", jScrollPane2);
 
-        tableProStationeryList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane3.setViewportView(tableProStationeryList);
-
-        tabbedPaneProduct.addTab("Stationery", jScrollPane3);
-
         tableProFoodList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -239,14 +199,14 @@ public class CustomerPanel extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -288,6 +248,33 @@ public class CustomerPanel extends javax.swing.JDialog {
 
         tabbedPaneProduct.addTab("Other", jScrollPane21);
 
+        tableProStationeryList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tableProStationeryList);
+
+        tabbedPaneProduct.addTab("Stationery", jScrollPane3);
+
         buttonAddToCart.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonAddToCart.setText("Add To Cart");
         buttonAddToCart.addActionListener(new java.awt.event.ActionListener() {
@@ -303,16 +290,16 @@ public class CustomerPanel extends javax.swing.JDialog {
             .addGroup(panelAdminProductListLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabbedPaneProduct, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminProductListLayout.createSequentialGroup()
+                    .addComponent(tabbedPaneProduct)
+                    .addGroup(panelAdminProductListLayout.createSequentialGroup()
                         .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 864, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 749, Short.MAX_VALUE)
                         .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(buttonAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         panelAdminProductListLayout.setVerticalGroup(
             panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +323,7 @@ public class CustomerPanel extends javax.swing.JDialog {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1506, Short.MAX_VALUE)
+            .addGap(0, 1393, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAdminProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -443,18 +430,21 @@ public class CustomerPanel extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        tableOrderList1.setShowGrid(true);
         jScrollPane5.setViewportView(tableOrderList1);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 149, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -526,6 +516,7 @@ public class CustomerPanel extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        tableOrderToShipList.setShowGrid(true);
         jScrollPane6.setViewportView(tableOrderToShipList);
 
         tabbedPaneOrder.addTab("To Ship", jScrollPane6);
@@ -596,6 +587,7 @@ public class CustomerPanel extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        tableOrderShippingList.setShowGrid(true);
         jScrollPane7.setViewportView(tableOrderShippingList);
 
         tabbedPaneOrder.addTab("Shipping", jScrollPane7);
@@ -666,80 +658,15 @@ public class CustomerPanel extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        tableOrderCancelledList.setShowGrid(true);
         jScrollPane8.setViewportView(tableOrderCancelledList);
+        if (tableOrderCancelledList.getColumnModel().getColumnCount() > 0) {
+            tableOrderCancelledList.getColumnModel().getColumn(0).setMinWidth(50);
+            tableOrderCancelledList.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tableOrderCancelledList.getColumnModel().getColumn(0).setMaxWidth(120);
+        }
 
         tabbedPaneOrder.addTab("Cancelled", jScrollPane8);
-
-        tableOrderCompletedList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Date", "Customer ID", "Address", "Price", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tableOrderCompletedList.setShowGrid(false);
-        jScrollPane9.setViewportView(tableOrderCompletedList);
-
-        tabbedPaneOrder.addTab("Completed", jScrollPane9);
 
         tableOrderUnpaidList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -807,10 +734,98 @@ public class CustomerPanel extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
-        tableOrderUnpaidList.setShowGrid(false);
+        tableOrderUnpaidList.setShowGrid(true);
         jScrollPane17.setViewportView(tableOrderUnpaidList);
+        if (tableOrderUnpaidList.getColumnModel().getColumnCount() > 0) {
+            tableOrderUnpaidList.getColumnModel().getColumn(0).setMinWidth(50);
+            tableOrderUnpaidList.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tableOrderUnpaidList.getColumnModel().getColumn(0).setMaxWidth(120);
+        }
 
         tabbedPaneOrder.addTab("Unpaid", jScrollPane17);
+
+        tableOrderCompletedList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tableOrderCompletedList.setPreferredSize(new java.awt.Dimension(375, 950));
+        tableOrderCompletedList.setShowGrid(true);
+        jScrollPane9.setViewportView(tableOrderCompletedList);
+        if (tableOrderCompletedList.getColumnModel().getColumnCount() > 0) {
+            tableOrderCompletedList.getColumnModel().getColumn(0).setMinWidth(50);
+            tableOrderCompletedList.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tableOrderCompletedList.getColumnModel().getColumn(0).setMaxWidth(120);
+            tableOrderCompletedList.getColumnModel().getColumn(1).setPreferredWidth(5);
+            tableOrderCompletedList.getColumnModel().getColumn(2).setPreferredWidth(10);
+            tableOrderCompletedList.getColumnModel().getColumn(3).setPreferredWidth(200);
+            tableOrderCompletedList.getColumnModel().getColumn(4).setResizable(false);
+            tableOrderCompletedList.getColumnModel().getColumn(4).setPreferredWidth(10);
+            tableOrderCompletedList.getColumnModel().getColumn(5).setPreferredWidth(10);
+        }
+
+        tabbedPaneOrder.addTab("Completed", jScrollPane9);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -818,56 +833,70 @@ public class CustomerPanel extends javax.swing.JDialog {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tabbedPaneOrder)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(tabbedPaneOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 1386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(labelTitleOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(933, 933, 933)
-                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(516, 516, 516)
+                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buttonAddOrder)
                         .addGap(18, 18, 18)
                         .addComponent(buttonEditOrder)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonDeleteOrder)))
-                .addContainerGap())
+                        .addComponent(buttonDeleteOrder)
+                        .addGap(378, 378, 378))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonDeleteOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonEditOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonAddOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelTitleOrder)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabbedPaneOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                    .addComponent(labelTitleOrder)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonDeleteOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonEditOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonAddOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tabbedPaneOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         tab.addTab("Manage Order", jPanel4);
 
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 1495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tab, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tab))
+                .addGap(23, 23, 23)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

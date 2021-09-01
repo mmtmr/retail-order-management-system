@@ -80,14 +80,14 @@ public class AdminPanel extends javax.swing.JFrame {
         textSearchCus = new javax.swing.JTextField();
         buttonDeleteCus = new javax.swing.JButton();
         tabbedPaneCustomer = new javax.swing.JTabbedPane();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tableCusList = new javax.swing.JTable();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        tableCusVVIPList = new javax.swing.JTable();
         jScrollPane15 = new javax.swing.JScrollPane();
         tableCusVIPList = new javax.swing.JTable();
         jScrollPane16 = new javax.swing.JScrollPane();
         tableCusNonVIPList = new javax.swing.JTable();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        tableCusVVIPList = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableCusList = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         labelTitleOrder = new javax.swing.JLabel();
         buttonAddOrder = new javax.swing.JButton();
@@ -124,11 +124,11 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1484, Short.MAX_VALUE)
+            .addGap(0, 1398, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
         tab.addTab("Overview", jPanel7);
@@ -352,7 +352,7 @@ public class AdminPanel extends javax.swing.JFrame {
                     .addComponent(tabbedPaneProduct, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminProductListLayout.createSequentialGroup()
                         .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
                         .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonRestockPor)
@@ -404,13 +404,15 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1484, Short.MAX_VALUE)
+            .addGap(0, 1398, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelAdminProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addComponent(panelAdminProductList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 3, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAdminProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -444,6 +446,13 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tableSupList);
+        if (tableSupList.getColumnModel().getColumnCount() > 0) {
+            tableSupList.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tableSupList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableSupList.getColumnModel().getColumn(2).setPreferredWidth(40);
+            tableSupList.getColumnModel().getColumn(3).setPreferredWidth(30);
+            tableSupList.getColumnModel().getColumn(5).setPreferredWidth(300);
+        }
 
         buttonDeleteSup.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonDeleteSup.setText("Delete");
@@ -486,7 +495,7 @@ public class AdminPanel extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 659, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 573, Short.MAX_VALUE)
                         .addComponent(textSearchSup, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buttonAddSup, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -508,7 +517,7 @@ public class AdminPanel extends javax.swing.JFrame {
                     .addComponent(textSearchSup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelTitleSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE))
         );
 
         tab.addTab("Manage Supplier", jPanel1);
@@ -562,58 +571,6 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
-        tableCusList.setAutoCreateRowSorter(true);
-        tableCusList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tableCusList.getTableHeader().setReorderingAllowed(false);
-        jScrollPane4.setViewportView(tableCusList);
-        if (tableCusList.getColumnModel().getColumnCount() > 0) {
-            tableCusList.getColumnModel().getColumn(1).setPreferredWidth(50);
-            tableCusList.getColumnModel().getColumn(5).setPreferredWidth(25);
-        }
-
-        tabbedPaneCustomer.addTab("All", jScrollPane4);
-
-        tableCusVVIPList.setAutoCreateRowSorter(true);
-        tableCusVVIPList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tableCusVVIPList.getTableHeader().setReorderingAllowed(false);
-        jScrollPane14.setViewportView(tableCusVVIPList);
-        if (tableCusVVIPList.getColumnModel().getColumnCount() > 0) {
-            tableCusVVIPList.getColumnModel().getColumn(1).setPreferredWidth(50);
-            tableCusVVIPList.getColumnModel().getColumn(5).setPreferredWidth(25);
-        }
-
-        tabbedPaneCustomer.addTab("VVIP", jScrollPane14);
-
         tableCusVIPList.setAutoCreateRowSorter(true);
         tableCusVIPList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -666,32 +623,94 @@ public class AdminPanel extends javax.swing.JFrame {
 
         tabbedPaneCustomer.addTab("Non-VIP", jScrollPane16);
 
+        tableCusVVIPList.setAutoCreateRowSorter(true);
+        tableCusVVIPList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableCusVVIPList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane14.setViewportView(tableCusVVIPList);
+        if (tableCusVVIPList.getColumnModel().getColumnCount() > 0) {
+            tableCusVVIPList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableCusVVIPList.getColumnModel().getColumn(5).setPreferredWidth(25);
+        }
+
+        tabbedPaneCustomer.addTab("VVIP", jScrollPane14);
+
+        tableCusList.setAutoCreateRowSorter(true);
+        tableCusList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, true, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableCusList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane4.setViewportView(tableCusList);
+        if (tableCusList.getColumnModel().getColumnCount() > 0) {
+            tableCusList.getColumnModel().getColumn(0).setPreferredWidth(15);
+            tableCusList.getColumnModel().getColumn(1).setPreferredWidth(15);
+            tableCusList.getColumnModel().getColumn(2).setPreferredWidth(30);
+            tableCusList.getColumnModel().getColumn(3).setPreferredWidth(40);
+            tableCusList.getColumnModel().getColumn(4).setPreferredWidth(40);
+            tableCusList.getColumnModel().getColumn(5).setPreferredWidth(5);
+            tableCusList.getColumnModel().getColumn(6).setPreferredWidth(15);
+            tableCusList.getColumnModel().getColumn(7).setPreferredWidth(20);
+            tableCusList.getColumnModel().getColumn(8).setPreferredWidth(20);
+            tableCusList.getColumnModel().getColumn(9).setPreferredWidth(45);
+            tableCusList.getColumnModel().getColumn(10).setPreferredWidth(250);
+        }
+
+        tabbedPaneCustomer.addTab("All", jScrollPane4);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabbedPaneCustomer)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 567, Short.MAX_VALUE)
-                        .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(454, 454, 454)
+                        .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonAddCus, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonEditCus, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonDeleteCus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonDeleteAcc)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonDeleteAcc)
+                        .addGap(30, 30, 30))
+                    .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 1407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTitleCus)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buttonDeleteAcc)
@@ -700,7 +719,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addComponent(buttonAddCus)
                         .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -712,6 +731,11 @@ public class AdminPanel extends javax.swing.JFrame {
 
         buttonAddOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonAddOrder.setText("Add");
+        buttonAddOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddOrderActionPerformed(evt);
+            }
+        });
 
         buttonEditOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonEditOrder.setText("Edit");
@@ -723,6 +747,11 @@ public class AdminPanel extends javax.swing.JFrame {
 
         buttonDeleteOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonDeleteOrder.setText("Delete");
+        buttonDeleteOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteOrderActionPerformed(evt);
+            }
+        });
 
         textSearchOrder.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         textSearchOrder.setText("Press enter to search");
@@ -801,12 +830,18 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         jScrollPane5.setViewportView(tableOrderList1);
+        if (tableOrderList1.getColumnModel().getColumnCount() > 0) {
+            tableOrderList1.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tableOrderList1.getColumnModel().getColumn(1).setPreferredWidth(30);
+        }
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 78, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1179,30 +1214,29 @@ public class AdminPanel extends javax.swing.JFrame {
                     .addComponent(tabbedPaneOrder)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(labelTitleOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(933, 933, 933)
-                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(791, 791, 791)
+                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonAddOrder)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonEditOrder)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonDeleteOrder)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonDeleteOrder)
+                        .addGap(104, 104, 104)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTitleOrder)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buttonDeleteOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonEditOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonAddOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelTitleOrder)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabbedPaneOrder)
+                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tabbedPaneOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1215,10 +1249,10 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(632, 632, 632)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(631, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1229,19 +1263,21 @@ public class AdminPanel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tab, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 1520, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tab))
+                .addGap(9, 9, 9)
+                .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1337,7 +1373,7 @@ public class AdminPanel extends javax.swing.JFrame {
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account AND information? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
                 String cusID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
-                Customer cus = Customer.searchCusFromAccID(cusID);
+                Customer cus = Customer.searchCusFromID(cusID);
                 Operation.destroyCustomerObject(cus);
             }
         } catch (Exception e) {
@@ -1479,6 +1515,14 @@ public class AdminPanel extends javax.swing.JFrame {
     private void tabbedPaneCustomerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneCustomerStateChanged
         showCustomerList();
     }//GEN-LAST:event_tabbedPaneCustomerStateChanged
+
+    private void buttonDeleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDeleteOrderActionPerformed
+
+    private void buttonAddOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAddOrderActionPerformed
 
     /**
      * @param args the command line arguments

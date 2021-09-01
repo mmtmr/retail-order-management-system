@@ -439,6 +439,8 @@ public class Operation {
     public static void destroyAccountObject(Account acc) throws Exception {
         removeShoppingCart(acc.getAccID());
         AccList.remove(acc);
+        
+        Customer.searchCusFromAccID(acc.getAccID()).setCusAccount(new CusAcc());
         //CusAcc.minusCACounter();
         rewriteCustomerData();
         rewriteAccountData();
