@@ -443,7 +443,15 @@ public class AdminPanel extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableSupList.setShowGrid(true);
         jScrollPane1.setViewportView(tableSupList);
+        if (tableSupList.getColumnModel().getColumnCount() > 0) {
+            tableSupList.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tableSupList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableSupList.getColumnModel().getColumn(2).setPreferredWidth(40);
+            tableSupList.getColumnModel().getColumn(3).setPreferredWidth(30);
+            tableSupList.getColumnModel().getColumn(5).setPreferredWidth(300);
+        }
 
         buttonDeleteSup.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonDeleteSup.setText("Delete");
