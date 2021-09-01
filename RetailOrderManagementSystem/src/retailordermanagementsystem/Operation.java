@@ -273,7 +273,8 @@ public class Operation {
         }
 
     }
-     public static void writeSupplierData(Supplier sup) throws IOException {
+
+    public static void writeSupplierData(Supplier sup) throws IOException {
         File supFile = new File("supplier.txt");
         if (!supFile.isFile() && !supFile.createNewFile()) {
             throw new IOException("Error creating new file: " + supFile.getAbsolutePath());
@@ -286,6 +287,7 @@ public class Operation {
         }
 
     }
+
     public static void writeProductData(Product pro) throws IOException {
         File proFile = new File("product.txt");
         if (!proFile.isFile() && !proFile.createNewFile()) {
@@ -299,6 +301,7 @@ public class Operation {
         }
 
     }
+
     public static void writeOrderData(OrderDetails ord) throws IOException {
         File ordFile = new File("order.txt");
         if (!ordFile.isFile() && !ordFile.createNewFile()) {
@@ -341,7 +344,7 @@ public class Operation {
             accWrite.close();
         }
     }
-    
+
     public static void rewriteSupplierData() throws IOException {
         File supFile = new File("supplier.txt");
         if (!supFile.isFile() && !supFile.createNewFile()) {
@@ -356,7 +359,7 @@ public class Operation {
             supWrite.close();
         }
     }
-    
+
     public static void rewriteProductData() throws IOException {
         File proFile = new File("product.txt");
         if (!proFile.isFile() && !proFile.createNewFile()) {
@@ -439,13 +442,14 @@ public class Operation {
     public static void destroyAccountObject(Account acc) throws Exception {
         removeShoppingCart(acc.getAccID());
         AccList.remove(acc);
+        Customer.searchCusFromAccID(acc.getAccID()).setCusAccount(new CusAcc());
         //CusAcc.minusCACounter();
         rewriteCustomerData();
         rewriteAccountData();
         rewriteOrderData();
         JOptionPane.showMessageDialog(null, "Account is deleted.");
     }
-    
+
     public static void destroyProductObject(Product pro) throws Exception {
         ProList.remove(pro);
         rewriteProductData();
@@ -453,7 +457,7 @@ public class Operation {
         rewriteSupplierData();
         JOptionPane.showMessageDialog(null, "Product information is deleted.");
     }
-    
+
     public static void destroySupplierObject(Supplier sup) throws Exception {
         SupList.remove(sup);
         rewriteSupplierData();
@@ -461,7 +465,7 @@ public class Operation {
         rewriteSupplierData();
         JOptionPane.showMessageDialog(null, "Supplier information is deleted.");
     }
-    
+
     public static void destroyCustomerObject(Customer cus) throws Exception {
         CusList.remove(cus);
         rewriteCustomerData();
@@ -472,8 +476,6 @@ public class Operation {
         rewriteOrderData();
         JOptionPane.showMessageDialog(null, "Customer information and account is deleted.");
     }
-
-    
 
 //    public static void loginAdmin(String accName, String accPassword) throws Exception {
 //        removeShoppingCart(acc.getAccID());

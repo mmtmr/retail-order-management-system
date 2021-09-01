@@ -1319,7 +1319,7 @@ public class AdminPanel extends javax.swing.JFrame {
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account? The customer information will be remained.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
                 String accID = (table.getModel().getValueAt(table.getSelectedRow(), 1).toString());
-                Customer cus = Customer.searchCusFromID(accID);
+                Customer cus = Customer.searchCusFromAccID(accID);
                 Operation.destroyAccountObject(cus.getCusAccount());
             }
         } catch (Exception e) {
@@ -1337,7 +1337,7 @@ public class AdminPanel extends javax.swing.JFrame {
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account AND information? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
                 String cusID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
-                Customer cus = Customer.searchCusFromAccID(cusID);
+                Customer cus = Customer.searchCusFromID(cusID);
                 Operation.destroyCustomerObject(cus);
             }
         } catch (Exception e) {

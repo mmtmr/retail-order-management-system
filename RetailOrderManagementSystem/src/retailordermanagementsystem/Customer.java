@@ -171,10 +171,9 @@ public class Customer {
 
     @Override
     public String toString() {
-        if (CusAccount.getAccID().isEmpty()) {
+        if (CusAccount.getAccID() != null && !CusAccount.getAccID().isEmpty()) {
             return CusID + "\t" + CusPI + "\t" + CusCI + "\t" + CusAccount.getAccID() + "\t" + getCusOrdersIDs();
-        }
-        else{
+        } else {
             return CusID + "\t" + CusPI + "\t" + CusCI + "\t" + "-" + "\t" + getCusOrdersIDs();
         }
     }
@@ -183,9 +182,11 @@ public class Customer {
         Customer customer = new Customer();
         try {
             for (Customer cus : CusList) {
-                if (cus.getCusAccount().getAccID().equals(cusAccID)) {
-                    customer = cus;
-                    return customer;
+                if (cus.getCusAccount() != null) {
+                    if (cus.getCusAccount().getAccID().equals(cusAccID)) {
+                        customer = cus;
+                        return cus;
+                    }
                 }
             }
             throw (new Exception("Customer not found!" + cusAccID));
@@ -199,9 +200,9 @@ public class Customer {
         Customer customer = new Customer();
         try {
             for (Customer cus : CusList) {
-                if (cus.getCusID().equals(cusID)) {
+                if (cus != null && cus.getCusID().equals(cusID)) {
                     customer = cus;
-                    return customer;
+                    return cus;
                 }
             }
             throw (new Exception("Customer not found!" + cusID));
