@@ -80,14 +80,14 @@ public class AdminPanel extends javax.swing.JFrame {
         textSearchCus = new javax.swing.JTextField();
         buttonDeleteCus = new javax.swing.JButton();
         tabbedPaneCustomer = new javax.swing.JTabbedPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableCusList = new javax.swing.JTable();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        tableCusVVIPList = new javax.swing.JTable();
         jScrollPane15 = new javax.swing.JScrollPane();
         tableCusVIPList = new javax.swing.JTable();
         jScrollPane16 = new javax.swing.JScrollPane();
         tableCusNonVIPList = new javax.swing.JTable();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        tableCusVVIPList = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tableCusList = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         labelTitleOrder = new javax.swing.JLabel();
         buttonAddOrder = new javax.swing.JButton();
@@ -445,7 +445,6 @@ public class AdminPanel extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tableSupList.setShowGrid(true);
         jScrollPane1.setViewportView(tableSupList);
         if (tableSupList.getColumnModel().getColumnCount() > 0) {
             tableSupList.getColumnModel().getColumn(0).setPreferredWidth(20);
@@ -572,6 +571,67 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
+        tableCusList.setAutoCreateRowSorter(true);
+        tableCusList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, true, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableCusList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane4.setViewportView(tableCusList);
+        if (tableCusList.getColumnModel().getColumnCount() > 0) {
+            tableCusList.getColumnModel().getColumn(0).setPreferredWidth(15);
+            tableCusList.getColumnModel().getColumn(1).setPreferredWidth(15);
+            tableCusList.getColumnModel().getColumn(2).setPreferredWidth(30);
+            tableCusList.getColumnModel().getColumn(3).setPreferredWidth(40);
+            tableCusList.getColumnModel().getColumn(4).setPreferredWidth(40);
+            tableCusList.getColumnModel().getColumn(5).setPreferredWidth(5);
+            tableCusList.getColumnModel().getColumn(6).setPreferredWidth(15);
+            tableCusList.getColumnModel().getColumn(7).setPreferredWidth(20);
+            tableCusList.getColumnModel().getColumn(8).setPreferredWidth(20);
+            tableCusList.getColumnModel().getColumn(9).setPreferredWidth(45);
+            tableCusList.getColumnModel().getColumn(10).setPreferredWidth(250);
+        }
+
+        tabbedPaneCustomer.addTab("All", jScrollPane4);
+
+        tableCusVVIPList.setAutoCreateRowSorter(true);
+        tableCusVVIPList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableCusVVIPList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane14.setViewportView(tableCusVVIPList);
+        if (tableCusVVIPList.getColumnModel().getColumnCount() > 0) {
+            tableCusVVIPList.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableCusVVIPList.getColumnModel().getColumn(5).setPreferredWidth(25);
+        }
+
+        tabbedPaneCustomer.addTab("VVIP", jScrollPane14);
+
         tableCusVIPList.setAutoCreateRowSorter(true);
         tableCusVIPList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -624,67 +684,6 @@ public class AdminPanel extends javax.swing.JFrame {
 
         tabbedPaneCustomer.addTab("Non-VIP", jScrollPane16);
 
-        tableCusVVIPList.setAutoCreateRowSorter(true);
-        tableCusVVIPList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tableCusVVIPList.getTableHeader().setReorderingAllowed(false);
-        jScrollPane14.setViewportView(tableCusVVIPList);
-        if (tableCusVVIPList.getColumnModel().getColumnCount() > 0) {
-            tableCusVVIPList.getColumnModel().getColumn(1).setPreferredWidth(50);
-            tableCusVVIPList.getColumnModel().getColumn(5).setPreferredWidth(25);
-        }
-
-        tabbedPaneCustomer.addTab("VVIP", jScrollPane14);
-
-        tableCusList.setAutoCreateRowSorter(true);
-        tableCusList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Customer ID", "Account ID", "Account Name", "First Name", "Last Name", "Gender", "D.O.B.", "Reward Point", "Phone", "Email", "Address"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true, false, true, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tableCusList.getTableHeader().setReorderingAllowed(false);
-        jScrollPane4.setViewportView(tableCusList);
-        if (tableCusList.getColumnModel().getColumnCount() > 0) {
-            tableCusList.getColumnModel().getColumn(0).setPreferredWidth(15);
-            tableCusList.getColumnModel().getColumn(1).setPreferredWidth(15);
-            tableCusList.getColumnModel().getColumn(2).setPreferredWidth(30);
-            tableCusList.getColumnModel().getColumn(3).setPreferredWidth(40);
-            tableCusList.getColumnModel().getColumn(4).setPreferredWidth(40);
-            tableCusList.getColumnModel().getColumn(5).setPreferredWidth(5);
-            tableCusList.getColumnModel().getColumn(6).setPreferredWidth(15);
-            tableCusList.getColumnModel().getColumn(7).setPreferredWidth(20);
-            tableCusList.getColumnModel().getColumn(8).setPreferredWidth(20);
-            tableCusList.getColumnModel().getColumn(9).setPreferredWidth(45);
-            tableCusList.getColumnModel().getColumn(10).setPreferredWidth(250);
-        }
-
-        tabbedPaneCustomer.addTab("All", jScrollPane4);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -711,14 +710,14 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTitleCus)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buttonDeleteAcc)
                         .addComponent(buttonDeleteCus)
                         .addComponent(buttonEditCus)
                         .addComponent(buttonAddCus)
-                        .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTitleCus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 .addContainerGap())
