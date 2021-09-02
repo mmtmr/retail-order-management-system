@@ -41,13 +41,11 @@ public class WelcomeDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(221, 229, 246));
-
         labelTitle.setFont(new java.awt.Font("Roboto Black", 0, 48)); // NOI18N
-        labelTitle.setForeground(new java.awt.Color(109, 147, 236));
+        labelTitle.setForeground(new java.awt.Color(149, 149, 202));
         labelTitle.setText("Welcome To Overcooked Retail Store");
 
-        buttonAdmin.setBackground(new java.awt.Color(108, 152, 255));
+        buttonAdmin.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
         buttonAdmin.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         buttonAdmin.setForeground(new java.awt.Color(255, 255, 255));
         buttonAdmin.setText("Admin");
@@ -57,7 +55,7 @@ public class WelcomeDialog extends javax.swing.JDialog {
             }
         });
 
-        buttonCustomer.setBackground(new java.awt.Color(108, 152, 255));
+        buttonCustomer.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
         buttonCustomer.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         buttonCustomer.setForeground(new java.awt.Color(255, 255, 255));
         buttonCustomer.setText("Customer");

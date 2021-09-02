@@ -53,12 +53,10 @@ public class LoginDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(112, 141, 209));
-
-        jPanel2.setBackground(new java.awt.Color(46, 97, 216));
+        jPanel2.setBackground(new java.awt.Color(100, 100, 192));
 
         labelTitle.setBackground(new java.awt.Color(255, 255, 255));
-        labelTitle.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
+        labelTitle.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(255, 255, 255));
         labelTitle.setText("Login");
 
@@ -67,9 +65,9 @@ public class LoginDialog extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(labelTitle)
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,8 +94,8 @@ public class LoginDialog extends javax.swing.JDialog {
             }
         });
 
-        buttonSignUp.setBackground(new java.awt.Color(112, 141, 209));
-        buttonSignUp.setForeground(new java.awt.Color(0, 0, 153));
+        buttonSignUp.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        buttonSignUp.setForeground(new java.awt.Color(153, 153, 255));
         buttonSignUp.setText("Sign Up");
         buttonSignUp.setBorder(null);
         buttonSignUp.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +104,7 @@ public class LoginDialog extends javax.swing.JDialog {
             }
         });
 
-        buttonForgotPassword.setBackground(new java.awt.Color(112, 141, 209));
+        buttonForgotPassword.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         buttonForgotPassword.setForeground(new java.awt.Color(255, 255, 255));
         buttonForgotPassword.setText("Forgot Password?");
         buttonForgotPassword.setBorder(null);
@@ -135,12 +133,11 @@ public class LoginDialog extends javax.swing.JDialog {
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textUsername)
-                            .addComponent(passwordPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(218, 218, 218)
-                .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(passwordPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +164,7 @@ public class LoginDialog extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 593, Short.MAX_VALUE)
+            .addGap(0, 597, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
