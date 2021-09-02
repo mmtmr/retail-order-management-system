@@ -40,9 +40,9 @@ public class ProModel {
         this.PMStock = PMStock;
     }
 
-//    public void addPMStock(int OIQuantity) {
-//        PMStock += OIQuantity;
-//    }
+    public void addPMStock(int OIQuantity) {
+        PMStock += OIQuantity;
+    }
 
     public void minusPMStock(int OIQuantity) {
         try {
@@ -59,14 +59,14 @@ public class ProModel {
 
     @Override
     public String toString() {
-        return PMName + ", " + PMStock;
+        return PMName + "|" + PMStock;
     }
 
     //validate null
     public static String[][] parsePMFromString(String pmNamesLine, String pmStocksLine) throws Exception {
         int validInt;
-        String[] pmNamesData = pmNamesLine.split(",");
-        String[] pmStocksData = pmStocksLine.split(",");
+        String[] pmNamesData = pmNamesLine.split("\\|");
+        String[] pmStocksData = pmStocksLine.split("\\|");
         String[][] pmData = new String[pmNamesData.length][2];
         if (pmNamesData.length != pmStocksData.length) {
             throw (new Exception("Product Model is incomplete!" + pmNamesLine + pmStocksLine));

@@ -41,7 +41,6 @@ public class AdminPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         tab = new javax.swing.JTabbedPane();
-        jPanel7 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         panelAdminProductList = new javax.swing.JPanel();
         labelTitleProduct = new javax.swing.JLabel();
@@ -88,26 +87,28 @@ public class AdminPanel extends javax.swing.JFrame {
         tableCusVIPList = new javax.swing.JTable();
         jScrollPane16 = new javax.swing.JScrollPane();
         tableCusNonVIPList = new javax.swing.JTable();
+        buttonAddOrd = new javax.swing.JButton();
+        buttonAddAcc = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         labelTitleOrder = new javax.swing.JLabel();
-        buttonAddOrder = new javax.swing.JButton();
         buttonEditOrder = new javax.swing.JButton();
         buttonDeleteOrder = new javax.swing.JButton();
         textSearchOrder = new javax.swing.JTextField();
         tabbedPaneOrder = new javax.swing.JTabbedPane();
-        jPanel5 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tableOrderList1 = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tableOrderToShipList = new javax.swing.JTable();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tableOrderShippingList = new javax.swing.JTable();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tableOrderAllList = new javax.swing.JTable();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tableOrderUnpaid = new javax.swing.JTable();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tableOrderToShip = new javax.swing.JTable();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        tableOrderShipping = new javax.swing.JTable();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        tableOrderCompleted = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
         tableOrderCancelledList = new javax.swing.JTable();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        tableOrderCompletedList = new javax.swing.JTable();
-        jScrollPane17 = new javax.swing.JScrollPane();
-        tableOrderUnpaidList = new javax.swing.JTable();
+        buttonShipOrder = new javax.swing.JButton();
+        buttonRefreshOrder = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -120,19 +121,6 @@ public class AdminPanel extends javax.swing.JFrame {
                 tabStateChanged(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1398, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 701, Short.MAX_VALUE)
-        );
-
-        tab.addTab("Overview", jPanel7);
 
         labelTitleProduct.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         labelTitleProduct.setText("Product List");
@@ -545,7 +533,7 @@ public class AdminPanel extends javax.swing.JFrame {
         });
 
         buttonAddCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAddCus.setText("Add");
+        buttonAddCus.setText("Add Customer");
         buttonAddCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddCusActionPerformed(evt);
@@ -697,6 +685,22 @@ public class AdminPanel extends javax.swing.JFrame {
 
         tabbedPaneCustomer.addTab("Non-VIP", jScrollPane16);
 
+        buttonAddOrd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddOrd.setText("Add Order");
+        buttonAddOrd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddOrdActionPerformed(evt);
+            }
+        });
+
+        buttonAddAcc.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddAcc.setText("Add Account");
+        buttonAddAcc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddAccActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -707,11 +711,15 @@ public class AdminPanel extends javax.swing.JFrame {
                     .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 1421, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(labelTitleCus, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(454, 454, 454)
+                        .addGap(140, 140, 140)
                         .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonAddCus, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonAddCus)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonAddAcc)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonAddOrd)
+                        .addGap(18, 18, 18)
                         .addComponent(buttonEditCus, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonDeleteCus)
@@ -728,7 +736,9 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addComponent(buttonDeleteCus)
                         .addComponent(buttonEditCus)
                         .addComponent(buttonAddCus)
-                        .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAddOrd)
+                        .addComponent(buttonAddAcc))
                     .addComponent(labelTitleCus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
@@ -740,14 +750,6 @@ public class AdminPanel extends javax.swing.JFrame {
         labelTitleOrder.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         labelTitleOrder.setText("Order List");
         labelTitleOrder.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        buttonAddOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAddOrder.setText("Add");
-        buttonAddOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOrderActionPerformed(evt);
-            }
-        });
 
         buttonEditOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonEditOrder.setText("Edit");
@@ -774,8 +776,13 @@ public class AdminPanel extends javax.swing.JFrame {
         });
 
         tabbedPaneOrder.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        tabbedPaneOrder.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabbedPaneOrderStateChanged(evt);
+            }
+        });
 
-        tableOrderList1.setModel(new javax.swing.table.DefaultTableModel(
+        tableOrderAllList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -830,41 +837,30 @@ public class AdminPanel extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+                "ID", "Cus ID", "Shipment Code", "Status", "Date", "Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane5.setViewportView(tableOrderList1);
-        if (tableOrderList1.getColumnModel().getColumnCount() > 0) {
-            tableOrderList1.getColumnModel().getColumn(0).setPreferredWidth(20);
-            tableOrderList1.getColumnModel().getColumn(1).setPreferredWidth(30);
-        }
+        tableOrderAllList.setShowGrid(true);
+        jScrollPane10.setViewportView(tableOrderAllList);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        tabbedPaneOrder.addTab("All", jScrollPane10);
 
-        tabbedPaneOrder.addTab("All", jPanel5);
-
-        tableOrderToShipList.setModel(new javax.swing.table.DefaultTableModel(
+        tableOrderUnpaid.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -919,22 +915,30 @@ public class AdminPanel extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+                "ID", "Cus ID", "Shipment Code", "Status", "Date", "Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane6.setViewportView(tableOrderToShipList);
+        tableOrderUnpaid.setShowGrid(true);
+        jScrollPane11.setViewportView(tableOrderUnpaid);
 
-        tabbedPaneOrder.addTab("To Ship", jScrollPane6);
+        tabbedPaneOrder.addTab("Unpaid", jScrollPane11);
 
-        tableOrderShippingList.setModel(new javax.swing.table.DefaultTableModel(
+        tableOrderToShip.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -989,20 +993,134 @@ public class AdminPanel extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+                "ID", "Cus ID", "Shipment Code", "Status", "Date", "Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-        });
-        jScrollPane7.setViewportView(tableOrderShippingList);
 
-        tabbedPaneOrder.addTab("Shipping", jScrollPane7);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableOrderToShip.setShowGrid(true);
+        jScrollPane12.setViewportView(tableOrderToShip);
+
+        tabbedPaneOrder.addTab("To Ship", jScrollPane12);
+
+        tableOrderShipping.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Cus ID", "Shipment Code", "Status", "Date", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableOrderShipping.setShowGrid(true);
+        jScrollPane13.setViewportView(tableOrderShipping);
+
+        tabbedPaneOrder.addTab("Shipping", jScrollPane13);
+
+        tableOrderCompleted.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Cus ID", "Shipment Code", "Status", "Date", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableOrderCompleted.setShowGrid(true);
+        jScrollPane18.setViewportView(tableOrderCompleted);
+
+        tabbedPaneOrder.addTab("Completed", jScrollPane18);
 
         tableOrderCancelledList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1059,197 +1177,82 @@ public class AdminPanel extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Date", "Customer ID", "Address", "Price", "Status"
+                "ID", "Cus ID", "Shipment Code", "Status", "Date", "Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
+        tableOrderCancelledList.setShowGrid(true);
         jScrollPane8.setViewportView(tableOrderCancelledList);
 
         tabbedPaneOrder.addTab("Cancelled", jScrollPane8);
 
-        tableOrderCompletedList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Date", "Customer ID", "Address", "Price", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        buttonShipOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonShipOrder.setText("Ship");
+        buttonShipOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShipOrderActionPerformed(evt);
             }
         });
-        tableOrderCompletedList.setShowGrid(false);
-        jScrollPane9.setViewportView(tableOrderCompletedList);
 
-        tabbedPaneOrder.addTab("Completed", jScrollPane9);
-
-        tableOrderUnpaidList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Date", "Customer ID", "Address", "Price", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        buttonRefreshOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonRefreshOrder.setText("Refresh");
+        buttonRefreshOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRefreshOrderActionPerformed(evt);
             }
         });
-        tableOrderUnpaidList.setShowGrid(false);
-        jScrollPane17.setViewportView(tableOrderUnpaidList);
-
-        tabbedPaneOrder.addTab("Unpaid", jScrollPane17);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tabbedPaneOrder)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addComponent(tabbedPaneOrder, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(labelTitleOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(791, 791, 791)
+                        .addGap(696, 696, 696)
                         .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonAddOrder)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonRefreshOrder)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonShipOrder)
+                        .addGap(18, 18, 18)
                         .addComponent(buttonEditOrder)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonDeleteOrder)
-                        .addGap(104, 104, 104)))
-                .addContainerGap())
+                        .addGap(10, 10, 10)))
+                .addGap(110, 110, 110))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitleOrder)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buttonDeleteOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonEditOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonAddOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPaneOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 187, Short.MAX_VALUE))
+                        .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonShipOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonRefreshOrder))
+                    .addComponent(labelTitleOrder))
+                .addGap(18, 18, 18)
+                .addComponent(tabbedPaneOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                .addGap(51, 51, 51))
         );
 
         tab.addTab("Manage Order", jPanel4);
@@ -1300,14 +1303,29 @@ public class AdminPanel extends javax.swing.JFrame {
         try {
             JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
             JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            String pmname = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            AddProDialog addProDialog = new AddProDialog(null, true,model, Product.searchProFromID(proID), pmname);
+            addProDialog.loadProData();
+            addProDialog.show();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_buttonEditProActionPerformed
 
     private void buttonEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditOrderActionPerformed
-        JScrollPane scrollRef = (JScrollPane) tabbedPaneOrder.getSelectedComponent();
-        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        try {
+            JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
+            JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            String ordID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            EditOrderDialog editOrderDialog = new EditOrderDialog(null, true,Order.searchOrderFromID(ordID));
+            editOrderDialog.show();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }//GEN-LAST:event_buttonEditOrderActionPerformed
 
     private void buttonEditSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditSupActionPerformed
@@ -1397,7 +1415,13 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDeleteCusActionPerformed
 
     private void textSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchOrderActionPerformed
-
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneOrder.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        String key = textSearchOrder.getText();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
+        sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
+        table.setRowSorter(sorter);
     }//GEN-LAST:event_textSearchOrderActionPerformed
 
     private void buttonDeleteProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteProActionPerformed
@@ -1459,20 +1483,31 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_textSearchProActionPerformed
 
     private void buttonRestockPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRestockPorActionPerformed
-        // TODO add your handling code here:
+        try {
+            JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
+            JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            String pmname = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            RestockRequest restockRequest = new RestockRequest(null, true, Product.searchProFromID(proID), pmname);
+            restockRequest.show();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_buttonRestockPorActionPerformed
 
     private void buttonAddProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddProActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tableProList.getModel();
         AddProDialog addProDialog = new AddProDialog(null, true);
         addProDialog.show();
         showProductList();
     }//GEN-LAST:event_buttonAddProActionPerformed
 
     private void buttonAddModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddModelActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
+            JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
         try {
-            String proID = (tableProList.getModel().getValueAt(tableProList.getSelectedRow(), 0).toString());
-            DefaultTableModel model = (DefaultTableModel) tableProList.getModel();
+            String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
             AddProModelDialog editProDialog = new AddProModelDialog(null, true, model, Product.searchProFromID(proID));
             //editProDialog.loadProData();
             editProDialog.show();
@@ -1492,13 +1527,13 @@ public class AdminPanel extends javax.swing.JFrame {
         try {
             String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
             Product pro = Product.searchProFromID(proID);
-            if(pro.getProModels().size()==1){
+            if (pro.getProModels().size() == 1) {
                 throw new Exception("This is the last model of product. Delete the product instead.");
             }
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this model of product? This action cannot be reversed.", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
-                
-                String pmName = (table.getModel().getValueAt(table.getSelectedRow(), 4).toString());               
+
+                String pmName = (table.getModel().getValueAt(table.getSelectedRow(), 4).toString());
                 for (ProModel pm : pro.getProModels()) {
                     if (pm.getPMName().equals(pmName)) {
                         pro.getProModels().remove(pm);
@@ -1530,12 +1565,96 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_tabbedPaneCustomerStateChanged
 
     private void buttonDeleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteOrderActionPerformed
-        // TODO add your handling code here:
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneOrder.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        try {
+            String ordID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            Order ord = Order.searchOrderFromID(ordID);
+            int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this order?", "Delete", JOptionPane.YES_NO_OPTION);
+            if (del == 0) {
+                Operation.destroyOrder(ord);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            showProductList();
+            showOrderList();
+        }
     }//GEN-LAST:event_buttonDeleteOrderActionPerformed
 
-    private void buttonAddOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOrderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOrderActionPerformed
+    private void tabbedPaneOrderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneOrderStateChanged
+        showOrderList();
+    }//GEN-LAST:event_tabbedPaneOrderStateChanged
+
+    private void buttonShipOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShipOrderActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneOrder.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        try {
+            String ordID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            Order ord = Order.searchOrderFromID(ordID);
+            if (ord.getOrdStatus() != OrderStatus.ToShip) {
+                throw new Exception("This order cannot be shipped.");
+            }
+            String shipcode = JOptionPane.showInputDialog(null, "Enter Shipment code:");
+            Validation.validateShipmentInput(shipcode);
+            ord.setOrdShipment(shipcode);
+            ord.setOrdStatus(OrderStatus.Shipping);
+            Operation.rewriteOrderData();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            showOrderList();
+        }
+    }//GEN-LAST:event_buttonShipOrderActionPerformed
+
+    private void buttonAddOrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOrdActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        try {
+            String cusID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            opCus = Customer.searchCusFromID(cusID);
+            AdminCusDialog adminCusDialog = new AdminCusDialog(null, true);
+            adminCusDialog.show();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            opCus = null;
+        }
+    }//GEN-LAST:event_buttonAddOrdActionPerformed
+
+    private void buttonAddAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddAccActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        try {
+            String cusID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            Customer cus = Customer.searchCusFromID(cusID);
+            if (!cus.getCusAccount().getAccID().isEmpty()) {
+                throw new Exception("Customer account already existed.");
+            }
+            String accname = JOptionPane.showInputDialog(null, "Enter Shipment code:");
+            Validation.validateAccountInput(accname, "123456");
+
+            for (Account a : AccList) {
+                if (a.getAccName().equals(accname)) {
+                    throw new Exception("Account name already existed.");
+                }
+            }
+            Account newacc = new CusAcc(accname, "123456");
+            AccList.add(newacc);
+            cus.setCusAccount((CusAcc) newacc);
+            Operation.writeAccountData(newacc);
+            Operation.rewriteCustomerData();
+            JOptionPane.showMessageDialog(null, "New account added.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            showCustomerList();
+        }
+    }//GEN-LAST:event_buttonAddAccActionPerformed
+
+    private void buttonRefreshOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshOrderActionPerformed
+        showOrderList();
+    }//GEN-LAST:event_buttonRefreshOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1562,6 +1681,49 @@ public class AdminPanel extends javax.swing.JFrame {
             } else if (tabTitle.contains("All") || tabTitle.equals("Non-VIP")) {
                 model.addRow(new Object[]{cus.getCusID(), cus.getCusAccount().getAccID(), cus.getCusAccount().getAccName(), cus.getCusPI().getPIFName(), cus.getCusPI().getPILName(), cus.getCusPI().getPIGender(), cus.getCusPI().getPIDateOfBirth(), cus.getCusPI().getPIRewardPoint(), cus.getCusCI().getCIPhone(), cus.getCusCI().getCIEmail(), cus.getCusCI().getCIAddStreet() + "；" + cus.getCusCI().getCIAddCity() + "；" + cus.getCusCI().getCIAddState() + "；" + cus.getCusCI().getCIAddPostcode()});
             }
+        }
+        table.setModel(model);
+
+    }
+
+    public void showOrderList() {
+        //DefaultTableModel model = new DefaultTableModel(new Object[]{"Account ID", "Account Name", "First Name","Last Name","Gender","D.O.B.","Reward Point","Phone","Email","Street","City","State","Postcode"}, 0);;
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneOrder.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        int i = 0;
+        model.setRowCount(0);
+        //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
+        //System.out.println(cus);
+        for (Order ord : OrdList) {
+            switch (ord.getOrdStatus()) {
+                case Unpaid:
+                    if (tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("All") || tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("Unpaid")) {
+                        model.addRow(new Object[]{ord.getOrdID(), Customer.searchCusFromOrdID(ord.getOrdID()).getCusID(), ord.getOrdShipment(), ord.getOrdStatus(), ord.getOrdCreateDT(), ord.getOrdAmt()});
+                    }
+                    break;
+                case ToShip:
+                    if (tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("All") || tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("To Ship")) {
+                        model.addRow(new Object[]{ord.getOrdID(), Customer.searchCusFromOrdID(ord.getOrdID()).getCusID(), ord.getOrdShipment(), ord.getOrdStatus(), ord.getOrdCreateDT(), ord.getOrdAmt()});
+                    }
+                    break;
+                case Shipping:
+                    if (tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("All") || tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("Shipping")) {
+                        model.addRow(new Object[]{ord.getOrdID(), Customer.searchCusFromOrdID(ord.getOrdID()).getCusID(), ord.getOrdShipment(), ord.getOrdStatus(), ord.getOrdCreateDT(), ord.getOrdAmt()});
+                    }
+                    break;
+                case Completed:
+                    if (tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("All") || tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("Completed")) {
+                        model.addRow(new Object[]{ord.getOrdID(), Customer.searchCusFromOrdID(ord.getOrdID()).getCusID(), ord.getOrdShipment(), ord.getOrdStatus(), ord.getOrdCreateDT(), ord.getOrdAmt()});
+                    }
+                    break;
+                case Cancelled:
+                    if (tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("All") || tabbedPaneOrder.getTitleAt(tabbedPaneOrder.getSelectedIndex()).contains("Cancelled")) {
+                        model.addRow(new Object[]{ord.getOrdID(), Customer.searchCusFromOrdID(ord.getOrdID()).getCusID(), ord.getOrdShipment(), ord.getOrdStatus(), ord.getOrdCreateDT(), ord.getOrdAmt()});
+                    }
+                    break;
+            }
+
         }
         table.setModel(model);
 
@@ -1648,9 +1810,10 @@ public class AdminPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAddAcc;
     private javax.swing.JButton buttonAddCus;
     private javax.swing.JButton buttonAddModel;
-    private javax.swing.JButton buttonAddOrder;
+    private javax.swing.JButton buttonAddOrd;
     private javax.swing.JButton buttonAddPro;
     private javax.swing.JButton buttonAddSup;
     private javax.swing.JButton buttonDeleteAcc;
@@ -1664,31 +1827,31 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton buttonEditOrder;
     private javax.swing.JButton buttonEditPro;
     private javax.swing.JButton buttonEditSup;
+    private javax.swing.JButton buttonRefreshOrder;
     private javax.swing.JButton buttonRestockPor;
+    private javax.swing.JButton buttonShipOrder;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
-    private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel labelTitleCus;
     private javax.swing.JLabel labelTitleOrder;
     private javax.swing.JLabel labelTitleProduct;
@@ -1702,12 +1865,12 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JTable tableCusNonVIPList;
     private javax.swing.JTable tableCusVIPList;
     private javax.swing.JTable tableCusVVIPList;
+    private javax.swing.JTable tableOrderAllList;
     private javax.swing.JTable tableOrderCancelledList;
-    private javax.swing.JTable tableOrderCompletedList;
-    private javax.swing.JTable tableOrderList1;
-    private javax.swing.JTable tableOrderShippingList;
-    private javax.swing.JTable tableOrderToShipList;
-    private javax.swing.JTable tableOrderUnpaidList;
+    private javax.swing.JTable tableOrderCompleted;
+    private javax.swing.JTable tableOrderShipping;
+    private javax.swing.JTable tableOrderToShip;
+    private javax.swing.JTable tableOrderUnpaid;
     private javax.swing.JTable tableProFashionList;
     private javax.swing.JTable tableProFoodList;
     private javax.swing.JTable tableProList;

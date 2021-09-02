@@ -322,15 +322,15 @@ public class Product {
         //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
         StringBuilder ProModelsNamesBuilder = new StringBuilder();
         for (ProModel model : ProModels) {
-            ProModelsNamesBuilder.append(",");
+            ProModelsNamesBuilder.append("|");
             ProModelsNamesBuilder.append(model.getPMName());
         }
         ProModelsNames = ProModelsNamesBuilder.toString();
-        if (ProModelsNames.charAt(0) == ',') {
+        if (ProModelsNames.charAt(0) == '|') {
             ProModelsNames = ProModelsNames.substring(1, ProModelsNames.length());
         }
 
-        if (ProModelsNames.charAt(ProModelsNames.length() - 1) == ',') {
+        if (ProModelsNames.charAt(ProModelsNames.length() - 1) == '|') {
             ProModelsNames = ProModelsNames.substring(0, ProModelsNames.length() - 1);
         }
 
@@ -343,15 +343,15 @@ public class Product {
         //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
         StringBuilder ProModelsStocksBuilder = new StringBuilder();
         for (ProModel model : ProModels) {
-            ProModelsStocksBuilder.append(",");
+            ProModelsStocksBuilder.append("|");
             ProModelsStocksBuilder.append(model.getPMStock());
         }
         ProModelsStocks = ProModelsStocksBuilder.toString();
-        if (ProModelsStocks.charAt(0) == ',') {
+        if (ProModelsStocks.charAt(0) == '|') {
             ProModelsStocks = ProModelsStocks.substring(1, ProModelsStocks.length());
         }
 
-        if (ProModelsStocks.charAt(ProModelsStocks.length() - 1) == ',') {
+        if (ProModelsStocks.charAt(ProModelsStocks.length() - 1) == '|') {
             ProModelsStocks = ProModelsStocks.substring(0, ProModelsStocks.length() - 1);
         }
 
@@ -364,22 +364,22 @@ public class Product {
         //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
         StringBuilder ProModelsListBuilder = new StringBuilder();
         for (ProModel model : ProModels) {
-            ProModelsListBuilder.append(",");
+            ProModelsListBuilder.append("|");
             ProModelsListBuilder.append(model.getPMName());
         }
 
         ProModelsListBuilder.append("\t");
         for (ProModel model : ProModels) {
             ProModelsListBuilder.append(model.getPMStock());
-            ProModelsListBuilder.append(",");
+            ProModelsListBuilder.append("|");
         }
         ProModelsList = ProModelsListBuilder.toString();
 
-        if (ProModelsList.charAt(0) == ',') {
+        if (ProModelsList.charAt(0) == '|') {
             ProModelsList = ProModelsList.substring(1, ProModelsList.length());
         }
 
-        if (ProModelsList.charAt(ProModelsList.length() - 1) == ',') {
+        if (ProModelsList.charAt(ProModelsList.length() - 1) == '|') {
             ProModelsList = ProModelsList.substring(0, ProModelsList.length() - 1);
         }
 
@@ -414,6 +414,48 @@ public class Product {
         throw new Exception("Model does not exist");
     }
 
+    public void editProduct(String ProName, double ProPrice, double ProWeight, ProductType ProCategory, boolean ProFragile, String PMName, int PMStock){
+        minusProCategoryCounter(this.ProCategory);
+        this.ProName = ProName;
+        this.ProPrice = ProPrice;
+        this.ProWeight = ProWeight;
+        this.ProCategory = ProCategory;
+        this.ProFragile = ProFragile;
+        this.ProModels = new ArrayList();
+        ProModels.add(new ProModel(PMName, PMStock));
+        switch (this.ProCategory) {
+            case Stationery:
+                this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProStationeryCounter + 1);
+                break;
+            case Food:
+                this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProFoodCounter + 1);
+                break;
+            case Fashion:
+                this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProFashionCounter + 1);
+                break;
+            case Other:
+                this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProOtherCounter + 1);
+                break;
+        }
+
+        if (!this.ProFragile) {
+            this.ProID = "P0" + this.ProID;
+            if ((this.ProWeight / 0.50 * 6.00) % 6.00 != 0) {
+                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00 - ((this.ProWeight / 0.50 * 6.00) % 6.00) + 6.00;//6 Ringgit per 0.5kg
+            } else {
+                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00;
+            }
+        } else {
+            this.ProID = "P1" + this.ProID;
+            if ((this.ProWeight / 0.50 * 10.00) % 10.00 != 0) {
+                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00 - ((this.ProWeight / 0.50 * 10.00) % 10.00) + 10.00;//10 Ringgit per 0.5kg
+            } else {
+                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00;
+            }
+        }
+
+        addProCategoryCounter(this.ProCategory);
+    }
 //    public static ArrayList<Product> searchProsFromIDs(String[] ProIDs) {
 //        ArrayList<Product> Products = new ArrayList<>();
 //        if (ProIDs[0] != null) {

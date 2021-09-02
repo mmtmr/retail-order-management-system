@@ -49,11 +49,11 @@ public class Payment {
 
     @Override
     public String toString() {
-        return PName + "," + PCardNumber + "," + PBank;
+        return PName + "|" + PCardNumber + "|" + PBank;
     }
     
     public static String[] parsePayFromString(String payLine) throws Exception {
-        String[] payData = payLine.split(",");
+        String[] payData = payLine.split("\\|");
         if (payData.length != 3) {
             throw (new Exception("Payment is incomplete!" + payLine));
         } else {

@@ -17,6 +17,8 @@ import static retailordermanagementsystem.Operation.*;
  */
 public class AddProDialog extends javax.swing.JDialog {
 
+    Product pro = new Product();
+    String pmname;
     DefaultTableModel model;
 
     /**
@@ -32,8 +34,16 @@ public class AddProDialog extends javax.swing.JDialog {
         this.model = model;
         initComponents();
     }
-//https://stackoverflow.com/questions/1291704/how-do-i-populate-a-jcombobox-with-an-arraylist/29461313
 
+    public AddProDialog(java.awt.Frame parent, boolean modal, DefaultTableModel model, Product pro, String pmname) {
+        super(parent, modal);
+        this.model = model;
+        this.pro = pro;
+        this.pmname = pmname;
+        initComponents();
+    }
+
+//https://stackoverflow.com/questions/1291704/how-do-i-populate-a-jcombobox-with-an-arraylist/29461313
     private DefaultComboBoxModel<String> getComboBoxModel(ArrayList<Supplier> SupList) {
         String[] comboBoxModel = new String[SupList.size()];
         for (int i = 0; i < SupList.size(); i++) {
@@ -236,7 +246,7 @@ public class AddProDialog extends javax.swing.JDialog {
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
 
         labelTitle.setFont(new java.awt.Font("Monotype Corsiva", 1, 36)); // NOI18N
-        labelTitle.setText("New Product");
+        labelTitle.setText("Product");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -294,14 +304,34 @@ public class AddProDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_radioNonFragileActionPerformed
 
+    public void loadProData() {
+        textName.setText(pro.getProName());
+        textPrice.setText(Double.toString(pro.getProPrice()));
+        textWeight.setText(Double.toString(pro.getProWeight()));
+        textModel.setText(pmname);
+        comboCategory.setSelectedItem(pro.getProCategory().name());
+        comboSupplier.setSelectedItem(Supplier.searchSupFromProID(pro.getProID()).getSupName());
+        for (ProModel pm : pro.getProModels()) {
+            if (pm.getPMName().equals(pmname)) {
+                spinnerStock.setValue(pm.getPMStock());
+            }
+        }
+        if (pro.isProFragile()) {
+            radioFragile.setSelected(true);
+            radioNonFragile.setSelected(false);
+        } else {
+            radioFragile.setSelected(false);
+            radioNonFragile.setSelected(true);
+        }
+    }
+
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        Product pro = new Product();
         try {
             String name = textName.getText();
             Double price = Double.parseDouble(textPrice.getText());
             Double weight = Double.parseDouble(textWeight.getText());
             String model = textModel.getText();
-            String categoryname=(String) comboCategory.getSelectedItem();
+            String categoryname = (String) comboCategory.getSelectedItem();
             ProductType category = ProductType.valueOf(categoryname);
             String suppliername = (String) comboSupplier.getSelectedItem();
             Supplier supplier = Supplier.searchSupFromName(suppliername);
@@ -318,13 +348,24 @@ public class AddProDialog extends javax.swing.JDialog {
             //Validation
             Validation.validateProductInput(name, model);
 
-            pro = new Product(name, price, weight, category, isFragile, model, stock);
-            ProList.add(pro);
-            supplier.getSupProducts().add(pro);
-            Operation.writeProductData(pro);
-            Operation.rewriteSupplierData();
-            //this.model.addRow(new Object[]{pro.getProID(), category, name, price, model, stock, weight, isFragile, suppliername});
-            JOptionPane.showMessageDialog(null, "Product added.");
+            if (pmname == null) {
+                pro = new Product(name, price, weight, category, isFragile, model, stock);
+                ProList.add(pro);
+                supplier.getSupProducts().add(pro);
+                Operation.writeProductData(pro);
+                Operation.rewriteSupplierData();
+                //this.model.addRow(new Object[]{pro.getProID(), category, name, price, model, stock, weight, isFragile, suppliername});
+                JOptionPane.showMessageDialog(null, "Product added.");
+            } else {
+                if (Supplier.searchSupFromProID(pro.getProID())!=supplier){
+                    Supplier.searchSupFromProID(pro.getProID()).getSupProducts().remove(pro);
+                    supplier.getSupProducts().add(pro);
+                }
+                pro.editProduct(name, price, weight, category, isFragile, model, stock);
+                Operation.rewriteProductData();
+                Operation.rewriteSupplierData();
+                JOptionPane.showMessageDialog(null, "Product is changed.");
+            }
             this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

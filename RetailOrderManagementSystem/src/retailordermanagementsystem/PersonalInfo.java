@@ -61,7 +61,7 @@ public class PersonalInfo {
 //    }
     @Override
     public String toString() {
-        return PIFName + "," + PILName + "," + PIGender;
+        return PIFName + "|" + PILName + "|" + PIGender;
     }
 
 //    public static PersonalInfo parsePIFromString(String piLine) {
@@ -82,7 +82,7 @@ public class PersonalInfo {
 //    }
     
     public static String[] parsePIFromString(String piLine) throws Exception {
-        String[] piData = piLine.split(",");
+        String[] piData = piLine.split("\\|");
         if (piData.length != 3) {
             throw (new Exception("Personal Info is incomplete!" + piLine));
         } else {

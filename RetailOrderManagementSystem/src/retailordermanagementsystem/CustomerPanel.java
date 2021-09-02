@@ -101,10 +101,10 @@ public class CustomerPanel extends javax.swing.JFrame {
         buttonAddToCart = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         panel = new javax.swing.JPanel();
-        labelSubmit1 = new javax.swing.JLabel();
-        labelTotalQuantity1 = new javax.swing.JLabel();
+        labelTotal = new javax.swing.JLabel();
+        labelTotalQuantity = new javax.swing.JLabel();
         buttonDelete1 = new javax.swing.JButton();
-        labelTotalPrice1 = new javax.swing.JLabel();
+        labelTota = new javax.swing.JLabel();
         labelTitle2 = new javax.swing.JLabel();
         buttonCheckout = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -636,9 +636,10 @@ public class CustomerPanel extends javax.swing.JFrame {
 
         tab.addTab("Mall", jPanel3);
 
-        labelSubmit1.setText("jLabel1");
+        labelTotal.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        labelTotal.setText("jLabel1");
 
-        labelTotalQuantity1.setText("jLabel1");
+        labelTotalQuantity.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
 
         buttonDelete1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonDelete1.setText("Delete");
@@ -648,7 +649,8 @@ public class CustomerPanel extends javax.swing.JFrame {
             }
         });
 
-        labelTotalPrice1.setText("jLabel1");
+        labelTota.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        labelTota.setText("jLabel1");
 
         labelTitle2.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         labelTitle2.setText("Shopping Cart");
@@ -713,9 +715,9 @@ public class CustomerPanel extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1338, Short.MAX_VALUE))
                 .addGap(41, 41, 41)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(labelTotalQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTotalPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelSubmit1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTotalQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTota, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         panelLayout.setVerticalGroup(
@@ -731,11 +733,11 @@ public class CustomerPanel extends javax.swing.JFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addComponent(labelTotalQuantity1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                        .addComponent(labelTotalQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
-                        .addComponent(labelTotalPrice1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                        .addComponent(labelTota, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
-                        .addComponent(labelSubmit1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                        .addComponent(labelTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                         .addGap(135, 135, 135))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1501,17 +1503,19 @@ public class CustomerPanel extends javax.swing.JFrame {
         JScrollPane scrollRef = (JScrollPane) tabbedPaneOrder.getSelectedComponent();
         JTable table = (JTable) scrollRef.getViewport().getComponent(0);
         try {
+            String ordID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            Order ord = Order.searchOrderFromID(ordID);
+            if (ord.getOrdStatus() != OrderStatus.Cancelled&& ord.getOrdStatus() != OrderStatus.Completed) {
+                throw new Exception("This order cannot be delete!");
+            }
             int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this order?", "Delete", JOptionPane.YES_NO_OPTION);
             if (del == 0) {
-                String ordID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
-                Order ord = Order.searchOrderFromID(ordID);
                 Operation.destroyOrder(ord);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         } finally {
-            showProductList();
-            showShoppingCartList();
+            showOrderList();
         }
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
@@ -1609,10 +1613,18 @@ public class CustomerPanel extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tableShoppingCart.getModel();
         int i = 0;
         model.setRowCount(0);
+        int quantity = 0;
+        double subtotalprice = 0.00;
+        double subtotalpacking = 0.00;
         for (OrderItem oi : opCus.getCusAccount().getCusSC().getOrdItems()) {
             model.addRow(new Object[]{oi.getOIID(), oi.getProCategory(), oi.getProName(), oi.getOIModel(), oi.getOIQuantity(), oi.getOIPrice(), oi.getOIPackingCharge()});
+            quantity += 1;
+            subtotalprice += oi.getOIPrice();
+            subtotalpacking += oi.getOIPackingCharge();
         }
-
+        labelTotalQuantity.setText(quantity + " Item(s)");
+        labelTota.setText("Cost " + subtotalprice + "& Packing" + subtotalpacking);
+        labelTotal.setText("Total of " + subtotalprice + subtotalpacking);
         tableShoppingCart.setModel(model);
 
     }
@@ -1734,13 +1746,13 @@ public class CustomerPanel extends javax.swing.JFrame {
     private javax.swing.JLabel labelRewardPoint;
     private javax.swing.JLabel labelState;
     private javax.swing.JLabel labelStreet;
-    private javax.swing.JLabel labelSubmit1;
     private javax.swing.JLabel labelTitle2;
     private javax.swing.JLabel labelTitleOrder;
     private javax.swing.JLabel labelTitleProduct;
     private javax.swing.JLabel labelTitleProduct1;
-    private javax.swing.JLabel labelTotalPrice1;
-    private javax.swing.JLabel labelTotalQuantity1;
+    private javax.swing.JLabel labelTota;
+    private javax.swing.JLabel labelTotal;
+    private javax.swing.JLabel labelTotalQuantity;
     private javax.swing.JLabel labelVoucher;
     private javax.swing.JList<String> listVoucher;
     private javax.swing.JPanel panel;

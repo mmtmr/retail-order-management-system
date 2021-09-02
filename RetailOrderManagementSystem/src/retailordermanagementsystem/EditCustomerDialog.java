@@ -296,8 +296,7 @@ public class EditCustomerDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void loadCusData(){
-        
+    public void loadCusData(){     
         try{
             if(cus.getCusAccount()!=null){
             textAccountName.setText(cus.getCusAccount().getAccName());

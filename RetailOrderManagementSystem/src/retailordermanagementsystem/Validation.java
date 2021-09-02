@@ -23,6 +23,13 @@ public class Validation {
     public static boolean validateNotNull(String input) {
         return !input.isEmpty();
     }
+    
+    public static void validateShipmentInput(String shipcode) throws Exception {
+        if (validateNoDelimeterAndNoNull(shipcode)) {
+        } else {
+            throw new Exception("Invalid Input: Remove the tab or | inside input.");
+        }
+    }
 
     public static void validatePasswordInput(String password1, String password2) throws Exception {
         if (validateNoDelimeterAndNoNull(password1) && validateNoDelimeterAndNoNull(password2)) {
@@ -198,7 +205,7 @@ public class Validation {
     }
 
     public static boolean validateAddState(String AddState) {
-        return AddState.matches("Kuala Lumpur|Putrajaya|Labuan|Perlis|Kedah|Terengganu|Pahang|Perak|Kelantan|Penang|Selangor|Negeri Sembilan|Johor|Malacca|Sabah|Sarawak");
+        return AddState.matches("Wilayah Persekutuan|Kuala Lumpur|Putrajaya|Labuan|Perlis|Kedah|Terengganu|Pahang|Perak|Kelantan|Penang|Selangor|Negeri Sembilan|Johor|Malacca|Sabah|Sarawak");
     }
 
     public static boolean validateCVV(String cvv) {

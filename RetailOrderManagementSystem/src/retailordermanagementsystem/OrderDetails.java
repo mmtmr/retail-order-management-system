@@ -77,10 +77,10 @@ public abstract class OrderDetails {
         String OrdItemsIDs = "";
         if (!OrdItems.isEmpty()) {
             for (OrderItem item : OrdItems) {
-                OrdItemsIDs = OrdItemsIDs + item.getOIID() + ',';
+                OrdItemsIDs = OrdItemsIDs + item.getOIID() + '|';
             }
 
-            if (OrdItemsIDs.charAt(OrdItemsIDs.length() - 1) == ',') {
+            if (OrdItemsIDs.charAt(OrdItemsIDs.length() - 1) == '|') {
                 OrdItemsIDs = OrdItemsIDs.substring(0, OrdItemsIDs.length() - 1);
             }
         } else {
@@ -193,7 +193,7 @@ public abstract class OrderDetails {
 
     public static String[] buildOrdFromString(String ordLine) {
         String[] ordData = ordLine.split("\t");
-        String[] oisIDs = ordData[ordData.length - 1].split(",");
+        String[] oisIDs = ordData[ordData.length - 1].split("\\|");
         try {
             String[] OrdLine = parseOrdFromString(ordLine);
 

@@ -63,6 +63,9 @@ public class CusInfo extends PersonalInfo {
     public void setPIRewardPoint(int PIRewardPoint) {
         this.PIRewardPoint = PIRewardPoint;
     }
+    public void addPIRewardPoint(int PIRewardPoint) {
+        this.PIRewardPoint += PIRewardPoint;
+    }
 
     public LocalDate getPIDateOfBirth() {
         return PIDateOfBirth;
@@ -95,7 +98,7 @@ public class CusInfo extends PersonalInfo {
 
     @Override
     public String toString() {
-        return PIFName + "," + PILName + "," + PIGender + "," + PIDateOfBirth + "," + PIRewardPoint;
+        return PIFName + "|" + PILName + "|" + PIGender + "|" + PIDateOfBirth + "|" + PIRewardPoint;
     }
 
 //    public static CusInfo parsePIFromString(String piLine) {
@@ -115,7 +118,7 @@ public class CusInfo extends PersonalInfo {
 //        return new CusInfo(pi[0], pi[1], Gender.valueOf(pi[2]), LocalDate.parse(pi[4]), Integer.parseInt(pi[3]));
 //    }
     public static String[] parseCusInfoFromString(String piLine) throws Exception {
-        String[] piData = piLine.split(",");
+        String[] piData = piLine.split("\\|");
         if (piData.length != 5) {
             throw (new Exception("Customer Info is incomplete!" + piLine));
         } else {

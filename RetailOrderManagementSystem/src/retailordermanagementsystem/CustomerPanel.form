@@ -982,9 +982,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
-                              <Component id="labelTotalQuantity1" alignment="2" min="-2" pref="478" max="-2" attributes="0"/>
-                              <Component id="labelTotalPrice1" alignment="2" min="-2" pref="478" max="-2" attributes="0"/>
-                              <Component id="labelSubmit1" alignment="2" min="-2" pref="478" max="-2" attributes="0"/>
+                              <Component id="labelTotalQuantity" alignment="2" min="-2" pref="478" max="-2" attributes="0"/>
+                              <Component id="labelTota" alignment="2" min="-2" pref="478" max="-2" attributes="0"/>
+                              <Component id="labelTotal" alignment="2" min="-2" pref="478" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -1005,11 +1005,11 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Component id="labelTotalQuantity1" pref="110" max="32767" attributes="0"/>
+                                  <Component id="labelTotalQuantity" pref="110" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="labelTotalPrice1" pref="110" max="32767" attributes="0"/>
+                                  <Component id="labelTota" pref="110" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="labelSubmit1" pref="110" max="32767" attributes="0"/>
+                                  <Component id="labelTotal" pref="110" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -1022,14 +1022,19 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="labelSubmit1">
+                <Component class="javax.swing.JLabel" name="labelTotal">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="48" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="jLabel1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="labelTotalQuantity1">
+                <Component class="javax.swing.JLabel" name="labelTotalQuantity">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="48" style="0"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="buttonDelete1">
@@ -1043,8 +1048,11 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDelete1ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="labelTotalPrice1">
+                <Component class="javax.swing.JLabel" name="labelTota">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="48" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="jLabel1"/>
                   </Properties>
                 </Component>

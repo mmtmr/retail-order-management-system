@@ -5,33 +5,35 @@
  */
 package retailordermanagementsystem;
 
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import static retailordermanagementsystem.Operation.opCus;
-import static retailordermanagementsystem.Operation.rewriteCustomerData;
-import static retailordermanagementsystem.Operation.rewriteOrderData;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import static retailordermanagementsystem.Operation.*;
 
 /**
  *
  * @author Maxine
  */
-public class ViewOrderDialog extends javax.swing.JDialog {
+public class EditOrderDialog extends javax.swing.JDialog {
 
     Order order;
+    OrderStatus old;
 
     /**
-     * Creates new form ViewOrderDialog
+     * Creates new form EditOrderDialog
      */
-    public ViewOrderDialog(java.awt.Frame parent, boolean modal) {
+
+    public EditOrderDialog(java.awt.Frame parent, boolean modal, Order order) {
         super(parent, modal);
+        this.order = order;
+        old = order.getOrdStatus();
         initComponents();
     }
 
-    public ViewOrderDialog(java.awt.Frame parent, boolean modal, Order order) {
+    public EditOrderDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        this.order = order;
         initComponents();
-        showShoppingCartList();
     }
 
     /**
@@ -49,20 +51,20 @@ public class ViewOrderDialog extends javax.swing.JDialog {
         loadOrderID = new javax.swing.JLabel();
         labelOrderDate = new javax.swing.JLabel();
         labelOrderTotal = new javax.swing.JLabel();
-        loadOrderTotal = new javax.swing.JLabel();
-        loadOrderTracking = new javax.swing.JLabel();
-        loadOrderStatus = new javax.swing.JLabel();
-        loadOrderDate = new javax.swing.JLabel();
         labelOrderTracking = new javax.swing.JLabel();
         labelOrderStatus = new javax.swing.JLabel();
         labelContactInstruction = new javax.swing.JLabel();
         labelEmailInstruction = new javax.swing.JLabel();
         labelEmailStore = new javax.swing.JLabel();
         buttonCancel = new javax.swing.JButton();
-        buttonCompleteOrder = new javax.swing.JButton();
+        buttonSaveChanges = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableOrderItems = new javax.swing.JTable();
-        buttonCompleteOrder1 = new javax.swing.JButton();
+        buttonUpdatePayment = new javax.swing.JButton();
+        textShipment = new javax.swing.JTextField();
+        textDate = new javax.swing.JTextField();
+        textTotal = new javax.swing.JTextField();
+        comboStatus = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -82,7 +84,7 @@ public class ViewOrderDialog extends javax.swing.JDialog {
                 .addComponent(labelTitle)
                 .addGap(18, 18, 18)
                 .addComponent(loadOrderID, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,19 +100,6 @@ public class ViewOrderDialog extends javax.swing.JDialog {
 
         labelOrderTotal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelOrderTotal.setText("Order Total");
-
-        loadOrderTotal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadOrderTotal.setText(Double.toString(order.getOrdAmt()));
-
-        loadOrderTracking.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadOrderTracking.setText(order.getOrdShipment());
-
-        loadOrderStatus.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadOrderStatus.setText(order.getOrdStatus().name());
-
-        loadOrderDate.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadOrderDate.setText(order.getOrdCreateDT().toString());
-        loadOrderDate.setToolTipText("");
 
         labelOrderTracking.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelOrderTracking.setText("Order Tracking No.");
@@ -132,10 +121,10 @@ public class ViewOrderDialog extends javax.swing.JDialog {
             }
         });
 
-        buttonCompleteOrder.setText("Complete Order");
-        buttonCompleteOrder.addActionListener(new java.awt.event.ActionListener() {
+        buttonSaveChanges.setText("Save Changes");
+        buttonSaveChanges.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCompleteOrderActionPerformed(evt);
+                buttonSaveChangesActionPerformed(evt);
             }
         });
 
@@ -167,7 +156,25 @@ public class ViewOrderDialog extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tableOrderItems);
 
-        buttonCompleteOrder1.setText("Go Back");
+        buttonUpdatePayment.setText("Update Payment");
+        buttonUpdatePayment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUpdatePaymentActionPerformed(evt);
+            }
+        });
+
+        textShipment.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textShipment.setText(Double.toString(order.getOrdAmt()));
+
+        textDate.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textDate.setText(order.getOrdCreateDT().toString());
+
+        textTotal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textTotal.setText(Double.toString(order.getOrdAmt()));
+
+        comboStatus.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        comboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unpaid", "ToShip", "Shipping", "Completed", "Cancelled" }));
+        comboStatus.setSelectedItem(order.getOrdStatus().name());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,9 +197,9 @@ public class ViewOrderDialog extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(buttonCompleteOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonUpdatePayment, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonCompleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -207,41 +214,42 @@ public class ViewOrderDialog extends javax.swing.JDialog {
                                     .addComponent(labelOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(loadOrderTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                                    .addComponent(loadOrderTracking, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                                    .addComponent(loadOrderStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                                    .addComponent(loadOrderDate, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(textShipment)
+                                    .addComponent(textDate)
+                                    .addComponent(textTotal)
+                                    .addComponent(comboStatus, 0, 322, Short.MAX_VALUE))))))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelOrderDate, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(textDate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loadOrderDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(loadOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(loadOrderTracking, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textShipment, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelOrderTracking, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(loadOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)))
                 .addGap(49, 49, 49)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCompleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonCompleteOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                    .addComponent(buttonUpdatePayment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(labelContactInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -254,7 +262,7 @@ public class ViewOrderDialog extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 547, Short.MAX_VALUE)
+            .addGap(0, 577, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -266,58 +274,88 @@ public class ViewOrderDialog extends javax.swing.JDialog {
             .addGap(0, 703, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 7, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 7, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveChangesActionPerformed
+        try {
+            LocalDateTime dt = LocalDateTime.parse(textDate.getText());
+            Double total = Double.parseDouble(textTotal.getText());
+            String shipmentcode = textShipment.getText();
+            String statusname = (String) comboStatus.getSelectedItem();
+            OrderStatus status = OrderStatus.valueOf(statusname);
+            Validation.validateShipmentInput(shipmentcode);
+            if (old != status) {
+                switch (status) {
+                    case Unpaid:
+                        order.setOrdPayment(new Payment(null, null, null));
+                        order.setOrdStatus(status);
+                        break;
+                    case ToShip:
+                        order.setOrdStatus(status);
+                        break;
+                    case Shipping:
+                        order.setOrdStatus(status);
+                        break;
+                    case Completed:
+                        order.setOrdStatus(status);
+                        break;
+                    case Cancelled:
+                        throw new Exception ("Please use the Cancel button below.");
+                }
+            }
+            order.setOrdCreateDT(dt);
+            order.setOrdAmt(total);
+            order.setOrdShipment(shipmentcode);
+            order.setOrdStatus(OrderStatus.Completed);
+            order.setOrdModifyDT(LocalDateTime.now());
+            rewriteOrderData();
+            JOptionPane.showMessageDialog(null, "Order changes is saved!");
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_buttonSaveChangesActionPerformed
+
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         try {
-            if (order.getOrdStatus() != OrderStatus.Unpaid) {
-                throw new Exception("This order cannot be cancelled");
+            if (order.getOrdStatus() != OrderStatus.Unpaid && order.getOrdStatus() != OrderStatus.ToShip) {
+                throw new Exception("This order cannot be cancelled.");
             }
             order.setOrdStatus(OrderStatus.Cancelled);
             for (OrderItem oi : order.getOrdItems()) {
                 oi.modifyOIQuantity(oi.getOIQuantity());
             }
             rewriteOrderData();
-            JOptionPane.showMessageDialog(null, "Order is cancelled!");
+            JOptionPane.showMessageDialog(null, "Order is cancelled! Refund is being processed...");
             this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_buttonCancelActionPerformed
 
-    private void buttonCompleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCompleteOrderActionPerformed
+    private void buttonUpdatePaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdatePaymentActionPerformed
         try {
-            order.setOrdStatus(OrderStatus.Completed);
-            opCus.getCusPI().addPIRewardPoint((int)order.getOrdAmt()*10);
-            rewriteOrderData();
-            rewriteCustomerData();
-            JOptionPane.showMessageDialog(null, "Order is completed!");
-            this.dispose();
+
+            //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
+            if (order.getOrdStatus() == OrderStatus.Cancelled) {
+                throw new Exception("This order payment cannot be updated.");
+            }
+            PaymentDialog paymentDialog = new PaymentDialog(null, true, order);
+            paymentDialog.show();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_buttonCompleteOrderActionPerformed
+    }//GEN-LAST:event_buttonUpdatePaymentActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public void showShoppingCartList() {
-        DefaultTableModel model = (DefaultTableModel) tableOrderItems.getModel();
-        int i = 0;
-
-        model.setRowCount(0);
-        for (OrderItem oi : order.getOrdItems()) {
-            model.addRow(new Object[]{oi.getProName() + " " + oi.getOIModel(), oi.getProPrice(), oi.getOIPackingCharge(), oi.getOIQuantity(), oi.getOIPrice()});
-        }
-        tableOrderItems.setModel(model);
-    }
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -332,20 +370,20 @@ public class ViewOrderDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ViewOrderDialog dialog = new ViewOrderDialog(new javax.swing.JFrame(), true);
+                EditOrderDialog dialog = new EditOrderDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -359,8 +397,9 @@ public class ViewOrderDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancel;
-    private javax.swing.JButton buttonCompleteOrder;
-    private javax.swing.JButton buttonCompleteOrder1;
+    private javax.swing.JButton buttonSaveChanges;
+    private javax.swing.JButton buttonUpdatePayment;
+    private javax.swing.JComboBox<String> comboStatus;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
@@ -372,11 +411,10 @@ public class ViewOrderDialog extends javax.swing.JDialog {
     private javax.swing.JLabel labelOrderTotal;
     private javax.swing.JLabel labelOrderTracking;
     private javax.swing.JLabel labelTitle;
-    private javax.swing.JLabel loadOrderDate;
     private javax.swing.JLabel loadOrderID;
-    private javax.swing.JLabel loadOrderStatus;
-    private javax.swing.JLabel loadOrderTotal;
-    private javax.swing.JLabel loadOrderTracking;
     private javax.swing.JTable tableOrderItems;
+    private javax.swing.JTextField textDate;
+    private javax.swing.JTextField textShipment;
+    private javax.swing.JTextField textTotal;
     // End of variables declaration//GEN-END:variables
 }

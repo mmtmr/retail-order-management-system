@@ -134,10 +134,10 @@ public class Customer {
         String CusOrdersIDs = "";
         if (!CusOrders.isEmpty()) {
             for (Order ord : CusOrders) {
-                CusOrdersIDs = CusOrdersIDs + ord.getOrdID() + ',';
+                CusOrdersIDs = CusOrdersIDs + ord.getOrdID() + '|';
             }
 
-            if (CusOrdersIDs.charAt(CusOrdersIDs.length()-1) == ',') {
+            if (CusOrdersIDs.charAt(CusOrdersIDs.length()-1) == '|') {
                 CusOrdersIDs = CusOrdersIDs.substring(0, CusOrdersIDs.length() - 1);
             }
             //CusOrdersIDs = CusOrdersIDs + ']';

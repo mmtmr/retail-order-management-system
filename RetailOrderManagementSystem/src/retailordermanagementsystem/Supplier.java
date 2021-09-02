@@ -116,10 +116,10 @@ public class Supplier {
         String SupProductsIDs = "";
         if (!SupProducts.isEmpty()&&SupProducts.get(0)!=null) {
             for (Product pro : SupProducts) {
-                SupProductsIDs = SupProductsIDs + pro.getProID() + ',';
+                SupProductsIDs = SupProductsIDs + pro.getProID() + '|';
             }
 
-            if (SupProductsIDs.charAt(SupProductsIDs.length() - 1) == ',') {
+            if (SupProductsIDs.charAt(SupProductsIDs.length() - 1) == '|') {
                 SupProductsIDs = SupProductsIDs.substring(0, SupProductsIDs.length() - 1);
             }
         } else {
@@ -242,8 +242,8 @@ public class Supplier {
             String[] SupPIData = PersonalInfo.parsePIFromString(SupLine[2]);
             String[] SupCIData = ContactInfo.parseContactInfoFromString(SupLine[3]);
             ArrayList<Product> SupProducts = new ArrayList<>();
-            if ((SupLine[4].split(","))[0] != null) {
-                for (String id : SupLine[4].split(",")) {
+            if ((SupLine[4].split("\\|"))[0] != null) {
+                for (String id : SupLine[4].split("\\|")) {
                     SupProducts.add(Product.searchProFromID(id));
                 }
             }
