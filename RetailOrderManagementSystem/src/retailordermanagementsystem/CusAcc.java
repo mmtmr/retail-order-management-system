@@ -14,7 +14,7 @@ import static retailordermanagementsystem.Operation.AccList;
  */
 public class CusAcc extends Account {
 
-    private static int CACounter; //TODO: READ FROM TXT FIL
+    private static int CACounter=0;
     private ShoppingCart CusSC;//Account gone shopping cart gone
     
     public CusAcc() {

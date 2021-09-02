@@ -65,6 +65,18 @@ public class Operation {
             }
         } finally {
             accRead.close();
+            String AccID;
+            for (int i = AccList.size() - 1; i >= 0; i--) {
+                if (CusAcc.getCACounter() != 0 && AdminAcc.getAACounter() != 0) {
+                    break;
+                }
+                AccID=AccList.get(i).getAccID();
+                if(AccID.contains("CA")){
+                    CusAcc.setCACounter(Integer.parseInt(AccID.substring(2,AccID.length())));
+                }else if(AccID.contains("AA")){
+                    AdminAcc.setAACounter(Integer.parseInt(AccID.substring(2,AccID.length())));
+                }
+            }
         }
     }
 
@@ -91,6 +103,27 @@ public class Operation {
             }
         } finally {
             proRead.close();
+            String ProID;
+            for (int i = ProList.size() - 1; i >= 0; i--) {
+                if (Product.getProStationeryCounter()!=0&&Product.getProFashionCounter()!=0&&Product.getProFoodCounter()!=0&&Product.getProOtherCounter()!=0) {
+                    break;
+                }
+                ProID=ProList.get(i).getProID();
+                switch(ProList.get(i).getProCategory()){
+                    case Stationery:
+                        Product.setProStationeryCounter(Integer.parseInt(ProID.substring(4,ProID.length())));
+                        break;
+                    case Fashion:
+                        Product.setProFashionCounter(Integer.parseInt(ProID.substring(4,ProID.length())));
+                        break;
+                     case Food:
+                        Product.setProFoodCounter(Integer.parseInt(ProID.substring(4,ProID.length())));
+                        break;
+                    case Other:
+                        Product.setProOtherCounter(Integer.parseInt(ProID.substring(4,ProID.length())));
+                        break;
+                }
+            }
         }
     }
 
@@ -110,6 +143,14 @@ public class Operation {
             }
         } finally {
             supRead.close();
+            String SupID;
+             for (int i = SupList.size() - 1; i >= 0; i--) {
+                if (Supplier.getSupCounter() != 0) {
+                    break;
+                }
+                SupID=SupList.get(i).getSupID();
+                Supplier.setSupCounter(Integer.parseInt(SupID.substring(3,SupID.length())));
+            }
         }
     }
 
@@ -151,6 +192,14 @@ public class Operation {
             }
         } finally {
             cusRead.close();
+            String CusID;
+             for (int i = CusList.size() - 1; i >= 0; i--) {
+                if (Customer.getCusCounter() != 0) {
+                    break;
+                }
+                CusID=SupList.get(i).getSupID();
+                Customer.setCusCounter(Integer.parseInt(CusID.substring(3,CusID.length())));
+            }
         }
 //        File orderFile = new File("order.txt");
 //        if (!orderFile.isFile() && !orderFile.createNewFile()) {
@@ -224,6 +273,16 @@ public class Operation {
             }
         } finally {
             ordRead.close();
+             String OrdID;
+            for (int i = OrdList.size() - 1; i >= 0; i--) {
+                if (Order.getOrdCounter() != 0) {
+                    break;
+                }
+                OrdID=OrdList.get(i).getOrdID().split("-")[0];
+                if(OrdID.contains("OR")){
+                    Order.setOrdCounter(Integer.parseInt(OrdID.substring(2,OrdID.length())));
+                }
+            }
         }
     }
 

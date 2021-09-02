@@ -21,7 +21,7 @@ public class Product {
     private double ProWeight;
     private ProductType ProCategory;
     protected double ProPackingCharge;
-    private static int ProStationeryCounter, ProFoodCounter, ProFashionCounter, ProOtherCounter;
+    private static int ProStationeryCounter=0, ProFoodCounter=0, ProFashionCounter=0, ProOtherCounter=0;
     private boolean ProFragile;
     protected ArrayList<ProModel> ProModels;
 

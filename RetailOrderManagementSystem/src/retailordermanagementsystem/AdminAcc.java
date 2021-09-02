@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  */
 public class AdminAcc extends Account {
 
-    private static int AACounter; //TODO: READ FROM TXT FILE
+    private static int AACounter=0;
 
     public AdminAcc() {
     }

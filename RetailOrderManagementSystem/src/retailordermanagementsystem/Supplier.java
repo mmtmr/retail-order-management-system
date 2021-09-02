@@ -19,7 +19,7 @@ public class Supplier {
     private PersonalInfo SupPersonInCharge;
     private ContactInfo SupCI;
     private ArrayList<Product> SupProducts;
-    private static int SupCounter;
+    private static int SupCounter=0;
 
     public Supplier() {
     }

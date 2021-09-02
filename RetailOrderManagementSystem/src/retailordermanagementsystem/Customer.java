@@ -15,7 +15,7 @@ import static retailordermanagementsystem.Operation.CusList;
  */
 public class Customer {
 
-    private static int CusCounter;
+    private static int CusCounter=0;
     private String CusID;//CUS000
     private CusInfo CusPI;//Composition
     private ContactInfo CusCI;//Composition

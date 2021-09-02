@@ -15,7 +15,7 @@ import static retailordermanagementsystem.Operation.OrdList;
  */
 public class Order extends OrderDetails {
 
-    private static int OrdCounter;//TODO Modify with Total ID
+    private static int OrdCounter=0;//TODO Modify with Total ID
     private LocalDateTime OrdCreateDT;
     private OrderStatus OrdStatus;
     private String OrdShipment;
