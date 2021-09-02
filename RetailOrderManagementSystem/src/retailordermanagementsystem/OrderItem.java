@@ -5,6 +5,8 @@
  */
 package retailordermanagementsystem;
 
+import static retailordermanagementsystem.Operation.ProList;
+
 /**
  *
  * @author Maxine
@@ -44,19 +46,20 @@ public class OrderItem extends Product {
 
     //Create
     public OrderItem(String OrdID, String OIModel, int OIQuantity, Product OIPro) {
+        super(OIPro);
         this.OIQuantity = OIQuantity;
         int index = 0;
         this.OIModel = OIModel;
-        for (ProModel model : OIPro.getProModels()) {
+        for (ProModel model : getProModels()) {
             if (model.getPMName().equals(this.OIModel)) {
                 model.minusPMStock(this.OIQuantity);
-                this.OIID = OrdID + '-' + OIPro.getProID() + String.format("%02d", index + 1); //Add Model ID
+                this.OIID = OrdID + '-' + getProID() + String.format("%02d", index + 1); //Add Model ID
                 break;
             }
             index++;
         }
-        this.OIPrice = OIPro.getProPrice() * OIQuantity;
-        this.OIPackingCharge = OIPro.getProPackingCharge() * OIQuantity;
+        this.OIPrice = getProPrice() * OIQuantity;
+        this.OIPackingCharge = getProPackingCharge() * OIQuantity;
     }
 
 //    public OrderItem(String ProID, String ProName, int ProStock, double ProPrice, double ProPackingCharge, double ProWeight, ArrayList<String> ProModels, ProductType ProCategory, Supplier ProSupplier, int OIQuantity, String OIModel) {
@@ -121,23 +124,52 @@ public class OrderItem extends Product {
         OIPackingCharge = getProPackingCharge() * OIQuantity;
     }
 
-    //Search OI from Order
-//    public OrderItem searchOIFromID(String oiID) {
-//        OrderItem orderitem = new Product();
-//        try {
-//            for (OrderItem pro : OrdList) {
-//                if (pro.getProID().equals(oiID)) {
-//                    product = pro;
-//                    return product;
-//                } else {
-//                    throw (new Exception("Order Item not found!" + oiID));
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//        return product;
-//    }
+    public void modifyOIQuantity(int increment) {
+        for (Product pro : ProList) {
+            if (pro.getProID().equals(this.getProID()) ) {
+                for (ProModel model : pro.getProModels()) {
+                    if (model.getPMName().equals(this.OIModel)) {
+                        model.minusPMStock(increment);
+                        break;
+                    }
+                }
+            }
+        }
+        this.OIQuantity += increment;
+        this.OIPrice = getProPrice() * OIQuantity;
+        this.OIPackingCharge = getProPackingCharge() * OIQuantity;
+    }
+
+    public static OrderItem searchOIFromID(String oiID) {
+        OrderItem orderitem = new OrderItem();
+        String ids[] = oiID.split("-");
+        Customer cus1;
+        try {
+            if (oiID.contains("SP")) {
+                cus1 = Customer.searchCusFromAccID("CA" + ids[0].substring(3, ids[0].length()));
+                for (OrderItem oi : cus1.getCusAccount().getCusSC().getOrdItems()) {
+                    if (oi.getOIID().equals(oiID)) {
+                        orderitem = oi;
+                        return orderitem;
+                    }
+                }
+            } else if (oiID.contains("OR")) {
+                Order ord = Order.searchOrderFromID(ids[0]);
+                for (OrderItem oi : ord.getOrdItems()) {
+                    if (oi.getOIID().equals(oiID)) {
+                        orderitem = oi;
+                        return orderitem;
+                    }
+
+                }
+            }
+            throw (new Exception("Order item not found!" + oiID));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return orderitem;
+    }
+
     @Override
     public String toString() {
         return OIID + "\t" + OIQuantity + "\t" + OIModel + "\t" + OIPrice + "\t" + OIPackingCharge;
@@ -156,22 +188,21 @@ public class OrderItem extends Product {
         }
     }
 
-    
     //Load from ID (TXT)
     //public OrderItem(Product OIPro, String OIID, int OIQuantity, String OIModel, double OIPrice, double OIPackingCharge) {
     public static void addOIFromString(String oiLine, String oiID) {
         try {
             String[] OILine = parseOIFromString(oiLine, oiID);
             if (OILine[0].equals(oiID)) {
-                Product OIPro=Product.searchProFromID(oiID.split("-")[1].substring(0,oiID.split("-")[1].length()-2));
-                int OIQuantiy=Integer.parseInt(OILine[1]);
+                Product OIPro = Product.searchProFromID(oiID.split("-")[1].substring(0, oiID.split("-")[1].length() - 2));
+                int OIQuantiy = Integer.parseInt(OILine[1]);
                 //Validate Model? todo?
-                double OIPrice=Double.parseDouble(OILine[3]);
-                double OIPackingCharge=Double.parseDouble(OILine[4]);
+                double OIPrice = Double.parseDouble(OILine[3]);
+                double OIPackingCharge = Double.parseDouble(OILine[4]);
                 if (oiID.contains("SP")) {
-                    CusAcc.searchCAFromID("CA"+oiID.substring(3, oiID.split("-")[0].length())).getCusSC().getOrdItems().add(new OrderItem(OIPro,oiID,OIQuantiy,OILine[2],OIPrice,OIPackingCharge));
+                    CusAcc.searchCAFromID("CA" + oiID.substring(3, oiID.split("-")[0].length())).getCusSC().getOrdItems().add(new OrderItem(OIPro, oiID, OIQuantiy, OILine[2], OIPrice, OIPackingCharge));
                 } else if (oiID.contains("OR")) {
-                    Order.searchOrderFromID(oiID.split("-")[1]).getOrdItems().add(new OrderItem(OIPro,oiID,OIQuantiy,OILine[2],OIPrice,OIPackingCharge));
+                    Order.searchOrderFromID(oiID.split("-")[0]).getOrdItems().add(new OrderItem(OIPro, oiID, OIQuantiy, OILine[2], OIPrice, OIPackingCharge));
                 }
             }
         } catch (Exception e) {

@@ -6,40 +6,29 @@
 package retailordermanagementsystem;
 
 import java.time.LocalDateTime;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import static retailordermanagementsystem.Operation.*;
+import static retailordermanagementsystem.Operation.opCus;
 
 /**
  *
  * @author Maxine
  */
-public class AddOrderItemDialog extends javax.swing.JDialog {
+public class ModifyOrderItemDialog extends javax.swing.JDialog {
 
-    Product product;
+    OrderItem orderitem=new OrderItem();
 
     /**
-     * Creates new form AddOrderItemDialog
+     * Creates new form ModifyOrderItemDialog
      */
-    public AddOrderItemDialog(java.awt.Frame parent, boolean modal) {
+     public ModifyOrderItemDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-
-    public AddOrderItemDialog(java.awt.Frame parent, boolean modal, Product pro) {
-        super(parent, modal);
-        this.product = pro;
+    public ModifyOrderItemDialog(java.awt.Frame parent, boolean modal, OrderItem orderitem) {
+        super(parent, modal);        
+        this.orderitem = orderitem;
         initComponents();
     }
-
-    private DefaultComboBoxModel<String> getComboBoxModel() {
-        String[] comboBoxModel = new String[product.getProModels().size()];
-        for (int i = 0; i < product.getProModels().size(); i++) {
-            comboBoxModel[i] = product.getProModels().get(i).getPMName();
-        }
-        return new DefaultComboBoxModel<>(comboBoxModel);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,18 +52,18 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
         loadPDPrice = new javax.swing.JLabel();
         loadPDCategory = new javax.swing.JLabel();
         loadPDWeight = new javax.swing.JLabel();
-        spinnerStock = new javax.swing.JSpinner();
+        spinnerQuantity = new javax.swing.JSpinner();
         loadPDFragile = new javax.swing.JLabel();
-        buttonAddToCart = new javax.swing.JButton();
+        buttonSave = new javax.swing.JButton();
         buttonCancel = new javax.swing.JButton();
-        comboModel = new javax.swing.JComboBox<>();
+        loadPDModel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
         labelProductDetails.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        labelProductDetails.setText("Product Details");
+        labelProductDetails.setText("Order Item Details");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -82,7 +71,7 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(labelProductDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelProductDetails)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -97,7 +86,7 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
         labelPDName.setText("Name");
 
         labelPDPrice.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        labelPDPrice.setText("Price");
+        labelPDPrice.setText("Unit Price");
 
         labelPDCategory.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelPDCategory.setText("Category");
@@ -115,29 +104,30 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
         labelPDFragile.setText("Fragile");
 
         loadPDName.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadPDName.setText(product.getProName());
+        loadPDName.setText(orderitem.getProName());
 
         loadPDPrice.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadPDPrice.setText(Double.toString(product.getProPrice()));
+        loadPDPrice.setText(Double.toString(orderitem.getProPrice()));
 
         loadPDCategory.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadPDCategory.setText(product.getProCategory().name());
+        loadPDCategory.setText(orderitem.getProCategory().name());
 
         loadPDWeight.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadPDWeight.setText(Double.toString(product.getProWeight()));
+        loadPDWeight.setText(Double.toString(orderitem.getProWeight()));
 
-        spinnerStock.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        spinnerStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        spinnerStock.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        spinnerQuantity.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        spinnerQuantity.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        spinnerQuantity.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        spinnerQuantity.setValue(orderitem.getOIQuantity());
 
         loadPDFragile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadPDFragile.setText(String.valueOf(product.isProFragile()));
+        loadPDFragile.setText(String.valueOf(orderitem.isProFragile()));
 
-        buttonAddToCart.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        buttonAddToCart.setText("Add To Cart");
-        buttonAddToCart.addActionListener(new java.awt.event.ActionListener() {
+        buttonSave.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        buttonSave.setText("Save Changes");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddToCartActionPerformed(evt);
+                buttonSaveActionPerformed(evt);
             }
         });
 
@@ -149,9 +139,8 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
             }
         });
 
-        comboModel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        comboModel.setModel(getComboBoxModel());
-        comboModel.setSelectedIndex(-1);
+        loadPDModel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loadPDModel.setText(orderitem.getOIModel());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -176,10 +165,10 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
                             .addComponent(loadPDWeight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(loadPDName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(loadPDFragile, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                            .addComponent(spinnerStock, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboModel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(loadPDModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(buttonAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                         .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -210,18 +199,18 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPDModel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(loadPDModel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPDQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spinnerStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPDFragile, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loadPDFragile, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonAddToCart, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(buttonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(buttonCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
@@ -250,31 +239,22 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddToCartActionPerformed
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
         try {
-//            public OrderItem(String OrdID, String OIModel, int OIQuantity, Product OIPro)
-
-            String pmname = (String) comboModel.getSelectedItem();
-            int stock = (Integer) spinnerStock.getValue();
-            product.validateStockFromModel(pmname, stock);
-            int oldstock = opCus.getCusAccount().getCusSC().searchOIFromProIDAndPM(product.getProID(), pmname).getOIQuantity();
-            if (oldstock > 0) {
-                stock = stock + oldstock;
-                opCus.getCusAccount().getCusSC().searchOIFromProIDAndPM(product.getProID(), pmname).setOIQuantity(stock);
-            } else {
-                opCus.getCusAccount().getCusSC().getOrdItems().add(new OrderItem(opCus.getCusAccount().getCusSC().getOrdID(), pmname, stock, product));
-               
-            }
+            //            public OrderItem(String OrdID, String OIModel, int OIQuantity, Product OIPro)
+            int increment = (Integer) spinnerQuantity.getValue()-orderitem.getOIQuantity();
+            orderitem.validateStockFromModel(orderitem.getOIModel(), increment);
+            orderitem.modifyOIQuantity(increment);
             opCus.getCusAccount().getCusSC().setOrdModifyDT(LocalDateTime.now());
             System.out.println(opCus.getCusAccount().getCusSC());
             Operation.rewriteOrderData();
             Operation.rewriteProductData();
-            JOptionPane.showMessageDialog(null, "Item added to shopping cart.");
+            JOptionPane.showMessageDialog(null, "Item quantity is modified.");
             this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_buttonAddToCartActionPerformed
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         this.dispose();
@@ -297,20 +277,20 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddOrderItemDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyOrderItemDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddOrderItemDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyOrderItemDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddOrderItemDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyOrderItemDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddOrderItemDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyOrderItemDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AddOrderItemDialog dialog = new AddOrderItemDialog(new javax.swing.JFrame(), true);
+                ModifyOrderItemDialog dialog = new ModifyOrderItemDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -323,9 +303,8 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddToCart;
     private javax.swing.JButton buttonCancel;
-    private javax.swing.JComboBox<String> comboModel;
+    private javax.swing.JButton buttonSave;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelPDCategory;
@@ -338,9 +317,10 @@ public class AddOrderItemDialog extends javax.swing.JDialog {
     private javax.swing.JLabel labelProductDetails;
     private javax.swing.JLabel loadPDCategory;
     private javax.swing.JLabel loadPDFragile;
+    private javax.swing.JLabel loadPDModel;
     private javax.swing.JLabel loadPDName;
     private javax.swing.JLabel loadPDPrice;
     private javax.swing.JLabel loadPDWeight;
-    private javax.swing.JSpinner spinnerStock;
+    private javax.swing.JSpinner spinnerQuantity;
     // End of variables declaration//GEN-END:variables
 }

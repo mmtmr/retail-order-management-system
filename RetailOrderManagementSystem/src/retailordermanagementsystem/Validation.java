@@ -5,6 +5,8 @@
  */
 package retailordermanagementsystem;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.year;
+import java.time.LocalDate;
 import java.util.regex.*;
 
 /**
@@ -15,7 +17,7 @@ import java.util.regex.*;
 public class Validation {
 
     public static boolean validateNoDelimeterAndNoNull(String input) {
-        return !input.contains("\t") &&!input.contains("\\|") && !input.isEmpty();
+        return !input.contains("\t") && !input.contains("\\|") && !input.isEmpty();
     }
 
     public static boolean validateNotNull(String input) {
@@ -28,14 +30,14 @@ public class Validation {
             throw new Exception("Invalid Input: Remove the tab or | inside input.");
         }
     }
-    
+
     public static void validateProductInput(String proname, String promodel) throws Exception {
         if (validateNoDelimeterAndNoNull(proname) && validateNoDelimeterAndNoNull(promodel)) {
         } else {
             throw new Exception("Invalid Input: Remove the tab or | inside input.");
         }
     }
-    
+
     public static void validateSupplierInput(String supname, String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode) throws Exception {
         if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
         } else {
@@ -45,7 +47,7 @@ public class Validation {
         } else {
             throw new Exception("Contact info format is incorrect");
         }
-        if (validateNoDelimeterAndNoNull(supname) &&validateNoDelimeterAndNoNull(fname) && validateNoDelimeterAndNoNull(lname)) {
+        if (validateNoDelimeterAndNoNull(supname) && validateNoDelimeterAndNoNull(fname) && validateNoDelimeterAndNoNull(lname)) {
         } else {
             throw new Exception("Invalid Input: Remove the tab or | inside input or NULL input.");
         }
@@ -53,9 +55,9 @@ public class Validation {
         } else {
             throw new Exception("Personal info format is incorrect");
         }
-        
+
     }
-    
+
     public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode) throws Exception {
         if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
         } else {
@@ -72,9 +74,9 @@ public class Validation {
         if (validateName(fname) && validateName(lname)) {
         } else {
             throw new Exception("Personal info format is incorrect");
-        }       
+        }
     }
-    
+
     public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname) throws Exception {
         if (validateNoDelimeterAndNoNull(phone) && validateNoDelimeterAndNoNull(email) && validateNoDelimeterAndNoNull(AddStreet) && validateNoDelimeterAndNoNull(AddCity) && validateNoDelimeterAndNoNull(AddState) && validateNoDelimeterAndNoNull(AddPostcode)) {
         } else {
@@ -153,21 +155,26 @@ public class Validation {
     }
 
     //https://howtodoinjava.com/java/regex/java-regex-validate-credit-card-numbers/
-    public static String validateCreditCard(String name, String cardnum, String cvv) throws Exception {
-        
-        if (validateNoDelimeterAndNoNull(cardnum) && validateNoDelimeterAndNoNull(cardnum) && validateNoDelimeterAndNoNull(cvv)) {            
+    public static String validateCreditCard(String name, String cardnum, String cvv, LocalDate exp) throws Exception {
+
+        if (validateNoDelimeterAndNoNull(cardnum) && validateNoDelimeterAndNoNull(cardnum) && validateNoDelimeterAndNoNull(cvv)) {
         } else {
             throw new Exception("Invalid Input: Remove the tab or | inside input.");
         }
-        if(validateCVV(cvv)){
-        } else{
+        if (validateCVV(cvv)) {
+        } else {
             throw new Exception("CVV format is incorrect.");
         }
-        if(validateName(name)){
-        } else{
+        if (validateName(name)) {
+        } else {
             throw new Exception("Name format is incorrect.");
         }
-        String creditcardregex = "^(?:(?<Visa>4[0-9]{12}(?:[0-9]{3})?)|" + "(?<Mastercard>5[1-5][0-9]{14})|";
+        if (validateExp(exp)) {
+        } else {
+            throw new Exception("Card is expired.");
+        }
+
+        String creditcardregex = "^(?:(?<Visa>4[0-9]{12}(?:[0-9]{3})?)|" + "(?<Mastercard>5[1-5][0-9]{14})|)$";
         Pattern pattern = Pattern.compile(creditcardregex);
         cardnum = cardnum.replaceAll("-", "");
         Matcher matcher = pattern.matcher(cardnum);
@@ -176,7 +183,7 @@ public class Validation {
 
         while (matcher.find()) {
             // Get the group matched using group() method
-            return(matcher.group());
+            return (matcher.group());
         }
         throw new Exception("Card format is incorrect or not accepted!");
     }
@@ -197,7 +204,16 @@ public class Validation {
     public static boolean validateCVV(String cvv) {
         return cvv.matches("\\d{3}");
     }
+
+    public static boolean validateExp(LocalDate exp) {
+        if (LocalDate.now().compareTo(exp) > 0) {
+            return false;
+        }
+        return true;
+    }
+
     public static boolean validateAddPostcode(String AddPostcode) {
+
         return AddPostcode.matches("\\d{5}");
     }
 

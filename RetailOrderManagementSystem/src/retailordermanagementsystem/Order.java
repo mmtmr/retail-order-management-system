@@ -19,45 +19,60 @@ public class Order extends OrderDetails {
     private LocalDateTime OrdCreateDT;
     private OrderStatus OrdStatus;
     private String OrdShipment;
+    private double OrdAmt;
     private Payment OrdPayment;
+
     public Order() {
     }
 
     //Create order
-    public Order(String AccID) {
+    public Order(ShoppingCart SC, double discount) {
         this.OrdID = "OR" + String.format("%06d", OrdCounter + 1);
         this.OrdCreateDT = LocalDateTime.now();
         this.OrdStatus = OrderStatus.Unpaid;
-        this.OrdPayment=new Payment();
+        this.OrdShipment="";
+        this.OrdItems = new ArrayList<>(SC.getOrdItems());
+        for (OrderItem oi : this.OrdItems) {
+            String[] ids=oi.getOIID().split("-");
+            oi.setOIID(this.OrdID+"-"+ids[1]);
+            oi.setOIPrice(oi.getOIPrice() * (1 - discount));
+            oi.setOIPackingCharge(oi.getOIPackingCharge() * (1 - discount));
+            this.OrdAmt += oi.getOIPrice() + oi.getOIPackingCharge();
+        }
+        SC.setOrdItems(new ArrayList<>());
+        SC.setOrdModifyDT(LocalDateTime.now());
+        this.OrdPayment = new Payment();
         addOrdCounter();
     }
 
     //Load order
-    public Order(LocalDateTime OrdCreateDT, OrderStatus OrdStatus, String OrdShipment, String PName, String PCardNumber, String PBank, String OrdID, LocalDateTime OrdModifyDT, ArrayList<Product> OIPros, String[] OIModels, int[] OIQuantities) {
+    public Order(LocalDateTime OrdCreateDT, OrderStatus OrdStatus, String OrdShipment, double OrdAmt, String PName, String PCardNumber, String PBank, String OrdID, LocalDateTime OrdModifyDT, ArrayList<Product> OIPros, String[] OIModels, int[] OIQuantities) {
         super(OrdID, OrdModifyDT, OIPros, OIModels, OIQuantities);
         this.OrdCreateDT = OrdCreateDT;
         this.OrdStatus = OrdStatus;
         this.OrdShipment = OrdShipment;
-        this.OrdPayment=new Payment(PName, PCardNumber, PBank);
+        this.OrdAmt = OrdAmt;
+        this.OrdPayment = new Payment(PName, PCardNumber, PBank);
     }
 
-    public Order(String OrdID, OrderStatus OrdStatus,LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment,String PName, String PCardNumber, String PBank) {
+    public Order(String OrdID, OrderStatus OrdStatus, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment, double OrdAmt, String PName, String PCardNumber, String PBank) {
         super(OrdID, OrdModifyDT);
         this.OrdCreateDT = OrdCreateDT;
         this.OrdStatus = OrdStatus;
         this.OrdShipment = OrdShipment;
-         this.OrdPayment=new Payment(PName, PCardNumber, PBank);
+        this.OrdAmt = OrdAmt;
+        this.OrdPayment = new Payment(PName, PCardNumber, PBank);
     }
-    
-    public Order(String OrdID, OrderStatus OrdStatus,LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment,String[] OrdPaymentLine) {
+
+    public Order(String OrdID, OrderStatus OrdStatus, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment, double OrdAmt, String[] OrdPaymentLine) {
         super(OrdID, OrdModifyDT);
         this.OrdCreateDT = OrdCreateDT;
         this.OrdStatus = OrdStatus;
         this.OrdShipment = OrdShipment;
-         this.OrdPayment=new Payment(OrdPaymentLine[0],OrdPaymentLine[1],OrdPaymentLine[2]);
+        this.OrdAmt = OrdAmt;
+        this.OrdPayment = new Payment(OrdPaymentLine[0], OrdPaymentLine[1], OrdPaymentLine[2]);
     }
 
-    
     public static int getOrdCounter() {
         return OrdCounter;
     }
@@ -98,6 +113,14 @@ public class Order extends OrderDetails {
         this.OrdShipment = OrdShipment;
     }
 
+    public double getOrdAmt() {
+        return OrdAmt;
+    }
+
+    public void setOrdAmt(double OrdAmt) {
+        this.OrdAmt = OrdAmt;
+    }
+
     public Payment getOrdPayment() {
         return OrdPayment;
     }
@@ -127,17 +150,20 @@ public class Order extends OrderDetails {
         sb.append("\t").append(OrdStatus);
         sb.append("\t").append(OrdCreateDT);
         sb.append("\t").append(OrdModifyDT);
-        sb.append("\t").append(OrdShipment);
+        if(OrdShipment.isEmpty()){
+            sb.append("\t").append("-");
+        }
+        else{
+            sb.append("\t").append(OrdShipment);
+        }
+        sb.append("\t").append(OrdAmt);
         sb.append("\t").append(OrdPayment);
         sb.append("\t").append(getOrdItemsIDs());
-        for (OrderItem oi : OrdItems){
+        for (OrderItem oi : OrdItems) {
             sb.append("\n").append(oi);
         }
         return sb.toString();
     }
-
-
-
 
     public static Order searchOrderFromID(String ordID) {
         Order order = new Order();
@@ -158,7 +184,7 @@ public class Order extends OrderDetails {
 
     public static ArrayList<Order> searchOrdersFromIDs(String[] OrdersIDs) {
         ArrayList<Order> Orders = new ArrayList<>();
-        if (!OrdersIDs[0].equals("-") ) {
+        if (!OrdersIDs[0].equals("-")) {
             try {
                 for (String id : OrdersIDs) {
                     for (Order ord : OrdList) {

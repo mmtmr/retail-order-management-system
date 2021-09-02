@@ -462,6 +462,39 @@ public class Operation {
         JOptionPane.showMessageDialog(null, "Product information is deleted.");
     }
 
+    public static void destroyOrderItem(OrderItem oi) throws IOException {
+        String ids[] = oi.getOIID().split("-");
+        try {
+            if (ids[0].contains("SP")) {
+                Customer cus = Customer.searchCusFromAccID("CA" + ids[0].substring(3, ids[0].length()));
+                cus.getCusAccount().getCusSC().getOrdItems().remove(oi);
+            } else if (oi.getOIID().contains("OR")) {
+                Order ord = Order.searchOrderFromID(ids[0]);
+                for (OrderItem o : ord.getOrdItems()) {
+                    if (o.getOIID().equals(oi.getOIID())) {
+                        ord.getOrdItems().remove(oi);
+                    }
+                }
+            }
+            oi.modifyOIQuantity(oi.getOIQuantity() * -1);
+            throw (new Exception("Order item is not deleted!" + oi.getOIID()));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        rewriteProductData();
+        rewriteOrderData();
+        JOptionPane.showMessageDialog(null, "Order item is deleted.");
+        //BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
+    }
+
+    public static void destroyOrder(Order ord) throws Exception {
+        OrdList.remove(ord);
+        rewriteOrderData();
+        Customer.searchCusFromOrdID(ord.getOrdID()).getCusOrders().remove(ord);
+        rewriteCustomerData();
+        JOptionPane.showMessageDialog(null, "Order information is deleted.");
+    }
+
     public static void destroySupplierObject(Supplier sup) throws Exception {
         SupList.remove(sup);
         rewriteSupplierData();

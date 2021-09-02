@@ -23,7 +23,6 @@ public class ProModel {
         this.PMName = PMName;
         this.PMStock = PMStock;
     }
-    
 
     public String getPMName() {
         return PMName;
@@ -41,6 +40,10 @@ public class ProModel {
         this.PMStock = PMStock;
     }
 
+//    public void addPMStock(int OIQuantity) {
+//        PMStock += OIQuantity;
+//    }
+
     public void minusPMStock(int OIQuantity) {
         try {
             if (PMStock - OIQuantity < 0) {
@@ -53,8 +56,6 @@ public class ProModel {
             System.out.println(e);
         }
     }
-    
-    
 
     @Override
     public String toString() {
@@ -64,19 +65,19 @@ public class ProModel {
     //validate null
     public static String[][] parsePMFromString(String pmNamesLine, String pmStocksLine) throws Exception {
         int validInt;
-        String[] pmNamesData=pmNamesLine.split(",");
-        String[] pmStocksData=pmStocksLine.split(",");
+        String[] pmNamesData = pmNamesLine.split(",");
+        String[] pmStocksData = pmStocksLine.split(",");
         String[][] pmData = new String[pmNamesData.length][2];
         if (pmNamesData.length != pmStocksData.length) {
             throw (new Exception("Product Model is incomplete!" + pmNamesLine + pmStocksLine));
         }
         for (int i = 0; i < pmNamesData.length; i++) {
-            pmData[i][0]=pmNamesData[i];
-            pmData[i][1]=pmStocksData[i];
-            validInt=Integer.parseInt(pmData[i][1]);   
+            pmData[i][0] = pmNamesData[i];
+            pmData[i][1] = pmStocksData[i];
+            validInt = Integer.parseInt(pmData[i][1]);
         }
         return pmData;
-        
+
     }
 
 }

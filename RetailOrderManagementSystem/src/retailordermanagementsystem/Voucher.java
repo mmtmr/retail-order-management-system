@@ -28,6 +28,9 @@ public class Voucher {
             case Birthday:
                 VouDiscount=0.3;
                 break;
+            case Newbie:
+                VouDiscount=0.05;
+                break;
         }
     }
 

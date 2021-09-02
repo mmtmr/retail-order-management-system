@@ -85,6 +85,8 @@ public class CusInfo extends PersonalInfo {
             PIVoucher.add(new Voucher(VoucherType.VVIP));
         } else if (PIRewardPoint >= 5000) {
             PIVoucher.add(new Voucher(VoucherType.VIP));
+        }else{
+            PIVoucher.add(new Voucher(VoucherType.Newbie));
         }
         if (PIDateOfBirth.getMonth()==LocalDate.now().getMonth()) {
             PIVoucher.add(new Voucher(VoucherType.Birthday));

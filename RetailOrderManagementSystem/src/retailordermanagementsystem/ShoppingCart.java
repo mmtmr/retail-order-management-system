@@ -7,6 +7,7 @@ package retailordermanagementsystem;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import static retailordermanagementsystem.Operation.opCus;
 
 /**
  *
@@ -33,7 +34,6 @@ public class ShoppingCart extends OrderDetails {
     public ShoppingCart(String OrdID, LocalDateTime OrdModifyDT) {
         super(OrdID, OrdModifyDT);
     }
-    
     
     
     @Override

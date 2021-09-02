@@ -80,12 +80,11 @@ public abstract class OrderDetails {
                 OrdItemsIDs = OrdItemsIDs + item.getOIID() + ',';
             }
 
-            if (OrdItemsIDs.charAt(OrdItemsIDs.length()-1) == ',') {
+            if (OrdItemsIDs.charAt(OrdItemsIDs.length() - 1) == ',') {
                 OrdItemsIDs = OrdItemsIDs.substring(0, OrdItemsIDs.length() - 1);
             }
-        }
-        else{
-            OrdItemsIDs="-";
+        } else {
+            OrdItemsIDs = "-";
         }
         //OrdItemsIDs = OrdItemsIDs + ']';
         return OrdItemsIDs;
@@ -102,6 +101,23 @@ public abstract class OrderDetails {
                 }
             }
             throw (new Exception("Order Item not found!" + oiID));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return orderitem;
+    }
+
+    //Search OI From Product and Model
+    public OrderItem searchOIFromProIDAndPM(String proID, String model) {
+        OrderItem orderitem = new OrderItem();
+        try {
+            for (OrderItem oi : OrdItems) {
+                if (oi.getProID().equals(proID) && oi.getOIModel().equals(model)) {
+                    orderitem = oi;
+                    return orderitem;
+                }
+            }
+            throw (new Exception("Order Item not found!" + proID + model));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -165,7 +181,7 @@ public abstract class OrderDetails {
                 return ordData;
             }
         } else if (ordData[0].contains("OR") && !ordData[0].contains("-")) {
-            if (ordData.length != 7) {
+            if (ordData.length != 8) {
                 throw (new Exception("Order is incomplete!" + ordLine));
             } else {
                 return ordData;
@@ -174,39 +190,39 @@ public abstract class OrderDetails {
             throw (new Exception("Cannot read Order or Shopping Cart data!" + ordLine));
         }
     }
-    
+
     public static String[] buildOrdFromString(String ordLine) {
         String[] ordData = ordLine.split("\t");
-        String[] oisIDs=ordData[ordData.length-1].split(",");
+        String[] oisIDs = ordData[ordData.length - 1].split(",");
         try {
             String[] OrdLine = parseOrdFromString(ordLine);
-            
+
             //String OrdID, LocalDateTime OrdModifyDT, ArrayList<Product> OIPros, String[] OIModels, int[] OIQuantities;
             //TODO valid ordid format
             //String OrdID, OrderStatus OrdStatus,LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment
             if (OrdLine[0].contains("SP") && !OrdLine[0].contains("-")) {
                 LocalDateTime OrdModifyDT = LocalDateTime.parse(OrdLine[1]);
-                CusAcc.searchCAFromID("CA"+OrdLine[0].substring(3, OrdLine[0].length())).setCusSC(new ShoppingCart(OrdLine[0], OrdModifyDT));
+                CusAcc.searchCAFromID("CA" + OrdLine[0].substring(3, OrdLine[0].length())).setCusSC(new ShoppingCart(OrdLine[0], OrdModifyDT));
                 return oisIDs;
             } else if (OrdLine[0].contains("OR") && !OrdLine[0].contains("-")) {
 
                 OrderStatus OrdStatus = OrderStatus.valueOf(OrdLine[1]);
                 LocalDateTime OrdCreateDT = LocalDateTime.parse(OrdLine[2]);
                 LocalDateTime OrdModifyDT = LocalDateTime.parse(OrdLine[3]);
-                String[] OrdPayment=Payment.parsePayFromString(OrdLine[5]);
-                Operation.OrdList.add(new Order(OrdLine[0], OrdStatus, OrdCreateDT, OrdModifyDT, OrdLine[4], OrdPayment));
+                Double OrdAmt = Double.parseDouble(OrdLine[5]);
+                String[] OrdPayment = Payment.parsePayFromString(OrdLine[6]);
+                Operation.OrdList.add(new Order(OrdLine[0], OrdStatus, OrdCreateDT, OrdModifyDT, OrdLine[4], OrdAmt, OrdPayment));
                 return oisIDs;
             } else {
-                oisIDs=null;
+                oisIDs = null;
                 throw (new Exception("Cannot find order!" + ordLine));
-                
+
             }
 
         } catch (Exception e) {
             System.out.println(e);
         }
-        return(oisIDs);
+        return (oisIDs);
     }
-    
-}
 
+}

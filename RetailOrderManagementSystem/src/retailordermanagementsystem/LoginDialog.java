@@ -198,6 +198,7 @@ public class LoginDialog extends javax.swing.JDialog {
                             JOptionPane.showMessageDialog(null, "Welcome back!");
                             new AdminPanel().setVisible(true);
                             this.dispose();
+                            return;
                         } else if (userType == 'C') {
                             opUser = (CusAcc) acc;
                             opCus=Customer.searchCusFromAccID(opUser.getAccID());
@@ -205,6 +206,7 @@ public class LoginDialog extends javax.swing.JDialog {
                             JOptionPane.showMessageDialog(null, "Welcome back!");
                             new CustomerPanel().setVisible(true);
                             this.dispose();
+                            return;
                         }
 //                        else {
 //                            throw new Exception("Text file is corrupted!");
@@ -215,13 +217,15 @@ public class LoginDialog extends javax.swing.JDialog {
 
                 }
             }
+            throw new Exception("Account not found!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void buttonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSignUpActionPerformed
-        new AdminPanel().setVisible(true);
+        SignUpDialog signUpDialog = new SignUpDialog(null, true);
+        signUpDialog.show();
     }//GEN-LAST:event_buttonSignUpActionPerformed
 
     /**

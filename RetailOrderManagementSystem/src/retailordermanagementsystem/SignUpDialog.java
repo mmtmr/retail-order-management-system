@@ -390,8 +390,7 @@ public class SignUpDialog extends javax.swing.JDialog {
         CusAcc acc = new CusAcc();
         Customer cus = new Customer();
         try {
-
-            //            String AccountName=textAccountName.getText();
+            String accname=textAccountName.getText();
             String fname = textFirstName.getText();
             String lname = textLastName.getText();
             Gender gender;
@@ -410,6 +409,11 @@ public class SignUpDialog extends javax.swing.JDialog {
             String state = (String) comboState.getSelectedItem();
             String postcode = textPostcode.getText();
             
+            for(Account a:AccList){
+                if(a.getAccName().equals(accname)){
+                    throw new Exception("Account name already existed.");
+                }
+            }
             //Validate input
             //Validation.validateAccountInput(textAccountName.getText(), "123456");
             //public static void validateCustomerInput(String fname, String lname, String phone, String email, String AddStreet, String AddCity, String AddState, String AddPostcode, String accname) throws Exception {

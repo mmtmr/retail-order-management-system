@@ -133,12 +133,11 @@ public class Customer {
         //String CusOrdersIDs = "[";
         String CusOrdersIDs = "";
         if (!CusOrders.isEmpty()) {
-            CusOrdersIDs = CusOrdersIDs + ',';
             for (Order ord : CusOrders) {
                 CusOrdersIDs = CusOrdersIDs + ord.getOrdID() + ',';
             }
 
-            if (CusOrdersIDs.charAt(CusOrdersIDs.length()) == ',') {
+            if (CusOrdersIDs.charAt(CusOrdersIDs.length()-1) == ',') {
                 CusOrdersIDs = CusOrdersIDs.substring(0, CusOrdersIDs.length() - 1);
             }
             //CusOrdersIDs = CusOrdersIDs + ']';
@@ -215,6 +214,24 @@ public class Customer {
         }
         return customer;
     }
+    
+    public static Customer searchCusFromOrdID(String ordID) {
+        Customer customer = new Customer();
+        try {
+            for (Customer cus : CusList) {
+                if (cus.getCusOrdersIDs() != null) {
+                    if (cus.getCusOrdersIDs().contains(ordID)) {
+                        customer = cus;
+                        return cus;
+                    }
+                }
+            }
+            throw (new Exception("Customer not found!" + ordID));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return customer;
+    }
 
     public static Customer searchCusFromID(String cusID) {
         Customer customer = new Customer();
@@ -228,9 +245,10 @@ public class Customer {
             throw (new Exception("Customer not found!" + cusID));
         } catch (Exception e) {
             System.out.println(e);
+            
         }
         return customer;
-    }
+    }   
 
 //    public static Customer parseCusFromString(String cusLine, ArrayList<Account> AccList, ArrayList<OrderDetails> OrdList, ArrayList<ShoppingCart> SCList) {
 //        CusAcc cusAccount = new CusAcc();

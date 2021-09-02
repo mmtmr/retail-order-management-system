@@ -10,5 +10,5 @@ package retailordermanagementsystem;
  * @author Maxine
  */
 public enum VoucherType {
-    VVIP,VIP,Birthday;
+    VVIP,VIP,Birthday,Newbie;
 }
