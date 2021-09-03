@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroupType">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -49,7 +53,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -107,48 +111,48 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="textName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelPrice" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPrice" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="textPrice" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="textWeight" max="32767" attributes="0"/>
-                          <Component id="labelWeight" max="32767" attributes="0"/>
+                          <Component id="textWeight" pref="35" max="32767" attributes="0"/>
+                          <Component id="labelWeight" pref="35" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="textModel" max="32767" attributes="0"/>
-                          <Component id="labelModel" max="32767" attributes="0"/>
+                          <Component id="textModel" pref="35" max="32767" attributes="0"/>
+                          <Component id="labelModel" pref="35" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelCategory" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="comboCategory" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelCategory" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="comboCategory" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelSupplier" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="comboSupplier" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelSupplier" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="comboSupplier" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelStock" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spinnerStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelStock" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="spinnerStock" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelType" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="radioFragile" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="radioNonFragile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelType" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="radioFragile" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="radioNonFragile" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="buttonCancel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="buttonSave" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -333,11 +337,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioFragile">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupType"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Fragile"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioNonFragile">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupType"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Non-Fragile"/>
               </Properties>
               <Events>
@@ -349,7 +359,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="66" type="rgb"/>
+              <Color blue="c0" green="64" red="64" type="rgb"/>
             </Property>
           </Properties>
 
@@ -357,7 +367,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="labelTitle" min="-2" pref="240" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -365,9 +375,9 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
-                      <Component id="labelTitle" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="labelTitle" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -377,9 +387,12 @@
             <Component class="javax.swing.JLabel" name="labelTitle">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Monotype Corsiva" size="36" style="1"/>
+                  <Font name="Dialog" size="36" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Product"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Add Product"/>
               </Properties>
             </Component>
           </SubComponents>

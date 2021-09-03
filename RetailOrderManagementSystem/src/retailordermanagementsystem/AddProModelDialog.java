@@ -62,9 +62,10 @@ DefaultTableModel model;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(100, 100, 192));
 
-        labelProductDetails.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelProductDetails.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        labelProductDetails.setForeground(new java.awt.Color(255, 255, 255));
         labelProductDetails.setText("Add Model");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

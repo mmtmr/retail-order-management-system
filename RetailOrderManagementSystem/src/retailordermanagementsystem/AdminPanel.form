@@ -97,11 +97,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tabbedPaneProduct" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="tabbedPaneProduct" pref="1383" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="labelTitleProduct" min="-2" pref="210" max="-2" attributes="0"/>
-                                  <EmptySpace pref="162" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="textSearchPro" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="buttonRestockPor" min="-2" max="-2" attributes="0"/>
@@ -117,36 +120,31 @@
                                   <Component id="buttonDeletePro" linkSize="2" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="buttonDeleteModel" linkSize="2" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="buttonDeletePro" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="buttonEditPro" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="buttonAddPro" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="buttonRestockPor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="buttonAddModel" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="buttonEditModel" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="buttonDeleteModel" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textSearchPro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Component id="labelTitleProduct" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelTitleProduct" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                  <Component id="buttonDeletePro" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonEditPro" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonAddPro" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonRestockPor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonAddModel" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonEditModel" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonDeleteModel" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textSearchPro" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                          <Component id="tabbedPaneProduct" max="32767" attributes="0"/>
+                          <Component id="tabbedPaneProduct" pref="646" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -869,10 +867,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tabbedPaneCustomer" min="-2" pref="1421" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="tabbedPaneCustomer" min="-2" pref="1421" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="labelTitleCus" min="-2" pref="269" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="textSearchCus" min="-2" pref="173" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="buttonAddCus" min="-2" max="-2" attributes="0"/>
@@ -886,17 +887,18 @@
                               <Component id="buttonDeleteCus" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="buttonDeleteAcc" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelTitleCus" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                               <Component id="buttonDeleteAcc" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="buttonDeleteCus" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="buttonEditCus" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -905,7 +907,6 @@
                               <Component id="buttonAddOrd" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="buttonAddAcc" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="labelTitleCus" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="tabbedPaneCustomer" pref="651" max="32767" attributes="0"/>
@@ -1076,6 +1077,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="showGrid" type="boolean" value="true"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
@@ -1174,6 +1176,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="showGrid" type="boolean" value="true"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
@@ -1272,6 +1275,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="showGrid" type="boolean" value="true"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
@@ -1370,6 +1374,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="showGrid" type="boolean" value="true"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
@@ -1421,7 +1426,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="labelTitleOrder" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="696" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="663" max="-2" attributes="0"/>
                               <Component id="textSearchOrder" min="-2" pref="213" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="buttonRefreshOrder" min="-2" max="-2" attributes="0"/>
@@ -1431,7 +1436,7 @@
                               <Component id="buttonEditOrder" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="buttonDeleteOrder" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
@@ -1441,15 +1446,15 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelTitleOrder" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                               <Component id="buttonDeleteOrder" alignment="3" max="32767" attributes="0"/>
                               <Component id="buttonEditOrder" alignment="3" max="32767" attributes="0"/>
                               <Component id="textSearchOrder" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="buttonShipOrder" alignment="3" max="32767" attributes="0"/>
                               <Component id="buttonRefreshOrder" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="labelTitleOrder" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="tabbedPaneOrder" pref="600" max="32767" attributes="0"/>

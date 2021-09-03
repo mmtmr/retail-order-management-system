@@ -80,7 +80,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
 
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        labelTitleProduct.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        labelTitleProduct.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         labelTitleProduct.setText("Overcook Mall");
         labelTitleProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -121,7 +121,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tableProList.setShowGrid(false);
+        tableProList.setShowGrid(true);
         tableProList.setShowVerticalLines(true);
         jScrollPane2.setViewportView(tableProList);
 
@@ -150,6 +150,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tableProFoodList.setShowGrid(true);
         jScrollPane19.setViewportView(tableProFoodList);
 
         tabbedPaneMall.addTab("Food", jScrollPane19);
@@ -177,6 +178,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tableProFashionList.setShowGrid(true);
         jScrollPane20.setViewportView(tableProFashionList);
 
         tabbedPaneMall.addTab("Fashion", jScrollPane20);
@@ -204,6 +206,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tableProOtherList.setShowGrid(true);
         jScrollPane21.setViewportView(tableProOtherList);
 
         tabbedPaneMall.addTab("Other", jScrollPane21);
@@ -231,6 +234,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tableProStationeryList.setShowGrid(true);
         jScrollPane3.setViewportView(tableProStationeryList);
 
         tabbedPaneMall.addTab("Stationery", jScrollPane3);
@@ -296,7 +300,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
         labelTota.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         labelTota.setText("jLabel1");
 
-        labelTitle2.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        labelTitle2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         labelTitle2.setText("Shopping Cart");
         labelTitle2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -331,6 +335,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tableShoppingCart.setShowGrid(true);
         jScrollPane4.setViewportView(tableShoppingCart);
 
         buttonModify.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -377,11 +382,11 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addComponent(labelTotalQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                        .addComponent(labelTotalQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
-                        .addComponent(labelTota, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                        .addComponent(labelTota, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
-                        .addComponent(labelTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                        .addComponent(labelTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                         .addGap(135, 135, 135))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)

@@ -47,7 +47,7 @@
                   <Component id="buttonSave" min="-2" pref="130" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="buttonCancel" min="-2" pref="130" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -64,23 +64,21 @@
                       <Component id="labelSupPhone" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="textPICFirstName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textPICLastName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textSupPhone" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textSupStreet" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textSupEmail" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textSupCity" alignment="0" max="32767" attributes="0"/>
-                          <Component id="comboSupState" alignment="1" max="32767" attributes="0"/>
-                          <Component id="textSupPostcode" alignment="1" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="radioPICMale" min="-2" pref="64" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="radioPICFemale" min="-2" pref="76" max="-2" attributes="0"/>
-                          </Group>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="textPICFirstName" alignment="0" max="32767" attributes="0"/>
+                      <Component id="textPICLastName" alignment="0" max="32767" attributes="0"/>
+                      <Component id="textSupPhone" alignment="0" max="32767" attributes="0"/>
+                      <Component id="textSupStreet" alignment="0" max="32767" attributes="0"/>
+                      <Component id="textSupEmail" alignment="0" max="32767" attributes="0"/>
+                      <Component id="textSupCity" alignment="0" max="32767" attributes="0"/>
+                      <Component id="comboSupState" alignment="1" max="32767" attributes="0"/>
+                      <Component id="textSupPostcode" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="radioPICMale" min="-2" pref="64" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="radioPICFemale" min="-2" pref="76" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="textSupplierName" min="-2" pref="147" max="-2" attributes="0"/>
+                      <Component id="textSupplierName" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
@@ -105,18 +103,13 @@
                       <Component id="labelLastName1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="textPICLastName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="radioPICFemale" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="radioPICMale" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="radioPICFemale" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="radioPICMale" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelGender1" min="-2" pref="35" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="labelGender1" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -380,7 +373,7 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="18">
                 <StringItem index="0" value="&lt;Select State&gt;"/>
-                <StringItem index="1" value="Kuala Lumpur"/>
+                <StringItem index="1" value="Wilayah Persekutuan"/>
                 <StringItem index="2" value="Selangor"/>
                 <StringItem index="3" value="Putrajaya"/>
                 <StringItem index="4" value="Labuan"/>
