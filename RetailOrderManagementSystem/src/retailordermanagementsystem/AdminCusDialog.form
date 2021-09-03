@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="1479" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="1603" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -81,7 +81,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tabbedPaneMall" alignment="0" pref="1360" max="32767" attributes="0"/>
+                              <Component id="tabbedPaneMall" alignment="0" pref="1484" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="labelTitleProduct" min="-2" pref="210" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -121,7 +121,7 @@
                 <Component class="javax.swing.JLabel" name="labelTitleProduct">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="24" style="1"/>
+                      <Font name="Dialog" size="24" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Overcook Mall"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -162,19 +162,16 @@
                         <Component class="javax.swing.JTable" name="tableProList">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="9" rowCount="0">
+                              <Table columnCount="6" rowCount="0">
                                 <Column editable="false" title="ID" type="java.lang.String"/>
                                 <Column editable="false" title="Category" type="java.lang.String"/>
                                 <Column editable="false" title="Name" type="java.lang.String"/>
                                 <Column editable="false" title="Price" type="java.lang.Double"/>
-                                <Column editable="false" title="Model" type="java.lang.String"/>
-                                <Column editable="false" title="Stock" type="java.lang.Integer"/>
                                 <Column editable="false" title="Weight" type="java.lang.Object"/>
                                 <Column editable="false" title="Fragile" type="java.lang.Boolean"/>
-                                <Column editable="false" title="Supplier" type="java.lang.Object"/>
                               </Table>
                             </Property>
-                            <Property name="showGrid" type="boolean" value="true"/>
+                            <Property name="showGrid" type="boolean" value="false"/>
                             <Property name="showVerticalLines" type="boolean" value="true"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -200,19 +197,15 @@
                         <Component class="javax.swing.JTable" name="tableProFoodList">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="9" rowCount="0">
+                              <Table columnCount="6" rowCount="0">
                                 <Column editable="false" title="ID" type="java.lang.String"/>
                                 <Column editable="false" title="Category" type="java.lang.String"/>
                                 <Column editable="false" title="Name" type="java.lang.String"/>
                                 <Column editable="false" title="Price" type="java.lang.Double"/>
-                                <Column editable="false" title="Model" type="java.lang.String"/>
-                                <Column editable="false" title="Stock" type="java.lang.Integer"/>
                                 <Column editable="false" title="Weight" type="java.lang.Object"/>
                                 <Column editable="false" title="Fragile" type="java.lang.Boolean"/>
-                                <Column editable="false" title="Supplier" type="java.lang.Object"/>
                               </Table>
                             </Property>
-                            <Property name="showGrid" type="boolean" value="true"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -237,18 +230,15 @@
                         <Component class="javax.swing.JTable" name="tableProFashionList">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="8" rowCount="0">
+                              <Table columnCount="6" rowCount="0">
                                 <Column editable="false" title="ID" type="java.lang.String"/>
                                 <Column editable="false" title="Category" type="java.lang.String"/>
                                 <Column editable="false" title="Name" type="java.lang.String"/>
                                 <Column editable="false" title="Price" type="java.lang.Double"/>
-                                <Column editable="false" title="Model" type="java.lang.String"/>
-                                <Column editable="false" title="Stock" type="java.lang.Integer"/>
                                 <Column editable="false" title="Weight" type="java.lang.Object"/>
                                 <Column editable="false" title="Fragile" type="java.lang.Boolean"/>
                               </Table>
                             </Property>
-                            <Property name="showGrid" type="boolean" value="true"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -273,19 +263,15 @@
                         <Component class="javax.swing.JTable" name="tableProOtherList">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="9" rowCount="0">
+                              <Table columnCount="6" rowCount="0">
                                 <Column editable="false" title="ID" type="java.lang.String"/>
                                 <Column editable="false" title="Category" type="java.lang.String"/>
                                 <Column editable="false" title="Name" type="java.lang.String"/>
                                 <Column editable="false" title="Price" type="java.lang.Double"/>
-                                <Column editable="false" title="Model" type="java.lang.String"/>
-                                <Column editable="false" title="Stock" type="java.lang.Integer"/>
                                 <Column editable="false" title="Weight" type="java.lang.Object"/>
                                 <Column editable="false" title="Fragile" type="java.lang.Boolean"/>
-                                <Column editable="false" title="Supplier" type="java.lang.Object"/>
                               </Table>
                             </Property>
-                            <Property name="showGrid" type="boolean" value="true"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -310,19 +296,15 @@
                         <Component class="javax.swing.JTable" name="tableProStationeryList">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="9" rowCount="0">
+                              <Table columnCount="6" rowCount="0">
                                 <Column editable="false" title="ID" type="java.lang.String"/>
                                 <Column editable="false" title="Category" type="java.lang.String"/>
                                 <Column editable="false" title="Name" type="java.lang.String"/>
                                 <Column editable="false" title="Price" type="java.lang.Double"/>
-                                <Column editable="false" title="Model" type="java.lang.String"/>
-                                <Column editable="false" title="Stock" type="java.lang.Integer"/>
                                 <Column editable="false" title="Weight" type="java.lang.Object"/>
                                 <Column editable="false" title="Fragile" type="java.lang.Boolean"/>
-                                <Column editable="false" title="Supplier" type="java.lang.Object"/>
                               </Table>
                             </Property>
-                            <Property name="showGrid" type="boolean" value="true"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -393,7 +375,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="buttonDelete1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane4" alignment="0" pref="823" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" alignment="0" pref="947" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
@@ -420,11 +402,11 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Component id="labelTotalQuantity" pref="109" max="32767" attributes="0"/>
+                                  <Component id="labelTotalQuantity" pref="110" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="labelTota" pref="109" max="32767" attributes="0"/>
+                                  <Component id="labelTota" pref="110" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="labelTotal" pref="109" max="32767" attributes="0"/>
+                                  <Component id="labelTotal" pref="110" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -474,7 +456,7 @@
                 <Component class="javax.swing.JLabel" name="labelTitle2">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="24" style="1"/>
+                      <Font name="Dialog" size="22" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Shopping Cart"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -511,7 +493,6 @@
                             <Column editable="false" title="Packing Charge" type="java.lang.Double"/>
                           </Table>
                         </Property>
-                        <Property name="showGrid" type="boolean" value="true"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>

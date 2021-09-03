@@ -202,9 +202,8 @@ public class OrderConfirmationDialog extends javax.swing.JDialog {
                                         .addGap(148, 148, 148)
                                         .addComponent(buttonCancel))
                                     .addComponent(labelOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE)))
-                        .addComponent(labelOrderTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(labelOrderTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -342,7 +341,7 @@ public class OrderConfirmationDialog extends javax.swing.JDialog {
                 total = oriprice - oriprice * selectedvoucher.getVouDiscount();
             }
         }
-        labelOrderTotalAmount.setText(Double.toString(total));
+        labelOrderTotalAmount.setText( String.format( "%.2f", total ));
     }//GEN-LAST:event_comboVoucherActionPerformed
 
     /**

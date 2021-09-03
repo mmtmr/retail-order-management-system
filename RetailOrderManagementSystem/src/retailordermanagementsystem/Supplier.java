@@ -19,7 +19,7 @@ public class Supplier {
     private PersonalInfo SupPersonInCharge;
     private ContactInfo SupCI;
     private ArrayList<Product> SupProducts;
-    private static int SupCounter=0;
+    private static int SupCounter = 0;
 
     public Supplier() {
     }
@@ -114,9 +114,11 @@ public class Supplier {
     public String getSupProductsIDs() {
         //String SupProductsIDs = "[";
         String SupProductsIDs = "";
-        if (!SupProducts.isEmpty()&&SupProducts.get(0)!=null) {
+        if (!SupProducts.isEmpty() && SupProducts.get(0) != null) {
             for (Product pro : SupProducts) {
-                SupProductsIDs = SupProductsIDs + pro.getProID() + '|';
+                if (pro != null) {
+                    SupProductsIDs = SupProductsIDs + pro.getProID() + '|';
+                }
             }
 
             if (SupProductsIDs.charAt(SupProductsIDs.length() - 1) == '|') {
@@ -139,7 +141,7 @@ public class Supplier {
         setSupName(SupName);
         SupPersonInCharge.setPIFName(PIFName);
         SupPersonInCharge.setPILName(PILName);
-        SupPersonInCharge.setPIGender(PIGender);      
+        SupPersonInCharge.setPIGender(PIGender);
         SupCI.setCIPhone(CIPhone);
         SupCI.setCIEmail(CIEmail);
         SupCI.setCIAddStreet(CIAddStreet);
@@ -193,7 +195,7 @@ public class Supplier {
         }
         return supplier;
     }
-    
+
     public static Supplier searchSupFromProID(String proID) {
         Supplier supplier = new Supplier();
         try {
@@ -210,7 +212,7 @@ public class Supplier {
         return supplier;
     }
 
-        public static Supplier searchSupFromName(String supName) {
+    public static Supplier searchSupFromName(String supName) {
         Supplier supplier = new Supplier();
         try {
             for (Supplier sup : SupList) {
@@ -225,7 +227,7 @@ public class Supplier {
         }
         return supplier;
     }
-        
+
     public static String[] parseSupFromString(String supLine) throws Exception {
         String[] supData = supLine.split("\t");
         if (supData.length != 5) {
@@ -235,7 +237,6 @@ public class Supplier {
         }
     }
 
-    
     public static void buildSupFromString(String supLine) {
         try {
             String[] SupLine = parseSupFromString(supLine);

@@ -61,7 +61,6 @@ public class AdminPanel extends javax.swing.JFrame {
         jScrollPane21 = new javax.swing.JScrollPane();
         tableProOtherList = new javax.swing.JTable();
         buttonAddModel = new javax.swing.JButton();
-        buttonEditModel = new javax.swing.JButton();
         buttonDeleteModel = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         labelTitleSupplier = new javax.swing.JLabel();
@@ -108,7 +107,6 @@ public class AdminPanel extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         tableOrderCancelledList = new javax.swing.JTable();
         buttonShipOrder = new javax.swing.JButton();
-        buttonRefreshOrder = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -143,7 +141,7 @@ public class AdminPanel extends javax.swing.JFrame {
         });
 
         buttonEditPro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEditPro.setText("Edit Product");
+        buttonEditPro.setText("Edit Product/Edit Model");
         buttonEditPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEditProActionPerformed(evt);
@@ -315,14 +313,6 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
-        buttonEditModel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEditModel.setText("Edit Model");
-        buttonEditModel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditModelActionPerformed(evt);
-            }
-        });
-
         buttonDeleteModel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonDeleteModel.setText("Delete Model");
         buttonDeleteModel.addActionListener(new java.awt.event.ActionListener() {
@@ -352,17 +342,13 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonAddModel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonEditPro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonEditModel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonEditPro, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonDeletePro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonDeleteModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(43, 43, 43))))
         );
-
-        panelAdminProductListLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {buttonEditModel, buttonEditPro});
 
         panelAdminProductListLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {buttonDeleteModel, buttonDeletePro});
 
@@ -370,29 +356,28 @@ public class AdminPanel extends javax.swing.JFrame {
             panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdminProductListLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buttonDeletePro)
                         .addComponent(buttonEditPro)
                         .addComponent(buttonAddPro)
                         .addComponent(buttonRestockPor)
                         .addComponent(buttonAddModel)
-                        .addComponent(buttonEditModel)
                         .addComponent(buttonDeleteModel)
-                        .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textSearchPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabbedPaneProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
                 .addGap(6, 6, 6))
         );
 
-        panelAdminProductListLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {buttonAddModel, buttonAddPro, buttonDeleteModel, buttonDeletePro, buttonEditModel, buttonEditPro});
+        panelAdminProductListLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {buttonAddModel, buttonAddPro, buttonDeleteModel, buttonDeletePro, buttonEditPro});
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1398, Short.MAX_VALUE)
+            .addGap(0, 1397, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addComponent(panelAdminProductList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -735,8 +720,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTitleCus)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buttonDeleteAcc)
                         .addComponent(buttonDeleteCus)
@@ -744,7 +728,8 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addComponent(buttonAddCus)
                         .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(buttonAddOrd)
-                        .addComponent(buttonAddAcc)))
+                        .addComponent(buttonAddAcc))
+                    .addComponent(labelTitleCus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1213,14 +1198,6 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
-        buttonRefreshOrder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonRefreshOrder.setText("Refresh");
-        buttonRefreshOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefreshOrderActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1231,10 +1208,8 @@ public class AdminPanel extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(labelTitleOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(663, 663, 663)
+                        .addGap(765, 765, 765)
                         .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonRefreshOrder)
                         .addGap(18, 18, 18)
                         .addComponent(buttonShipOrder)
                         .addGap(18, 18, 18)
@@ -1247,14 +1222,13 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTitleOrder)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buttonDeleteOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonEditOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(textSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(buttonShipOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonRefreshOrder)))
+                        .addComponent(buttonShipOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelTitleOrder))
                 .addGap(18, 18, 18)
                 .addComponent(tabbedPaneOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                 .addGap(51, 51, 51))
@@ -1311,24 +1285,28 @@ public class AdminPanel extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
             String pmname = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
-            AddProDialog addProDialog = new AddProDialog(null, true,model, Product.searchProFromID(proID), pmname);
+            AddProDialog addProDialog = new AddProDialog(null, true, model, Product.searchProFromID(proID), pmname);
             addProDialog.loadProData();
             addProDialog.show();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        } finally {
+            showProductList();
         }
     }//GEN-LAST:event_buttonEditProActionPerformed
 
     private void buttonEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditOrderActionPerformed
         try {
-            JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
+            JScrollPane scrollRef = (JScrollPane) tabbedPaneOrder.getSelectedComponent();
             JTable table = (JTable) scrollRef.getViewport().getComponent(0);
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             String ordID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
-            EditOrderDialog editOrderDialog = new EditOrderDialog(null, true,Order.searchOrderFromID(ordID));
+            EditOrderDialog editOrderDialog = new EditOrderDialog(null, true, Order.searchOrderFromID(ordID));
             editOrderDialog.show();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        } finally {
+            showOrderList();
         }
 
     }//GEN-LAST:event_buttonEditOrderActionPerformed
@@ -1498,6 +1476,8 @@ public class AdminPanel extends javax.swing.JFrame {
             restockRequest.show();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        } finally {
+            showProductList();
         }
     }//GEN-LAST:event_buttonRestockPorActionPerformed
 
@@ -1509,8 +1489,8 @@ public class AdminPanel extends javax.swing.JFrame {
 
     private void buttonAddModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddModelActionPerformed
         JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
-            JTable table = (JTable) scrollRef.getViewport().getComponent(0);
-            DefaultTableModel model = (DefaultTableModel) table.getModel();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
         try {
             String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
             AddProModelDialog editProDialog = new AddProModelDialog(null, true, model, Product.searchProFromID(proID));
@@ -1521,10 +1501,6 @@ public class AdminPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_buttonAddModelActionPerformed
-
-    private void buttonEditModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditModelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEditModelActionPerformed
 
     private void buttonDeleteModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteModelActionPerformed
         JScrollPane scrollRef = (JScrollPane) tabbedPaneProduct.getSelectedComponent();
@@ -1558,6 +1534,8 @@ public class AdminPanel extends javax.swing.JFrame {
             showProductList();
         } else if (tab.getTitleAt(tab.getSelectedIndex()).contains("Customer")) {
             showCustomerList();
+        } else if (tab.getTitleAt(tab.getSelectedIndex()).contains("Order")) {
+            showOrderList();
         }
     }//GEN-LAST:event_tabStateChanged
 
@@ -1624,6 +1602,7 @@ public class AdminPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         } finally {
             opCus = null;
+            showOrderList();
         }
     }//GEN-LAST:event_buttonAddOrdActionPerformed
 
@@ -1656,10 +1635,6 @@ public class AdminPanel extends javax.swing.JFrame {
             showCustomerList();
         }
     }//GEN-LAST:event_buttonAddAccActionPerformed
-
-    private void buttonRefreshOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshOrderActionPerformed
-        showOrderList();
-    }//GEN-LAST:event_buttonRefreshOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1828,11 +1803,9 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton buttonDeletePro;
     private javax.swing.JButton buttonDeleteSup;
     private javax.swing.JButton buttonEditCus;
-    private javax.swing.JButton buttonEditModel;
     private javax.swing.JButton buttonEditOrder;
     private javax.swing.JButton buttonEditPro;
     private javax.swing.JButton buttonEditSup;
-    private javax.swing.JButton buttonRefreshOrder;
     private javax.swing.JButton buttonRestockPor;
     private javax.swing.JButton buttonShipOrder;
     private javax.swing.JLabel jLabel1;

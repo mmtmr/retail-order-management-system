@@ -314,7 +314,7 @@ public class Customer {
             String[] CusPILine = CusInfo.parseCusInfoFromString(CusLine[1]);
             String[] CusCILine = ContactInfo.parseContactInfoFromString(CusLine[2]);
             CusAcc CusAccount = CusAcc.searchCAFromID(CusLine[3]);
-            ArrayList<Order> CusOrders = Order.searchOrdersFromIDs(CusLine[4].split(","));
+            ArrayList<Order> CusOrders = Order.searchOrdersFromIDs(CusLine[4].split("\\|"));
 
             CusList.add(new Customer(CusLine[0], CusPILine, CusCILine, CusAccount, CusOrders));
         } catch (Exception e) {

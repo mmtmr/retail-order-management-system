@@ -203,7 +203,10 @@ public abstract class OrderDetails {
             if (OrdLine[0].contains("SP") && !OrdLine[0].contains("-")) {
                 LocalDateTime OrdModifyDT = LocalDateTime.parse(OrdLine[1]);
                 CusAcc.searchCAFromID("CA" + OrdLine[0].substring(3, OrdLine[0].length())).setCusSC(new ShoppingCart(OrdLine[0], OrdModifyDT));
-                return oisIDs;
+                if(oisIDs[0].equals("-")){
+                    return null;
+                }else{
+                return oisIDs;}
             } else if (OrdLine[0].contains("OR") && !OrdLine[0].contains("-")) {
 
                 OrderStatus OrdStatus = OrderStatus.valueOf(OrdLine[1]);

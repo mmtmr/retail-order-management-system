@@ -70,11 +70,11 @@ public class Operation {
                 if (CusAcc.getCACounter() != 0 && AdminAcc.getAACounter() != 0) {
                     break;
                 }
-                AccID=AccList.get(i).getAccID();
-                if(AccID.contains("CA")){
-                    CusAcc.setCACounter(Integer.parseInt(AccID.substring(2,AccID.length())));
-                }else if(AccID.contains("AA")){
-                    AdminAcc.setAACounter(Integer.parseInt(AccID.substring(2,AccID.length())));
+                AccID = AccList.get(i).getAccID();
+                if (AccID.contains("CA")) {
+                    CusAcc.setCACounter(Integer.parseInt(AccID.substring(2, AccID.length())));
+                } else if (AccID.contains("AA")) {
+                    AdminAcc.setAACounter(Integer.parseInt(AccID.substring(2, AccID.length())));
                 }
             }
         }
@@ -105,22 +105,22 @@ public class Operation {
             proRead.close();
             String ProID;
             for (int i = ProList.size() - 1; i >= 0; i--) {
-                if (Product.getProStationeryCounter()!=0&&Product.getProFashionCounter()!=0&&Product.getProFoodCounter()!=0&&Product.getProOtherCounter()!=0) {
+                if (Product.getProStationeryCounter() != 0 && Product.getProFashionCounter() != 0 && Product.getProFoodCounter() != 0 && Product.getProOtherCounter() != 0) {
                     break;
                 }
-                ProID=ProList.get(i).getProID();
-                switch(ProList.get(i).getProCategory()){
+                ProID = ProList.get(i).getProID();
+                switch (ProList.get(i).getProCategory()) {
                     case Stationery:
-                        Product.setProStationeryCounter(Integer.parseInt(ProID.substring(4,ProID.length())));
+                        Product.setProStationeryCounter(Integer.parseInt(ProID.substring(4, ProID.length())));
                         break;
                     case Fashion:
-                        Product.setProFashionCounter(Integer.parseInt(ProID.substring(4,ProID.length())));
+                        Product.setProFashionCounter(Integer.parseInt(ProID.substring(4, ProID.length())));
                         break;
-                     case Food:
-                        Product.setProFoodCounter(Integer.parseInt(ProID.substring(4,ProID.length())));
+                    case Food:
+                        Product.setProFoodCounter(Integer.parseInt(ProID.substring(4, ProID.length())));
                         break;
                     case Other:
-                        Product.setProOtherCounter(Integer.parseInt(ProID.substring(4,ProID.length())));
+                        Product.setProOtherCounter(Integer.parseInt(ProID.substring(4, ProID.length())));
                         break;
                 }
             }
@@ -144,12 +144,12 @@ public class Operation {
         } finally {
             supRead.close();
             String SupID;
-             for (int i = SupList.size() - 1; i >= 0; i--) {
+            for (int i = SupList.size() - 1; i >= 0; i--) {
                 if (Supplier.getSupCounter() != 0) {
                     break;
                 }
-                SupID=SupList.get(i).getSupID();
-                Supplier.setSupCounter(Integer.parseInt(SupID.substring(3,SupID.length())));
+                SupID = SupList.get(i).getSupID();
+                Supplier.setSupCounter(Integer.parseInt(SupID.substring(3, SupID.length())));
             }
         }
     }
@@ -193,12 +193,12 @@ public class Operation {
         } finally {
             cusRead.close();
             String CusID;
-             for (int i = CusList.size() - 1; i >= 0; i--) {
+            for (int i = CusList.size() - 1; i >= 0; i--) {
                 if (Customer.getCusCounter() != 0) {
                     break;
                 }
-                CusID=SupList.get(i).getSupID();
-                Customer.setCusCounter(Integer.parseInt(CusID.substring(3,CusID.length())));
+                CusID = CusList.get(i).getCusID();
+                Customer.setCusCounter(Integer.parseInt(CusID.substring(3, CusID.length())));
             }
         }
 //        File orderFile = new File("order.txt");
@@ -259,7 +259,9 @@ public class Operation {
                 if (j == 0) {
                     oiIDs = OrderDetails.buildOrdFromString(ordLine);
                     i = 0;
-                    j = oiIDs.length;
+                    if (oiIDs != null) {
+                        j = oiIDs.length;
+                    }
                 } else {
                     OrderItem.addOIFromString(ordLine, oiIDs[i]);
                     i += 1;
@@ -273,14 +275,14 @@ public class Operation {
             }
         } finally {
             ordRead.close();
-             String OrdID;
+            String OrdID;
             for (int i = OrdList.size() - 1; i >= 0; i--) {
                 if (Order.getOrdCounter() != 0) {
                     break;
                 }
-                OrdID=OrdList.get(i).getOrdID().split("-")[0];
-                if(OrdID.contains("OR")){
-                    Order.setOrdCounter(Integer.parseInt(OrdID.substring(2,OrdID.length())));
+                OrdID = OrdList.get(i).getOrdID().split("-")[0];
+                if (OrdID.contains("OR")) {
+                    Order.setOrdCounter(Integer.parseInt(OrdID.substring(2, OrdID.length())));
                 }
             }
         }
@@ -397,7 +399,9 @@ public class Operation {
         PrintWriter accWrite = new PrintWriter(new BufferedWriter(new FileWriter(accFile, false)));
         try {
             for (Account acc : AccList) {
-                accWrite.println(acc);
+                if (acc != null) {
+                    accWrite.println(acc);
+                }
             }
         } finally {
             accWrite.close();
@@ -445,8 +449,10 @@ public class Operation {
                 ordWrite.println(ord);
             }
             for (Customer cus : CusList) {
-                ordWrite.println(cus.getCusAccount().getCusSC());
-                System.out.println(cus.getCusAccount().getCusSC());
+                if (cus.getCusAccount().getCusSC() != null) {
+                    ordWrite.println(cus.getCusAccount().getCusSC());
+                    System.out.println(cus.getCusAccount().getCusSC());
+                }
             }
         } finally {
             ordWrite.close();
@@ -534,9 +540,10 @@ public class Operation {
                         ord.getOrdItems().remove(oi);
                     }
                 }
+            } else {
+                throw (new Exception("Order item is not deleted!" + oi.getOIID()));
             }
             oi.modifyOIQuantity(oi.getOIQuantity() * -1);
-            throw (new Exception("Order item is not deleted!" + oi.getOIID()));
         } catch (Exception e) {
             System.out.println(e);
         }

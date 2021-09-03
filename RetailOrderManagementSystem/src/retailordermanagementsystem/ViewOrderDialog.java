@@ -100,7 +100,7 @@ public class ViewOrderDialog extends javax.swing.JDialog {
         labelOrderTotal.setText("Order Total");
 
         loadOrderTotal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        loadOrderTotal.setText(Double.toString(order.getOrdAmt()));
+        loadOrderTotal.setText(String.format( "%.2f", order.getOrdAmt()));
 
         loadOrderTracking.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         loadOrderTracking.setText(order.getOrdShipment());
@@ -293,6 +293,9 @@ public class ViewOrderDialog extends javax.swing.JDialog {
 
     private void buttonCompleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCompleteOrderActionPerformed
         try {
+            if (order.getOrdStatus() != OrderStatus.Shipping) {
+                throw new Exception("This order cannot be completed");
+            }
             order.setOrdStatus(OrderStatus.Completed);
             opCus.getCusPI().addPIRewardPoint((int)order.getOrdAmt()*10);
             rewriteOrderData();
