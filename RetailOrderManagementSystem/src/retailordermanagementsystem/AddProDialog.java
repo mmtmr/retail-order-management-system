@@ -250,7 +250,7 @@ public class AddProDialog extends javax.swing.JDialog {
 
         labelTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(255, 255, 255));
-        labelTitle.setText("Add Product");
+        labelTitle.setText("Product");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

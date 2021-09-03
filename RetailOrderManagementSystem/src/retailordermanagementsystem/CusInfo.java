@@ -18,7 +18,6 @@ public class CusInfo extends PersonalInfo {
     private LocalDate PIDateOfBirth;
     private ArrayList<Voucher> PIVoucher;
 
-    //https://mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
     public CusInfo() {
     }
 

@@ -13,7 +13,6 @@ import static retailordermanagementsystem.Operation.ProList;
  * @author Maxine
  */
 public class Product {
-    //https://stackoverflow.com/a/8353371
 
     protected String ProID; //Metadata Idea: P0010001001
     private String ProName;
@@ -88,7 +87,6 @@ public class Product {
         this.addProModelsList(ProModelsLine);
     }
 
-    //https://www.geeksforgeeks.org/passing-and-returning-objects-in-java/
     //Create
     public Product(String ProName, double ProPrice, double ProWeight, ProductType ProCategory, boolean ProFragile, String[][] ProModelsLine) {
 
@@ -319,7 +317,6 @@ public class Product {
 
     public String getProModelsNames() {
         String ProModelsNames;
-        //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
         StringBuilder ProModelsNamesBuilder = new StringBuilder();
         for (ProModel model : ProModels) {
             ProModelsNamesBuilder.append("|");
@@ -340,7 +337,6 @@ public class Product {
 
     public String getProModelsStocks() {
         String ProModelsStocks;
-        //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
         StringBuilder ProModelsStocksBuilder = new StringBuilder();
         for (ProModel model : ProModels) {
             ProModelsStocksBuilder.append("|");
@@ -361,7 +357,6 @@ public class Product {
 
     public String getProModelsList() {
         String ProModelsList;
-        //https://stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
         StringBuilder ProModelsListBuilder = new StringBuilder();
         for (ProModel model : ProModels) {
             ProModelsListBuilder.append("|");

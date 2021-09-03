@@ -46,23 +46,23 @@ public class Order extends OrderDetails {
     }
 
     //Load order
-    public Order(LocalDateTime OrdCreateDT, OrderStatus OrdStatus, String OrdShipment, double OrdAmt, String PName, String PCardNumber, String PBank, String OrdID, LocalDateTime OrdModifyDT, ArrayList<Product> OIPros, String[] OIModels, int[] OIQuantities) {
-        super(OrdID, OrdModifyDT, OIPros, OIModels, OIQuantities);
-        this.OrdCreateDT = OrdCreateDT;
-        this.OrdStatus = OrdStatus;
-        this.OrdShipment = OrdShipment;
-        this.OrdAmt = OrdAmt;
-        this.OrdPayment = new Payment(PName, PCardNumber, PBank);
-    }
-
-    public Order(String OrdID, OrderStatus OrdStatus, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment, double OrdAmt, String PName, String PCardNumber, String PBank) {
-        super(OrdID, OrdModifyDT);
-        this.OrdCreateDT = OrdCreateDT;
-        this.OrdStatus = OrdStatus;
-        this.OrdShipment = OrdShipment;
-        this.OrdAmt = OrdAmt;
-        this.OrdPayment = new Payment(PName, PCardNumber, PBank);
-    }
+//    public Order(LocalDateTime OrdCreateDT, OrderStatus OrdStatus, String OrdShipment, double OrdAmt, String PName, String PCardNumber, String PBank, String OrdID, LocalDateTime OrdModifyDT, ArrayList<Product> OIPros, String[] OIModels, int[] OIQuantities) {
+//        super(OrdID, OrdModifyDT, OIPros, OIModels, OIQuantities);
+//        this.OrdCreateDT = OrdCreateDT;
+//        this.OrdStatus = OrdStatus;
+//        this.OrdShipment = OrdShipment;
+//        this.OrdAmt = OrdAmt;
+//        this.OrdPayment = new Payment(PName, PCardNumber, PBank);
+//    }
+//
+//    public Order(String OrdID, OrderStatus OrdStatus, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment, double OrdAmt, String PName, String PCardNumber, String PBank) {
+//        super(OrdID, OrdModifyDT);
+//        this.OrdCreateDT = OrdCreateDT;
+//        this.OrdStatus = OrdStatus;
+//        this.OrdShipment = OrdShipment;
+//        this.OrdAmt = OrdAmt;
+//        this.OrdPayment = new Payment(PName, PCardNumber, PBank);
+//    }
 
     public Order(String OrdID, OrderStatus OrdStatus, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment, double OrdAmt, String[] OrdPaymentLine) {
         super(OrdID, OrdModifyDT);

@@ -31,7 +31,6 @@ public class Operation {
     public static ArrayList<Customer> CusList = new ArrayList();
 
     //Create or Read file
-    //https://stackoverflow.com/a/24029850
     public static void readAccountData() throws IOException {
         File accountFile = new File("account.txt");
         if (!accountFile.isFile()) {
@@ -46,7 +45,6 @@ public class Operation {
         BufferedReader accRead = new BufferedReader(new FileReader(accountFile));
         try {
             //Read
-            //https://stackoverflow.com/a/39552075
             String accLine;
             while ((accLine = accRead.readLine()) != null) {
                 Account.buildAccFromString(accLine);
@@ -88,7 +86,6 @@ public class Operation {
         BufferedReader proRead = new BufferedReader(new FileReader(proFile));
         try {
             //Read
-            //https://stackoverflow.com/a/39552075
             String proLine;
 
             while ((proLine = proRead.readLine()) != null) {
@@ -98,7 +95,6 @@ public class Operation {
 //                if (proData.length!=4) {
 //                    throw new IOException("Product file is damaged!");
 //                }
-                //https://www.studytonight.com/java-examples/how-to-convert-string-to-arraylist-in-java
                 Product.buildProFromString(proLine);
             }
         } finally {
@@ -135,7 +131,6 @@ public class Operation {
         BufferedReader supRead = new BufferedReader(new FileReader(supFile));
         try {
             //Read
-            //https://stackoverflow.com/a/39552075
             String supLine;
             while ((supLine = supRead.readLine()) != null) {
                 //System.out.println(supLine);
@@ -183,7 +178,6 @@ public class Operation {
         BufferedReader cusRead = new BufferedReader(new FileReader(customerFile));
         try {
             //Read
-            //https://stackoverflow.com/a/39552075
             String cusLine;
 
             while ((cusLine = cusRead.readLine()) != null) {
@@ -247,7 +241,6 @@ public class Operation {
 
         try {
             //Read
-            //https://stackoverflow.com/a/39552075
 
             String ordLine;
             String[] oiIDs = new String[100];
@@ -474,7 +467,7 @@ public class Operation {
         }
     }
 
-    //https://stackoverflow.com/a/45211459
+    //Following code is obtained from (Galmes, 2017)
     public static void removeShoppingCart(String accID) throws IOException {
         File ordFile = new File("order.txt");
         File temp = new File("temp.txt");

@@ -168,6 +168,11 @@ public class ViewOrderDialog extends javax.swing.JDialog {
         jScrollPane2.setViewportView(tableOrderItems);
 
         buttonCompleteOrder1.setText("Go Back");
+        buttonCompleteOrder1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCompleteOrder1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -306,6 +311,10 @@ public class ViewOrderDialog extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_buttonCompleteOrderActionPerformed
+
+    private void buttonCompleteOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCompleteOrder1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonCompleteOrder1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1284,7 +1284,7 @@ public class AdminPanel extends javax.swing.JFrame {
             JTable table = (JTable) scrollRef.getViewport().getComponent(0);
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
-            String pmname = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            String pmname = (table.getModel().getValueAt(table.getSelectedRow(), 4).toString());
             AddProDialog addProDialog = new AddProDialog(null, true, model, Product.searchProFromID(proID), pmname);
             addProDialog.loadProData();
             addProDialog.show();
@@ -1348,11 +1348,8 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAddCusActionPerformed
 
     private void textSearchCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchCusActionPerformed
-        //https://stackoverflow.com/a/12124636
-        //https://stackoverflow.com/a/14130611
-        //https://stackoverflow.com/a/45317261
-        //https://stackoverflow.com/a/37989058
-        //https://www.youtube.com/watch?v=efuLSvN6tKM
+        //Following code is obtained from (aoulhent, 2013)
+        //Following code is obtained from (Guillaume Polet, 2013)
         JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
         JTable table = (JTable) scrollRef.getViewport().getComponent(0);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -1648,7 +1645,7 @@ public class AdminPanel extends javax.swing.JFrame {
         String tabTitle = tabbedPaneCustomer.getTitleAt(tabbedPaneCustomer.getSelectedIndex());
         model.setRowCount(0);
         for (Customer cus : CusList) {
-            //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
+            ////Following code is obtained from (Stack Overflow, 2015)
             //System.out.println(cus);
             if (cus.getCusPI().getPIRewardPoint() >= 10000) {
                 if (tabTitle.contains("All") || tabTitle.equals("VVIP")) {
@@ -1673,7 +1670,6 @@ public class AdminPanel extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         int i = 0;
         model.setRowCount(0);
-        //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
         //System.out.println(cus);
         for (Order ord : OrdList) {
             switch (ord.getOrdStatus()) {
@@ -1714,7 +1710,6 @@ public class AdminPanel extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tableSupList.getModel();
         model.setRowCount(0);
         for (Supplier sup : SupList) {
-            //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
             //System.out.println(cus);
             model.addRow(new Object[]{sup.getSupID(), sup.getSupName(), sup.getSupPersonInCharge().getPIFName() + " " + sup.getSupPersonInCharge().getPILName(), sup.getSupCI().getCIPhone(), sup.getSupCI().getCIEmail(), sup.getSupCI().getCIAddStreet() + ";" + sup.getSupCI().getCIAddCity() + ";" + sup.getSupCI().getCIAddState() + ";" + sup.getSupCI().getCIAddPostcode()});
         }
@@ -1729,7 +1724,6 @@ public class AdminPanel extends javax.swing.JFrame {
         int i = 0;
         model.setRowCount(0);
         for (Product pro : ProList) {
-            //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
             //System.out.println(cus);
             for (ProModel pm : pro.getProModels()) {
                 switch (pro.getProCategory()) {
@@ -1763,7 +1757,7 @@ public class AdminPanel extends javax.swing.JFrame {
 
     public static void main(String args[]) {
         //Create or Read file
-        //https://stackoverflow.com/a/24029850
+        //Following code is obtained from (Butani, 2017)
         try {
             Operation.readAccountData();
             Operation.readSupplierData();

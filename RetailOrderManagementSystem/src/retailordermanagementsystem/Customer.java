@@ -52,8 +52,8 @@ public class Customer {
 //        this.CusOrders = CusOrders;
 //        addCusCounter();
 //    }
-//https://stackoverflow.com/questions/22271801/how-to-create-constructor-with-empty-arraylist
-    //Create New Customer
+//Following code is obtained from (rawr rang, 2014)
+//Create New Customer
     public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount) {
         this("CUS" + String.format("%05d", CusCounter + 1), PIFName, PILName, PIGender, PIDateOfBirth, CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode, CusAccount, new ArrayList<Order>());
 //        CusList.add(this);

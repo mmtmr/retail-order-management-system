@@ -25,7 +25,6 @@ public class PersonalInfo {
         this.PIGender = PIGender;
     }
     
-    //TODO validation
     public PersonalInfo(String[] PILine) {
         this.PIFName = PILine[0];
         this.PILName = PILine[1];

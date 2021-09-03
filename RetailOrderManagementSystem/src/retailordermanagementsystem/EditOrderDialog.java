@@ -178,7 +178,7 @@ public class EditOrderDialog extends javax.swing.JDialog {
         });
 
         textShipment.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textShipment.setText(Double.toString(order.getOrdAmt()));
+        textShipment.setText(order.getOrdShipment());
 
         textDate.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         textDate.setText(order.getOrdCreateDT().toString());

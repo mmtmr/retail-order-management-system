@@ -38,7 +38,7 @@ public class Supplier {
 //    }
 
     //Load
-    public Supplier(String SupID, String SupName, String PIFName, String PILName, Gender PIGender, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, ArrayList<Product> SupProducts) {
+    public Supplier(String SupID, String SupName, String PIFName, String PILName, Gender PIGender, String CIPhone, String CIEmail, String CIAddStreet,String CIAddCity, String CIAddState, String CIAddPostcode, ArrayList<Product> SupProducts) {
         this.SupID = SupID;
         this.SupName = SupName;
         this.SupPersonInCharge = new PersonalInfo(PIFName, PILName, PIGender);

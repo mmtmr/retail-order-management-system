@@ -1554,7 +1554,6 @@ public class CustomerPanel extends javax.swing.JFrame {
         int i = 0;
         model.setRowCount(0);
         for (Product pro : ProList) {
-            //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
             //System.out.println(cus);
             switch (pro.getProCategory()) {
                 case Stationery:
@@ -1591,7 +1590,6 @@ public class CustomerPanel extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         int i = 0;
         model.setRowCount(0);
-        //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
         //System.out.println(cus);
         for (Order ord : opCus.getCusOrders()) {
             switch (ord.getOrdStatus()) {

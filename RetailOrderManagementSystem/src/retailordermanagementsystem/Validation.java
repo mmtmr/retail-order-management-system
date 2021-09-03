@@ -161,7 +161,7 @@ public class Validation {
         }
     }
 
-    //https://howtodoinjava.com/java/regex/java-regex-validate-credit-card-numbers/
+    //Following code is obtained from (HowToDoInJava, 2014)
     public static String validateCreditCard(String name, String cardnum, String cvv, LocalDate exp) throws Exception {
 
         if (validateNoDelimeterAndNoNull(cardnum) && validateNoDelimeterAndNoNull(cardnum) && validateNoDelimeterAndNoNull(cvv)) {
@@ -195,7 +195,6 @@ public class Validation {
         throw new Exception("Card format is incorrect or not accepted!");
     }
 
-//TODO Validate Product Model names
     public static boolean validatePhone(String phone) {
         return phone.matches("(\\+?6?01)[0-46-9]-*[0-9]{7,8}");//Format: +6012-34567890
     }

@@ -108,6 +108,11 @@ public class LoginDialog extends javax.swing.JDialog {
         buttonForgotPassword.setForeground(new java.awt.Color(255, 255, 255));
         buttonForgotPassword.setText("Forgot Password?");
         buttonForgotPassword.setBorder(null);
+        buttonForgotPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonForgotPasswordActionPerformed(evt);
+            }
+        });
 
         passwordPassword.setText("jPasswordField1");
 
@@ -224,6 +229,11 @@ public class LoginDialog extends javax.swing.JDialog {
         SignUpDialog signUpDialog = new SignUpDialog(null, true);
         signUpDialog.show();
     }//GEN-LAST:event_buttonSignUpActionPerformed
+
+    private void buttonForgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonForgotPasswordActionPerformed
+       ForgotPasswordDialog forgotPasswordDialog = new ForgotPasswordDialog(null, true);
+        forgotPasswordDialog.show();
+    }//GEN-LAST:event_buttonForgotPasswordActionPerformed
 
     /**
      * @param args the command line arguments
