@@ -29,6 +29,8 @@ public class AdminCusDialog extends javax.swing.JDialog {
     public AdminCusDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        showShoppingCartList();
+        showProductList();
     }
 
     /**
@@ -80,7 +82,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
 
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        labelTitleProduct.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        labelTitleProduct.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         labelTitleProduct.setText("Overcook Mall");
         labelTitleProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -103,14 +105,14 @@ public class AdminCusDialog extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+                "ID", "Category", "Name", "Price", "Weight", "Fragile"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -121,7 +123,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tableProList.setShowGrid(true);
+        tableProList.setShowGrid(false);
         tableProList.setShowVerticalLines(true);
         jScrollPane2.setViewportView(tableProList);
 
@@ -132,14 +134,14 @@ public class AdminCusDialog extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+                "ID", "Category", "Name", "Price", "Weight", "Fragile"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -150,7 +152,6 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tableProFoodList.setShowGrid(true);
         jScrollPane19.setViewportView(tableProFoodList);
 
         tabbedPaneMall.addTab("Food", jScrollPane19);
@@ -160,14 +161,14 @@ public class AdminCusDialog extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile"
+                "ID", "Category", "Name", "Price", "Weight", "Fragile"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -178,7 +179,6 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tableProFashionList.setShowGrid(true);
         jScrollPane20.setViewportView(tableProFashionList);
 
         tabbedPaneMall.addTab("Fashion", jScrollPane20);
@@ -188,14 +188,14 @@ public class AdminCusDialog extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+                "ID", "Category", "Name", "Price", "Weight", "Fragile"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -206,7 +206,6 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tableProOtherList.setShowGrid(true);
         jScrollPane21.setViewportView(tableProOtherList);
 
         tabbedPaneMall.addTab("Other", jScrollPane21);
@@ -216,14 +215,14 @@ public class AdminCusDialog extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Category", "Name", "Price", "Model", "Stock", "Weight", "Fragile", "Supplier"
+                "ID", "Category", "Name", "Price", "Weight", "Fragile"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -234,7 +233,6 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tableProStationeryList.setShowGrid(true);
         jScrollPane3.setViewportView(tableProStationeryList);
 
         tabbedPaneMall.addTab("Stationery", jScrollPane3);
@@ -254,7 +252,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
             .addGroup(panelAdminProductListLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabbedPaneMall, javax.swing.GroupLayout.DEFAULT_SIZE, 1360, Short.MAX_VALUE)
+                    .addComponent(tabbedPaneMall, javax.swing.GroupLayout.DEFAULT_SIZE, 1484, Short.MAX_VALUE)
                     .addGroup(panelAdminProductListLayout.createSequentialGroup()
                         .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -300,7 +298,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
         labelTota.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         labelTota.setText("jLabel1");
 
-        labelTitle2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        labelTitle2.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         labelTitle2.setText("Shopping Cart");
         labelTitle2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -335,7 +333,6 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tableShoppingCart.setShowGrid(true);
         jScrollPane4.setViewportView(tableShoppingCart);
 
         buttonModify.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -361,7 +358,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
                         .addComponent(buttonModify)
                         .addGap(18, 18, 18)
                         .addComponent(buttonDelete1))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 947, Short.MAX_VALUE))
                 .addGap(41, 41, 41)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(labelTotalQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,11 +379,11 @@ public class AdminCusDialog extends javax.swing.JDialog {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addComponent(labelTotalQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                        .addComponent(labelTotalQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
-                        .addComponent(labelTota, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                        .addComponent(labelTota, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
-                        .addComponent(labelTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                        .addComponent(labelTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                         .addGap(135, 135, 135))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -415,7 +412,7 @@ public class AdminCusDialog extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1479, Short.MAX_VALUE)
+            .addGap(0, 1603, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -435,33 +432,35 @@ public class AdminCusDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textSearchProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchProActionPerformed
-        JScrollPane scrollRef = (JScrollPane) tabbedPaneMall.getSelectedComponent();
-        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        String key = textSearchPro.getText();
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
-        sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
-        table.setRowSorter(sorter);
-    }//GEN-LAST:event_textSearchProActionPerformed
+    private void tabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabStateChanged
+        if (tab.getTitleAt(tab.getSelectedIndex()).contains("Mall")) {
+            showProductList();
+        }
+    }//GEN-LAST:event_tabStateChanged
 
-    private void tabbedPaneMallStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneMallStateChanged
-        showProductList();
-    }//GEN-LAST:event_tabbedPaneMallStateChanged
-
-    private void buttonAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddToCartActionPerformed
-        JScrollPane scrollRef = (JScrollPane) tabbedPaneMall.getSelectedComponent();
-        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+    private void buttonModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModifyActionPerformed
         try {
-            String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
-            AddOrderItemDialog addOrderItemDialog = new AddOrderItemDialog(null, true, Product.searchProFromID(proID));
-            addOrderItemDialog.show();
+            String oiID = (tableShoppingCart.getModel().getValueAt(tableShoppingCart.getSelectedRow(), 0).toString());
+            //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
+            ModifyOrderItemDialog modifyOrderItemDialog = new ModifyOrderItemDialog(null, true, OrderItem.searchOIFromID(oiID));
+            modifyOrderItemDialog.show();
             showProductList();
             showShoppingCartList();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_buttonAddToCartActionPerformed
+    }//GEN-LAST:event_buttonModifyActionPerformed
+
+    private void buttonCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCheckoutActionPerformed
+        try {
+            //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
+            OrderConfirmationDialog orderConfirmationDialog = new OrderConfirmationDialog(null, true);
+            orderConfirmationDialog.show();
+            showShoppingCartList();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_buttonCheckoutActionPerformed
 
     private void buttonDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDelete1ActionPerformed
         try {
@@ -479,35 +478,33 @@ public class AdminCusDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_buttonDelete1ActionPerformed
 
-    private void buttonCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCheckoutActionPerformed
+    private void buttonAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddToCartActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneMall.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
         try {
-            //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
-            OrderConfirmationDialog orderConfirmationDialog = new OrderConfirmationDialog(null, true);
-            orderConfirmationDialog.show();
-            showShoppingCartList();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_buttonCheckoutActionPerformed
-
-    private void buttonModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModifyActionPerformed
-        try {
-            String oiID = (tableShoppingCart.getModel().getValueAt(tableShoppingCart.getSelectedRow(), 0).toString());
-            //DefaultTableModel model =  (DefaultTableModel)tableCusList.getModel();
-            ModifyOrderItemDialog modifyOrderItemDialog = new ModifyOrderItemDialog(null, true, OrderItem.searchOIFromID(oiID));
-            modifyOrderItemDialog.show();
+            String proID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+            AddOrderItemDialog addOrderItemDialog = new AddOrderItemDialog(null, true, Product.searchProFromID(proID));
+            addOrderItemDialog.show();
             showProductList();
             showShoppingCartList();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_buttonModifyActionPerformed
+    }//GEN-LAST:event_buttonAddToCartActionPerformed
 
-    private void tabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabStateChanged
-        if (tab.getTitleAt(tab.getSelectedIndex()).contains("Mall")) {
-            showProductList();
-        }
-    }//GEN-LAST:event_tabStateChanged
+    private void tabbedPaneMallStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneMallStateChanged
+        showProductList();
+    }//GEN-LAST:event_tabbedPaneMallStateChanged
+
+    private void textSearchProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchProActionPerformed
+        JScrollPane scrollRef = (JScrollPane) tabbedPaneMall.getSelectedComponent();
+        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        String key = textSearchPro.getText();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
+        sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
+        table.setRowSorter(sorter);
+    }//GEN-LAST:event_textSearchProActionPerformed
 
     public void showProductList() {
         //DefaultTableModel model = new DefaultTableModel(new Object[]{"Account ID", "Account Name", "First Name","Last Name","Gender","D.O.B.","Reward Point","Phone","Email","Street","City","State","Postcode"}, 0);;
@@ -519,31 +516,29 @@ public class AdminCusDialog extends javax.swing.JDialog {
         for (Product pro : ProList) {
             //https://stackoverflow.com/questions/20012772/how-to-populate-a-jtable-from-an-arraylist
             //System.out.println(cus);
-            for (ProModel pm : pro.getProModels()) {
                 switch (pro.getProCategory()) {
                     case Stationery:
                         if (tabbedPaneMall.getTitleAt(tabbedPaneMall.getSelectedIndex()).contains("All") || tabbedPaneMall.getTitleAt(tabbedPaneMall.getSelectedIndex()).contains("Stationery")) {
-                            model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pm.getPMName(), pm.getPMStock(), pro.getProWeight(), pro.isProFragile(), Supplier.searchSupFromProID(pro.getProID()).getSupName()});
+                        model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pro.getProWeight(), pro.isProFragile()});
                         }
                         break;
                     case Food:
                         if (tabbedPaneMall.getTitleAt(tabbedPaneMall.getSelectedIndex()).contains("All") || tabbedPaneMall.getTitleAt(tabbedPaneMall.getSelectedIndex()).contains("Food")) {
-                            model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pm.getPMName(), pm.getPMStock(), pro.getProWeight(), pro.isProFragile(), Supplier.searchSupFromProID(pro.getProID()).getSupName()});
+                        model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pro.getProWeight(), pro.isProFragile()});
                         }
                         break;
                     case Fashion:
                         if (tabbedPaneMall.getTitleAt(tabbedPaneMall.getSelectedIndex()).contains("All") || tabbedPaneMall.getTitleAt(tabbedPaneMall.getSelectedIndex()).contains("Fashion")) {
-                            model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pm.getPMName(), pm.getPMStock(), pro.getProWeight(), pro.isProFragile(), Supplier.searchSupFromProID(pro.getProID()).getSupName()});
+                        model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pro.getProWeight(), pro.isProFragile()});
                         }
                         break;
                     case Other:
                         if (tabbedPaneMall.getTitleAt(tabbedPaneMall.getSelectedIndex()).contains("All") || tabbedPaneMall.getTitleAt(tabbedPaneMall.getSelectedIndex()).contains("Other")) {
-                            model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pm.getPMName(), pm.getPMStock(), pro.getProWeight(), pro.isProFragile(), Supplier.searchSupFromProID(pro.getProID()).getSupName()});
+                        model.addRow(new Object[]{pro.getProID(), pro.getProCategory(), pro.getProName(), pro.getProPrice(), pro.getProWeight(), pro.isProFragile()});
                         }
                         break;
                 }
 
-            }
         }
         table.setModel(model);
 
@@ -563,9 +558,10 @@ public class AdminCusDialog extends javax.swing.JDialog {
             subtotalprice+=oi.getOIPrice();
             subtotalpacking+=oi.getOIPackingCharge();
         }
-        labelTotalQuantity.setText(quantity+" Item(s)");
-        labelTota.setText("Cost "+subtotalprice+"& Packing"+subtotalpacking);
-        labelTotal.setText("Total of "+subtotalprice+subtotalpacking);
+        labelTotalQuantity.setText(quantity + " Item(s)");
+        labelTota.setText("Cost " + String.format( "%.2f", subtotalprice) + "&" + String.format( "%.2f", subtotalpacking));
+        labelTotal.setText("Total of " + String.format( "%.2f", subtotalprice + subtotalpacking));
+        
         tableShoppingCart.setModel(model);
 
     }

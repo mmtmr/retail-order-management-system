@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import static retailordermanagementsystem.Operation.*;
 
 /**
@@ -24,18 +25,31 @@ public class EditOrderDialog extends javax.swing.JDialog {
      * Creates new form EditOrderDialog
      */
 
+    
     public EditOrderDialog(java.awt.Frame parent, boolean modal, Order order) {
         super(parent, modal);
         this.order = order;
         old = order.getOrdStatus();
         initComponents();
+        showShoppingCartList();
     }
 
     public EditOrderDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        showShoppingCartList();
     }
 
+     public void showShoppingCartList() {
+        DefaultTableModel model = (DefaultTableModel) tableOrderItems.getModel();
+        int i = 0;
+
+        model.setRowCount(0);
+        for (OrderItem oi : order.getOrdItems()) {
+            model.addRow(new Object[]{oi.getProName() + " " + oi.getOIModel(), oi.getProPrice(), oi.getOIPackingCharge(), oi.getOIQuantity(), oi.getOIPrice()});
+        }
+        tableOrderItems.setModel(model);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

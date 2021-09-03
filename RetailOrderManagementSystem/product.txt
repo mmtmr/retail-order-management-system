@@ -1,0 +1,4 @@
+P0010003	Overcook Notebook	5.9	0.2	6.0	Stationery	A4|A5|B5	50|80|0
+P0030001	Overcooked Tee	15.0	0.2	6.0	Fashion	S|M|L	60|67|25
+P1040001	Ceramic Mugs	45.0	0.5	10.0	Other	Blue|Violet|Pink	32|57|30
+P1010004	Ballpoint Pen	2.6	0.03	10.0	Stationery	Blue|Red|Purple|Green|Black	80|49|54|90|140

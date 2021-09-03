@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class ResetPasswordDialog extends javax.swing.JDialog {
 
-    Account acc = Operation.opUser;
+    Account acc;
 
     /**
      * Creates new form ResetPasswordDialog

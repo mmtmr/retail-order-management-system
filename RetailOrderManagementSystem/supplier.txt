@@ -1,0 +1,4 @@
+S0001	King Huat Sdn. Bhd.	Shan Mei|Ng|F	6018-9558452|kinghuat@gmail.com|172 Jalan Ang Seng 4 |Kuala Lumpur|Wilayah Persekutuan|50470	-
+S0002	Lai Fashion Sdn. Bhd.	Samuelina|Tay|F	6017-6052688|fashionlai888@hotmail.com|Lot 463 & 456, Taman Seputeh|Kuala Lumpur|Wilayah Persekutuan|58000	P0030001
+S0003	Peter Stationary Sdn. Bhd.	Deevarashan|Chandresh|M	6012-9553366|peter21@yahoo.com|G-21, Jalan Datok Siaman Gagap|Seremban|Negeri Sembilan|70100	P1010004
+S0004	New Life Sdn. Bhd.	Nurul|Adriana Hani|F	6019-8726315|newlife@gmail.com|No. 7 Persiaran Kilang Jelapang Industrial Area|Ipoh|Perak|30100	P0010003|P1040001

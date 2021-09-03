@@ -172,10 +172,9 @@ public class Order extends OrderDetails {
                 if (ord.getOrdID().equals(ordID)) {
                     order = ord;
                     return order;
-                } else {
-                    throw (new Exception("Order not found!" + ordID));
                 }
             }
+            throw (new Exception("Order not found!" + ordID));
         } catch (Exception e) {
             System.out.println(e);
         }
