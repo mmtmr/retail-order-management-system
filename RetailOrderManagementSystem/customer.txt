@@ -1,6 +1,6 @@
-CUS00001	Lai|Mei Wen|F|2000-11-21|5690	6017-6031533|laimeiwen@gmail.com|PT123, Jalan KK 5/3|Kota Bharu|Kelantan|16520	CA00001	-
+CUS00001	Lai|Mei Wen|F|2000-11-21|5690	6017-6031533|laimeiwen@gmail.com|PT123, Jalan KK 5/3|Kota Bharu|Kelantan|16520	CA00001	OR000002
 CUS00002	Ya Wen|Koh|F|2001-09-03|0	6018-9678988|kohyawen93@gmail.com|PT903, Jalan KK 7/6|Kota Bharu|Kelantan|16130	-	-
 CUS00003	Mei Hui|Kong|F|2002-05-04|0	6018-9678988|kongmeihui@gmail.com|Lot 202, Jalan Mega|Klang|Selangor|58390	CA00003	OR000001
-CUS00004	Farhana|Nurul|F|1985-09-07|0	6018-9345692|farhana@gmail.com|Lot 289|Kota Bharu|Kelantan|15483	CA00004	-
+CUS00004	Farhana|Nurul|F|1985-09-07|0	6018-9345692|farhana@gmail.com|Lot 289|Kota Bharu|Kelantan|15483	CA00004	OR000004
 CUS00005	Dhassron|Erndomin|M|1973-05-16|0	6018-9245637|dhassron16@hotmail.com|4961 Jalan Chain Ferry|Butterworth|Penang|12100	CA00005	-
-CUS00001	Hui Xin|Koh|F|1997-09-21|0	6018-9774411|kohxin09@hotmail.com|Lot PT1943, Jalan Muhibah|Kota Bharu |Kelantan|16350	CA00006	-
+CUS00006	Hui Xin|Koh|F|1997-09-21|0	6018-9774411|kohxin09@hotmail.com|Lot PT1943, Jalan Muhibah|Kota Bharu |Kelantan|16350	CA00006	OR000003

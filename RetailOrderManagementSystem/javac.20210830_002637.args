@@ -1,0 +1,18 @@
+-d
+D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\build\\classes
+-classpath
+"D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\build\\classes;D:\\Program Files\\NetBeans-12.2\\netbeans\\java\\modules\\ext\\AbsoluteLayout.jar;D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\Java Theme\\flatlaf-intellij-themes-1.5.jar;D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\Java Theme\\flatlaf-1.5.jar"
+-sourcepath
+D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\src
+-target
+1.8
+-encoding
+UTF-8
+-g
+-processorpath
+"D:\\Program Files\\NetBeans-12.2\\netbeans\\java\\modules\\ext\\AbsoluteLayout.jar;D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\Java Theme\\flatlaf-intellij-themes-1.5.jar;D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\Java Theme\\flatlaf-1.5.jar;D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\build\\empty"
+-s
+D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\build\\generated-sources\\ap-source-output
+-source
+1.8
+D:\\Coding\\oodj\\retail-order-management-system\\RetailOrderManagementSystem\\src\\retailordermanagementsystem\\AdminPanel.java
