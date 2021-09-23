@@ -36,6 +36,10 @@ public class Validation {
         } else {
             throw new Exception("Invalid Input: Remove the tab or | inside input.");
         }
+        if (password1.equals(password2)) {
+        } else {
+            throw new Exception("Password does not match.");
+        }
     }
 
     public static void validateProductInput(String proname, String promodel) throws Exception {

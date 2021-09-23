@@ -281,7 +281,7 @@ public class ViewOrderDialog extends javax.swing.JDialog {
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         try {
-            if (order.getOrdStatus() != OrderStatus.Unpaid) {
+            if (order.getOrdStatus() != OrderStatus.Unpaid && order.getOrdStatus() != OrderStatus.ToShip) {
                 throw new Exception("This order cannot be cancelled");
             }
             order.setOrdStatus(OrderStatus.Cancelled);

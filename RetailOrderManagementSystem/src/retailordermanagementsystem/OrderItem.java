@@ -59,6 +59,7 @@ public class OrderItem extends Product {
             index++;
         }
         this.OIPrice = getProPrice() * OIQuantity;
+        this.OIPrice=Math.round(OIPrice*100.0)/100.0;
         this.OIPackingCharge = getProPackingCharge() * OIQuantity;
     }
 

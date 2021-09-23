@@ -57,13 +57,18 @@ public class ForgotPasswordDialog extends javax.swing.JDialog {
         labelForgotPasswordTitle.setText("Forgot Password?");
 
         labelFPInstruction.setForeground(new java.awt.Color(102, 102, 102));
-        labelFPInstruction.setText("Please enter registered email");
+        labelFPInstruction.setText("Please enter registered username");
 
         labelFPInstruction2.setForeground(new java.awt.Color(102, 102, 102));
         labelFPInstruction2.setText("to reset password");
 
         textUsername.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        textUsername.setText("Email");
+        textUsername.setText("Username");
+        textUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textUsernameActionPerformed(evt);
+            }
+        });
 
         labelRememberPassword.setForeground(new java.awt.Color(102, 102, 102));
         labelRememberPassword.setText("Remember Password?");
@@ -98,14 +103,12 @@ public class ForgotPasswordDialog extends javax.swing.JDialog {
         labelEmailStore.setForeground(new java.awt.Color(0, 0, 255));
         labelEmailStore.setText(" overcooked@store.com");
 
+        labelFPIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/retailordermanagementsystem/forgot password.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(labelFPIcon)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,6 +142,10 @@ public class ForgotPasswordDialog extends javax.swing.JDialog {
                                     .addComponent(labelContactInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(58, 58, 58))))
                         .addGap(35, 35, 35))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(labelFPIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +153,7 @@ public class ForgotPasswordDialog extends javax.swing.JDialog {
                 .addGap(27, 27, 27)
                 .addComponent(labelFPIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelForgotPasswordTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelForgotPasswordTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelFPInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -159,7 +166,7 @@ public class ForgotPasswordDialog extends javax.swing.JDialog {
                     .addComponent(buttonFPLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(buttonResetPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(labelContactInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,6 +216,7 @@ public class ForgotPasswordDialog extends javax.swing.JDialog {
                     this.dispose();
                     ResetPasswordDialog resetPasswordDialog = new ResetPasswordDialog(null, true, acc);
                     resetPasswordDialog.show();
+                    return;
                 }
             }
             throw new Exception("Account not found!");
@@ -216,6 +224,10 @@ public class ForgotPasswordDialog extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_buttonResetPasswordActionPerformed
+
+    private void textUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textUsernameActionPerformed
 
     /**
      * @param args the command line arguments

@@ -326,7 +326,6 @@ public class EditOrderDialog extends javax.swing.JDialog {
             order.setOrdCreateDT(dt);
             order.setOrdAmt(total);
             order.setOrdShipment(shipmentcode);
-            order.setOrdStatus(OrderStatus.Completed);
             order.setOrdModifyDT(LocalDateTime.now());
             rewriteOrderData();
             JOptionPane.showMessageDialog(null, "Order changes is saved!");

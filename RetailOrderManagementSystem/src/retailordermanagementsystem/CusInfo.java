@@ -38,7 +38,7 @@ public class CusInfo extends PersonalInfo {
     }
 
     //Normal Load
-    public CusInfo(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint) {
+    public CusInfo(String PIFName, String PILName, Gender PIGender, int PIRewardPoint, LocalDate PIDateOfBirth) {
         super(PIFName, PILName, PIGender);
         this.PIRewardPoint = PIRewardPoint;
         this.PIDateOfBirth = PIDateOfBirth;

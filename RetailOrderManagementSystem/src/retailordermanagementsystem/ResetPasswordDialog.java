@@ -228,10 +228,10 @@ public class ResetPasswordDialog extends javax.swing.JDialog {
             Operation.rewriteAccountData();
             JOptionPane.showMessageDialog(null, "Password had successfully changed!");
             this.dispose();
-            if (Operation.opCus == null) {
-                LoginDialog customerLoginDialog = new LoginDialog(null, true, 'C');
-                customerLoginDialog.show();
-            }
+//            if (Operation.opCus == null) {
+//                LoginDialog customerLoginDialog = new LoginDialog(null, true, 'C');
+//                customerLoginDialog.show();
+//            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -239,10 +239,7 @@ public class ResetPasswordDialog extends javax.swing.JDialog {
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         this.dispose();
-        if (Operation.opCus == null) {
-            LoginDialog customerLoginDialog = new LoginDialog(null, true, 'C');
-            customerLoginDialog.show();
-        }
+
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**

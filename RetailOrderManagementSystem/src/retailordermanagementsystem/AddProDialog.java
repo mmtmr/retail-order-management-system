@@ -365,7 +365,7 @@ public class AddProDialog extends javax.swing.JDialog {
                     Supplier.searchSupFromProID(pro.getProID()).getSupProducts().remove(pro);
                     supplier.getSupProducts().add(pro);
                 }
-                pro.editProduct(name, price, weight, category, isFragile, model, stock);
+                pro.editProduct(name, price, weight, category, isFragile, pmname, model,stock);
                 Operation.rewriteProductData();
                 Operation.rewriteSupplierData();
                 JOptionPane.showMessageDialog(null, "Product is changed.");

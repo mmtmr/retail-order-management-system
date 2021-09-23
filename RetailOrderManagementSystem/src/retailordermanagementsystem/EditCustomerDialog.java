@@ -349,7 +349,7 @@ public class EditCustomerDialog extends javax.swing.JDialog {
             String postcode=textPostcode.getText();
             String accname=textAccountName.getText();
             validateCustomerInput(fname, lname, phone, email, street, city, state, postcode, accname);
-            cus.editCustomer(fname, lname, gender, birthday,rewardpoint, phone, email, street, city, state, postcode, accname);
+            cus.editCustomer(fname, lname, gender, rewardpoint, birthday, phone, email, street, city, state, postcode, accname);
 //            AccList.add(cus.getCusAccount());
 //            CusList.add(cus);
             Operation.rewriteAccountData();

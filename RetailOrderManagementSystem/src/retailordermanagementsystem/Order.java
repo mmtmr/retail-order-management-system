@@ -15,7 +15,7 @@ import static retailordermanagementsystem.Operation.OrdList;
  */
 public class Order extends OrderDetails {
 
-    private static int OrdCounter=0;//TODO Modify with Total ID
+    private static int OrdCounter = 0;//TODO Modify with Total ID
     private LocalDateTime OrdCreateDT;
     private OrderStatus OrdStatus;
     private String OrdShipment;
@@ -30,15 +30,23 @@ public class Order extends OrderDetails {
         this.OrdID = "OR" + String.format("%06d", OrdCounter + 1);
         this.OrdCreateDT = LocalDateTime.now();
         this.OrdStatus = OrderStatus.Unpaid;
-        this.OrdShipment="";
+        this.OrdShipment = "";
         this.OrdItems = new ArrayList<>(SC.getOrdItems());
+        double OrdPrice = 0.00;
+        double OrdPackingCharge = 0.00;
         for (OrderItem oi : this.OrdItems) {
-            String[] ids=oi.getOIID().split("-");
-            oi.setOIID(this.OrdID+"-"+ids[1]);
+            String[] ids = oi.getOIID().split("-");
+            oi.setOIID(this.OrdID + "-" + ids[1]);
             oi.setOIPrice(oi.getOIPrice() * (1 - discount));
             oi.setOIPackingCharge(oi.getOIPackingCharge() * (1 - discount));
-            this.OrdAmt += oi.getOIPrice() + oi.getOIPackingCharge();
+
+            OrdPrice += oi.getOIPrice();
+            OrdPackingCharge += oi.getOIPackingCharge();
         }
+        if (OrdPackingCharge % 6.00 != 0) {
+            OrdPackingCharge = OrdPackingCharge - (OrdPackingCharge % 6.00) + 6.00;//6 Ringgit per 0.5kg
+        }
+        this.OrdAmt += OrdPrice + OrdPackingCharge;
         SC.setOrdItems(new ArrayList<>());
         SC.setOrdModifyDT(LocalDateTime.now());
         this.OrdPayment = new Payment();
@@ -63,7 +71,6 @@ public class Order extends OrderDetails {
 //        this.OrdAmt = OrdAmt;
 //        this.OrdPayment = new Payment(PName, PCardNumber, PBank);
 //    }
-
     public Order(String OrdID, OrderStatus OrdStatus, LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment, double OrdAmt, String[] OrdPaymentLine) {
         super(OrdID, OrdModifyDT);
         this.OrdCreateDT = OrdCreateDT;
@@ -150,10 +157,9 @@ public class Order extends OrderDetails {
         sb.append("\t").append(OrdStatus);
         sb.append("\t").append(OrdCreateDT);
         sb.append("\t").append(OrdModifyDT);
-        if(OrdShipment.isEmpty()){
+        if (OrdShipment.isEmpty()) {
             sb.append("\t").append("-");
-        }
-        else{
+        } else {
             sb.append("\t").append(OrdShipment);
         }
         sb.append("\t").append(OrdAmt);

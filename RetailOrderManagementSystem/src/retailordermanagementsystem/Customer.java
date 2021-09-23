@@ -27,6 +27,14 @@ public class Customer {
     }
 
     //Normal Load with All Info
+    public Customer(String CusID, String PIFName, String PILName, Gender PIGender,  int PIRewardPoint, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ArrayList<Order> CusOrders) {
+        this.CusID = CusID;
+        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIRewardPoint, PIDateOfBirth);
+        this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
+        this.CusAccount = CusAccount;
+        this.CusOrders = CusOrders;
+    }
+    
     public Customer(String CusID, String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ArrayList<Order> CusOrders) {
         this.CusID = CusID;
         this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth);
@@ -116,7 +124,7 @@ public class Customer {
         return CusOrdersIDs;
     }
 
-    public void editCustomer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, String CAName) {
+    public void editCustomer(String PIFName, String PILName, Gender PIGender, int PIRewardPoint, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, String CAName) {
 //        try{
 //            validateCustomer(PIFName,PILName,CIPhone,CIEmail,CIAddStreet,CIAddCity,CIAddState,CIAddPostcode,CAName);
 //        }
@@ -237,6 +245,7 @@ public class Customer {
             String CusPILName=CusPILine[1];
             Gender CusPIGender=Gender.valueOf(CusPILine[2]);
             LocalDate CusPIDOB=LocalDate.parse(CusPILine[3]);
+            int CusPIRewardPoint=Integer.parseInt(CusPILine[4]);
             String[] CusCILine = ContactInfo.parseContactInfoFromString(CusLine[2]);
             String CusCIPhone =CusCILine[0];
             String CusCIEmail =CusCILine[1];
@@ -247,7 +256,7 @@ public class Customer {
             CusAcc CusAccount = CusAcc.searchCAFromID(CusLine[3]);
             ArrayList<Order> CusOrders = Order.searchOrdersFromIDs(CusLine[4].split("\\|"));
 
-            CusList.add(new Customer(CusLine[0], CusPIFName, CusPILName, CusPIGender, CusPIDOB, CusCIPhone, CusCIEmail, CusCIAddStreet,CusCIAddCity,CusCIAddState, CusCIAddPostcode,CusAccount, CusOrders));
+            CusList.add(new Customer(CusLine[0], CusPIFName, CusPILName, CusPIGender, CusPIRewardPoint, CusPIDOB, CusCIPhone, CusCIEmail, CusCIAddStreet,CusCIAddCity,CusCIAddState, CusCIAddPostcode,CusAccount, CusOrders));
         } catch (Exception e) {
             System.out.println(e);
         }

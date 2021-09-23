@@ -219,7 +219,7 @@ public class LoginDialog extends javax.swing.JDialog {
 
                 }
             }
-            throw new Exception("Account not found!");
+            throw new Exception("Please key in valid account name.");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }

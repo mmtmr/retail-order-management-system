@@ -46,6 +46,7 @@ public class CustomerPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupGender = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tab = new javax.swing.JTabbedPane();
@@ -141,13 +142,16 @@ public class CustomerPanel extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(681, 681, 681)
+                .addGap(546, 546, 546)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(682, 682, 682))
+                .addGap(597, 597, 597))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         tab.setTabPlacement(javax.swing.JTabbedPane.LEFT);
@@ -163,6 +167,11 @@ public class CustomerPanel extends javax.swing.JFrame {
         buttonCancel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonCancel.setText("Cancel");
         buttonCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
         textPhone.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         textPhone.setText("+6012-3456789");
@@ -175,6 +184,7 @@ public class CustomerPanel extends javax.swing.JFrame {
         labelGender.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelGender.setText("Gender");
 
+        buttonGroupGender.add(radioMale);
         radioMale.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         radioMale.setText("Male");
         radioMale.addActionListener(new java.awt.event.ActionListener() {
@@ -186,8 +196,14 @@ public class CustomerPanel extends javax.swing.JFrame {
         textEmail.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         textEmail.setText("example@gmail.com");
 
+        buttonGroupGender.add(radioFemale);
         radioFemale.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         radioFemale.setText("Female");
+        radioFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioFemaleActionPerformed(evt);
+            }
+        });
 
         labelBirthday.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelBirthday.setText("Birthday");
@@ -209,8 +225,8 @@ public class CustomerPanel extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(508, 508, 508)
                 .addComponent(labelTitleProduct1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -359,11 +375,11 @@ public class CustomerPanel extends javax.swing.JFrame {
                             .addComponent(labelGender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelLastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelFirstName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(radioMale, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(radioFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(textPostcode)
                             .addComponent(comboState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -383,12 +399,10 @@ public class CustomerPanel extends javax.swing.JFrame {
                         .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69)
                         .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 390, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(513, 513, 513))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(93, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,7 +634,7 @@ public class CustomerPanel extends javax.swing.JFrame {
             .addGroup(panelAdminProductListLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelAdminProductListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabbedPaneMall, javax.swing.GroupLayout.DEFAULT_SIZE, 1875, Short.MAX_VALUE)
+                    .addComponent(tabbedPaneMall, javax.swing.GroupLayout.DEFAULT_SIZE, 1208, Short.MAX_VALUE)
                     .addGroup(panelAdminProductListLayout.createSequentialGroup()
                         .addComponent(labelTitleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -726,7 +740,7 @@ public class CustomerPanel extends javax.swing.JFrame {
                         .addComponent(buttonModify)
                         .addGap(18, 18, 18)
                         .addComponent(buttonDelete1))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1338, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE))
                 .addGap(41, 41, 41)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(labelTotalQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1331,14 +1345,16 @@ public class CustomerPanel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tab)
+            .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 644, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -1361,6 +1377,7 @@ public class CustomerPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_tabbedPaneMallStateChanged
 
     private void buttonAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddToCartActionPerformed
+        
         JScrollPane scrollRef = (JScrollPane) tabbedPaneMall.getSelectedComponent();
         JTable table = (JTable) scrollRef.getViewport().getComponent(0);
         try {
@@ -1426,7 +1443,6 @@ public class CustomerPanel extends javax.swing.JFrame {
             //            CusList.add(cus);
             Operation.rewriteCustomerData();
             JOptionPane.showMessageDialog(null, "Your changes is saved.");
-            this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -1542,6 +1558,14 @@ public class CustomerPanel extends javax.swing.JFrame {
         ResetPasswordDialog resetPasswordDialog = new ResetPasswordDialog(null, true, opCus.getCusAccount());
         resetPasswordDialog.show();
     }//GEN-LAST:event_buttonResetActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+       loadCusData();
+    }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void radioFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioFemaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioFemaleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1722,6 +1746,7 @@ public class CustomerPanel extends javax.swing.JFrame {
     private javax.swing.JButton buttonCheckout;
     private javax.swing.JButton buttonDelete;
     private javax.swing.JButton buttonDelete1;
+    private javax.swing.ButtonGroup buttonGroupGender;
     private javax.swing.JButton buttonModify;
     private javax.swing.JButton buttonPay;
     private javax.swing.JButton buttonReset;

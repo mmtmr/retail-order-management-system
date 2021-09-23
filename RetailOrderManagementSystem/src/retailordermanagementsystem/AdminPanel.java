@@ -72,11 +72,6 @@ public class AdminPanel extends javax.swing.JFrame {
         textSearchSup = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         labelTitleCus = new javax.swing.JLabel();
-        buttonDeleteAcc = new javax.swing.JButton();
-        buttonEditCus = new javax.swing.JButton();
-        buttonAddCus = new javax.swing.JButton();
-        textSearchCus = new javax.swing.JTextField();
-        buttonDeleteCus = new javax.swing.JButton();
         tabbedPaneCustomer = new javax.swing.JTabbedPane();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableCusList = new javax.swing.JTable();
@@ -86,8 +81,11 @@ public class AdminPanel extends javax.swing.JFrame {
         tableCusVIPList = new javax.swing.JTable();
         jScrollPane16 = new javax.swing.JScrollPane();
         tableCusNonVIPList = new javax.swing.JTable();
+        textSearchCus = new javax.swing.JTextField();
+        buttonDeleteCus = new javax.swing.JButton();
         buttonAddOrd = new javax.swing.JButton();
-        buttonAddAcc = new javax.swing.JButton();
+        buttonAddCus = new javax.swing.JButton();
+        buttonEditCus = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         labelTitleOrder = new javax.swing.JLabel();
         buttonEditOrder = new javax.swing.JButton();
@@ -500,46 +498,6 @@ public class AdminPanel extends javax.swing.JFrame {
         labelTitleCus.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         labelTitleCus.setText("Customer List");
 
-        buttonDeleteAcc.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonDeleteAcc.setText("Delete Account");
-        buttonDeleteAcc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDeleteAccActionPerformed(evt);
-            }
-        });
-
-        buttonEditCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonEditCus.setText("Edit");
-        buttonEditCus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditCusActionPerformed(evt);
-            }
-        });
-
-        buttonAddCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAddCus.setText("Add Customer");
-        buttonAddCus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddCusActionPerformed(evt);
-            }
-        });
-
-        textSearchCus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textSearchCus.setText("Press enter to search");
-        textSearchCus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textSearchCusActionPerformed(evt);
-            }
-        });
-
-        buttonDeleteCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonDeleteCus.setText("Delete Customer");
-        buttonDeleteCus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDeleteCusActionPerformed(evt);
-            }
-        });
-
         tabbedPaneCustomer.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 tabbedPaneCustomerStateChanged(evt);
@@ -673,6 +631,22 @@ public class AdminPanel extends javax.swing.JFrame {
 
         tabbedPaneCustomer.addTab("Non-VIP", jScrollPane16);
 
+        textSearchCus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textSearchCus.setText("Press enter to search");
+        textSearchCus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSearchCusActionPerformed(evt);
+            }
+        });
+
+        buttonDeleteCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonDeleteCus.setText("Delete Customer");
+        buttonDeleteCus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteCusActionPerformed(evt);
+            }
+        });
+
         buttonAddOrd.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         buttonAddOrd.setText("Add Order");
         buttonAddOrd.addActionListener(new java.awt.event.ActionListener() {
@@ -681,11 +655,19 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
-        buttonAddAcc.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        buttonAddAcc.setText("Add Account");
-        buttonAddAcc.addActionListener(new java.awt.event.ActionListener() {
+        buttonAddCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonAddCus.setText("Add Customer");
+        buttonAddCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddAccActionPerformed(evt);
+                buttonAddCusActionPerformed(evt);
+            }
+        });
+
+        buttonEditCus.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        buttonEditCus.setText("Edit");
+        buttonEditCus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditCusActionPerformed(evt);
             }
         });
 
@@ -706,30 +688,24 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(buttonAddCus)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonAddAcc)
-                        .addGap(18, 18, 18)
                         .addComponent(buttonAddOrd)
                         .addGap(18, 18, 18)
                         .addComponent(buttonEditCus, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonDeleteCus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonDeleteAcc)
-                        .addGap(59, 59, 59))))
+                        .addGap(56, 56, 56))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTitleCus)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonDeleteAcc)
                         .addComponent(buttonDeleteCus)
                         .addComponent(buttonEditCus)
                         .addComponent(buttonAddCus)
                         .addComponent(textSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(buttonAddOrd)
-                        .addComponent(buttonAddAcc))
-                    .addComponent(labelTitleCus))
+                        .addComponent(buttonAddOrd)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabbedPaneCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1263,7 +1239,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addGap(127, 127, 127)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 1520, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16))
+                .addGap(703, 703, 703))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1358,24 +1334,6 @@ public class AdminPanel extends javax.swing.JFrame {
         sorter.setRowFilter(RowFilter.regexFilter(".*" + Pattern.quote(key) + ".*"));
         table.setRowSorter(sorter);
     }//GEN-LAST:event_textSearchCusActionPerformed
-
-    private void buttonDeleteAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteAccActionPerformed
-        JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
-        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
-        try {
-            int del = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer account? The customer information will be remained.", "Delete", JOptionPane.YES_NO_OPTION);
-            if (del == 0) {
-                String accID = (table.getModel().getValueAt(table.getSelectedRow(), 1).toString());
-                Customer cus = Customer.searchCusFromAccID(accID);
-                Operation.destroyAccountObject(cus.getCusAccount());
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            showCustomerList();
-        }
-
-    }//GEN-LAST:event_buttonDeleteAccActionPerformed
 
     private void buttonDeleteCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteCusActionPerformed
         try {
@@ -1603,36 +1561,6 @@ public class AdminPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonAddOrdActionPerformed
 
-    private void buttonAddAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddAccActionPerformed
-        JScrollPane scrollRef = (JScrollPane) tabbedPaneCustomer.getSelectedComponent();
-        JTable table = (JTable) scrollRef.getViewport().getComponent(0);
-        try {
-            String cusID = (table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
-            Customer cus = Customer.searchCusFromID(cusID);
-            if (!cus.getCusAccount().getAccID().isEmpty()) {
-                throw new Exception("Customer account already existed.");
-            }
-            String accname = JOptionPane.showInputDialog(null, "Enter Shipment code:");
-            Validation.validateAccountInput(accname, "123456");
-
-            for (Account a : AccList) {
-                if (a.getAccName().equals(accname)) {
-                    throw new Exception("Account name already existed.");
-                }
-            }
-            Account newacc = new CusAcc(accname, "123456");
-            AccList.add(newacc);
-            cus.setCusAccount((CusAcc) newacc);
-            Operation.writeAccountData(newacc);
-            Operation.rewriteCustomerData();
-            JOptionPane.showMessageDialog(null, "New account added.");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            showCustomerList();
-        }
-    }//GEN-LAST:event_buttonAddAccActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1784,13 +1712,11 @@ public class AdminPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddAcc;
     private javax.swing.JButton buttonAddCus;
     private javax.swing.JButton buttonAddModel;
     private javax.swing.JButton buttonAddOrd;
     private javax.swing.JButton buttonAddPro;
     private javax.swing.JButton buttonAddSup;
-    private javax.swing.JButton buttonDeleteAcc;
     private javax.swing.JButton buttonDeleteCus;
     private javax.swing.JButton buttonDeleteModel;
     private javax.swing.JButton buttonDeleteOrder;

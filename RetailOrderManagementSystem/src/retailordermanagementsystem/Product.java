@@ -98,18 +98,10 @@ public class Product {
 
         if (!this.ProFragile) {
             this.ProID = "P0" + this.ProID;
-            if ((this.ProWeight / 0.50 * 6.00) % 6.00 != 0) {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00 - ((this.ProWeight / 0.50 * 6.00) % 6.00) + 6.00;//6 Ringgit per 0.5kg
-            } else {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00;
-            }
+            this.ProPackingCharge = this.ProWeight / 0.50 * 6.00;
         } else {
             this.ProID = "P1" + this.ProID;
-            if ((this.ProWeight / 0.50 * 10.00) % 10.00 != 0) {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00 - ((this.ProWeight / 0.50 * 10.00) % 10.00) + 10.00;//10 Ringgit per 0.5kg
-            } else {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00;
-            }
+            this.ProPackingCharge = this.ProWeight / 0.50 * 10.00;
         }
 
         addProCategoryCounter(this.ProCategory);
@@ -141,18 +133,10 @@ public class Product {
 
         if (!this.ProFragile) {
             this.ProID = "P0" + this.ProID;
-            if ((this.ProWeight / 0.50 * 6.00) % 6.00 != 0) {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00 - ((this.ProWeight / 0.50 * 6.00) % 6.00) + 6.00;//6 Ringgit per 0.5kg
-            } else {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00;
-            }
+            this.ProPackingCharge = this.ProWeight / 0.50 * 6.00;
         } else {
             this.ProID = "P1" + this.ProID;
-            if ((this.ProWeight / 0.50 * 10.00) % 10.00 != 0) {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00 - ((this.ProWeight / 0.50 * 10.00) % 10.00) + 10.00;//10 Ringgit per 0.5kg
-            } else {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00;
-            }
+            this.ProPackingCharge = this.ProWeight / 0.50 * 10.00;
         }
 
         addProCategoryCounter(this.ProCategory);
@@ -391,15 +375,20 @@ public class Product {
         throw new Exception("Model does not exist");
     }
 
-    public void editProduct(String ProName, double ProPrice, double ProWeight, ProductType ProCategory, boolean ProFragile, String PMName, int PMStock){
+    public void editProduct(String ProName, double ProPrice, double ProWeight, ProductType ProCategory, boolean ProFragile, String PMOldName, String PMName, int PMStock){
         minusProCategoryCounter(this.ProCategory);
         this.ProName = ProName;
         this.ProPrice = ProPrice;
         this.ProWeight = ProWeight;
         this.ProCategory = ProCategory;
         this.ProFragile = ProFragile;
-        this.ProModels = new ArrayList();
-        ProModels.add(new ProModel(PMName, PMStock));
+        for (ProModel model : ProModels){
+            if (model.getPMName().equals(PMOldName)) {
+                ProModels.remove(model);
+                ProModels.add(new ProModel(PMName, PMStock));
+                break;
+            }
+        }      
         switch (this.ProCategory) {
             case Stationery:
                 this.ProID = String.format("%02d", this.ProCategory.ordinal() + 1) + String.format("%04d", ProStationeryCounter + 1);
@@ -417,20 +406,11 @@ public class Product {
 
         if (!this.ProFragile) {
             this.ProID = "P0" + this.ProID;
-            if ((this.ProWeight / 0.50 * 6.00) % 6.00 != 0) {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00 - ((this.ProWeight / 0.50 * 6.00) % 6.00) + 6.00;//6 Ringgit per 0.5kg
-            } else {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 6.00;
-            }
+            this.ProPackingCharge = this.ProWeight / 0.50 * 6.00;
         } else {
             this.ProID = "P1" + this.ProID;
-            if ((this.ProWeight / 0.50 * 10.00) % 10.00 != 0) {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00 - ((this.ProWeight / 0.50 * 10.00) % 10.00) + 10.00;//10 Ringgit per 0.5kg
-            } else {
-                this.ProPackingCharge = this.ProWeight / 0.50 * 10.00;
-            }
+            this.ProPackingCharge = this.ProWeight / 0.50 * 10.00;
         }
-
         addProCategoryCounter(this.ProCategory);
     }
 
