@@ -69,23 +69,7 @@ public class Product {
         this.addProModelsList(ProModelsLine);
     }
 
-    //Load from String Array
-    public Product(String[] ProLine, String[][] ProModelsLine) {
-        this.ProID = ProLine[0];
-        this.ProName = ProLine[1];
-        this.ProPrice = Double.parseDouble(ProLine[2]);
-        this.ProWeight = Double.parseDouble(ProLine[3]);
-        this.ProPackingCharge = Double.parseDouble(ProLine[4]);
-        this.ProCategory = ProductType.valueOf(ProLine[5]);
 
-        if ("1".equals(this.ProID.substring(1, 2))) {
-            this.ProFragile = true;
-        } else if ("0".equals(this.ProID.substring(1, 2))) {
-            this.ProFragile = false;
-        }
-        this.ProModels = new ArrayList();
-        this.addProModelsList(ProModelsLine);
-    }
 
     //Create
     public Product(String ProName, double ProPrice, double ProWeight, ProductType ProCategory, boolean ProFragile, String[][] ProModelsLine) {
@@ -129,7 +113,6 @@ public class Product {
         }
 
         addProCategoryCounter(this.ProCategory);
-
     }
 
     public Product(String ProName, double ProPrice, double ProWeight, ProductType ProCategory, boolean ProFragile, String PMName, int PMStock) {
@@ -173,7 +156,6 @@ public class Product {
         }
 
         addProCategoryCounter(this.ProCategory);
-
     }
 
     public String getProID() {
@@ -451,29 +433,7 @@ public class Product {
 
         addProCategoryCounter(this.ProCategory);
     }
-//    public static ArrayList<Product> searchProsFromIDs(String[] ProIDs) {
-//        ArrayList<Product> Products = new ArrayList<>();
-//        if (ProIDs[0] != null) {
-//            try {
-//                for (String id : OrdersIDs) {
-//                    for (Order ord : ProList) {
-//                        if (ord.getOrdID().equals(id)) {
-//                            Orders.add(ord);
-//                        }
-//                    }
-//                }
-//                if (Orders.isEmpty()) {
-//                    throw (new Exception("Order not found!" + OrdersIDs));
-//                } else {
-//                    return Orders;
-//                }
-//
-//            } catch (Exception e) {
-//                System.out.println(e);
-//            }
-//        }
-//        return Orders;
-//    }
+
     public static Product searchProFromID(String proID) {
         Product product = new Product();
         if (!proID.equals("-")) {
@@ -511,8 +471,13 @@ public class Product {
         try {
             String[] ProLine = parseProFromString(proLine);
             String[][] ProModelsLine = ProModel.parsePMFromString(ProLine[6], ProLine[7]);
-            Operation.ProList.add(new Product(ProLine, ProModelsLine));
-
+            String ProID=ProLine[0];
+            String ProName=ProLine[1];
+            double ProPrice=Double.parseDouble(ProLine[2]);
+            double ProWeight=Double.parseDouble(ProLine[3]);
+            double ProPackingCharge=Double.parseDouble(ProLine[4]);
+            ProductType ProCategory=ProductType.valueOf(ProLine[5]);
+            Operation.ProList.add(new Product(ProID, ProName, ProPrice, ProWeight,ProPackingCharge, ProCategory,  ProModelsLine));
         } catch (Exception e) {
             System.out.println(e);
         }

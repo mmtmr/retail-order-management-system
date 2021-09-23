@@ -31,32 +31,14 @@ public class Customer {
         this.CusID = CusID;
         this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth);
         this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
-        this.CusAccount = CusAccount;//Aggregation because i want to access it elsewhere
-        this.CusOrders = CusOrders;//Aggregation because i want to keep the order it elsewhere
+        this.CusAccount = CusAccount;
+        this.CusOrders = CusOrders;
     }
 
-    //String Array Load
-    public Customer(String CusID, String[] PILine, String[] CILine, CusAcc CusAccount, ArrayList<Order> CusOrders) {
-        this.CusID = CusID;
-        this.CusPI = new CusInfo(PILine);
-        this.CusCI = new ContactInfo(CILine);
-        this.CusAccount = CusAccount;//Aggregation because i want to access it elsewhere
-        this.CusOrders = CusOrders;//Aggregation because i want to keep the order it elsewhere
-    }
-
-//    public Customer(String CusID, String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ArrayList<Order> CusOrders) {
-//        this.CusID = "CUS"+String.format("%05d", CusCounter + 1);
-//        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth);
-//        this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
-//        this.CusAccount = CusAccount;
-//        this.CusOrders = CusOrders;
-//        addCusCounter();
-//    }
 //Following code is obtained from (rawr rang, 2014)
 //Create New Customer
     public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount) {
         this("CUS" + String.format("%05d", CusCounter + 1), PIFName, PILName, PIGender, PIDateOfBirth, CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode, CusAccount, new ArrayList<Order>());
-//        CusList.add(this);
         addCusCounter();
     }
 
@@ -64,19 +46,6 @@ public class Customer {
         return CusID;
     }
 
-//    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount) {
-//        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth, PIRewardPoint);
-//        this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
-//        this.CusAccount = CusAccount;
-//    }
-//
-//    public Customer(String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ShoppingCart CusSC, ArrayList<Order> CusOrders) {
-//        this.CusPI = new CusInfo(PIFName, PILName, PIGender, PIDateOfBirth, PIRewardPoint);
-//        this.CusCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
-//        this.CusAccount = CusAccount;
-//        this.CusSC = CusSC;
-//        this.CusOrders = CusOrders;
-//    }
     public static int getCusCounter() {
         return CusCounter;
     }
@@ -250,51 +219,6 @@ public class Customer {
         return customer;
     }   
 
-//    public static Customer parseCusFromString(String cusLine, ArrayList<Account> AccList, ArrayList<OrderDetails> OrdList, ArrayList<ShoppingCart> SCList) {
-//        CusAcc cusAccount = new CusAcc();
-//        String[] cusPI = new String[5];
-//        String[] cusCI = new String[6];
-//        ShoppingCart cusSC = new ShoppingCart();
-//        ArrayList<OrderItem> cusSCOIs = new ArrayList<>();
-//        ArrayList<Order> cusOrders = new ArrayList<>();
-//        try {
-//            System.out.println(cusLine);
-//            String[] cusData = cusLine.split("\t");
-//            if (cusData.length < 13) {
-//                throw (new Exception("Customer Info is incomplete!" + cusLine + cusData.length + cusData[cusData.length - 1]));
-//            } else {
-//                for (Account acc : AccList) {
-//                    if (acc.getAccID().equals(cusData[0])) {
-//                        cusAccount = (CusAcc) acc;
-//                    } else {
-//                        throw (new Exception("Customer Account not found!" + cusLine));
-//                    }
-//                }
-//                cusPI = Arrays.copyOfRange(cusData, 1, 6);
-//                cusCI = Arrays.copyOfRange(cusData, 6, 12);
-//                String[] cusOrdersIDsData = cusData[12].split(",");
-//                int index = 0;
-//                for (String id : cusOrdersIDsData) {
-//                    for (OrderDetails ord : OrdList) {
-//                        if (ord.getOrdID().equals(id)) {
-//                            if (index == 0) {
-//                                cusSC = (ShoppingCart) ord;
-//                            } else {
-//                                cusOrders.add((Order) ord);
-//                            }
-//
-//                        }
-//                    }
-//                    index += 1;
-//                }
-//                validateCustomer(cusPI[0], cusPI[1], cusCI[0], cusCI[1], cusCI[2], cusCI[3], cusCI[4], cusCI[5], cusAccount.getAccID(), cusAccount.getAccPassword());
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//        //String PIFName, String PILName, Gender PIGender, LocalDate PIDateOfBirth, int PIRewardPoint, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, CusAcc CusAccount, ShoppingCart CusSC, ArrayList<Order> CusOrders
-//        return new Customer(cusPI[0], cusPI[1], Gender.valueOf(cusPI[2]), LocalDate.parse(cusPI[3]), Integer.parseInt(cusPI[4]), cusCI[0], cusCI[1], cusCI[2], cusCI[3], cusCI[4], cusCI[5], cusAccount, cusSC, cusOrders);
-//    }56531
     public static String[] parseCusFromString(String cusLine) throws Exception {
         String[] cusData = cusLine.split("\t");
         if (cusData.length != 5) {
@@ -304,19 +228,26 @@ public class Customer {
         }
     }
 
-    //CusID + "\t" + CusPI + "\t" + CusCI + "\t" + CusAccount.getAccID() + "\t" + getCusOrdersIDs();
-    //String CusID, String[] PILine, String[] CILine, CusAcc CusAccount, ArrayList<Order> CusOrders
-    //CUS001  Ya Wen,Lai,F,2021-09-02,0   mail@mail.com,...,...   CA001   ORD001,ORD002
     public static void buildCusFromString(String cusLine) {
         try {
             String[] CusLine = parseCusFromString(cusLine);
 
             String[] CusPILine = CusInfo.parseCusInfoFromString(CusLine[1]);
+            String CusPIFName=CusPILine[0];
+            String CusPILName=CusPILine[1];
+            Gender CusPIGender=Gender.valueOf(CusPILine[2]);
+            LocalDate CusPIDOB=LocalDate.parse(CusPILine[3]);
             String[] CusCILine = ContactInfo.parseContactInfoFromString(CusLine[2]);
+            String CusCIPhone =CusCILine[0];
+            String CusCIEmail =CusCILine[1];
+            String CusCIAddStreet =CusCILine[2];
+            String CusCIAddCity =CusCILine[3];
+            String CusCIAddState =CusCILine[4];
+            String CusCIAddPostcode =CusCILine[5];
             CusAcc CusAccount = CusAcc.searchCAFromID(CusLine[3]);
             ArrayList<Order> CusOrders = Order.searchOrdersFromIDs(CusLine[4].split("\\|"));
 
-            CusList.add(new Customer(CusLine[0], CusPILine, CusCILine, CusAccount, CusOrders));
+            CusList.add(new Customer(CusLine[0], CusPIFName, CusPILName, CusPIGender, CusPIDOB, CusCIPhone, CusCIEmail, CusCIAddStreet,CusCIAddCity,CusCIAddState, CusCIAddPostcode,CusAccount, CusOrders));
         } catch (Exception e) {
             System.out.println(e);
         }

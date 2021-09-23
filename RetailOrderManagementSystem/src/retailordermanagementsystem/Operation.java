@@ -48,18 +48,6 @@ public class Operation {
             String accLine;
             while ((accLine = accRead.readLine()) != null) {
                 Account.buildAccFromString(accLine);
-                //System.out.println(accLine);
-//                String[] accData = accLine.split("\t");
-//
-//                if (accData[0].substring(0, 2).equals("CA")) {
-//                    buildAccFromString(accLine);
-//                    //System.out.println(acc);
-//                    //CusAcc.setCACounter(CusAcc.getCACounter()+1);
-//                } else if (accData[0].substring(0, 2).equals("AA")) {
-//                    AdminAcc acc = AdminAcc.parseAccountFromString(accLine);
-//                    AccList.add(acc);
-//                    //AdminAcc.setAACounter(AdminAcc.getAACounter()+1);
-//                }
             }
         } finally {
             accRead.close();
@@ -89,12 +77,7 @@ public class Operation {
             String proLine;
 
             while ((proLine = proRead.readLine()) != null) {
-                System.out.println(proLine);
-                //String[] proData = proLine.split("\t");
-
-//                if (proData.length!=4) {
-//                    throw new IOException("Product file is damaged!");
-//                }
+                //System.out.println(proLine);
                 Product.buildProFromString(proLine);
             }
         } finally {
@@ -149,26 +132,7 @@ public class Operation {
         }
     }
 
-//    public static void readOrderItemData() throws IOException {
-//        File oiFile = new File("orderitem.txt");
-//        if (!oiFile.isFile() && !oiFile.createNewFile()) {
-//            throw new IOException("Error creating new file: " + oiFile.getAbsolutePath());
-//        }
-//        BufferedReader oiRead = new BufferedReader(new FileReader(oiFile));
-//        try {
-//            //Read
-//            //https://stackoverflow.com/a/39552075
-//            String oiLine;
-//
-//            while ((oiLine = oiRead.readLine()) != null) {
-//                //System.out.println(oiLine);
-//                OrderItem oi = OrderItem.parseOIFromString(oiLine, oiList);
-//                OIList.add(oi);
-//            }
-//        } finally {
-//            oiRead.close();
-//        }
-//    }
+
     public static void readCustomerData() throws IOException, Exception {
         File customerFile = new File("customer.txt");
         if (!customerFile.isFile() && !customerFile.createNewFile()) {
@@ -195,41 +159,6 @@ public class Operation {
                 Customer.setCusCounter(Integer.parseInt(CusID.substring(3, CusID.length())));
             }
         }
-//        File orderFile = new File("order.txt");
-//        if (!orderFile.isFile() && !orderFile.createNewFile()) {
-//            throw new IOException("Error creating new file: " + orderFile.getAbsolutePath());
-//        }
-//        BufferedReader ordRead = new BufferedReader(new FileReader(orderFile));
-//
-//        try {
-//            //Read
-//            //https://stackoverflow.com/a/39552075
-//            String ordLine;
-//
-//            //System.out.println(ordLine);
-//            for (Customer cus : CusList) {
-//                int index = 0;
-//                while ((ordLine = ordRead.readLine()) != null) {
-//                    String[] ordData = ordLine.split("\t");
-//
-////                if (ordData.length!=4) {
-////                    
-////                }
-//                    //https://www.studytonight.com/java-examples/how-to-convert-string-to-arraylist-in-java
-//                    if (("SPC" + cus.getCusAccount().getAccID()).equals(ordData[0])) {
-////                    Order ord = Order.parseOrdFromString(ordLine);
-////                    OrdList.add(ord);
-//                        index++;
-//                    }
-//
-//                }
-//                if (index == 0) {
-//                    throw new Exception("Shopping cart not found! New Shopping Cart created.");
-//                }
-//            }
-//        } finally {
-//            ordRead.close();
-//        }
     }
 
     public static void readOrderData() throws IOException {
@@ -281,39 +210,7 @@ public class Operation {
         }
     }
 
-//    public static void readSCDataToCus() throws Exception {
-//        File orderFile = new File("order.txt");
-//        if (!orderFile.isFile() && !orderFile.createNewFile()) {
-//            throw new IOException("Error creating new file: " + orderFile.getAbsolutePath());
-//        }
-//        BufferedReader ordRead = new BufferedReader(new FileReader(orderFile));
-//
-//        try {
-//            //Read
-//            //https://stackoverflow.com/a/39552075
-//            String ordLine;
-//
-//            while ((ordLine = ordRead.readLine()) != null) {
-//                //System.out.println(ordLine);
-//                for (Customer cus : CusList) {
-//                    String[] ordData = ordLine.split("\t");
-//
-////                if (ordData.length!=4) {
-////                    
-////                }
-//                //https://www.studytonight.com/java-examples/how-to-convert-string-to-arraylist-in-java
-//                if (("SPC" + accID).equals(ordData[0])) {
-////                    Order ord = Order.parseOrdFromString(ordLine);
-////                    OrdList.add(ord);
-//
-//                }throw new Exception("Shopping cart not found!");
-//                }
-//                
-//            }
-//        } finally {
-//            ordRead.close();
-//        }
-//    }
+
     public static void writeAccountData(Account acc) throws IOException {
         File accFile = new File("account.txt");
         if (!accFile.isFile() && !accFile.createNewFile()) {

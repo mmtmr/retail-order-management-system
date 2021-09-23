@@ -29,13 +29,6 @@ public class Supplier {
         this("S" + String.format("%04d", SupCounter + 1), SupName, PIFName, PILName, PIGender, CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode, new ArrayList<Product>());
         addSupCounter();
     }
-//    public Supplier(String SupName, String PIFName, String PILName, Gender PIGender, String CIPhone, String CIEmail, String CIAddStreet, String CIAddCity, String CIAddState, String CIAddPostcode, ArrayList<Product> SupProducts) {
-//        this.SupID = "S" + String.format("%04d", SupCounter + 1);
-//        this.SupName=SupName;
-//        this.SupPersonInCharge = new PersonalInfo(PIFName, PILName, PIGender);
-//        this.SupCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
-//        this.SupProducts=SupProducts;
-//    }
 
     //Load
     public Supplier(String SupID, String SupName, String PIFName, String PILName, Gender PIGender, String CIPhone, String CIEmail, String CIAddStreet,String CIAddCity, String CIAddState, String CIAddPostcode, ArrayList<Product> SupProducts) {
@@ -43,15 +36,6 @@ public class Supplier {
         this.SupName = SupName;
         this.SupPersonInCharge = new PersonalInfo(PIFName, PILName, PIGender);
         this.SupCI = new ContactInfo(CIPhone, CIEmail, CIAddStreet, CIAddCity, CIAddState, CIAddPostcode);
-        this.SupProducts = SupProducts;
-    }
-
-    //Load String Array
-    public Supplier(String[] SupLine, String[] SupPIData, String[] SupCIData, ArrayList<Product> SupProducts) {
-        this.SupID = SupLine[0];
-        this.SupName = SupLine[1];
-        this.SupPersonInCharge = new PersonalInfo(SupPIData);
-        this.SupCI = new ContactInfo(SupCIData);
         this.SupProducts = SupProducts;
     }
 
@@ -149,36 +133,6 @@ public class Supplier {
         SupCI.setCIAddState(CIAddState);
         SupCI.setCIAddPostcode(CIAddPostcode);
     }
-//    public static Supplier parseSupFromString(String supLine, ArrayList<Product> ProList) {
-//        String[] sup = new String[3];
-//        String[] supCI = new String[6];
-//        ArrayList<Product> supProducts = new ArrayList<>();
-//        try {
-//            System.out.println(supLine);
-//            String[] supData = supLine.split("\t");
-//            if (supData.length != 13) {
-//                throw (new Exception("Supplier is incomplete!" + supLine));
-//            } else {
-//
-//                sup[0] = supData[0];
-//                sup[1] = supData[1];
-//                supPI = Arrays.copyOfRange(supData, 2, 4);
-//                supCI = Arrays.copyOfRange(supData, 5, 10);
-//                sup[2] = supData[11];
-//                String[] supProductsIDsData = supData[12].split(",");
-//                for (String id : supProductsIDsData) {
-//                    for (Product pro : ProList) {
-//                        if (pro.getProID().equals(id)) {
-//                            supProducts.add(pro);
-//                        }
-//                    }
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//        return new Supplier(sup[0], sup[1], supPI[0], supPI[1], Gender.valueOf(supPI[2]), supCI[0], supCI[1], supCI[2], supCI[3], supCI[4], supCI[5], sup[2], supProducts);
-//    }
 
     public static Supplier searchSupFromID(String supID) {
         Supplier supplier = new Supplier();
@@ -241,7 +195,18 @@ public class Supplier {
         try {
             String[] SupLine = parseSupFromString(supLine);
             String[] SupPIData = PersonalInfo.parsePIFromString(SupLine[2]);
+            String SupPIFName=SupPIData[0];
+            String SupPILName=SupPIData[1];
+            Gender SupPIGender=Gender.valueOf(SupPIData[2]);
+            
             String[] SupCIData = ContactInfo.parseContactInfoFromString(SupLine[3]);
+            String SupCIPhone =SupCIData[0];
+            String SupCIEmail =SupCIData[1];
+            String SupCIAddStreet =SupCIData[2];
+            String SupCIAddCity =SupCIData[3];
+            String SupCIAddState =SupCIData[4];
+            String SupCIAddPostcode =SupCIData[5];          
+            
             ArrayList<Product> SupProducts = new ArrayList<>();
             if ((SupLine[4].split("\\|"))[0] != null) {
                 for (String id : SupLine[4].split("\\|")) {
@@ -249,7 +214,7 @@ public class Supplier {
                 }
             }
 
-            SupList.add(new Supplier(SupLine, SupPIData, SupCIData, SupProducts));
+            SupList.add(new Supplier(SupLine[0], SupLine[1], SupPIFName, SupPILName, SupPIGender, SupCIPhone, SupCIEmail, SupCIAddStreet, SupCIAddCity, SupCIAddState, SupCIAddPostcode, SupProducts));
         } catch (Exception e) {
             System.out.println(e);
         }

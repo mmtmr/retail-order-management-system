@@ -31,7 +31,7 @@ public abstract class Account {
         this.AccLastLoginDT = AccLastLoginDT;
 
     }
-    
+
     public Account(String[] AccLine) {
         this.AccID = AccLine[0];
         this.AccName = AccLine[1];
@@ -94,12 +94,12 @@ public abstract class Account {
         return LoginName.equals(getAccName()) && LoginPassword.equals(getAccPassword());
     }
 
-    public void changeAccPassword (String newPassword, String confirmPassword){
-        if(newPassword.equals(confirmPassword)){
+    public void changeAccPassword(String newPassword, String confirmPassword) {
+        if (newPassword.equals(confirmPassword)) {
             setAccPassword(newPassword);
         }
     }
-    
+
     @Override
     public String toString() {
         return AccID + "|" + AccName + "|" + AccPassword + "|" + AccRegisterDT + "|" + AccLastLoginDT;
@@ -108,7 +108,7 @@ public abstract class Account {
     //public static Account parseAccountFromString(String accLine);  
     public static String[] parseAccountFromString(String accLine) {
         String[] accData = accLine.split("\\|");
-        try {            
+        try {
             if (accData.length != 5) {
                 throw (new Exception("Account is incomplete!" + accLine));
             }
@@ -118,16 +118,20 @@ public abstract class Account {
         }
         return accData;
     }
-    
+
     public static void buildAccFromString(String accLine) {
         try {
             String[] AccLine = parseAccountFromString(accLine);
+            String AccID = AccLine[0];
+            String AccName = AccLine[1];
+            String AccPassword = AccLine[2];
+            LocalDateTime AccRegisterDT = LocalDateTime.parse(AccLine[3]);
+            LocalDateTime AccLastLoginDT = LocalDateTime.parse(AccLine[4]);
             if (AccLine[0].contains("CA")) {
-                Operation.AccList.add(new CusAcc(AccLine));
+                Operation.AccList.add(new CusAcc(AccID, AccName, AccPassword, AccRegisterDT, AccLastLoginDT));
             } else if (AccLine[0].contains("AA")) {
-                Operation.AccList.add(new AdminAcc(AccLine));
+                Operation.AccList.add(new AdminAcc(AccID, AccName, AccPassword, AccRegisterDT, AccLastLoginDT));
             }
-
         } catch (Exception e) {
             System.out.println(e);
         }

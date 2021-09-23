@@ -63,15 +63,6 @@ public abstract class OrderDetails {
         this.OrdItems = OrdItems;
     }
 
-//    //Load
-//    public void addOrdItem(Product OIPro, String OIID, int OIQuantity, String OIModel, double OIPrice, double OIPackingCharge) {
-//        OrdItems.add(new OrderItem(OIPro, OIID, OIQuantity, OIModel, OIPrice, OIPackingCharge));
-//    }
-//     
-//    //Create
-//    public void addOrdItem(Product OIPro, String OIModel, int OIQuantity) {
-//        OrdItems.add(new OrderItem(OrdID, OIModel, OIQuantity, OIPro));
-//    }
     public String getOrdItemsIDs() {
         //String OrdItemsIDs = "[";
         String OrdItemsIDs = "";
@@ -145,7 +136,6 @@ public abstract class OrderDetails {
 
     public static String[] parseSCFromString(String scLine) {
         String[] sc = new String[2];
-        //ArrayList<OrderItem> ordItems = new ArrayList();
         try {
             System.out.println(scLine);
             String[] scData = scLine.split("\t");
@@ -153,17 +143,6 @@ public abstract class OrderDetails {
                 throw (new Exception("Shopping Cart is incomplete!" + scLine));
             } else {
                 return sc;
-//                sc=scData.clone();
-//                sc[0] = scData[0];
-//                sc[1] = scData[1];
-                //               String[] scOrdItemsIDsData = scData[2].split(",");
-//                for (String id : scOrdItemsIDsData) {
-//                    for (OrderItem oi : OIList) {
-//                        if (oi.getOIID().equals(id)) {
-//                            ordItems.add(oi);
-//                        }
-//                    }
-//                }
             }
 
         } catch (Exception e) {
@@ -196,10 +175,6 @@ public abstract class OrderDetails {
         String[] oisIDs = ordData[ordData.length - 1].split("\\|");
         try {
             String[] OrdLine = parseOrdFromString(ordLine);
-
-            //String OrdID, LocalDateTime OrdModifyDT, ArrayList<Product> OIPros, String[] OIModels, int[] OIQuantities;
-            //TODO valid ordid format
-            //String OrdID, OrderStatus OrdStatus,LocalDateTime OrdCreateDT, LocalDateTime OrdModifyDT, String OrdShipment
             if (OrdLine[0].contains("SP") && !OrdLine[0].contains("-")) {
                 LocalDateTime OrdModifyDT = LocalDateTime.parse(OrdLine[1]);
                 CusAcc.searchCAFromID("CA" + OrdLine[0].substring(3, OrdLine[0].length())).setCusSC(new ShoppingCart(OrdLine[0], OrdModifyDT));

@@ -46,15 +46,6 @@ public class CusInfo extends PersonalInfo {
         generatePIVoucher();
     }
 
-    //Load From String Array
-    public CusInfo(String[] PILine) {
-        super(PILine[0], PILine[1], Gender.valueOf(PILine[2]));
-        this.PIDateOfBirth = LocalDate.parse(PILine[3]);
-        this.PIRewardPoint = Integer.parseInt(PILine[4]);
-        this.PIVoucher = new ArrayList();
-        generatePIVoucher();
-    }
-
     public int getPIRewardPoint() {
         return PIRewardPoint;
     }
@@ -100,22 +91,6 @@ public class CusInfo extends PersonalInfo {
         return PIFName + "|" + PILName + "|" + PIGender + "|" + PIDateOfBirth + "|" + PIRewardPoint;
     }
 
-//    public static CusInfo parsePIFromString(String piLine) {
-//        String[] pi = new String[6];
-//        try {
-//            System.out.println(piLine);
-//            String[] piData = piLine.split("\t");
-//            if (piData.length != 6) {
-//                throw (new Exception("Personal Info is incomplete!" + piLine));
-//            } else {
-//                pi = piData.clone();
-//            }
-//
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//        return new CusInfo(pi[0], pi[1], Gender.valueOf(pi[2]), LocalDate.parse(pi[4]), Integer.parseInt(pi[3]));
-//    }
     public static String[] parseCusInfoFromString(String piLine) throws Exception {
         String[] piData = piLine.split("\\|");
         if (piData.length != 5) {

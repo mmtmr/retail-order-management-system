@@ -36,13 +36,6 @@ public class CusAcc extends Account {
         //addCACounter();
     }
 
-    //Load
-    public CusAcc(String[] AccLine) {
-        super(AccLine[0], AccLine[1], AccLine[2], LocalDateTime.parse(AccLine[3]), LocalDateTime.parse(AccLine[4]));
-        this.CusSC = new ShoppingCart();//Set it later
-        //addCACounter();
-    }
-
     public static int getCACounter() {
         return CACounter;
     }

@@ -37,9 +37,6 @@ public class ShoppingCart extends OrderDetails {
     
     
     @Override
-//    public String toString() {
-//        return OrdID + "\t" + OrdModifyDT + "\t" + getOrdItemsIDs();
-//    }
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(OrdID);
@@ -51,33 +48,5 @@ public class ShoppingCart extends OrderDetails {
         return sb.toString();
     }
 
-//    public static String[] parseSCFromString(String scLine) {
-//        String[] sc = new String[2];
-//        //ArrayList<OrderItem> ordItems = new ArrayList();
-//        try {
-//            System.out.println(scLine);
-//            String[] scData = scLine.split("\t");
-//            if (scData.length != 3) {
-//                throw (new Exception("Shopping Cart is incomplete!" + scLine));
-//            } else {
-//                return sc;
-////                sc=scData.clone();
-////                sc[0] = scData[0];
-////                sc[1] = scData[1];
-// //               String[] scOrdItemsIDsData = scData[2].split(",");
-////                for (String id : scOrdItemsIDsData) {
-////                    for (OrderItem oi : OIList) {
-////                        if (oi.getOIID().equals(id)) {
-////                            ordItems.add(oi);
-////                        }
-////                    }
-////                }`
-//            }
-//
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//        return sc;
-//    }
     
 }
